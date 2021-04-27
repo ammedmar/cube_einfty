@@ -1,0 +1,134 @@
+\documentclass{amsart}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz-cd}
+\usepackage{bm}
+\usepackage{mathbbol}
+\usepackage{csquotes}
+
+\DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}%
+
+% hyperref
+\usepackage[bookmarks=true, linktocpage=true,
+bookmarksnumbered=true, breaklinks=true,
+pdfstartview=FitH, hyperfigures=false,
+plainpages=false, naturalnames=true,
+colorlinks=true, pagebackref=true,
+pdfpagelabels]{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=blue,
+	filecolor=blue,
+	linkcolor=blue,
+	urlcolor=blue
+}
+
+% layout
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-1.85in}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-2in}
+\calclayout
+
+% Updating to MSC2020
+\makeatletter
+\@namedef{subjclassname@2020}{%
+	\textup{2020} Mathematics Subject Classification}
+\makeatother
+
+% elements
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\P}{\mathcal{P}}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\S}{\amsmathbb{S}}
+\newcommand{\A}{\mathcal{A}s}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\MS}{\mathcal{MS}}
+
+% sets
+\newcommand{\Z}{\amsmathbb{Z}}
+\newcommand{\R}{\amsmathbb{R}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Bij}{\mathfrak{Bij}}
+\newcommand{\G}{\mathfrak{G}}
+\newcommand{\gcube}{\bm{\mathbb{I}}}
+\newcommand{\gsimplex}{\mathbb{\Delta}}
+
+% categories
+\newcommand{\Cat}{\mathsf{Cat}}
+\newcommand{\C}{\mathsf{C}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Ch}{\mathsf{Ch}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\coAlg}{\mathsf{coAlg}}
+\newcommand{\cube}{\square}
+\newcommand{\simplex}{\triangle}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\cSet}{\mathsf{cSet}}
+\newcommand{\Nec}{\mathsf{Nec}}
+\newcommand{\nSet}{\mathsf{nSet}}
+\newcommand{\Mon}{\mathsf{Mon}}
+\newcommand{\smod}{\mathsf{Mod}_{\S}}
+\newcommand{\sbimod}{\mathsf{biMod}_{\S}}
+\newcommand{\operads}{\mathsf{Oper}}
+\newcommand{\props}{\mathsf{Prop}}
+
+% functors
+\DeclareMathOperator*{\tensor}{\otimes}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\chains}{N}
+\newcommand{\cochains}{N}
+\newcommand{\cchains}{N}
+\newcommand{\ccochains}{N}
+\newcommand{\op}{\mathrm{op}}
+\DeclareMathOperator*{\colim}{colim}
+\newcommand{\cobar}{\Omega}
+\newcommand{\gcobar}{\mathbb{\Omega}}
+
+% environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{notation}{Notation}
+
+% other
+\newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
+\renewcommand{\th}{^\mathrm{th}}
+
+% drawings
+\include{figures}
+
+\begin{document}
+\title{A combinatorial $E_\infty$-algebra structure on cubical cochains}
+\author{Anibal M. Medina-Mardones}
+\address{Max Plank Institute for Mathematics, Bonn, Germany}
+\email{ammedmar@mpim-bonn.mpg.de}
+\address{Department of Mathematics, University of Notre Dame, Notre Dame, IN, USA}
+\email{amedinam@nd.edu}
+
+\keywords{.}
+\subjclass[2020]{.}
+
+\begin{abstract}
+	
+\end{abstract} 
+
+\maketitle
+\tableofcontents
+\input{introduction}
+\input{cubical}
+%\input{props}
+\input{action}
+\input{comparison}
+%\input{proof}
+\input{proof2}
+
+\bibliographystyle{alpha} % ieeetr
+\bibliography{bibliography}
+
+\end{document}
