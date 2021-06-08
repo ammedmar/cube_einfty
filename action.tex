@@ -32,7 +32,7 @@ for the chain map $\Delta \colon \cchains(\square^1) \to \cchains(\square^1)^{\o
 Using that $\cchains(\square^n) = \cchains(\square^1)^{\otimes n}$, $\Delta$ is the composition
 \begin{equation*}
 \begin{tikzcd}
-\cchains(\square^1)^{\otimes n} \arrow[r, "\Delta^{\otimes n}"] & \left( \cchains(\square^1)^{\otimes 2}  \right)^{\otimes n} \arrow[r, "sh"] & \left( \cchains(\square^1)^{\otimes n} \right)^{\otimes 2}
+\cchains(\square^1)^{\otimes n} \arrow[r, "\Delta^{\otimes n}"] &[3pt] \left( \cchains(\square^1)^{\otimes 2}  \right)^{\otimes n} \arrow[r, "sh"] &[-5pt] \left( \cchains(\square^1)^{\otimes n} \right)^{\otimes 2}
 \end{tikzcd}
 \end{equation*}
 where $sh$ is the shuffle map that places tensor factors in odd position first. \vspace*{5pt} \\
@@ -60,20 +60,35 @@ and the only non-zero values of $x_i \ast y_i$ are
 We devote Section~\ref{s:proof} to the proof of the following statement, our main result.
 
 \begin{theorem} \label{t:cubical chain bialgebra}
-	For every $n \in \mathbb{N}$, the assignment
+	The assignment
 	\begin{equation*}
 	\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
 	\end{equation*}
-	defines a natural $\mathcal M$-bialgebra structure on $\cchains(\square^n)$.
+	induces a functor $\cube \to \biAlg_{\M}$ or, equivalently, a natural $\mathcal M$-bialgebra structure on $\cchains(\square^n)$ for every $n \in \mathbb{N}$.
 \end{theorem}
 
 The category of bialgebras over a prop is in general not cocomplete, but those of algebras and coalgebras over operads are.
-Using the forgetful functor $U$ we consider the previous construction as a functor $\cube \to \coAlg_{U(\M)}$ and use a Kan extension along the Yoneda embedding to define a lift of the functor of chains:
-\begin{equation*}
-\begin{tikzcd}
-& \coAlg_{U(\M)} \arrow[d] \\
-\cSet \arrow[r] \arrow[dashed, ur, "N", bend left]& \Ch.
-\end{tikzcd}
-\end{equation*}
-Similarly, we can define a lift to $\Alg_{U(\M)}$ of the functor of cochains $\Hom(-, R) \circ \cchains$.
+Consider the composition $\cube \to \biAlg_{\M} \to \coAlg_{U(\M)}$ of the previous functor and the one induced by the forgetful functor $U$ from props to operads.
+A Kan extension of this composition along the Yoneda embedding gives us the following result.
 
+\begin{corollary}
+	The assignment
+	\begin{equation*}
+	\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
+	\end{equation*}
+	induces a lift of the functor of chains
+	\begin{equation*}
+	\begin{tikzcd}
+	& \coAlg_{U(\M)} \arrow[d] \\
+	\cSet \arrow[r, "N"] \arrow[dashed, ur, bend left]& \Ch,
+	\end{tikzcd}
+	\end{equation*}
+	as well as a lift to $\Alg_{U(\M)}$ of the functor of cochains $\Hom(-, R) \circ \cchains$.
+\end{corollary}
+
+Explicitly, if $\Gamma \in U(\M)(r)$ and $\Gamma \colon \chains(\cube^n) \to \chains(\cube^n)^{\otimes r}$ is determined by $\Gamma(\id_{2^n}) = \sum_{\lambda \in \Lambda} \alpha_\lambda \, \tau_\lambda^1 \otimes \cdots \otimes \tau_\lambda^r$ with $\tau_\lambda^i \colon 2^{m_\lambda^i} \to 2^n$ and $\alpha_\lambda \in R$. Then, $\Gamma \colon N(X) \to N(X)^{\otimes r}$ is determined by
+\begin{equation} \label{e:explicit cubical coaction}
+\Gamma(\id_{2^n} \otimes x) =
+\sum_{\lambda \in \Lambda} \alpha_\lambda \, \big(2^{m_\lambda^1} \otimes X(\tau_\lambda^1)(x)\big) \otimes \cdots \otimes \big(2^{m_\lambda^r} \otimes X(\tau_\lambda^r)(x)\big)
+\end{equation}
+where $x \in X_n$.

@@ -43,6 +43,8 @@ pdfpagelabels]{hyperref}
 \newcommand{\A}{\mathcal{A}s}
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\MS}{\mathcal{MS}}
+\newcommand{\scube}[1]{(\triangle^1)^{\times #1}}
+\newcommand{\angles}[1]{\langle #1 \rangle}
 
 % sets
 \newcommand{\Z}{\amsmathbb{Z}}
@@ -53,6 +55,9 @@ pdfpagelabels]{hyperref}
 \newcommand{\G}{\mathfrak{G}}
 \newcommand{\gcube}{\bm{\mathbb{I}}}
 \newcommand{\gsimplex}{\mathbb{\Delta}}
+\newcommand{\zero}{[\,\bar{0}\,]}
+\newcommand{\one}{[\,\bar{1}\,]}
+\newcommand{\interval}{[\,\bar 0, \bar 1\,]}
 
 % categories
 \newcommand{\Cat}{\mathsf{Cat}}
@@ -61,6 +66,7 @@ pdfpagelabels]{hyperref}
 \newcommand{\Ch}{\mathsf{Ch}}
 \newcommand{\Alg}{\mathsf{Alg}}
 \newcommand{\coAlg}{\mathsf{coAlg}}
+\newcommand{\biAlg}{\mathsf{biAlg}}
 \newcommand{\cube}{\square}
 \newcommand{\simplex}{\triangle}
 \newcommand{\Set}{\mathsf{Set}}
@@ -74,22 +80,27 @@ pdfpagelabels]{hyperref}
 \newcommand{\operads}{\mathsf{Oper}}
 \newcommand{\props}{\mathsf{Prop}}
 
-% functors
+% functions and functors
 \DeclareMathOperator*{\tensor}{\otimes}
 \newcommand{\Y}{\mathcal{Y}}
-\newcommand{\chains}{N}
-\newcommand{\cochains}{N}
-\newcommand{\cchains}{N}
-\newcommand{\ccochains}{N}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\chains}{N}
+\DeclareMathOperator{\cochains}{N}
+\DeclareMathOperator{\cchains}{N}
+\DeclareMathOperator{\ccochains}{N}
 \newcommand{\op}{\mathrm{op}}
 \DeclareMathOperator*{\colim}{colim}
 \newcommand{\cobar}{\Omega}
 \newcommand{\gcobar}{\mathbb{\Omega}}
+\newcommand{\norm}[1]{\vert #1 \vert}
+\DeclareMathOperator{\Sing}{Sing}
 
 % environments
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
@@ -104,7 +115,7 @@ pdfpagelabels]{hyperref}
 \include{figures}
 
 \begin{document}
-\title{A combinatorial $E_\infty$-algebra structure on cubical cochains}
+\title{A combinatorial $E_\infty$ algebra structure on cubical cochains}
 \author{Anibal M. Medina-Mardones}
 \address{Max Plank Institute for Mathematics, Bonn, Germany}
 \email{ammedmar@mpim-bonn.mpg.de}
@@ -122,10 +133,10 @@ pdfpagelabels]{hyperref}
 \tableofcontents
 \input{introduction}
 \input{cubical}
-%\input{props}
+\input{props}
 \input{action}
 \input{comparison}
-%\input{proof}
+\input{proof}
 \input{proof2}
 
 \bibliographystyle{alpha} % ieeetr
