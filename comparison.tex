@@ -1,7 +1,8 @@
 
-\section{Comparison with simplices}
+\section{The Cartan-Serre map}
 
-In \cite[p. 442]{Serre1951homologie}, Serre described a quasi-isomorphism for any space between its simplicial and cubical singular chains. A chain map also considered in \cite[p.199]{Eilenberg1953acyclic} where it is attributed to Cartan.
+In \cite[p. 442]{Serre1951homologie}, Serre described for any space a quasi-isomorphism between its simplicial and cubical singular chains.
+A map also considered in \cite[p.199]{Eilenberg1953acyclic} where it is attributed to Cartan.
 To describe it let us consider the topological simplex
 \begin{equation*}
 \gsimplex^n = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
@@ -24,8 +25,10 @@ The \textit{Cartan-Serre} \textit{map} $\gcube^n \to \gsimplex^n$ is defined by
 and is such that, for any topological space $Z$, the induced chain map $\chains(\Sing^{\simplex} Z) \to \chains(\Sing^{\cube} Z)$ on singular chain complexes is a quasi-isomorphism.
 Furthermore, Serre states that this chain map is ``comultiplicative", i.e., that it commutes with the Alexander-Whitney and Serre diagonals.
 The goal of this section is to prove a generalization of this statement, showing that this map is a morphism of $E_\infty$ coalgebras.
-We will deduce this result from a more general categorical statement.
 
+\section{Simplicial topology}
+
+Let us start reviewing some basic notions from the theory of simplicial sets.
 The \textit{simplex category} $\simplex$ is the full subcategory of $\Cat$ with objects
 \begin{equation*}
 [n] = 0 \to 1 \to \cdots \to n.
@@ -64,7 +67,7 @@ and whose boundary is defined by
 We remark that $\chains(\simplex^n)$ is isomorphic to the cellular chains on $\gsimplex^n$.
 
 
-In \cite{Medina20prop1}, a similar construction to the one introduced in Section~\ref{s:coaction} provides the chains of simplicial sets with a natural $U(\M)$-coalgebra structure.
+In \cite{Medina20prop1}, a similar construction to the one introduced in \ref{s:action} provides the chains of simplicial sets with a natural $U(\M)$-coalgebra structure.
 It is also induced from a natural $\M$-bialgebra structure on the chains of standard simplices.
 This $\M$-bialgebra structure on $\chains(\simplex^n)$ is defined by the assignment
 \begin{equation*}
@@ -96,7 +99,7 @@ We will make $S$ into an $E_\infty$ bialgebra map by restricting the $\M$-bialge
 The same proof used in \cite[Theorem 3.3.]{Medina20prop1} shows $\MS$ is an $E_\infty$ prop.
 The associated operad $U(\MS)$ was used in \cite[Theorem A.11.]{Medina20prop1} to compare the action of the surjection operad of McClure-Smith \cite{mcclure2003multivariable} and Berger-Fresse \cite{berger2004combinatorial} on simplicial sets and that of $U(\M)$.
 
-By restricting their respective $\M$-bialgebra structures to $\MS$-bialgebra structure we have that both $\chains \cube^n$ and $\chains \simplex^n$ are $\MS$-bialgebras.
+By restricting their respective $\M$-bialgebra structures to $\MS$-bialgebra structure we have that both $\chains(\cube^n)$ and $\chains(\simplex^n)$ are $\MS$-bialgebras.
 This restriction is important for comparing these structures as we describe next.
 
 \subsection{Comparison}
@@ -177,19 +180,21 @@ This chain map is a morphisms of $E_\infty$ coalgebras.
 \end{theorem}
 
 This follows from the next result.
-Its proof occupies Section~\ref{s:proof2}.
+Its proof occupies \cref{s:comparison proof}.
 
-\begin{lemma}
+\begin{lemma} \label{l:main comparison lemma}
 	The composition
 	\begin{equation*}
 	\begin{tikzcd}[column sep=normal]
-	\chains \cube^n \arrow[r, "\chains \T"] &[-3pt] \chains \big( \scube{n} \big) \arrow[r, "\chains s"] &[-3pt] \chains \simplex^n
+	\chains(\cube^n) \arrow[r, "\chains \T"] &[-3pt]
+	\chains \big( \scube{n} \big) \arrow[r, "\chains s"] &[-3pt]
+	\chains(\simplex^n)
 	\end{tikzcd}
 	\end{equation*}
 	is a morphism of $\MS$-bialgebras.
 \end{lemma}
 
-Using the identification of $\chains \cube^n$ and $\chains \simplex^n$ with the cellular chains of $\gcube^n$ and $\gsimplex^n$ respectively, one can verify that the chain map induced by the Cartan-Serre map $\gcube^n \to \gsimplex^n$ is equal to the above composition and we have the following consequence.
+Using the identification of $\chains(\cube^n)$ and $\chains(\simplex^n)$ with the cellular chains of $\gcube^n$ and $\gsimplex^n$ respectively, one can verify that the chain map induced by the Cartan-Serre map $\gcube^n \to \gsimplex^n$ is equal to the above composition and we have the following consequence.
 
 \begin{corollary}
 	For any topological space, the quasi-isomorphism induced by the Serre-Cartan map from its singular simplicial chains to its singular cubical chains is a morphisms of $E_\infty$-coalgebras.

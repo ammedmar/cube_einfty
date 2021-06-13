@@ -1,0 +1,213 @@
+
+\section{Proof of \cref{l:main comparison lemma}} \label{s:comparison proof}
+
+Let $\psi \colon \chains(\cube^n) \to \chains(\simplex^n)$ denote the composition
+\begin{equation*}
+\begin{tikzcd}[column sep=normal]
+\chains(\cube^n) \arrow[r, "\chains(\T)"] &[-3pt]
+\chains \big( \scube{n} \big) \arrow[r, "\chains(s)"] &[-3pt]
+\chains \simplex^n,
+\end{tikzcd}
+\end{equation*}
+which agrees with the chain map induced by the Cartan-Serre map $\gcube^n \to \gsimplex^n$.
+
+We need to show the commutativity of the diagram
+\begin{equation*}
+\begin{tikzcd}
+U(\MS)(r) \otimes \chains(\cube^n) \arrow[r] \arrow[d, "\id\, \otimes\, \psi"'] &
+\cchains(\cube^n)^{\otimes r} \arrow[d, "\psi^{\otimes r}"] \\
+U(\MS)(r) \otimes \cchains(\simplex^n) \arrow[r] &
+\cchains(\simplex^n)^{\otimes r}.
+\end{tikzcd}
+\end{equation*}
+By naturality, it suffices to show that
+\begin{equation} \label{e:Cartan-Serre E-coalgebra map}
+\psi^{\otimes r} \circ \Gamma\big( [0,1]^{\otimes n} \big) = \Gamma \circ \psi \big( [0,1]^{\otimes n} \big),
+\end{equation}
+where $\Gamma$ is represented by a surjection-like graph, a generator of $U(\MS)$.
+Let us start by verifying that $\psi$ is a morphism of counital coalgebras.
+
+\begin{lemma}
+	If $\Gamma =$ \counit \ or \coproduct \ then identity \eqref{e:Cartan-Serre E-coalgebra map} holds.
+\end{lemma}
+
+\begin{proof}
+	Since vertices are sent to vertices the map $\psi$ is a map of augmented chain complexes, establishing the case $\Gamma =$ \counit \ .
+	To study the compatibility of $\psi$ with \coproduct \, notice that for $n=0$ identity \eqref{e:Cartan-Serre E-coalgebra map} holds trivially.
+	For $n > 0$,
+	\begin{equation*}
+	\Delta([0,1]^{\otimes n}) = \sum_{\lambda \in \lambda} \pm \ x_1^{(\lambda)} \otimes \cdots \otimes x_n^{(\lambda)} \bm{\otimes} y_1^{(\lambda)} \otimes \cdots \otimes y_n^{(\lambda)},
+	\end{equation*}
+	where $\Lambda$ parameterizes all choices of $x_i^{(\lambda)} \in \{[0], [0,1]\}$ and $y_i^{(\lambda)} \in \{[0,1], [1]\}$ such that
+	\begin{align*}
+	x_i^{(\lambda)} = [0]   & \iff y_i^{(\lambda)} = [0,1], \\
+	x_i^{(\lambda)} = [0,1] & \iff y_i^{(\lambda)} = [1].
+	\end{align*}
+	The only pairs that are not sent to $0$ by $\psi \otimes \psi$ are those for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$, for which the sign is positive, and their image is $[0,\dots,k] \otimes [k,\dots,n]$ where $k+1 = \min \{i \mid x_i^{(\lambda)} = [0]\}$ or $k = n$ if empty.
+\end{proof}
+
+We will consider the basis of $\cchains(\cube^n)$ as a poset defined as follows:
+For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \cdots \otimes x_n) \leq (y_1 \otimes \cdots \otimes y_n)$ if $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$. 
+
+\begin{lemma}
+	Let
+	\begin{equation*}
+	\begin{tikzpicture}[scale=.35]
+	\node at (9.5, 1){$\Gamma \, = $};
+	\draw (11,.5)--(12,1.5)--(12,2.5);
+	\draw (13,.5)--(12,1.5);
+	\node at (11,0){$\scriptstyle 1$};
+	\node at (12,0){$\scriptstyle \dots$};
+	\node at (13,0){$\scriptstyle r$};
+	\end{tikzpicture}
+	\end{equation*}
+	be the surjection-like graph representing the $(r-1)\th$ iterated Serre diagonal.
+	If
+	\begin{equation*}	
+	\Gamma\big([0,1]^{\otimes n}\big) =
+	\sum \pm \ x^{(1)} \bm{\otimes} \cdots \bm{\otimes} x^{(r)}
+	\end{equation*}
+	with each $x^{(k)} \in \cchains(\cube^n)$ a basis element, then $x^{(1)} \leq \cdots \leq x^{(r)}$.
+\end{lemma}
+
+\begin{proof}
+	The claim follows from definition after inspecting
+	\begin{equation*}
+	\Delta([0]) = [0] \otimes [0], \quad \Delta([1]) = [1] \otimes [1], \quad \Delta([0, 1]) = [0] \otimes [0, 1] + [0, 1] \otimes [1].
+	\end{equation*}
+\end{proof}
+
+\begin{lemma}
+	Let $x, y, z \in \cchains(\cube^n)$ be basis elements.
+	If $x, y \leq z$ then $(x \ast y) \leq z$.
+\end{lemma}
+
+\begin{proof}
+	Recall that
+	\begin{align*}
+	(x_1 \otimes \cdots \otimes x_n) \ast (y_1 \otimes \cdots \otimes y_n) =
+	(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i}.
+	\end{align*}
+	By assumption, for every $i$ we have $x_{<i} \leq z_{<i}$ and $y_{>i} \leq z_{>i}$, and if $x_i \ast y_i \neq 0$ then either $x_i = [1]$ or $y_i = [1]$ which implies $z_i = [1]$ as well.
+\end{proof}
+
+\begin{lemma}
+	Let $x, y \in \cchains(\cube^n)$ be basis elements.
+	If $x \leq y$ then $\psi(x \ast y) = \psi(x) \ast \psi(y)$.
+\end{lemma}
+
+\begin{proof}
+	If $\psi(x) = 0$ or $\psi(y) = 0$ we will show that
+	\begin{equation} \label{e:zero for join}
+	\psi \big( x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0.
+	\end{equation}
+	Assume $\psi(x) = 0$, that is, there exists a pair $p < q$ such that $x_p = [0]$ and $x_q = [0,1]$, then \eqref{e:zero for join} holds since:
+	\begin{itemize}
+		\item If $i > q$, then $x_p$ and $x_q$ are part of $x_{<i}$.
+		\item If $i = q$, then $x_q \ast y_q = 0$ for any $y_q$.
+		\item If $i < q$, then $\varepsilon(x_{>i}) = 0$.
+	\end{itemize}
+	Similarly, if there is a pair $p < q$ such that $y_p = [0]$ and $y_q = [0,1]$,  then \eqref{e:zero for join} holds since:
+	\begin{itemize}
+		\item If $i < p$, then $y_p$ and $y_q$ are part of $y_{>i}$.
+		\item If $i = p$ or, more generally, $y_i = [0]$, then $x_i = [0]$ and $x_i \ast y_i = 0$.
+		\item If $i = q$ or, more generally, $y_i = [0,1]$, then $x_i \ast y_i = 0$ for any $x_i$.
+		\item If $i > q$, then $\varepsilon(y_{<i}) = 0$.
+		\item If $p < i < q$ and $y_i = [1]$ then either $x_i \ast x_j = 0$ or $x_i \ast x_j = [0,1]$, implying $(x \ast y)_p = [0]$ and $(x \ast y)_i = [0,1]$.
+	\end{itemize}
+	Let us now assume that $\psi(x) \neq 0$ and $\psi(y) \neq 0$.
+	In particular, $x = v_x \otimes [0] \otimes w_x$ and $y = v_y \otimes [0] \otimes w_y$ with $v_x, v_y$ having tensor factors in $\{[0,1], [1]\}$, and $w_x, w_y$ in $\{[0,1], [1]\}$, we also admit them to be the unit of the tensor product.
+	Additionally, let $p_x$ and $p_y$ be the tensor position of the first $[0]$ in $x$ and $y$ respectively.
+	To make sure all possible elements $x$ and $y$ have a factor $[0]$ in them we consider $\chains(\cube^n)$ as a subcomplex of $\chains(\cube^{n+1})$ via the inclusion that tensors on the right with $[0]$.
+	By naturality, we do not loose generality making this assumption.
+	Since $x \leq y$ we have that $p_x \leq p_y$.
+	We claim that
+	\begin{equation*}
+	\psi(x \ast y) = \psi \big( x_{<p_x} \, \varepsilon(y_{<p_x}) \otimes x_{p_x} \ast y_{p_x} \otimes \varepsilon(x_{>p_x}) \, y_{>p_x} \big).
+	\end{equation*}
+	To see this we notice that if $i < p_x$ then $x_i = [1]$ or $x_i = [0,1]$.
+	If $x_i = [1]$, since $x_i \leq y_i$, it is impossible for $y_i = [0]$, the only case when $x_i \ast y_i \neq 0$.
+	If $x_i = [0,1]$ then $x_i \ast y_i = 0$ for any $y_i$.
+	If $i > p_x$, then either $x_i \ast y_i = 0$ or $x_i \ast y_i = [0,1]$.
+	In the first case there is nothing to prove and in the second we notice that $(x \ast y)_{p_x} = [0]$ and $(x \ast y)_{} = [0,1]$ so $\psi(x \ast y) = 0$.
+	Let $q_y$ the tensor position of the first occurrence of the tensor factor $[0,1]$ in $y$, setting it to $+\infty$, if not present.
+	If $p_x > q_y$ then $x \ast y = 0$ since $\varepsilon(y_{<p_x}) = 0$, and if $p_x = q_y$ then $x \ast y = 0$ since $[0] \ast [0,1] = 0$.
+	We now prove that in this case $\psi(x) \ast \psi(y) = 0$.
+	Since $x_{q_y} = [0,1]$ since $x \leq y$ and $x_{p_x}$ is the first tensor factor equal to $[0]$.
+	This implies that both$\psi(x)$ and $\psi(y)$ contain the vertex $q_{y} - 1$.
+	Let us now assume that $p_x < q_y$.
+	Then, using that $y_i = [1]$ for every $i < p_x$,
+	\begin{align*}
+	\psi(x \ast y) & =
+	\psi \big( v_x \otimes x_{p_x} \ast y_{p_x} \otimes w_y \big) \\ & =
+	\psi(x) \ast \psi(y).
+	\end{align*}
+\end{proof}
+
+
+
+
+
+
+
+%We use triples $(F_0, F_{01}, F_1)$ of subsets of $\{0, \dots, n\}$ to represent faces $F$ of $\gcube^n$ with $F_\epsilon = \{i \mid \forall x \in F, \, x_i = \epsilon\}$ for $\epsilon \in \{0,1\}$ and $F_{01} = \{0, \dots, n\} \setminus F_0 \cup F_1$.
+
+%Given a subset $U = \{u_1 < \cdots < u_q\}$ of $\{0, \dots, n\}$ we write $d_U$ for $d_{u_1} \! \cdots \, d_{u_q}$.
+%In this notation, any face of $\gsimplex^n$ can be written as $d_U [0, \dots, n]$ for some $U$.
+
+%With this notation we have the following description of the chain map $\psi$.
+
+%\begin{lemma}
+%	On basis elements $\psi \colon \cchains(\cube^n) \to \chains(\triangle^n)$ is given by
+%	\begin{equation*}
+%	(F_0, F_{01}, F_1) \mapsto
+%	\begin{cases}
+%	d_U [0, \dots, n] & \text{ if } F_{01} \cap \{i \mid i > \min(F_0)\} = \emptyset, \\
+%	0 & \text{ otherwise},
+%	\end{cases}
+%	\end{equation*}
+%	where $U = \{i-1 \mid i \in F_1 \text{ or } i > \min(F_0)\}$ with the convention $\min(\emptyset) = +\infty$.
+%\end{lemma}
+%
+%\begin{proof}
+%	We assume $n > 0$ since otherwise there is nothing to prove.
+%	Consider a face $(F_0, F_{01}, F_1)$ and let $M \subseteq \{0, \dots, n\}$ be empty if $F_0$ is empty or be characterized by $i > \min (F_0)$ otherwise.
+%	Notice in \eqref{e:cartan-serre CW map} that if $x_i = 0$ then $y_j = 0$ for every $j > i$.
+%	Therefore, the image of $(F_0, F_{01}, F_1)$ in $\simplex^n$ is a face of $d_U[0, \dots, n]$ where $U = \{i-1 \mid i \in M\}$ or, more explicitly, $[0, \dots, n]$ if $F_0$ is empty and $[0, \dots, \min(F_0)]$ otherwise.
+%	In particular, $S(F_0, F_{01}, F_1)$ is non-zero only if $M \cap F_{01} = \emptyset$, and we can assume without loss of generality that $F_0 = \emptyset$ or $F_0 = \{n\}$.
+%	
+%	Notice from \eqref{e:cartan-serre CW map} that $x_i = 1$ if and only if $y_{i-1} = 0$, so $S(\emptyset, F_{01}, F_1) = d_{U} [0, \dots, n]$ where $U = \{i-1 \mid i \in F_1\}$.
+%\end{proof}
+
+%\begin{definition}
+%	A basis element $x_1 \otimes \cdots \otimes x_n \in \cchains(\cube^n)$ is said to be  \textit{vertex-ordered} if $x_i = [0]$ and $x_j = [1]$ imply $i < j$.
+%\end{definition}
+
+
+%\begin{lemma}
+%	Let
+%	\begin{equation*}
+%	\begin{tikzpicture}[scale=.35]
+%	\node at (9.5, 1){$\Gamma \, = $};
+%	\draw (11,.5)--(12,1.5)--(12,2.5);
+%	\draw (13,.5)--(12,1.5);
+%	\node at (11,0){$\scriptstyle 1$};
+%	\node at (12,0){$\scriptstyle \dots$};
+%	\node at (13,0){$\scriptstyle r$};
+%	\end{tikzpicture}
+%	\end{equation*}
+%	be the surjection-like graph representing the $(r-1)\th$ iterated Serre diagonal, and $x_1 \otimes \cdots \otimes x_n \in \cchains(\cube^n)$ a basis element.
+%	If
+%	\begin{equation*}	
+%	\Gamma \big( x_1 \otimes \cdots \otimes x_n \big) =
+%	\sum \pm \left( x_1^{(1)} \otimes \cdots \otimes x_n^{(1)} \right)
+%	\otimes \cdots \otimes
+%	\left( x_1^{(r)} \otimes \cdots \otimes x_n^{(r)} \right)
+%	\end{equation*}
+%	with each $x_i^{(k)}$ a basis element of $\cchains(\cube^1)$, then
+%	\begin{enumerate}
+%		\item For every $i \in \{1, \dots, n\}$ the element $x_i^{(1)} \otimes \cdots \otimes x_i^{(r)}$ is vertex-ordered.
+%	
+%	 	\item For every $k \in \{1, \dots, r\}$ if $x_1 \otimes \cdots \otimes x_n$ is vertex-ordered then $x_1^{(k)} \otimes \cdots \otimes x_n^{(k)}$ is vertex-ordered.
+%	\end{enumerate}
+%\end{lemma}

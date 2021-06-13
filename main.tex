@@ -1,12 +1,12 @@
 \documentclass{amsart}
 \usepackage{amsmath, amssymb}
 \usepackage{tikz-cd}
+% For Serre's quotes:
+\usepackage{csquotes}
+% Since boldface for geometric cubes and simplices:
 \usepackage{bm}
 \usepackage{mathbbol}
-\usepackage{csquotes}
-
-\DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}%
-
+\DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}
 % hyperref
 \usepackage[bookmarks=true, linktocpage=true,
 bookmarksnumbered=true, breaklinks=true,
@@ -19,8 +19,8 @@ pdfpagelabels]{hyperref}
 	citecolor=blue,
 	filecolor=blue,
 	linkcolor=blue,
-	urlcolor=blue
-}
+	urlcolor=blue}
+\usepackage[capitalize, noabbrev]{cleveref}
 
 % layout
 \setlength{\textwidth}{\paperwidth}
@@ -122,8 +122,8 @@ pdfpagelabels]{hyperref}
 \address{Department of Mathematics, University of Notre Dame, Notre Dame, IN, USA}
 \email{amedinam@nd.edu}
 
-\keywords{.}
-\subjclass[2020]{.}
+\keywords{...}
+\subjclass[2020]{...}
 
 \begin{abstract}
 	
@@ -136,8 +136,8 @@ pdfpagelabels]{hyperref}
 \input{props}
 \input{action}
 \input{comparison}
-\input{proof}
-\input{proof2}
+\input{proof_action}
+\input{proof_comparison}
 
 \bibliographystyle{alpha} % ieeetr
 \bibliography{bibliography}
