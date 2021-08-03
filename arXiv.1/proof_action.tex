@@ -1,11 +1,11 @@
 
-\section{Proof of \cref{t:cubical chain bialgebra}} \label{s:proof}
+\subsection{Proof of \cref{l:cubical chain bialgebra}} \label{ss:proof action}
 
 We need to show that the assignment
 \begin{equation*}
 \counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
 \end{equation*}
-defined in \cref{s:action} is compatible with the relations
+is compatible with the relations
 \begin{equation*}
 \productcounit = 0,
 \qquad
@@ -21,7 +21,7 @@ and
 \hspace*{.6cm}
 \partial\ \product = \ \boundary\,.
 \end{equation*}
-For the rest of this section let us consider two basis elements of $N_\bullet(\square^n) = N_\bullet(\square^1)^{\otimes n}$
+For the rest of this proof let us consider two basis elements of $N_\bullet(\square^n) = N_\bullet(\square^1)^{\otimes n}$
 \begin{align*}
 x = x_1 \otimes \cdots \otimes x_n
 \qquad \text{ and } \qquad
@@ -29,7 +29,7 @@ y = y_1 \otimes \cdots \otimes y_n.
 \end{align*}
 Since the degree of $\ast$ is $1$ and $\epsilon([0,1]) = 0$, we can verify the first relation easily:
 \begin{align*}
-\varepsilon(x \otimes y) & =
+\varepsilon(x \ast y) & =
 \sum (-1)^{|x|} \epsilon(y_{<i}) \epsilon(x_{<i}) \otimes \epsilon(x_i \ast y_i) \otimes \epsilon(x_{>i}) \epsilon(y_{>i}) = 0.
 \end{align*}
 For the second relation we want to show that $(\epsilon \otimes \id) \circ \Delta = \id$.
@@ -48,21 +48,17 @@ x_1 \otimes \cdots \otimes x_n,
 \end{align*}	
 where the sign is obtained by noticing that the only non-zero term occurs when each factor $x_i^{(0)}$ is of degree $0$.
 The third relation is verified analogously.
-The fourth is precisely the fact that $\epsilon$ is a chain maps.
-We will verify that $\Delta$ is a chain map recalling two facts: The map $\Delta$ is equal to the composition
+The fourth is precisely the fact that $\epsilon$ is a chain map.
+We will verify that $\Delta$ is a chain map recalling two facts: 1) the map $\Delta$ is equal to the composition
 \begin{equation*}
 \begin{tikzcd}
-\cchains(\square^1)^{\otimes n} \arrow[r, "\Delta^{\otimes n}"] & \left( \cchains(\square^1)^{\otimes 2}  \right)^{\otimes n} \arrow[r, "sh"] & \left( \cchains(\square^1)^{\otimes n} \right)^{\otimes 2},
+\chains(\square^1)^{\otimes n} \arrow[r, "\Delta^{\!\otimes n}"] &
+\left( \chains(\square^1)^{\otimes 2} \right)^{\otimes n} \arrow[r, "sh"] &
+\left( \chains(\square^1)^{\otimes n} \right)^{\otimes 2},
 \end{tikzcd}
 \end{equation*}
-and the tensor product of chain maps is a chain map.
-Therefore, since
-\begin{gather*}
-\partial (\Delta)([0]) = \partial ([0] \otimes [0]) = 0, \qquad
-\partial (\Delta)([1]) = \partial ([1] \otimes [1]) = 0, \\
-\partial (\Delta)([0,1]) = \partial \big([0] \otimes [0,1] + [0,1] \otimes [1]\big) - [1] \otimes [1] + [0] \otimes [0] = 0,
-\end{gather*}
-the fifth relation follows.
+and, 2) the tensor product of chain maps is a chain map.
+Since $\Delta$ on $\chains(\cube^1)$ can be easily verified to be a chain map, the fifth relation follows.
 To verify the sixth and final relation we need to show that
 \begin{equation*}
 \partial (x \ast y)\ +\ \partial x \ast y\ +\ (-1)^{|x|}x \ast \partial y\ =\ \epsilon(x) y \ -\ \epsilon(y) x.

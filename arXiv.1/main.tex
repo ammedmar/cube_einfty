@@ -1,12 +1,13 @@
 \documentclass{amsart}
 \usepackage{amsmath, amssymb}
 \usepackage{tikz-cd}
+\usepackage{bm}
 % For Serre's quotes:
 \usepackage{csquotes}
 % Since boldface for geometric cubes and simplices:
-\usepackage{bm}
 \usepackage{mathbbol}
 \DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}
+
 % hyperref
 \usepackage[bookmarks=true, linktocpage=true,
 bookmarksnumbered=true, breaklinks=true,
@@ -19,8 +20,10 @@ pdfpagelabels]{hyperref}
 	citecolor=blue,
 	filecolor=blue,
 	linkcolor=blue,
-	urlcolor=blue}
+	urlcolor=blue
+}
 \usepackage[capitalize, noabbrev]{cleveref}
+\crefname{subsection}{\subsect\!}{subsections}
 
 % layout
 \setlength{\textwidth}{\paperwidth}
@@ -35,6 +38,11 @@ pdfpagelabels]{hyperref}
 	\textup{2020} Mathematics Subject Classification}
 \makeatother
 
+% miscellaneous
+\newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
+\renewcommand{\th}{^\mathrm{th}}
+\let\subsect\S % copying the subsection symbol before overwriting it
+
 % elements
 \newcommand{\id}{\mathrm{id}}
 \renewcommand{\P}{\mathcal{P}}
@@ -42,8 +50,8 @@ pdfpagelabels]{hyperref}
 \renewcommand{\S}{\amsmathbb{S}}
 \newcommand{\A}{\mathcal{A}s}
 \newcommand{\M}{\mathcal{M}}
-\newcommand{\MS}{\mathcal{MS}}
-\newcommand{\scube}[1]{(\triangle^1)^{\times #1}}
+\newcommand{\Sl}{\mathcal{S}u\ell}
+\newcommand{\scube}[1]{(\triangle^{\!1})^{\times #1}}
 \newcommand{\angles}[1]{\langle #1 \rangle}
 
 % sets
@@ -61,6 +69,7 @@ pdfpagelabels]{hyperref}
 
 % categories
 \newcommand{\Cat}{\mathsf{Cat}}
+\newcommand{\Top}{\mathsf{Top}}
 \newcommand{\C}{\mathsf{C}}
 \newcommand{\Fun}{\mathsf{Fun}}
 \newcommand{\Ch}{\mathsf{Ch}}
@@ -81,20 +90,17 @@ pdfpagelabels]{hyperref}
 \newcommand{\props}{\mathsf{Prop}}
 
 % functions and functors
-\DeclareMathOperator*{\tensor}{\otimes}
 \newcommand{\Y}{\mathcal{Y}}
 \DeclareMathOperator{\T}{\mathcal{T}}
 \DeclareMathOperator{\U}{\mathcal{U}}
 \DeclareMathOperator{\chains}{N}
-\DeclareMathOperator{\cochains}{N}
-\DeclareMathOperator{\cchains}{N}
-\DeclareMathOperator{\ccochains}{N}
+\DeclareMathOperator{\cochains}{N^{\bullet}}
+\DeclareMathOperator{\gchains}{C}
 \newcommand{\op}{\mathrm{op}}
 \DeclareMathOperator*{\colim}{colim}
-\newcommand{\cobar}{\Omega}
-\newcommand{\gcobar}{\mathbb{\Omega}}
 \newcommand{\norm}[1]{\vert #1 \vert}
-\DeclareMathOperator{\Sing}{Sing}
+\DeclareMathOperator{\sSing}{sSing}
+\DeclareMathOperator{\cSing}{cSing}
 
 % environments
 \newtheorem{theorem}{Theorem}
@@ -107,36 +113,42 @@ pdfpagelabels]{hyperref}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{notation}{Notation}
 
-% other
-\newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
-\renewcommand{\th}{^\mathrm{th}}
-
 % drawings
 \include{figures}
 
 \begin{document}
 \title{A combinatorial $E_\infty$ algebra structure on cubical cochains}
-\author{Anibal M. Medina-Mardones}
-\address{Max Plank Institute for Mathematics, Bonn, Germany}
-\email{ammedmar@mpim-bonn.mpg.de}
-\address{Department of Mathematics, University of Notre Dame, Notre Dame, IN, USA}
-\email{amedinam@nd.edu}
 
-\keywords{...}
-\subjclass[2020]{...}
+\author[R. Kaufmann]{Ralph M.\ Kaufmann}
+\address{Department of Mathematics, Department of Physics and Astronomy, Purdue University}
+\email{rkaufman@purdue.edu}
+
+\author{Anibal M. Medina-Mardones}
+\address{Max Plank Institute for Mathematics in Bonn \and Department of Mathematics, University of Notre Dame}
+\email{ammedmar@mpim-bonn.mpg.de}
+\thanks{The author acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT - 1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL where part of this work developed.}
+
+\keywords{Cubical sets, cochain complex, cup product, $E_\infty$ algebras, operads}
+\subjclass[2020]{55N45, 18M70, 18M85}
 
 \begin{abstract}
-	
+	Cubical cochains are equipped with an associative product, dual to the Serre diagonal, lifting the graded ring structure in cohomology.
+	In this work we introduce through explicit combinatorial methods an extension of this product to a full $E_\infty$ structure.
+	We also study the Cartan-Serre map relating the cubical and simplicial singular cochains of spaces,
+	showing this classical quasi-isomorphism is a map of $E_\infty$ algebras.	
 \end{abstract} 
 
 \maketitle
+\setcounter{tocdepth}{1}
 \tableofcontents
 \input{introduction}
+\input{acknowledgment}
+\input{preliminaries}
 \input{cubical}
 \input{props}
 \input{action}
-\input{comparison}
 \input{proof_action}
+\input{comparison}
 \input{proof_comparison}
 
 \bibliographystyle{alpha} % ieeetr

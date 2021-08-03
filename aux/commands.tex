@@ -1,0 +1,75 @@
+% environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{notation}{Notation}
+
+% elements
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\P}{\mathcal{P}}
+\renewcommand{\O}{\mathcal{O}}
+\renewcommand{\S}{\amsmathbb{S}}
+\newcommand{\A}{\mathcal{A}s}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Sl}{\mathcal{S}u\ell}
+\newcommand{\scube}[1]{(\triangle^{\!1})^{\times #1}}
+\newcommand{\angles}[1]{\langle #1 \rangle}
+
+% sets
+\newcommand{\Z}{\amsmathbb{Z}}
+\newcommand{\R}{\amsmathbb{R}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Bij}{\mathfrak{Bij}}
+\newcommand{\G}{\mathfrak{G}}
+\newcommand{\gcube}{\bm{\mathbb{I}}}
+\newcommand{\gsimplex}{\mathbb{\Delta}}
+\newcommand{\zero}{[\,\bar{0}\,]}
+\newcommand{\one}{[\,\bar{1}\,]}
+\newcommand{\interval}{[\,\bar 0, \bar 1\,]}
+
+% categories
+\newcommand{\Cat}{\mathsf{Cat}}
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\C}{\mathsf{C}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Ch}{\mathsf{Ch}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\coAlg}{\mathsf{coAlg}}
+\newcommand{\biAlg}{\mathsf{biAlg}}
+\newcommand{\cube}{\square}
+\newcommand{\simplex}{\triangle}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\cSet}{\mathsf{cSet}}
+\newcommand{\Nec}{\mathsf{Nec}}
+\newcommand{\nSet}{\mathsf{nSet}}
+\newcommand{\Mon}{\mathsf{Mon}}
+\newcommand{\smod}{\mathsf{Mod}_{\S}}
+\newcommand{\sbimod}{\mathsf{biMod}_{\S}}
+\newcommand{\operads}{\mathsf{Oper}}
+\newcommand{\props}{\mathsf{Prop}}
+
+% functions and functors
+\newcommand{\Y}{\mathcal{Y}}
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\U}{\mathcal{U}}
+\DeclareMathOperator{\chains}{N}
+\DeclareMathOperator{\cochains}{N^{\bullet}}
+\DeclareMathOperator{\gchains}{C}
+\newcommand{\op}{\mathrm{op}}
+\DeclareMathOperator*{\colim}{colim}
+\newcommand{\norm}[1]{\vert #1 \vert}
+\DeclareMathOperator{\sSing}{sSing}
+\DeclareMathOperator{\cSing}{cSing}
+
+% other
+\renewcommand{\th}{^\mathrm{th}}
+
+% comments
+\newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
