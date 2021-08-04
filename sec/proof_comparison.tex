@@ -2,14 +2,14 @@
 \subsection{Proof of \cref{l:cartan-serre is e infinity}} \label{ss:comparison proof}
 
 To prove \cref{l:cartan-serre is e infinity} we need to show the commutativity of the diagram
-\begin{equation*}
+\[
 \begin{tikzcd}
 U(\Sl)(r) \otimes \gchains(\gcube^n) \arrow[r] \arrow[d, "\id\, \otimes\, \psi"'] &
 \gchains(\gcube^n)^{\otimes r} \arrow[d, "\psi^{\otimes r}"] \\
 U(\Sl)(r) \otimes \gchains(\gsimplex^n) \arrow[r] &
 \gchains(\gsimplex^n)^{\otimes r}.
 \end{tikzcd}
-\end{equation*}
+\]
 By naturality, it suffices to show that
 \begin{equation} \label{e:Cartan-Serre E-coalgebra map}
 \psi^{\otimes r} \circ \Gamma\big( [0,1]^{\otimes n} \big) = \Gamma \circ \psi \big( [0,1]^{\otimes n} \big),
@@ -33,9 +33,9 @@ We will need the following characterization of the kernel of $\psi$.
 	Since vertices are sent to vertices the map $\psi$ is a map of augmented chain complexes, establishing the case $\Gamma =$ \counit \ .
 	To study the compatibility of $\psi$ with \coproduct \, notice that for $n=0$ identity \eqref{e:Cartan-Serre E-coalgebra map} holds trivially.
 	For $n > 0$, consider
-	\begin{equation*}
+	\[
 	\Delta([0,1]^{\otimes n}) = \sum_{\lambda \in \Lambda} \pm \ x_1^{(\lambda)} \otimes \cdots \otimes x_n^{(\lambda)} \bm{\otimes} y_1^{(\lambda)} \otimes \cdots \otimes y_n^{(\lambda)},
-	\end{equation*}
+	\]
 	where $\Lambda$ parameterizes all choices of $x_i^{(\lambda)} \in \{[0], [0,1]\}$ and $y_i^{(\lambda)} \in \{[0,1], [1]\}$ such that
 	\begin{align*}
 	x_i^{(\lambda)} = [0]   & \iff y_i^{(\lambda)} = [0,1], \\
@@ -52,10 +52,10 @@ For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \c
 \begin{lemma}
 	Let $\Delta^{r-1}$ be the $(r-1)\th$ iterated Serre diagonal.
 	If
-	\begin{equation*}	
+	\[	
 	\Delta^{r-1} \big([0,1]^{\otimes n}\big) =
 	\sum \pm \ x{(1)} \bm{\otimes} \cdots \bm{\otimes} x{(r)}
-	\end{equation*}
+	\]
 	with each $x(k) \in \chains(\cube^n)$ a basis element, then $x{(1)} \leq \cdots \leq x{(r)}$.
 \end{lemma}
 
@@ -68,10 +68,6 @@ For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \c
 	and that neither $x(1)_i = [1]$ or $x(2)_i = [0]$ can occur, hence $x(1) \leq x(2)$.
 	The claim for $r > 2$ follows from a straightforward induction argument.
 \end{proof}
-
-%\begin{equation*}
-%\Delta([0]) = [0] \otimes [0], \quad \Delta([1]) = [1] \otimes [1], \quad \Delta([0, 1]) = [0] \otimes [0, 1] + [0, 1] \otimes [1].
-%\end{equation*}
 
 \begin{lemma}
 	Let $x, y, z \in \chains(\cube^n)$ be basis elements.
@@ -118,9 +114,9 @@ For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \c
 	By naturality, we do not loose generality making this assumption.
 	Since $x \leq y$ we have that $p_x \leq p_y$.
 	We claim that
-	\begin{equation*}
+	\[
 	\psi(x \ast y) = \psi \big( x_{<p_x} \, \varepsilon(y_{<p_x}) \otimes x_{p_x} \ast y_{p_x} \otimes \varepsilon(x_{>p_x}) \, y_{>p_x} \big).
-	\end{equation*}
+	\]
 	To see this we notice that if $i < p_x$ then $x_i = [1]$ or $x_i = [0,1]$.
 	If $x_i = [1]$, since $x_i \leq y_i$, it is impossible for $y_i = [0]$, the only case when $x_i \ast y_i \neq 0$.
 	If $x_i = [0,1]$ then $x_i \ast y_i = 0$ for any $y_i$.
