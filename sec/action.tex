@@ -3,7 +3,7 @@
 
 In this section we construct a natural $\M$-bialgebra structure on the chains of standard cubes.
 These are determined by three natural linear maps satisfying the relations defining $\mathcal M$.
-A Kan extension argument then provides the chains of any cubical set with a natural $U(\M)$-coalgebra structure.
+A Kan extension argument then provides the chains of any cubical set with a natural $\UM$-coalgebra structure.
 We begin by recalling the basics of cubical topology.
 
 \subsection{Cubical sets}
@@ -57,11 +57,6 @@ and to a morphism $\tau \colon 2^n \to 2^{n^\prime}$ the chain map
 (2^m \to 2^n) \arrow[r, mapsto] & (2^m \to 2^n \stackrel{\tau}{\to} 2^{n^\prime}).
 \end{tikzcd}
 \]
-Explicitly,
-\[
-\chains(X) = \bigoplus_{n \geq 0} \chains(\cube^n) \otimes R[X_n] \ \Big/ \sim
-\]
-where $(2^m \to 2^n) \circ \delta_i^\varepsilon \otimes x \sim (2^m \to 2^n) \otimes d_i^\varepsilon(x)$.
 
 \subsection{Cubical singular complex}
 
@@ -79,42 +74,48 @@ The chain complex $\chains(\cSing Z)$ is referred to as the \textit{cubical sing
 
 \subsection{Cellular chains}
 
-The chain complex $\chains(\cube^n)$ is by definition equal to $\chains(\cube^1)^{\otimes n}$, which is isomorphic to the chain complex $C(\gcube)^{\otimes n}$, where $C(\gcube)$ is the complex of cellular chains on the standard interval.
+The chain complex $\chains(\cube^n)$ is by definition equal to $\chains(\cube^1)^{\otimes n}$, which is isomorphic to the chain complex $C(\gcube^1)^{\otimes n}$, where $C(\gcube^1)$ is the complex of cellular chains on the standard interval.
 We will use the notation $x_1 \otimes \cdots \otimes x_n$ with $x_i \in \{[0], [0,1], [1]\}$ for the elements in its basis, and we remark that this chain complex is also isomorphic to $\gchains(\gcube^n)$, the cellular chains of the geometric $n$-cube with its standard CW structure.
 
-\subsection{Counit, coproduct and product}
+\subsection{Serre coalgebra} \label{ss:serre coalgebra}
 
-For $n \in \mathbb{N}$, define: \vspace*{5pt} \\
-(1) The \textit{counit} $\epsilon \in \Hom(\chains(\square^n), \Z)$ known as the \textit{augmentation} by
+We now recall a natural (counital and coassociative) coalgebra structure on cubical chains studied by Cartan and Serre, inducing the cup product in the cohomology of cubical sets.
+
+Using a Kan extension along the Yoneda embedding, it suffices to equip the chains on standard cubes with a natural coalgebra structure.
+For any $n \in \N$, define $\epsilon \colon \chains(\cube^n) \to \k$ by
 \[
-\epsilon \left( x_1 \otimes \cdots \otimes x_d \right) = \epsilon(x_1) \, \cdots \, \epsilon(x_n),
+\epsilon \left( x_1 \otimes \dots \otimes x_d \right) = \epsilon(x_1) \dotsm \epsilon(x_n),
 \]
 where
 \[
-\epsilon([0]) = \epsilon([1]) = 1, \qquad \epsilon([0, 1]) = 0.
-\] \vspace*{-6pt} \\
-(2) The \textit{coproduct} $\Delta \in \Hom \left( \chains(\square^n), \chains(\square^n)^{\otimes 2} \right)$ known as the \textit{Serre coproduct} by
+\epsilon([0]) = \epsilon([1]) = 1, \qquad \epsilon([0, 1]) = 0,
+\]
+and $\Delta \colon \chains(\cube^n) \to \chains(\cube^n)^{\otimes 2}$ by
 \[
-\Delta (x_1 \otimes \cdots \otimes x_n) =
-\sum \pm \left( x_1^{(1)} \otimes \cdots \otimes x_n^{(1)} \right) \otimes
-\left( x_1^{(2)} \otimes \cdots \otimes x_n^{(2)} \right),
+\Delta (x_1 \otimes \dots \otimes x_n) =
+\sum \pm \left( x_1^{(1)} \otimes \dots \otimes x_n^{(1)} \right) \otimes
+\left( x_1^{(2)} \otimes \dots \otimes x_n^{(2)} \right),
 \]
 where the sign is determined using the Koszul convention, and we are using Sweedler's notation
 \[
 \Delta(x_i) = \sum x_i^{(1)} \otimes x_i^{(2)}
 \]
-for the chain map $\Delta \colon \chains(\square^1) \to \chains(\square^1)^{\otimes 2}$ defined by
+for the chain map $\Delta \colon \chains(\cube^1) \to \chains(\cube^1)^{\otimes 2}$ defined by
 \[
-\Delta([0]) = [0] \otimes [0], \quad \Delta([1]) = [1] \otimes [1], \quad \Delta([0, 1]) = [0] \otimes [0, 1] + [0, 1] \otimes [1].
+\Delta([0]) = [0] \otimes [0], \quad \Delta([1]) = [1] \otimes [1], \quad \Delta([0,1]) = [0] \otimes [0,1] + [0,1] \otimes [1].
 \]
-Using that $\chains(\square^n) = \chains(\square^1)^{\otimes n}$, $\Delta$ is the composition
+
+We remark that, using the canonical isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\otimes n}$, the coproduct $\Delta$ can be described as the composition
 \[
 \begin{tikzcd}
-\chains(\square^1)^{\otimes n} \arrow[r, "\Delta^{\otimes n}"] &[3pt] \left( \chains(\square^1)^{\otimes 2}  \right)^{\otimes n} \arrow[r, "sh"] &[-5pt] \left( \chains(\square^1)^{\otimes n} \right)^{\otimes 2}
+\chains(\cube^1)^{\otimes n} \arrow[r, "\Delta^{\otimes n}"] & \left( \chains(\cube^1)^{\otimes 2} \right)^{\otimes n} \arrow[r, "sh"] & \left( \chains(\cube^1)^{\otimes n} \right)^{\otimes 2}
 \end{tikzcd}
 \]
-where $sh$ is the shuffle map that places tensor factors in odd position first. \vspace*{5pt} \\
-(3) The \textit{product} $\ast \in \Hom(\chains(\square^n)^{\otimes 2}, \chains(\square^n))$ by
+where $sh$ is the shuffle map that places tensor factors in odd position first.
+
+\subsection{Degree 1 product}
+
+For $n \in \mathbb{N}$, define the \textit{product} $\ast \in \Hom(\chains(\square^n)^{\otimes 2}, \chains(\square^n))$ by
 \begin{align*}
 (x_1 \otimes \cdots \otimes x_n) \ast (y_1 \otimes \cdots \otimes y_n) =
 (-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i},
@@ -151,7 +152,7 @@ The category of bialgebras over a prop is in general not cocomplete, but those o
 So we have the following result, the main contribution of this paper.
 
 \begin{theorem} \label{t:lift to e infinity coalgebras}
-	Composing the functor defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{U(\M)}$ defines a functor $\cube \to \coAlg_{U(\M)}$ whose Kan extension endows the chains of a cubical set with a natural $E_\infty$-coalgebra structure extending the Serre coproduct.
+	Composing the functor defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ defines a functor $\cube \to \coAlg_{\UM}$ whose Kan extension endows the chains of a cubical set with a natural $E_\infty$-coalgebra structure extending the Serre coproduct.
 \end{theorem}
 
 By linear duality, the same argument can be used to define a natural $E_\infty$-algebra structure on cubical cochains extending the Serre product.

@@ -9,39 +9,45 @@ Instead of simplices, in his groundbreaking work on fibered spaces Serre conside
 
 Cubical sets, a model for the homotopy category, were also considered by Kan \cite{kan1955abstract, kan1956abstract} before introducing simplicial sets, and have become important in Voevodsky's program for univalent foundations and homotopy type theory \cite{kapulkin2020straightening, mortberg2017cubical}.
 
-Other areas where cubical methods play relevant roles are applied topology, where cubical complexes are ubiquitous \cite{tomasz2004computational}, and geometric group theory where actions on certain cube complexes characterized combinatorially are of central importance \cite{gromov1987hyperbolic, agol2013haken}.
+Other areas where cubical methods are important are applied topology, where cubical complexes are ubiquitous \cite{tomasz2004computational}, and geometric group theory where actions on certain cube complexes characterized combinatorially are of central relevance \cite{gromov1987hyperbolic, agol2013haken}.
 
 Cubical cochains are equipped with the \textit{Serre product}, a lift to the cochain level of the graded ring structure in cohomology.
 Using an acyclic carrier argument it can be shown that this product is commutative up to coherent homotopies in a non-canonical way.
 The goal of this work is to introduce an effective description of this derived structure in the form of an explicit $E_\infty$-algebra structure naturally extending the Serre product.
-We use the combinatorial model of the $E_\infty$-operad $U(\M)$ obtained from the finitely presented $E_\infty$-prop $\M$ introduced in \cite{medina2020prop1}.
-The resulting $U(\M)$ algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the cochains of standard cubes, which is determined by only three linear maps.
+We use the combinatorial model of the $E_\infty$-operad $\UM$ obtained from the finitely presented $E_\infty$-prop $\M$ introduced in \cite{medina2020prop1}.
+The resulting $\UM$ algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the cochains of standard cubes, which is determined by only three linear maps.
 To our knowledge, this is the first effective construction of an $E_\infty$-algebra structure on cubical cochains.
-Non-constructively, this result could be obtained using a lifting argument based on the cofibrancy of the reduced version of the operad $U(\M)$ in the category of operads, but this existence statement misses the rich combinatorial structure present in our effective description; used, for example, to compare the simplicial and cubical singular cochains of spaces as $E_\infty$-algebras, an application we now explain.
+Non-constructively, this result could be obtained using a lifting argument based on the cofibrancy of the reduced version of the operad $\UM$ in the category of operads, but this existence statement misses the rich combinatorial structure present in our effective construction.
 
-In \cite[p. 442]{serre1951homologie}, Serre described for any topological space a quasi-isomorphism between its simplicial and cubical singular cochains using a canonical cellular map $\gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic}, where it is attributed to Cartan.
-For any topological space $Z$, this comparison cochain map $\cochains(\cSing Z) \to \cochains(\sSing Z)$ is a ``multiplicative quasi-isomorphism," i.e., an algebra map with respect to the Serre and Alexander-Whitney products inducing an isomorphism in cohomology.
-In \cite{medina2020prop1}, a similar construction to the one introduced here for cubical sets was presented for simplicial sets, extending the Alexander-Whitney product to a full $E_\infty$-algebra and generalizing the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial}.
-In the present work we extend the multiplicativity of the comparison map of Cartan and Serre by showing it is in fact a quasi-isomorphisms of $E_\infty$-algebras.
-
+As described in \cite{medina2020prop1}, the operad $\UM$ also acts on simplicial cochains extending the Alexander--Whitney product.
+We use a construction of Cartan and Serre to relate these cubical and simplicial $E_\infty$-structures.
+More specifically, in \cite[p. 442]{serre1951homologie}, Serre described for any topological space a quasi-isomorphism between its simplicial and cubical singular cochains using a canonical cellular map $\gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic}, where it is attributed to Cartan.
+For any topological space $Z$, this comparison cochain map $\cochains(\cSing Z) \to \cochains(\sSing Z)$ is an algebra map with respect to the Serre and Alexander-Whitney products inducing an isomorphism in cohomology.
+In the present work we show that the Cartan-Serre comparison map is in fact a quasi-isomorphisms of $E_\infty$-algebras.
+We deduce this result from a statement at the level of general simplicial sets.
 We now mention three application of the contributions in this paper.
 
-The classical cobar construction of Adams \cite{adams1956cobar}, producing a monoid in chain complexes from the coalgebra of chains of a reduced simplicial set, was shown by Baues \cite{baues1998hopf} to be a monoid in the category of coalgebras by identifying it with the chains of a cubical monoid, a chain complex naturally equipped with the Serre coproduct.
-In \cite{medina2021cobar} we extend this result to the context of monoids in the category of $E_\infty$-coalgebras, showing the cobar construction is a monoid in a category of $U(\M)$-coalgebras.
-We do so by showing that $U(\M)$ is a Hopf operad, which implies the category of $U(\M)$ coalgebras is closed under tensor products, and that the $U(\M)$ coalgebra on cubical chains defined here is compatible with the monoid structure on the cobar construction.
-
 For every prime $p$, the mod $p$ cohomology of a space is equipped with natural stable endomorphisms known as Steenrod operations \cite{steenrod1962cohomology}.
-Following an operadic viewpoint developed by May \cite{may1970general}, in \cite{medina2020maysteenrod} we effectively described a May-Steenrod structure on $U(\M)$, i.e., a compatible choice of elements in $U(\M)$ that represent Steenrod operations on the mod~$p$ homology of $U(\M)$ algebras.
-Since, as proven in this article, cubical cochains are a $U(\M)$ algebra, we use this May-Steenrod structure to extend the cubical cup-$i$ products of \cite{kadeishvili2003cupi} and \cite{pilarczyk2016cubical} to multi-products representing all Steenrod operations at the cochain level.
-Furthermore, the effective nature of these constructions permitted their implementation in the computer algebra system \texttt{ComCh} \cite{medina2021computer}, whose documentation is currently hosted at \url{https://comch.readthedocs.io}.
+Following an operadic viewpoint developed by May \cite{may1970general}, in \cite{medina2020maysteenrod} we effectively described a May-Steenrod structure on $\UM$, i.e., a compatible choice of elements in $\UM$ that represent Steenrod operations on the mod~$p$ homology of $\UM$ algebras.
+Since, as proven in this article, cubical cochains are a $\UM$-algebra, we use this May-Steenrod structure to extend the cubical cup-$i$ products of \cite{kadeishvili2003cupi} and \cite{pilarczyk2016cubical} to a family of cochain level representatives of Steenrod operations at every prime.
+Furthermore, the effective nature of these constructions permitted the implementation of these Steenrod products in the computer algebra system \texttt{ComCh} \cite{medina2021computer}.
 
 For a closed smooth manifold $M$, in \cite{medina2021flowing} we compared a cochain complex generated by manifolds with corners over $M$, and the complex of cubical cochains defined by a choice of cubulation of $M$.
 We used a canonical vector field associated to the cubulation to compare multiplicatively these two models of ordinary cohomology, whose product structures are respectively given by transverse intersection and the Serre product.
 With the explicit description introduced here of an $E_\infty$-structure on cubical cochains, we expect to build on this multiplicative comparison and, using a coherent family of vector fields, describe the corresponding $E_\infty$-structure on geometric cochains extending the transverse intersection product.
 For more details regarding this geometric model of cohomology please consult \cite{medina2021foundations}.
 
+Our construction of an $E_\infty$-algebra structure on cochains cochains is obtained by dualizing an $E_\infty$-coalgebra structure on cubical chains.
+In the fifties, Adams introduced in \cite{adams1956cobar} a comparison map
+\[
+\theta_Z \colon \cobar S^\simplex(Z,z) \to S^\cube(\loops_z Z)
+\]
+from his cobar construction on the simplicial singular chains of a pointed space $(Z, z)$ to the cubical singular chains on its based loops space $\loops_z Z$.
+This comparison map is a quasi-isomorphism of algebras, which was shown by Baues \cite{baues1998hopf} to be one of bialgebras by considering Serre's cubical coproduct.
+In \cite{medina2021cobar} we generalize Baues result by constructing an $E_{\infty}$-bialgebra structure on the cobar construction of the coalgebra of singular chains, and proving that Adams' comparison map is a quasi-isomorphism of $E_{\infty}$-bialgebras.
+
 \subsection*{Outline}
 
 The required concepts from the theory of operads and props is reviewed in \cref{s:operads and props}, including the definition of the operad $\UM$.
-\cref{s:action} contains our main contribution, where we define a natural $\M$-bialgebra structure on the chains of standard cubes, and from it a natural $U(\M)$-algebra structure on the cochains of cubical sets.
+\cref{s:action} contains our main contribution, where we define a natural $\M$-bialgebra structure on the chains of standard cubes, and from it a natural $\UM$-algebra structure on the cochains of cubical sets.
 The comparison between simplicial and cubical cochains is presented in \cref{s:the cartan-serre map}, where we show that the Cartan-Serre comparison map is a morphism of $E_\infty$-algebras.
