@@ -34,9 +34,9 @@ The \textit{standard $n$-cube} is the cubical set $\cube^n = \cube(-, 2^n)$, and
 \subsection{Cubical singular complex}
 
 Consider the topological $n$-cube
-\[
+\begin{equation} \label{e:topological cube}
 \gcube^{n} = \{(x_1, \dots, x_n) \mid x_i \in [0,1]\}.
-\]
+\end{equation}
 The assignment $2^n \to \gcube^n$ defines a functor $\cube \to \Top$ whose Kan extension is known as \textit{geometric realization}.
 It has a right adjoint $\cSing \colon \Top \to \cSet$ given by
 \[
@@ -65,8 +65,7 @@ To a morphism $\tau \colon 2^n \to 2^{n^\prime}$ it assigns the chain map
 \big( 2^m \to 2^n \big) \arrow[r, mapsto] & \big( 2^m \to 2^n \stackrel{\tau}{\to} 2^{n^\prime} \big).
 \end{tikzcd}
 \]
-
-The chain complex $\chains(\cube^n)$ is isomorphic to both: $\chains(\cube^1)^{\otimes n}$ and the cellular chains on the geometric $n$-cube with its standard CW structure $\gchains(\gcube^n)$.
+The chain complex $\chains(\cube^n)$ is isomorphic to both: $\chains(\cube^1)^{\otimes n}$ and the cellular chains on the topological $n$-cube with its standard CW structure $\gchains(\gcube^n)$.
 We use the isomorphism $\chains(\cube^n) \cong \gchains(\gcube^1)^{\otimes n}$ when denoting by $x_1 \otimes \dots \otimes x_n$ with $x_i \in \{[0], [0,1], [1]\}$ the elements in the basis of $\chains(\cube^n)$.
 
 For a topological space $Z$, the chain complex $\chains(\cSing Z)$ is referred to as the \textit{cubical singular chains} of $Z$.

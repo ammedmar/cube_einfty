@@ -18,11 +18,11 @@ where $\Gamma$ is represented by a surjection-like graph, a generator of $U(\Sl)
 
 We will need the following characterization of the kernel of $\psi$.
 \begin{lemma} \label{l:kernel of psi}
-	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ we have $\psi(x) = 0$ if and only if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$. 
+	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ we have $\psi(x) = 0$ if and only if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$.
 \end{lemma}
 
 \begin{proof}
-	This follows from noticing that for any point in $\gcube^n$ whose $i\th$ coordinate is $0$, its image under the Cartan-Serre map $\gcube^n \to \gsimplex^n$ defined in \cref{ss:the cartan-serre map} has $j\th$ coordinate equal to $0$ for every $j \geq i$.
+	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan-Serre map $\gcube^n \to \gsimplex^n$ defined in \cref{ss:the cartan-serre comparison map} has $j\th$ coordinate equal to $0$ for every $j \geq i$.
 \end{proof}
 
 \begin{lemma}
@@ -47,12 +47,12 @@ We will need the following characterization of the kernel of $\psi$.
 \end{proof}
 
 We will consider the basis of $\chains(\cube^n)$ as a poset in the following way.
-For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \cdots \otimes x_n) \leq (y_1 \otimes \cdots \otimes y_n)$ if $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$. 
+For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \cdots \otimes x_n) \leq (y_1 \otimes \cdots \otimes y_n)$ if $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$.
 
 \begin{lemma}
-	Let $\Delta^{r-1}$ be the $(r-1)\th$ iterated Serre diagonal.
+	Let $\Delta^{r-1}$ be the $(r-1)^\th$ iterated Serre diagonal.
 	If
-	\[	
+	\[
 	\Delta^{r-1} \big([0,1]^{\otimes n}\big) =
 	\sum \pm \ x{(1)} \bm{\otimes} \cdots \bm{\otimes} x{(r)}
 	\]

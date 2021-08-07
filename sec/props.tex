@@ -27,14 +27,14 @@ We remark that the prop structure on $\P$ restricts to an operad structure on $\
 
 \subsection{Representations}
 
-Given a chain complex $C$ define $\End^C$, $\End_C$ and $\End_C^C$ by
-\begin{align*}
-\End^C(r) &= \Hom(C, C^{\otimes r}),
-& \End_C(r) &= \Hom(C^{\otimes r}, C),
-& \End^C_C(r, s) &= \Hom(C^{\otimes r}, C^{\otimes s}),
-\end{align*}
+Given a chain complex $C$ define
+\begin{gather*}
+\End^C(r) = \Hom(C, C^{\otimes r}), \qquad
+\End_C(r) = \Hom(C^{\otimes r}, C), \\
+\End^C_C(r, s) = \Hom(C^{\otimes r}, C^{\otimes s}),
+\end{gather*}
 with their natural operad and prop structures respectively.
-We remark that the forgetful functor $U$ sends $\End^C_C$ to $\End^C$.
+We remark that the forgetful functor $\forget$ sends $\End^C_C$ to $\End^C$.
 
 Let $C$ be a chain complex, $\O$ an operad, and $\P$ a prop.
 An $\O$-\textit{coalgebra} (resp. $\O$-\textit{algebra} or $\P$-\textit{bialgebra}) structure on $C$ is a structure preserving morphism $\O \to \End^C$ (resp. $\O \to \End_C$ or $\P \to \End_C^C$).
