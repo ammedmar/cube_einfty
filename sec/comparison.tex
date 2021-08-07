@@ -1,211 +1,138 @@
 
-\section{The Cartan-Serre map} \label{s:the cartan-serre map}
+\section{The Cartan-Serre comparison map} \label{s:the cartan-serre comparison map}
+
+More specifically, in \cite[p. 442]{serre1951homologie}, Serre described for any topological space a quasi-isomorphism between its simplicial and cubical singular cochains using a canonical cellular map $\gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic}, where it is attributed to Cartan.
 
 Let $Z$ be a topological space.
-The goal of this section is to prove a generalization of the comultiplicativity of the natural quasi-isomorphisms $\chains(\sSing Z) \to \chains(\cSing Z)$ defined by precomposing with the chain map induced by the Cartan-Serre map defined in \cref{ss:the cartan-serre map}.
+The goal of this section is to prove a generalization of the comultiplicativity of the natural quasi-isomorphisms $\chains(\sSing Z) \to \chains(\cSing Z)$ studied by Cartan and Serre.
 Specifically, we show that this map is a morphism of $E_\infty$-coalgebras in \cref{ss:extended comultiplicativity}.
-More generally, we construct an $E_\infty$-coalgebra map $\chains(Y) \to \chains(\U Y)$ for any simplicial set $Y$, where $\U$ is the right adjoint to the triangulation functor from cubical sets to simplicial sets.
+More generally, we construct an $E_\infty$-coalgebra map $\chains(Y) \to \chains(\cubify Y)$ for any simplicial set $Y$, where $\cubify$ is the right adjoint to the triangulation functor from cubical sets to simplicial sets.
 
-\subsection{The Cartan-Serre map} \label{ss:the cartan-serre map}
+We review from \cite{medina2021cubical} the relationship between the $E_\infty$-structures defined on simplicial chains in \cref{ss:e-infty on simplicial} and on cubical chains in \cref{ss:e-infty on cubical}.
 
-Let us consider the topological simplex
+%In \cite[p.442]{serre1951homologie}, the \textit{Serre--Cartan collapse} $\gcube^n \to \gsimplex^n$ was introduced and used to define a natural quasi-isomorphism of coalgebras $\sS(Z) \to \cS(Z)$ for any topological space $Z$.
+This map factors as the composition
 \[
-\gsimplex^{\!n} = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
+\schains(\sSing(Z)) \xra{\CS_{\sSing(Z)}}
+\chains(\cubify \sSing(Z)) \to
+\chains(\cSing(Z)),
 \]
-and the topological cube
+where the first map $\CS_X$, referred to as the \textit{Serre--Cartan comparison map}, is a quasi-isomorphism defined for any simplicial set $X$, and the second map is induced from a morphism of cubical sets.
+
+Although both $\schains(X)$ and $\chains(\cubify X)$ have natural $\UM$-structures, the map $\CS_X$ is not a morphism of $\UM$-coalgebras for a generic simplicial set $X$.
+Nevertheless, after restriction of their $\UM$-structures via an inclusion of $E_\infty$-operads $\USL \to \UM$, the Cartan-Serre comparison map becomes a morphism of $E_\infty$-coalgebras.
+
+\newpage
+
+\subsection{Simplicial chains}
+
+We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} by $\sSet = \Fun(\simplex^\op, \Set)$ and the standard $n$-simplex by $\simplex^n$.
+As usual, we denote an element in $\simplex^n_m$ by a non-decreasing tuples $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
+The \textit{Cartesian product} of simplicial sets is defined object-wise.
+For example,
 \[
-\gcube^{n} = \{(x_1, \dots, x_n) \mid x_i \in [0,1]\}
+\big(\simplex^n \times \simplex^{n^\prime}\big)_m = \simplex^n_m \times \simplex^{n^\prime}_m
 \]
-with their usual CW structures.
-The \textit{Cartan-Serre collapse map} $\gcube^n \to \gsimplex^{\!n}$ is defined by
-\begin{equation} \label{e:cartan-serre CW map}
-\begin{split}
-&y_0 = 1 - x_1, \\
-&y_1 = x_1(1 - x_2), \\
-&\ \vdots \\
-&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
-&y_{n} = x_1 x_2 \dots x_n.
-\end{split}
-\end{equation}
-It is a cellular map and we notice that coordinates in the domain that are $0$ play an important role.
-More specifically, if $x_i = 0$ then for every $j \geq i$ we have $y_{j} = 0$.
+consists of pairs of non-decreasing tuples $[v_0, \dots, v_m] \times [w_0, \dots, w_m]$ of appropriate integers.
 
-\subsection{Simplicial sets} \label{ss:simplicial sets}
+The \textit{simplicial singular complex} functor is denoted by $\sSing \colon \Top \to \sSet$ and the functor of \textit{(normalized) chains} by $\schains \colon \sSet \to \Ch$.
+We omit the superscript $\simplex$ from either of these if no confusion may result from doing so.
 
-Let us now review some basic notions from the theory of simplicial sets.
-The \textit{simplex category} $\simplex$ is the full subcategory of $\Cat$ with objects
+The \textit{Alexander--Whitney coalgebra} functor is defined by a Kan extension argument based on the following natural maps.
+For any $n \in \N$, define $\epsilon \colon \chains(\simplex^n) \to \k$ by
 \[
-[n] = 0 \to 1 \to \dots \to n.
+\epsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0, \end{cases}
 \]
-Its morphisms are generated by the well known \textit{coface} $\delta_i$ and \textit{codegeneracy $\sigma_i$ functors}, and we denote by $\cube_{\deg}([m], [n])$ the subset of morphism in $\cube([m], [n])$ of the form $\sigma_i \circ \tau$ with $\tau \in \cube([m], [n+1])$.
-
-
-The category of \textit{simplicial sets} is the functor category $\sSet = \Fun(\simplex^{\!\op}, \Set)$ whose \textit{product} is defined by
+and $\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\otimes2}$ by
 \[
-(X \times Y)[n] = X[n] \times Y[n], \qquad
-(X \times Y)(\tau) = X(\tau) \times Y(\tau).
-\]
-For elements $x \in X$ and $y \in Y$, we write $x \times y$ instead of $(x, y)$ for the associated element in $X \times Y$.
-
-The \textit{standard $n$-simplex} is the simplicial set $\simplex^{\!n} = \simplex(-, [n])$.
-The \textit{Yoneda embedding} $\simplex \to \sSet$ is the functor induced by $[n] \mapsto \simplex^{\!n}$.
-For any simplicial set $X$ we have
-\[
-X[n] \cong \colim_{\simplex^{\!n} \to X} \simplex^{\!n}.
+\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \otimes [v_i, \dots, v_q].
 \]
 
-\subsection{Simplicial singular complex}
+\subsection{$E_\infty$-structure on simplicial chains} \label{ss:e infinity structures}
 
-The assignment $[n] \to \gsimplex^{\!n}$ defines a functor $\simplex \to \Top$ whose Kan extension is known as \textit{geometric realization}.
-It has a right adjoint $\sSing \colon \Top \to \sSet$ given by
-\[
-Z \to \Big([n] \to \Top(\gsimplex^{\!n}, Z)\Big),
-\]
-and referred to as the \textit{simplicial singular complex} of the topological space $Z$.
-
-\subsection{Simplicial chains} \label{ss:simplicial chains}
-
-The functor of \textit{chains} $\chains \colon \sSet \to \Ch$ is the Kan extension along the Yoneda embedding of the functor $\simplex \to \Ch$ assigning to $[n]$ the chain complex whose degree $m$ part is the $\k$-module
-\[
-\frac{R\{\simplex([m], [n])\}}{R\{\simplex_{\deg}([m], [n])\}}
-\]
-and whose boundary is defined by
-\[
-\partial (\id_{[n]}) = \sum_{i=0}^{n} (-1)^i \ \id_{[n]} \circ \delta_i.
-\]
-We remark that $\chains(\simplex^{\!n})$ is isomorphic to the cellular chains on $\gsimplex^{\!n}$.
-For a topological space $Z$, the chain complex $\chains(\sSing Z)$ is referred to as the \textit{simplicial singular chains} of $Z$.
-
-\subsection{$E_\infty$-structure} \label{ss:e infinity structures}
-
-In \cite{medina2020prop1}, a similar construction to the one introduced in \cref{s:action} provides the chains of simplicial sets with a natural $U(\M)$-coalgebra structure.
-It is also induced from a natural $\M$-bialgebra structure on the chains of standard simplices.
+In \cite{medina2020prop1}, a similar construction to the one introduced in \cref{s:action} provides the chains of simplicial sets with a natural $\UM$-coalgebra structure.
+It is also induced from a natural $\M$-bialgebra structure on the chains of representables presheaves, i.e., of standard simplices in this case.
 This $\M$-bialgebra structure on $\chains(\simplex^{\!n})$ is defined by the assignment
 \[
 \counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
 \]
-where
+where $\epsilon$ and $\Delta$ define the Alexander--Whitney coalgebra structure on simplicial chains, and
 \[
-\varepsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q > 0, \end{cases}
+\ast \colon \chains(\simplex^{\!n})^{\otimes 2} \to \chains(\simplex^{\!n})
 \]
-is the \textit{augmentation map},
-\[
-\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \otimes [v_i, \dots, v_q],
-\]
-is the \textit{Alexander-Whitney diagonal}, and the following is an algebraic version of the \textit{join}:
+is an algebraic version of the \textit{join} defined by
 \[
 \left[v_0, \dots, v_p \right] \ast \left[v_{p+1}, \dots, v_q\right] = \begin{cases} (-1)^{p+|\pi|} \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
 0 & \text{ if not}, \end{cases}
 \]
 where $\pi$ is the permutation that orders the totally ordered set of vertices and $(-1)^{|\pi|}$ is its sign.
 
-\subsection{Surjection-like graphs} \label{ss:surjection-like graphs}
+\subsection{The simplicial cube} \label{ss:simplicial cube}
 
-A \textit{surjection-like graph} is either the $(1,0)$-graph \counit\ or a $(1, r)$-graph obtained from
+The \textit{simplicial $n$-cube} is the $n^\th$-fold Cartesian product $\scube{n}$.
+We introduce the following notation for its elements.
+For $n = 1$ and $m \in \N$ we write
 \[
-	\def\r{.8}
-	\boxed{\begin{tikzpicture}[scale=.4]
-	\node[scale=\r] at (5,8){$1$};
-
-	\draw (3,5.5)--(5,6.5)--(5,7.5);
-	\draw (7,5.5)--(5,6.5);
-	\draw (4,5.5)--(3.5,5.75);
-
-	\node[scale=\r] at (3,5){$1$};
-	\node[scale=\r] at (4,5){$2$};
-	\node[scale=\r] at (5.3,5){$\dots$};
-	\node[scale=\r] at (7,5){$r+d$};
-
-	\node at (5,4){$\vdots$};
-
-	\node[scale=\r] at (1.8, 2.5){$1$};
-	\node[scale=\r] at (2.6, 2.5){$2$};
-	\node[scale=\r*.7] at (3.4, 2.5){$\dots$};
-	\node[scale=\r] at (4.2, 2.5){$k_1$};
-
-	\draw (2,2)--(3,1)--(3,0);
-	\draw (4,2)--(3,1);
-	\draw (2.6,2)--(2.4,1.6);
-
-	\node[scale=\r] at (3,-.5){$1$};
-
-	\node at (5,1){\ $\cdots$};
-
-	\node[scale=\r] at (5.8, 2.5){$1$};
-	\node[scale=\r] at (6.6, 2.5){$2$};
-	\node[scale=\r*.7] at (7.4, 2.5){$\dots$};
-	\node[scale=\r] at (8.2, 2.5){$k_r$};
-
-	\draw (6,2)--(7,1)--(7,0);
-	\draw (8,2)--(7,1);
-	\draw (6.6,2)--(6.4,1.6);
-
-	\node[scale=\r] at (7,-.5){$r$};
-	\end{tikzpicture}}
+\langle k \rangle \defeq [\, \overbrace{0, \dots, 0}^{m+1-k}, \overbrace{1, \dots, 1}^{k}\,]
 \]
-by gluing the strands of the $(1,n+d)$-graph at the top to the input strands of the $(k_i,1)$-graphs at the bottom so that for each $i = 1, \dots, r$ the induced map
-\[
-\{1, \dots, k_i\} \to \{1, \dots, r+d\}
-\]
-is order preserving.
-
-\begin{definition}
-	The operad $\Sl$ is the suboperad of $U(\M)$ generated by elements represented by surjection-like graphs.
-\end{definition}
-
-The same proof used in \cite[Theorem 3.3.]{medina2020prop1} shows $\Sl$ is an $E_\infty$-operad.
-We remark that this operad was used in \cite[Theorem A.11.]{medina2020prop1} to compare the action of the surjection operad of McClure-Smith \cite{mcclure2003multivariable} and Berger-Fresse \cite{berger2004combinatorial} on simplicial sets and that of $U(\M)$.
-
-\subsection{Extended comultiplicativity} \label{ss:extended comultiplicativity}
-
-Let $Y$ be a simplicial set and $X$ a cubical set.
-By restriction of their $U(\M)$ coalgebra structures, both $\chains(Y)$ and $\chains(X)$ are $\Sl$ coalgebras, and we have the following generalization of the Serre's comultiplicativity.
-
-\begin{theorem} \label{t:extended comultiplicativity}
-	For any topological space $Z$, the quasi-isomorphism $\chains(\sSing Z) \to \chains(\cSing Z)$ induced by precomposing with the Serre-Cartan map $\gcube^n \to \gsimplex^{\!n}$ is a morphisms of $E_\infty$-coalgebras, where the domain structure extends the Alexander-Whitney coproduct and the target the Serre coproduct.
-\end{theorem}
-
-We will obtain this result from a more general categorical statement.
-
-\subsection{The simplicial cube} \label{ss:the simplicial cube}
-
-For non-negative integers $n$ and $m$, we identify the set $\simplex^n_m$ with that of non-decreasing sequences $[v_0, \dots, v_m]$ with each $v_i \in \{0, \dots, n\}$.
-For $\simplex^1_m = \simplex([m], [1])$ we reduce this notation writing
-\[
-\langle k \rangle = [\, \overbrace{0, \dots, 0}^{m+1-k}, \overbrace{1, \dots, 1}^{k}\,]
-\]
-for $k \in \{0, \dots, m+1\}$.
-
-Let us now consider the product of the simplicial interval with itself, given explicitly by
+for $k \in \{0, \dots, m+1\}$, and
 \[
 \scube{n}_m = \big\{ \angles{k_1} \times \dots \times \angles{k_n} \mid \angles{k_i} \in \simplex^1_m \big\}.
 \]
-The simplicial sets $\simplex^{\!n}$ and $\scube{n}$ are isomorphic when $n$ is either $0$ or $1$.
-For $n > 1$ we consider the inclusion
+Additionally, we define for each $n \in \N$ natural simplicial maps
 \[
-\begin{tikzcd}[row sep=-3pt, column sep=small,
-/tikz/column 1/.append style={anchor=base east},
-/tikz/column 2/.append style={anchor=base west}]
-\simplex^{\!n} \arrow[r, "\iota"] & \scube{n} \\
-{[0, \dots, n]} \arrow[r, mapsto] & \angles{n} \times \dots \times \angles{1},
-\end{tikzcd}
+\inclusion \colon \simplex^n \leftrightarrows \scube{n} :\! \projection
 \]
-and the projection $s \colon \scube{n} \to \iota(\simplex^{\!n})$ defined by
+satisfying $\projection \circ \inclusion = \id_{\simplex^{\!n}}$ by
 \[
-[ \varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto [ \eta_0^1, \dots, \eta_m^1] \times \dots \times [ \eta_0^n, \dots, \eta_m^n]
+\inclusion \colon [0, \dots, n] \mapsto \angles{n} \times \dots \times \angles{1},
+\]
+and
+\[
+\projection \colon [\varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto
+[\eta_0^1, \dots, \eta_m^1] \times \dots \times [ \eta_0^n, \dots, \eta_m^n]
 \]
 with $\eta_i^k = \varepsilon_i^1 \dots \varepsilon_i^k$.
-These are maps of simplicial sets satisfying $s \circ \iota = \id_{\simplex^{\!n}}$.
 
-\subsection{Triangulation and its right adjoint} \label{triangulation and its right adjoint}
+\subsection{Triangulation and its right adjoint}
 
-The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with $\delta_i^\varepsilon$ inserting $[\varepsilon, \dots, \varepsilon]$ in the $i\th$ position, and $\sigma_i$ removing the $i\th$ factor.
-The left Kan extension of this functor $\T \colon \cSet \to \sSet$ is referred to as \textit{triangulation}.
-It admits a right adjoint $\U \colon \sSet \to \cSet$ defined by
+The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with $\delta_i^\varepsilon \colon \scube{n} \to \scube{(n+1)}$ inserting $[\varepsilon, \dots, \varepsilon]$ as $i^\th$ factor and $\sigma_i \colon \scube{(n+1)} \to \scube{n}$ removing the $i^\th$ factor.
+Its left Kan extension
 \[
-(\U X)(2^m) = \sSet \big( \scube{n}, \, X \big).
+\triangulate \colon \cSet \to \sSet
 \]
-Although we do not use this fact, we mention that $\T$ and $\U$ define a Quillen equivalence when simplicial and cubical sets are considered as model categories \cite[8.4.30]{cisinski2006presheaves}.
+is referred to as the \textit{triangulation} functor.
+It admits a right adjoint
+\[
+\cubify \colon \sSet \to \cSet
+\]
+defined by
+\[
+\cubify(X)(2^m) = \sSet \big( \scube{n}, \, X \big).
+\]
+
+As proven in \cite[8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ define a Quillen equivalence when simplicial and cubical sets are considered as model categories.
+
+\subsection{The Cartan-Serre comparison chain map} \label{ss:comparison map}
+
+The projection
+\[
+\projection \colon \scube{n} \to \simplex^{\!n}
+\]
+defined in \cref{ss:simplicial cube} induces for any simplicial set $Y$ a natural morphism of graded sets
+\[
+Y \to \cubify Y
+\]
+defined on a standard simplex $\simplex^n$ by
+\[
+\big( [m] \xra{\sigma} [n] \big) \mapsto
+\big( \scube{m} \xra{\pi} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
+\]
+It induces a chain map
+\[
+\CS_Y \colon \schains(Y) \to \cchains(\cubify Y)
+\]
+which we refer to as the \textit{Cartan-Serre comparison chain map}, remarking that it is a quasi-isomorphism by an acyclic carrier argument \cite{eilenberg1953acyclic}.
 
 \subsection{The Cartan-Serre chain map} \label{ss:the cartan-serre chain map}
 
@@ -221,34 +148,57 @@ We have the following key result whose proof will be given in  \cref{ss:comparis
 It is easy to verify that $\psi$ under this identification is equal to the composition
 \[
 \begin{tikzcd}[column sep=normal]
-\chains(\cube^n) \arrow[r, "\chains(\T)"] &[-3pt]
+\chains(\cube^n) \arrow[r, "\chains(\triangulate)"] &[-3pt]
 \chains \big( \scube{n} \big) \arrow[r, "\chains(s)"] &[-3pt]
 \chains(\simplex^{\!n}),
 \end{tikzcd}
 \]
 which will be use to establish the extended comultiplicativity of the comparison map we introduce next.
 
-\subsection{Comparison map} \label{ss:comparison map}
+\subsection{Proof of \cref{t:extended comultiplicativity}} \label{ss:proof extended comultiplicativity}
 
-For any simplicial set $Y$ the map $s \colon \scube{n} \to \simplex^{\!n}$ induces a map
+For any topological space $Z$, we need to show that the chain map $\chains(\sSing Z) \to \chains(\cSing Z)$ induced by precomposing each basis element with the Cartan-Serre map $\gcube^n \to \gsimplex^{\!n}$ is an $\Sl$ morphism.
+This map factors as a composition
 \[
-\begin{tikzcd}[column sep = small, row sep=tiny]
-\sSet(\simplex^{\!n}, Y) \arrow[r] &
-\sSet(\T \cube^n, Y) \\
-\big( \simplex^{\!n} \xrightarrow{g} Y \big) \arrow[r, maps to] &
-\big(\scube{n} \xrightarrow{s} \simplex^{\!n} \xrightarrow{g} Y \big),
-\end{tikzcd}
+\chains(\sSing Z) \to \chains(\cubify \sSing Z) \to \chains(\cSing Z)
 \]
-for every $n \geq 0$, which, composing with the adjunction isomorphism, gives a map
+where the first map is the comparison map of \cref{ss:comparison map} and the second is induced from a morphism of cubical set.
+
+The first is a morphism of $\Sl$ coalgebras by \cref{t:comparison map is e infinity}, and the second by naturality.
+
+\subsection{The operad of surjection-like graphs} \label{ss:surjection-like graphs}
+
+The operad $\USL$ is generated as a suboperad of $\UM$ by all immerse connected graphs of the form
+\input{aux/surjection_like}
+where there are no hidden vertices and the strands are joined so that the associated maps $\{1, \dots, k_j\} \to \{1, \dots, n+k\}$ are order-preserving.
+From \cite{medina2021cubical} we have the following.
+
+\begin{proposition} \label{p:simplicialandcubical}
+	The suboperad $\USL$ of $\UM$ is $E_\infty$.
+\end{proposition}
+
+\subsection{The Cartan-Serre collapse map} \label{ss:the cartan-serre collapse map}
+
+Let us consider, with their usual CW structures, the topological simplex
 \[
-\begin{tikzcd}[column sep = small, row sep=tiny]
-\sSet(\simplex^{\!n}, Y) \arrow[r] &
-\cSet(\cube^n,\, \U Y) \\
-\big( \simplex^{\!n} \xrightarrow{g} Y \big) \arrow[r, maps to] &
-\Big(\cube^n \xrightarrow{\T} \big(\scube{n} \xrightarrow{g \circ s} Y \big)\Big).
-\end{tikzcd}
+\gsimplex^{\!n} = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
 \]
-These define a morphism of graded sets inducing a chain map $S_Y \colon \chains(Y) \to \chains(\U Y)$, referred to as the comparison map for $Y$, which is a quasi-isomorphism by an acyclic carrier argument.
+and the topological cube $\gcube^n$ recalled in \eqref{e:topological cube}.
+
+The \textit{Cartan-Serre collapse map} $\gcube^n \to \gsimplex^{\!n}$ is the cellular map defined by
+\begin{equation} \label{e:cartan-serre CW map}
+\begin{split}
+&y_0 = 1 - x_1, \\
+&y_1 = x_1(1 - x_2), \\
+&\ \vdots \\
+&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
+&y_{n} = x_1 x_2 \dots x_n.
+\end{split}
+\end{equation}
+
+For later use, notice that coordinates in the domain that are $0$ play an important role.
+Specifically, if $x_i = 0$ then $y_{j} = 0$ for every $j \geq i$.
+
 
 \begin{theorem} \label{t:comparison map is e infinity}
 	The comparison map for any simplicial set $Y$ is a morphism of $\Sl$ coalgebras.
@@ -258,12 +208,34 @@ These define a morphism of graded sets inducing a chain map $S_Y \colon \chains(
 	This follows from \cref{l:cartan-serre is e infinity} and the identification of $\psi$ with $\chains(s \circ \mathcal T)$
 \end{proof}
 
-\subsection{Proof of \cref{t:extended comultiplicativity}} \label{ss:proof extended comultiplicativity}
+\subsection{Extended comultiplicativity} \label{ss:extended comultiplicativity}
 
-For any topological space $Z$, we need to show that the chain map $\chains(\sSing Z) \to \chains(\cSing Z)$ induced by precomposing each basis element with the Cartan-Serre map $\gcube^n \to \gsimplex^{\!n}$ is an $\Sl$ morphism.
-This map factors as a composition
-\[
-\chains(\sSing Z) \to \chains(\U \sSing Z) \to \chains(\cSing Z)
-\]
-where the first map is the comparison map of \cref{ss:comparison map} and the second is induced from a morphism of cubical set.
-The first is a morphism of $\Sl$ coalgebras by \cref{t:comparison map is e infinity}, and the second by naturality.
+Let $Y$ be a simplicial set and $X$ a cubical set.
+By restriction of their $\UM$ coalgebra structures, both $\chains(Y)$ and $\chains(X)$ are $\Sl$ coalgebras, and we have the following generalization of the Serre's comultiplicativity.
+
+\begin{theorem} \label{t:extended comultiplicativity}
+	For any topological space $Z$, the quasi-isomorphism $\chains(\sSing Z) \to \chains(\cSing Z)$ induced by precomposing with the Serre-Cartan map $\gcube^n \to \gsimplex^{\!n}$ is a morphisms of $E_\infty$-coalgebras, where the domain structure extends the Alexander--Whitney coproduct and the target the Serre coproduct.
+\end{theorem}
+
+%\subsection{The Cartan-Serre comparison chain map} \label{ss:comparison map}
+%
+%For any simplicial set $Y$ the map $\projection \colon \scube{n} \to \simplex^{\!n}$ induces a map
+%\[
+%\begin{tikzcd}[column sep = small, row sep=0pt]
+%\sSet(\simplex^{\!n}, Y) \arrow[r] &
+%\sSet(\triangulate \cube^n, Y) \\
+%\big( \simplex^{\!n} \xra{g} Y \big) \arrow[r, maps to] &
+%\big(\scube{n} \xra{\projection} \simplex^{\!n} \xra{g} Y \big),
+%\end{tikzcd}
+%\]
+%for every $n \geq 0$, which, composing with the adjunction isomorphism, defines a morphism
+%\[
+%\begin{tikzcd}[column sep = small, row sep=0pt]
+%\sSet(\simplex^{\!n}, Y) \arrow[r] &
+%\cSet(\cube^n,\, \cubify Y) \\
+%\big( \simplex^{\!n} \xra{g} Y \big) \arrow[r, maps to] &
+%\Big(\cube^n \to \big(\scube{n} \xra{g \circ \projection} Y \big)\Big)
+%\end{tikzcd}
+%\]
+%of graded sets inducing a chain map $\CS_Y \colon \chains(Y) \to \chains(\cubify Y)$.
+%We refer to $\CS_Y$ as the \textit{Cartan-Serre comparison chain map} for $Y$ and remark that it is a quasi-isomorphism by an acyclic carrier argument \cite{eilenberg1953acyclic}.
