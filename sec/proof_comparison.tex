@@ -4,9 +4,9 @@
 To prove \cref{l:cartan-serre is e infinity} we need to show the commutativity of the diagram
 \[
 \begin{tikzcd}
-U(\Sl)(r) \otimes \gchains(\gcube^n) \arrow[r] \arrow[d, "\id\, \otimes\, \psi"'] &
+\USL(r) \otimes \gchains(\gcube^n) \arrow[r] \arrow[d, "\id\, \otimes\, \psi"'] &
 \gchains(\gcube^n)^{\otimes r} \arrow[d, "\psi^{\otimes r}"] \\
-U(\Sl)(r) \otimes \gchains(\gsimplex^n) \arrow[r] &
+\USL(r) \otimes \gchains(\gsimplex^n) \arrow[r] &
 \gchains(\gsimplex^n)^{\otimes r}.
 \end{tikzcd}
 \]
@@ -14,7 +14,7 @@ By naturality, it suffices to show that
 \begin{equation} \label{e:Cartan-Serre E-coalgebra map}
 \psi^{\otimes r} \circ \Gamma\big( [0,1]^{\otimes n} \big) = \Gamma \circ \psi \big( [0,1]^{\otimes n} \big),
 \end{equation}
-where $\Gamma$ is represented by a surjection-like graph, a generator of $U(\Sl)$.
+where $\Gamma$ is represented by a surjection-like graph, a generator of $U(\USL)$.
 
 We will need the following characterization of the kernel of $\psi$.
 \begin{lemma} \label{l:kernel of psi}
@@ -140,7 +140,7 @@ For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \c
 This sequence of lemmas provides a proof of \cref{l:cartan-serre is e infinity} using the decomposition of any surjection-like graph not equal to \counit \ into pieces \coproduct \ and \product.
 
 \begin{remark}
-	One might ask for an example illustrating the need to restrict to $\Sl$.
+	One might ask for an example illustrating the need to restrict to $\USL$.
 	Notice for this end that $\psi([0] \otimes [0,1]) = 0$, but $([1] \otimes [1]) \ast ([0] \otimes [0,1]) = -([0,1] \otimes [0,1])$ which is mapped to $-[0,1,2]$ by $\psi$.
 	This proves in particular that $\psi$ is not a morphisms of $\M$ algebras.
 \end{remark}
