@@ -1,28 +1,58 @@
 
 \section{The Cartan-Serre comparison map} \label{s:the cartan-serre comparison map}
 
-More specifically, in \cite[p. 442]{serre1951homologie}, Serre described for any topological space a quasi-isomorphism between its simplicial and cubical singular cochains using a canonical cellular map $\gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic}, where it is attributed to Cartan.
-
-Let $Z$ be a topological space.
-The goal of this section is to prove a generalization of the comultiplicativity of the natural quasi-isomorphisms $\chains(\sSing Z) \to \chains(\cSing Z)$ studied by Cartan and Serre.
-Specifically, we show that this map is a morphism of $E_\infty$-coalgebras in \cref{ss:extended comultiplicativity}.
-More generally, we construct an $E_\infty$-coalgebra map $\chains(Y) \to \chains(\cubify Y)$ for any simplicial set $Y$, where $\cubify$ is the right adjoint to the triangulation functor from cubical sets to simplicial sets.
-
-We review from \cite{medina2021cubical} the relationship between the $E_\infty$-structures defined on simplicial chains in \cref{ss:e-infty on simplicial} and on cubical chains in \cref{ss:e-infty on cubical}.
-
-%In \cite[p.442]{serre1951homologie}, the \textit{Serre--Cartan collapse} $\gcube^n \to \gsimplex^n$ was introduced and used to define a natural quasi-isomorphism of coalgebras $\sS(Z) \to \cS(Z)$ for any topological space $Z$.
-This map factors as the composition
+Let us consider, with their usual CW structures, the topological simplex
 \[
-\schains(\sSing(Z)) \xra{\CS_{\sSing(Z)}}
+\gsimplex^{\!n} = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
+\]
+and the topological cube $\gcube^n$.
+In \cite[p. 442]{serre1951homologie}, Serre described for any space a quasi-isomorphism of coalgebras between its simplicial and cubical singular chains using a canonical cellular map $\gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic}, where it is attributed to Cartan.
+We refer to it as the Cartan--Serre collapse map $\CScollapse \colon \gcube^n \to \gsimplex^{\!n}$.
+It is defined by
+\begin{equation} \label{e:cartan-serre collapse map}
+\begin{split}
+&y_0 = 1 - x_1, \\
+&y_1 = x_1(1 - x_2), \\
+&\ \vdots \\
+&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
+&y_{n} = x_1 x_2 \dots x_n.
+\end{split}
+\end{equation}
+The aforementioned comparison coalgebra map
+\begin{equation} \label{e:singular chains comparison}
+\chains(\sSing(Z)) \to
+\chains(\cSing(Z)),
+\end{equation}
+is given by precomposing with $\CScollapse$ for any space $Z$.
+
+The goal of this section is to show that \eqref{e:singular chains comparison} is a quasi-isomorphism of $E_\infty$-coalgebras.
+We will deduce this result from a more general categorical statement.
+We begin by constructing a factorization of \eqref{e:singular chains comparison} as a composition
+\[
+\schains(\sSing(Z)) \xra{\CScomp_{\sSing(Z)}}
 \chains(\cubify \sSing(Z)) \to
 \chains(\cSing(Z)),
 \]
-where the first map $\CS_X$, referred to as the \textit{Serre--Cartan comparison map}, is a quasi-isomorphism defined for any simplicial set $X$, and the second map is induced from a morphism of cubical sets.
+where the first map $\CScomp_X$, referred to as the Cartan--Serre comparison map, is a quasi-isomorphism defined for any simplicial set $X$, and the second map is induced from a morphism of cubical sets.
+We then show that $\CScomp_X$ is a quasi-isomorphism of $E_\infty$-coalgebras.
 
-Although both $\schains(X)$ and $\chains(\cubify X)$ have natural $\UM$-structures, the map $\CS_X$ is not a morphism of $\UM$-coalgebras for a generic simplicial set $X$.
-Nevertheless, after restriction of their $\UM$-structures via an inclusion of $E_\infty$-operads $\USL \to \UM$, the Cartan-Serre comparison map becomes a morphism of $E_\infty$-coalgebras.
+%Let $Z$ be a topological space.
+%The goal of this section is to prove a generalization of the comultiplicativity of the natural quasi-isomorphisms $\chains(\sSing Z) \to \chains(\cSing Z)$ studied by Cartan and Serre.
+%Specifically, we show that this map is a morphism of $E_\infty$-coalgebras in \cref{ss:extended comultiplicativity}.
+%More generally, we construct an $E_\infty$-coalgebra map $\chains(Y) \to \chains(\cubify Y)$ for any simplicial set $Y$, where $\cubify$ is the right adjoint to the triangulation functor from cubical sets to simplicial sets.
+%
+%We review from \cite{medina2021cubical} the relationship between the $E_\infty$-structures defined on simplicial chains in \cref{ss:e-infty on simplicial} and on cubical chains in \cref{ss:e-infty on cubical}.
+%
+%
+%For later use, notice that coordinates in the domain that are $0$ play an important role.
+%Specifically, if $x_i = 0$ then $y_{j} = 0$ for every $j \geq i$.
 
-\newpage
+
+%In \cite[p.442]{serre1951homologie}, the \textit{Serre--Cartan collapse} $\gcube^n \to \gsimplex^n$ was introduced and used to define a natural quasi-isomorphism of coalgebras $\sS(Z) \to \cS(Z)$ for any topological space $Z$.
+
+
+%Although both $\schains(X)$ and $\chains(\cubify X)$ have natural $\UM$-structures, the map $\CScomp_X$ is not a morphism of $\UM$-coalgebras for a generic simplicial set $X$.
+%Nevertheless, after restriction of their $\UM$-structures via an inclusion of $E_\infty$-operads $\USL \to \UM$, the Cartan-Serre comparison map becomes a morphism of $E_\infty$-coalgebras.
 
 \subsection{Simplicial chains}
 
@@ -79,20 +109,19 @@ for $k \in \{0, \dots, m+1\}$, and
 \[
 \scube{n}_m = \big\{ \angles{k_1} \times \dots \times \angles{k_n} \mid \angles{k_i} \in \simplex^1_m \big\}.
 \]
-Additionally, we define for each $n \in \N$ natural simplicial maps
+Additionally, we define for each $n \in \N$ a natural simplicial map
 \[
-\inclusion \colon \simplex^n \leftrightarrows \scube{n} :\! \projection
+\projection \colon \scube{n} \to \simplex^n
 \]
-satisfying $\projection \circ \inclusion = \id_{\simplex^{\!n}}$ by
+by
 \[
-\inclusion \colon [0, \dots, n] \mapsto \angles{n} \times \dots \times \angles{1},
+[\varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto
+[v_0, \dots, v_m]
 \]
-and
+where
 \[
-\projection \colon [\varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto
-[\eta_0^1, \dots, \eta_m^1] \times \dots \times [ \eta_0^n, \dots, \eta_m^n]
+v_i = \varepsilon_i^0 + \varepsilon_i^0 \varepsilon_i^1 + \dots + \varepsilon_i^0 \dotsm \varepsilon_i^m.
 \]
-with $\eta_i^k = \varepsilon_i^1 \dots \varepsilon_i^k$.
 
 \subsection{Triangulation and its right adjoint}
 
@@ -110,8 +139,28 @@ defined by
 \[
 \cubify(X)(2^m) = \sSet \big( \scube{n}, \, X \big).
 \]
+As proven in \cite[8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ define a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
+\subsection{The subdivision map}
 
-As proven in \cite[8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ define a Quillen equivalence when simplicial and cubical sets are considered as model categories.
+The \textit{subdivision} map of a cubical set $X$
+\[
+\subdivide_X \colon \cchains(X) \to \schains(\triangulate X)
+\]
+is the natural chain map defined by the well known Eilenberg--Zilber map
+\[
+\subdivide \colon \chains(\cube^n) \cong \chains(\simplex^1)^{\otimes n} \xra{EZ} \chains \scube{n}.
+\]
+
+We can use the subdivision map to provide an alternative description of the complex $\cchains(\cubify Y)$ for any simplicial set $Y$.
+Since the over-category of chain maps $\chains(\cube^n) \to \cchains(\cubify Y)$ induced by cubical maps $\cube^n \to \cubify Y$ is equivalent to the category $\sC_Y$ whose objects are chain maps
+\[
+\chains(\cube^n) \xra{\subdivide} \chains \scube{n} \to \schains(Y)
+\]
+where the second map is induced from a simplicial map
+and morphisms are appropriate commutative diagrams, we have
+\begin{equation} \label{e:alternative description of NUY}
+\chains(\cubify Y) \cong \colim_{\cC_Y} \chains(\cube^n).
+\end{equation}
 
 \subsection{The Cartan-Serre comparison chain map} \label{ss:comparison map}
 
@@ -126,23 +175,70 @@ Y \to \cubify Y
 defined on a standard simplex $\simplex^n$ by
 \[
 \big( [m] \xra{\sigma} [n] \big) \mapsto
-\big( \scube{m} \xra{\pi} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
+\big( \scube{m} \xra{\projection} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
 \]
-It induces a chain map
+It induces a graded linear map
 \[
-\CS_Y \colon \schains(Y) \to \cchains(\cubify Y)
+\CScomp_Y \colon \schains(Y) \to \cchains(\cubify Y)
 \]
-which we refer to as the \textit{Cartan-Serre comparison chain map}, remarking that it is a quasi-isomorphism by an acyclic carrier argument \cite{eilenberg1953acyclic}.
+which we refer to as the \textit{Cartan-Serre comparison map}.
 
-\subsection{The Cartan-Serre chain map} \label{ss:the cartan-serre chain map}
+We can give a more explicit description of this map using \eqref{e:alternative description of NUY}.
+The image of the basis element $\id_{[n]} \in \chains(\simplex^n)$ is the composition
+\[
+\chains(\cube^n) \xra{\subdivide} \chains(\scube{n}) \xra{\chains \projection} \chains(\simplex^n).
+\]
+We remark that, using the isomorphisms
+\[
+\chains(\cube^n) \cong \gchains(\gcube^n), \qquad
+\chains(\simplex^n) \cong \gchains(\gsimplex^n),
+\]
+the composition $\chains \projection \circ \subdivide$ agrees with the Cartan--Serre collapse map $\CScollapse$ defined in \eqref{e:cartan-serre collapse map}.
+
+\begin{lemma}
+	The map $\CScomp_Y$ is a quasi-isomorphism for any simplicial set $Y$
+\end{lemma}
+
+\begin{proof}
+	It suffices to prove this for $Y = \simplex^n$, since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
+	Since $\chains \projection \circ \subdivide$ is a chain map we have
+	\begin{align*}
+	\CScomp \big( \partial^\simplex \id_{[n]} \big) \defeq
+	\partial^\simplex \circ \chains \projection \circ \subdivide =
+	\chains \projection \circ \subdivide \circ \, \partial^\cube \defeq
+	\partial^\cube \CScomp (\id_{[n]}).
+	\end{align*}
+	That it induces an isomorphism in homology can be seen easily from the contractibility of both $\simplex^n$ and $\cubify \simplex^n$.
+\end{proof}
+
+\subsection{The operad of surjection-like graphs} \label{ss:surjection-like graphs}
+
+The operad $\USL$ is generated as a suboperad of $\UM$ by all immerse connected graphs of the form
+\input{aux/surjection_like}
+where there are no hidden vertices and the strands are joined so that the associated maps $\{1, \dots, k_j\} \to \{1, \dots, n+k\}$ are order-preserving.
+From \cite{medina2021cubical} we have the following.
+
+\begin{proposition} \label{p:simplicialandcubical}
+	The suboperad $\USL$ of $\UM$ is $E_\infty$.
+\end{proposition}
+
+\begin{theorem} \label{t:comparison map is e infinity}
+	The comparison map for any simplicial set $Y$ is a morphism of $\USL$ coalgebras.
+\end{theorem}
+
+\begin{proof}
+	This follows from \cref{l:cartan-serre is e infinity} and the identification of $\psi$ with $\chains(s \circ \mathcal T)$
+\end{proof}
+
+\subsection{The Cartan--Serre chain map} \label{ss:the cartan-serre chain map}
 
 Let $\psi \colon \gchains(\gcube^n) \to \gchains(\gsimplex^{\!n})$ be the chain map induced by the Cartan-Serre map $\gcube^n \to \gsimplex^{\!n}$.
 Using the identification of the cellular chains of $\gcube^n$ and $\gsimplex^{\!n}$ with $\chains(\cube^n)$ and $\chains(\simplex^{\!n})$
-provides the domain and target of $\psi$ with an $\Sl$-coalgebra structure.
+provides the domain and target of $\psi$ with an $\USL$-coalgebra structure.
 We have the following key result whose proof will be given in  \cref{ss:comparison proof}.
 
 \begin{lemma} \label{l:cartan-serre is e infinity}
-	The map $\psi$ is a morphism of $\Sl$-coalgebras.
+	The map $\psi$ is a morphism of $\USL$-coalgebras.
 \end{lemma}
 
 It is easy to verify that $\psi$ under this identification is equal to the composition
@@ -157,61 +253,19 @@ which will be use to establish the extended comultiplicativity of the comparison
 
 \subsection{Proof of \cref{t:extended comultiplicativity}} \label{ss:proof extended comultiplicativity}
 
-For any topological space $Z$, we need to show that the chain map $\chains(\sSing Z) \to \chains(\cSing Z)$ induced by precomposing each basis element with the Cartan-Serre map $\gcube^n \to \gsimplex^{\!n}$ is an $\Sl$ morphism.
+For any topological space $Z$, we need to show that the chain map $\chains(\sSing Z) \to \chains(\cSing Z)$ induced by precomposing each basis element with the Cartan-Serre map $\gcube^n \to \gsimplex^{\!n}$ is an $\USL$ morphism.
 This map factors as a composition
 \[
 \chains(\sSing Z) \to \chains(\cubify \sSing Z) \to \chains(\cSing Z)
 \]
 where the first map is the comparison map of \cref{ss:comparison map} and the second is induced from a morphism of cubical set.
 
-The first is a morphism of $\Sl$ coalgebras by \cref{t:comparison map is e infinity}, and the second by naturality.
-
-\subsection{The operad of surjection-like graphs} \label{ss:surjection-like graphs}
-
-The operad $\USL$ is generated as a suboperad of $\UM$ by all immerse connected graphs of the form
-\input{aux/surjection_like}
-where there are no hidden vertices and the strands are joined so that the associated maps $\{1, \dots, k_j\} \to \{1, \dots, n+k\}$ are order-preserving.
-From \cite{medina2021cubical} we have the following.
-
-\begin{proposition} \label{p:simplicialandcubical}
-	The suboperad $\USL$ of $\UM$ is $E_\infty$.
-\end{proposition}
-
-\subsection{The Cartan-Serre collapse map} \label{ss:the cartan-serre collapse map}
-
-Let us consider, with their usual CW structures, the topological simplex
-\[
-\gsimplex^{\!n} = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
-\]
-and the topological cube $\gcube^n$ recalled in \eqref{e:topological cube}.
-
-The \textit{Cartan-Serre collapse map} $\gcube^n \to \gsimplex^{\!n}$ is the cellular map defined by
-\begin{equation} \label{e:cartan-serre CW map}
-\begin{split}
-&y_0 = 1 - x_1, \\
-&y_1 = x_1(1 - x_2), \\
-&\ \vdots \\
-&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
-&y_{n} = x_1 x_2 \dots x_n.
-\end{split}
-\end{equation}
-
-For later use, notice that coordinates in the domain that are $0$ play an important role.
-Specifically, if $x_i = 0$ then $y_{j} = 0$ for every $j \geq i$.
-
-
-\begin{theorem} \label{t:comparison map is e infinity}
-	The comparison map for any simplicial set $Y$ is a morphism of $\Sl$ coalgebras.
-\end{theorem}
-
-\begin{proof}
-	This follows from \cref{l:cartan-serre is e infinity} and the identification of $\psi$ with $\chains(s \circ \mathcal T)$
-\end{proof}
+The first is a morphism of $\USL$ coalgebras by \cref{t:comparison map is e infinity}, and the second by naturality.
 
 \subsection{Extended comultiplicativity} \label{ss:extended comultiplicativity}
 
 Let $Y$ be a simplicial set and $X$ a cubical set.
-By restriction of their $\UM$ coalgebra structures, both $\chains(Y)$ and $\chains(X)$ are $\Sl$ coalgebras, and we have the following generalization of the Serre's comultiplicativity.
+By restriction of their $\UM$ coalgebra structures, both $\chains(Y)$ and $\chains(X)$ are $\USL$ coalgebras, and we have the following generalization of the Serre's comultiplicativity.
 
 \begin{theorem} \label{t:extended comultiplicativity}
 	For any topological space $Z$, the quasi-isomorphism $\chains(\sSing Z) \to \chains(\cSing Z)$ induced by precomposing with the Serre-Cartan map $\gcube^n \to \gsimplex^{\!n}$ is a morphisms of $E_\infty$-coalgebras, where the domain structure extends the Alexander--Whitney coproduct and the target the Serre coproduct.
@@ -237,5 +291,5 @@ By restriction of their $\UM$ coalgebra structures, both $\chains(Y)$ and $\chai
 %\Big(\cube^n \to \big(\scube{n} \xra{g \circ \projection} Y \big)\Big)
 %\end{tikzcd}
 %\]
-%of graded sets inducing a chain map $\CS_Y \colon \chains(Y) \to \chains(\cubify Y)$.
-%We refer to $\CS_Y$ as the \textit{Cartan-Serre comparison chain map} for $Y$ and remark that it is a quasi-isomorphism by an acyclic carrier argument \cite{eilenberg1953acyclic}.
+%of graded sets inducing a chain map $\CScomp_Y \colon \chains(Y) \to \chains(\cubify Y)$.
+%We refer to $\CScomp_Y$ as the \textit{Cartan-Serre comparison chain map} for $Y$ and remark that it is a quasi-isomorphism by an acyclic carrier argument \cite{eilenberg1953acyclic}.
