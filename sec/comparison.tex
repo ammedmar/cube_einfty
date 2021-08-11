@@ -1,5 +1,5 @@
 
-\section{The Cartan-Serre comparison map} \label{s:the cartan-serre comparison map}
+\section{The Cartan--Serre comparison map} \label{s:the cartan-serre comparison map}
 
 Let us consider, with their usual CW structures, the topological simplex
 \[
@@ -148,7 +148,7 @@ and morphisms are appropriate commutative diagrams, we have
 \chains(\cubify Y) \cong \colim_{\cC_Y} \chains(\cube^n).
 \end{equation}
 
-\subsection{The Cartan-Serre comparison map} \label{ss:comparison map}
+\subsection{The Cartan--Serre comparison map} \label{ss:comparison map}
 
 The projection
 \[
@@ -167,7 +167,7 @@ Additionally, passing to chains gives a graded linear map
 \[
 \CScomp_Y \colon \schains(Y) \to \cchains(\cubify Y)
 \]
-which we refer to as the \textit{Cartan-Serre comparison map}.
+which we refer to as the \textit{Cartan--Serre comparison map}.
 
 We can give a more explicit description of this map using \eqref{e:alternative description of NUY}.
 It is determined by the image of the basis element $\id_{[n]} \in \chains(\simplex^n)$, which is the composition
@@ -181,7 +181,7 @@ We remark that, using the isomorphisms
 \]
 the composition $\chains \projection \circ \subdivide$ agrees with the Cartan--Serre collapse map $\CScollapse$ reviewed in~\eqref{e:cartan-serre collapse map}.
 We abuse notation and use the same notation for both.
-Therefore, the Cartan-Serre comparison map $\CScomp$ is determined by the chain map
+Therefore, the Cartan--Serre comparison map $\CScomp$ is determined by the Cartan--Serre collapse map via the chain map
 \[
 \begin{tikzcd}[column sep=small, row sep=0]
 \chains(\simplex^n) \arrow[r] &
@@ -192,12 +192,12 @@ Therefore, the Cartan-Serre comparison map $\CScomp$ is determined by the chain 
 \]
 
 \begin{lemma}
-	The map $\CScomp_Y$ is a quasi-isomorphism for any simplicial set $Y$
+	The map Cartan--Serre comparison map $\CScomp_Y$ is a quasi-isomorphism for any simplicial set $Y$
 \end{lemma}
 
 \begin{proof}
 	It suffices to prove this for $Y = \simplex^n$ since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
-	Since $\chains \projection \circ \subdivide = \CScollapse$ is a chain map, we have
+	Since $\CScollapse = \chains \projection \circ \subdivide$ is a chain map, we have
 	\begin{align*}
 	\CScomp \big( \partial^\simplex \id_{[n]} \big) \defeq
 	\partial^\simplex \circ \CScollapse =
@@ -210,7 +210,7 @@ Therefore, the Cartan-Serre comparison map $\CScomp$ is determined by the chain 
 \subsection{The operad of surjection-like graphs} \label{ss:surjection-like graphs}
 
 Although for any simplicial set $Y$ both $\schains(Y)$ and $\chains(\cubify Y)$ have natural $\UM$-structures, the map $\CScomp_Y$ is not a morphism of $\UM$-coalgebras for an arbitrary $Y$.
-Nevertheless, after restriction of their $\UM$-structures via an inclusion of $E_\infty$-operads $\USL \to \UM$, the Cartan-Serre comparison map becomes a morphism of $E_\infty$-coalgebras.
+Nevertheless, after restriction of their $\UM$-structures via an inclusion of $E_\infty$-operads $\USL \to \UM$, the Cartan--Serre comparison map becomes a morphism of $E_\infty$-coalgebras.
 
 The operad $\USL$ is generated as a suboperad of $\UM$ by all immerse connected graphs of the form
 \input{aux/surjection_like}
@@ -232,7 +232,7 @@ We now come to the main result of this section.
 	The Cartan--Serre comparison map $\CScomp_Y \colon \schains(Y) \to \cchains(\cubify Y)$ is a quasi-isomorphism of $\USL$-coalgebras for any simplicial set $Y$
 \end{theorem}
 
-We deduce this from the following result which we prove in \cref{as}.
+We deduce this from the following result which we prove in \cref{ss:comparison proof}.
 
 \begin{lemma} \label{l:main comparison}
 	The Cartan--Serre collapse map $\CScollapse \colon \chains(\cube^n) \to \chains(\simplex^n)$ is a quasi-isomorphism of $\USL$-coalgebras every $n \in \N$.
@@ -271,5 +271,140 @@ We deduce this from the following result which we prove in \cref{as}.
 	The first is a morphism of $\USL$-coalgebras by \cref{t:main comparison}, and the second by naturality.
 \end{proof}
 
-\input{sec/proof_comparison}
 
+\subsection{Proof of \cref{l:main comparison}} \label{ss:comparison proof}
+
+By naturality, it suffices to show that
+\begin{equation} \label{e:Cartan--Serre E-coalgebra map}
+\CScollapse^{\otimes r} \! \circ \Gamma \big( \id_{2^n} \big) = \Gamma \circ \CScollapse \big( \id_{2^n} \big),
+\end{equation}
+where $\Gamma$ is represented by a surjection-like graph in $\USL(r)$.
+
+We will need the following characterization of the kernel of $\CScollapse$.
+\begin{lemma} \label{l:kernel of psi}
+	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ we have $\CScollapse(x) = 0$ if and only if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$.
+\end{lemma}
+
+\begin{proof}
+	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan--Serre map $\gcube^n \to \gsimplex^n$ defined in \cref{ss:the cartan-serre comparison map} has $j\th$ coordinate equal to $0$ for every $j \geq i$.
+\end{proof}
+
+\begin{lemma}
+	If $\Gamma =$ \counit \ or \coproduct \ then identity \eqref{e:Cartan--Serre E-coalgebra map} holds.
+\end{lemma}
+
+\begin{proof}
+	Since vertices are sent to vertices the map $\CScollapse$ is a map of augmented chain complexes, establishing the case $\Gamma =$ \counit \ .
+	To study the compatibility of $\CScollapse$ with \coproduct \, notice that for $n=0$ identity \eqref{e:Cartan--Serre E-coalgebra map} holds trivially.
+	For $n > 0$, consider
+	\[
+	\Delta([0,1]^{\otimes n}) = \sum_{\lambda \in \Lambda} \pm \ x_1^{(\lambda)} \otimes \cdots \otimes x_n^{(\lambda)} \bm{\otimes} y_1^{(\lambda)} \otimes \cdots \otimes y_n^{(\lambda)},
+	\]
+	where $\Lambda$ parameterizes all choices of $x_i^{(\lambda)} \in \{[0], [0,1]\}$ and $y_i^{(\lambda)} \in \{[0,1], [1]\}$ such that
+	\begin{align*}
+	x_i^{(\lambda)} = [0]   & \iff y_i^{(\lambda)} = [0,1], \\
+	x_i^{(\lambda)} = [0,1] & \iff y_i^{(\lambda)} = [1].
+	\end{align*}
+	By \cref{l:kernel of psi}, the summands above not sent to $0$ by $\CScollapse \otimes \CScollapse$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
+	For any one such summand, its sign is positive and its image by $\CScollapse \otimes \CScollapse$ is $[0, \dots, k] \otimes [k, \dots, n]$ where $k+1 = \min \{i \mid x_i^{(\lambda)} = [0]\}$ or $k = n$ if this set is empty.
+	The summands $[0, \dots, k] \otimes [k, \dots, n]$ are precisely those appearing when applying the Alexander-Whitney coproduct to $[0, \dots, n] = \CScollapse \big( [0,1]^{\otimes n} \big)$.
+\end{proof}
+
+We will consider the basis of $\chains(\cube^n)$ as a poset in the following way.
+For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \cdots \otimes x_n) \leq (y_1 \otimes \cdots \otimes y_n)$ if $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$.
+
+\begin{lemma}
+	Let $\Delta^{r-1}$ be the $(r-1)^\th$ iterated Serre diagonal.
+	If
+	\[
+	\Delta^{r-1} \big([0,1]^{\otimes n}\big) =
+	\sum \pm \ x{(1)} \bm{\otimes} \cdots \bm{\otimes} x{(r)}
+	\]
+	with each $x(k) \in \chains(\cube^n)$ a basis element, then $x{(1)} \leq \cdots \leq x{(r)}$.
+\end{lemma}
+
+\begin{proof}
+	For $r = 2$ we have for every $i \in \{1, \dots, n\}$ that
+	\begin{align*}
+	x(1)_i = [0]   & \iff x(2)_i = [0,1], \\
+	x(1)_i = [0,1] & \iff x(2)_i = [1],
+	\end{align*}
+	and that neither $x(1)_i = [1]$ or $x(2)_i = [0]$ can occur, hence $x(1) \leq x(2)$.
+	The claim for $r > 2$ follows from a straightforward induction argument.
+\end{proof}
+
+\begin{lemma}
+	Let $x, y, z \in \chains(\cube^n)$ be basis elements.
+	If $x, y \leq z$ then $(x \ast y) \leq z$.
+\end{lemma}
+
+\begin{proof}
+	Recall that
+	\begin{align*}
+	(x_1 \otimes \cdots \otimes x_n) \ast (y_1 \otimes \cdots \otimes y_n) =
+	(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i}.
+	\end{align*}
+	By assumption, for every $i$ we have $x_{<i} \leq z_{<i}$ and $y_{>i} \leq z_{>i}$, and if $x_i \ast y_i \neq 0$ then either $x_i = [1]$ or $y_i = [1]$ which implies $z_i = [1]$ as well.
+\end{proof}
+
+\begin{lemma}
+	Let $x, y \in \chains(\cube^n)$ be basis elements.
+	If $x \leq y$ then $\CScollapse(x \ast y) = \CScollapse(x) \ast \CScollapse(y)$.
+\end{lemma}
+
+\begin{proof}
+	If $\CScollapse(x) = 0$ or $\CScollapse(y) = 0$ we will show that
+	\begin{equation} \label{e:zero for join}
+	\CScollapse \big( x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0.
+	\end{equation}
+	Assume $\CScollapse(x) = 0$, that is, there exists a pair $p < q$ such that $x_p = [0]$ and $x_q = [0,1]$, then \eqref{e:zero for join} holds since:
+	\begin{enumerate}
+		\item If $i > q$, then $x_p$ and $x_q$ are part of $x_{<i}$.
+		\item If $i = q$, then $x_q \ast y_q = 0$ for any $y_q$.
+		\item If $i < q$, then $\varepsilon(x_{>i}) = 0$.
+	\end{enumerate}
+	Similarly, if there is a pair $p < q$ such that $y_p = [0]$ and $y_q = [0,1]$,  then \eqref{e:zero for join} holds since:
+	\begin{enumerate}
+		\item If $i < p$, then $y_p$ and $y_q$ are part of $y_{>i}$.
+		\item If $i = p$ or, more generally, $y_i = [0]$, then $x_i = [0]$ and $x_i \ast y_i = 0$.
+		\item If $i = q$ or, more generally, $y_i = [0,1]$, then $x_i \ast y_i = 0$ for any $x_i$.
+		\item If $i > q$, then $\varepsilon(y_{<i}) = 0$.
+		\item If $p < i < q$ and $y_i = [1]$ then either $x_i \ast x_j = 0$ or $x_i \ast x_j = [0,1]$, implying $(x \ast y)_p = [0]$ and $(x \ast y)_i = [0,1]$.
+	\end{enumerate}
+	Let us now assume that $\CScollapse(x) \neq 0$ and $\CScollapse(y) \neq 0$.
+	In particular, $x = v_x \otimes [0] \otimes w_x$ and $y = v_y \otimes [0] \otimes w_y$ with $v_x, v_y$ having tensor factors in $\{[0,1], [1]\}$, and $w_x, w_y$ in $\{[0], [1]\}$, we also admit them to be the unit of the tensor product.
+	Additionally, let $p_x$ and $p_y$ be the tensor position of the first $[0]$ in $x$ and $y$ respectively.
+	To make sure all possible elements $x$ and $y$ have a factor $[0]$ in them we consider $\chains(\cube^n)$ as a subcomplex of $\chains(\cube^{n+1})$ via the inclusion that tensors on the right with $[0]$.
+	By naturality, we do not loose generality making this assumption.
+	Since $x \leq y$ we have that $p_x \leq p_y$.
+	We claim that
+	\[
+	\CScollapse(x \ast y) = \CScollapse \big( x_{<p_x} \, \varepsilon(y_{<p_x}) \otimes x_{p_x} \ast y_{p_x} \otimes \varepsilon(x_{>p_x}) \, y_{>p_x} \big).
+	\]
+	To see this we notice that if $i < p_x$ then $x_i = [1]$ or $x_i = [0,1]$.
+	If $x_i = [1]$, since $x_i \leq y_i$, it is impossible for $y_i = [0]$, the only case when $x_i \ast y_i \neq 0$.
+	If $x_i = [0,1]$ then $x_i \ast y_i = 0$ for any $y_i$.
+	If $i > p_x$, then either $x_i \ast y_i = 0$ or $x_i \ast y_i = [0,1]$.
+	In the first case there is nothing to prove and in the second we notice that $(x \ast y)_{p_x} = [0]$ and $(x \ast y)_{} = [0,1]$ so $\CScollapse(x \ast y) = 0$.
+	Let $q_y$ the tensor position of the first occurrence of the tensor factor $[0,1]$ in $y$, setting it to $+\infty$, if not present.
+	If $p_x > q_y$ then $x \ast y = 0$ since $\varepsilon(y_{<p_x}) = 0$, and if $p_x = q_y$ then $x \ast y = 0$ since $[0] \ast [0,1] = 0$.
+	We now prove that in this case $\CScollapse(x) \ast \CScollapse(y) = 0$.
+	Since $x_{q_y} = [0,1]$ since $x \leq y$ and $x_{p_x}$ is the first tensor factor equal to $[0]$.
+	This implies that both $\CScollapse(x)$ and $\CScollapse(y)$ contain the vertex $q_{y} - 1$.
+	Let us now assume that $p_x < q_y$.
+	Then, using that $y_i = [1]$ for every $i < p_x$,
+	\begin{align*}
+	\CScollapse(x \ast y) & =
+	\CScollapse \big( v_x \otimes x_{p_x} \ast y_{p_x} \otimes w_y \big) \\ & =
+	\CScollapse(x) \ast \CScollapse(y)
+	\end{align*}
+	as claimed.
+\end{proof}
+
+This sequence of lemmas provides a proof of \cref{l:cartan-serre is e infinity} using the decomposition of any surjection-like graph not equal to \counit \ into pieces \coproduct \ and \product.
+
+\begin{remark}
+	One might ask for an example illustrating the need to restrict to $\USL$.
+	Notice for this end that $\CScollapse([0] \otimes [0,1]) = 0$, but $([1] \otimes [1]) \ast ([0] \otimes [0,1]) = -([0,1] \otimes [0,1])$ which is mapped to $-[0,1,2]$ by $\CScollapse$.
+	This proves in particular that $\CScollapse$ is not a morphisms of $\M$ algebras.
+\end{remark}

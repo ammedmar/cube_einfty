@@ -11,28 +11,34 @@ Cubical sets, a model for the homotopy category, were also considered by Kan \ci
 
 Other areas where cubical methods are important are applied topology, where cubical complexes are ubiquitous \cite{tomasz2004computational}, and geometric group theory where actions on certain cube complexes characterized combinatorially are of central relevance \cite{gromov1987hyperbolic, agol2013haken}.
 
-Cubical cochains are equipped with the \textit{Serre product}, a lift to the cochain level of the graded ring structure in cohomology.
+Cubical cochains are equipped with the \textit{Serre algebra structure}, a lift to the cochain level of the graded ring structure in cohomology.
 Using an acyclic carrier argument it can be shown that this product is commutative up to coherent homotopies in a non-canonical way.
 The goal of this work is to introduce an effective description of this derived structure in the form of an explicit $E_\infty$-algebra structure naturally extending the Serre product.
 We use the combinatorial model of the $E_\infty$-operad $\UM$ obtained from the finitely presented prop $\M$ introduced in \cite{medina2020prop1}.
-The resulting $\UM$ algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the cochains of standard cubes, which is determined by only three linear maps.
+The resulting $\UM$-algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the cochains of standard cubes, which is determined by only three linear maps.
 To our knowledge, this is the first effective construction of an $E_\infty$-algebra structure on cubical cochains.
 Non-constructively, this result could be obtained using a lifting argument based on the cofibrancy of the reduced version of the operad $\UM$ in the category of operads, but this existence statement misses the rich combinatorial structure present in our effective construction.
 
-As described in \cite{medina2020prop1}, the operad $\UM$ also acts on simplicial cochains extending the Alexander--Whitney product.
+As described in \cite{medina2020prop1}, the operad $\UM$ also acts on simplicial cochains extending the Alexander--Whitney algebra structure.
 We use a construction of Cartan and Serre to relate these cubical and simplicial $E_\infty$-structures.
-More specifically, in \cite[p. 442]{serre1951homologie}, Serre describes for any topological space $Z$ a quasi-isomorphism
+More specifically, in \cite[p. 442]{serre1951homologie}, Serre describes for any space $Z$ a natural quasi-isomorphism
 \[
-\CScomp_Z \colon \cochains(\cSing Z) \to \cochains(\sSing Z)
+\CScomp_Z^\vee \colon \cochains(\cSing Z) \to \cochains(\sSing Z)
 \]
 between its simplicial and cubical singular cochains.
-Furthermore, he states that it respects the Serre and Alexander-Whitney products, i.e., that is it an algebra map.
-In the present work we deduce from a statement at the level of general simplicial sets that $\CScomp_Z$ is in fact a quasi-isomorphisms of $E_\infty$-algebras.
+Furthermore, he states this to be a quasi-isomorphism of algebras with respect to the Serre and Alexander--Whitney structures.
+In the present work we deduce from a statement at the level of general simplicial sets that $\CScomp_Z^\vee$ is in fact a quasi-isomorphisms of $E_\infty$-algebras.
+More specifically, let $\cubify$ be the right adjoint to the triangulation functor from cubical to simplicial sets.
+We construct a natural quasi-isomorphism of $E_\infty$-algebras
+\[
+\CScomp_Y^\vee \colon \ccochains(\cubify Y) \to \scochains(Y)
+\]
+for any simplicial set $Y$, which factor $\CScomp_Z^\vee$ when $Y = \sSing Z$.
 
 We now mention three application of the contributions in this paper.
 For every prime $p$, the mod $p$ cohomology of a space is equipped with natural stable endomorphisms known as Steenrod operations \cite{steenrod1962cohomology}.
-Following an operadic viewpoint developed by May \cite{may1970general}, in \cite{medina2020maysteenrod} we effectively described a May-Steenrod structure on $\UM$, i.e., a compatible choice of elements in $\UM$ that represent Steenrod operations on the mod~$p$ homology of $\UM$ algebras.
-Since, as proven in this article, cubical cochains are a $\UM$-algebra, we use this May-Steenrod structure to extend the cubical cup-$i$ products of \cite{kadeishvili2003cupi} and \cite{pilarczyk2016cubical} to a family of cochain level representatives of Steenrod operations at every prime.
+Following an operadic viewpoint developed by May \cite{may1970general}, in \cite{medina2020maysteenrod} we effectively described a May--Steenrod structure on $\UM$, i.e., a compatible choice of elements in $\UM$ that represent Steenrod operations on the mod~$p$ homology of $\UM$-algebras.
+Since, as proven in this article, cubical cochains are equipped with a $\UM$-structure, we use this May--Steenrod structure to extend the cubical cup-$i$ products of \cite{kadeishvili2003cupi} and \cite{pilarczyk2016cubical} to a family of cochain level representatives of Steenrod operations at every prime.
 Furthermore, the effective nature of these constructions permitted the implementation of these Steenrod products in the computer algebra system \texttt{ComCh} \cite{medina2021computer}.
 
 For a closed smooth manifold $M$, in \cite{medina2021flowing} we compared a cochain complex generated by manifolds with corners over $M$, and the complex of cubical cochains defined by a choice of cubulation of $M$.
@@ -40,7 +46,7 @@ We used a canonical vector field associated to the cubulation to compare multipl
 With the explicit description introduced here of an $E_\infty$-structure on cubical cochains, we expect to build on this multiplicative comparison and, using a coherent family of vector fields, describe the corresponding $E_\infty$-structure on geometric cochains extending the transverse intersection product.
 For more details regarding this geometric model of cohomology please consult \cite{medina2021foundations}.
 
-Our construction of an $E_\infty$-algebra structure on cochains cochains is obtained by dualizing an $E_\infty$-coalgebra structure on cubical chains.
+Our construction of an $E_\infty$-algebra structure on cubical cochains is obtained by dualizing an $E_\infty$-coalgebra structure on cubical chains.
 In the fifties, Adams introduced in \cite{adams1956cobar} a comparison map
 \[
 \theta_Z \colon \cobar S^\simplex(Z,z) \to S^\cube(\loops_z Z)
@@ -52,5 +58,5 @@ In \cite{medina2021cobar} we generalize Baues result by constructing an $E_{\inf
 \subsection*{Outline}
 
 The required concepts from the theory of operads and props is reviewed in \cref{s:operads and props}, including the definition of the operad $\UM$.
-\cref{s:action} contains our main contribution, where we define a natural $\M$-bialgebra structure on the chains of standard cubes, and from it a natural $\UM$-algebra structure on the cochains of cubical sets.
-The comparison between simplicial and cubical cochains is presented in \cref{s:the cartan-serre map}, where we show that the Cartan-Serre comparison map is a morphism of $E_\infty$-algebras.
+\cref{s:action} contains our main contribution, where we define a natural $\M$-bialgebra structure on the chains of standard cubes, and from it a natural $\UM$-coalgebra structure on the chains of cubical sets.
+The comparison between simplicial and cubical cochains is presented in \cref{s:the cartan-serre comparison map}, where we show that the Cartan--Serre comparison map is a morphism of $E_\infty$-algebras.
