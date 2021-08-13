@@ -16,29 +16,24 @@ In \cite[p. 442]{serre1951homologie}, Serre described for any space a quasi-isom
 	&y_1 = x_1(1 - x_2), \\
 	&\ \vdots \\
 	&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
-	&y_{n} = x_1 x_2 \dots x_n,
+	&y_{n} = x_1 x_2 \dots x_n.
 	\end{split}
 	\end{equation}
-	and the aforementioned comparison coalgebra quasi-isomorphism
-	\begin{equation} \label{e:singular chains comparison}
-	\CScomp_Z \colon \chains(\sSing(Z)) \to
-	\chains(\cSing(Z)),
-	\end{equation}
-	is given, for any space $Z$, by precomposing a simplicial singular simplex $\gsimplex^n \to Z$ with $\CScollapse$.
 \end{definition}
 
-The goal of this section is to show that \eqref{e:singular chains comparison} is in fact a quasi-isomorphism of $E_\infty$-coalgebras.
-We will deduce this from a more general categorical statement which we now overview.
-We begin by constructing a factorization of \eqref{e:singular chains comparison} as a composition
-\[
-\schains(\sSing(Z)) \xra{\CScomp_{\sSing(Z)}}
-\chains(\cubify \sSing(Z)) \to
-\chains(\cSing(Z)),
-\]
-where the first map $\CScomp_Y$ is a natural quasi-isomorphism defined for any simplicial set $Y$, and the second is induced from a morphism of cubical sets.
-We then deduce that $\CScomp_Y$ is a quasi-isomorphism of $E_\infty$-coalgebras from the fact, proven in \cref{ss:comparison proof}, the chain map induced by the Cartan--Serre collapse map is one.
+The aforementioned comparison map of singular chains is given, for any space $Z$, by precomposing a simplicial singular simplex $\gsimplex^n \to Z$ with $\CScollapse$.
+The goal of this section is to show this comparison map to be quasi-isomorphism of $E_\infty$-coalgebras, which we will deduce from a more general categorical statement.
 
-\subsection{Simplicial chains}
+%We begin by constructing a factorization of \eqref{e:singular chains comparison} as a composition
+%\[
+%\schains(\sSing(Z)) \xra{\CScomp_{\sSing(Z)}}
+%\chains(\cubify \sSing(Z)) \to
+%\chains(\cSing(Z)),
+%\]
+%where the first map $\CScomp_Y$ is a natural quasi-isomorphism defined for any simplicial set $Y$, and the second is induced from a morphism of cubical sets.
+%We then deduce that $\CScomp_Y$ is a quasi-isomorphism of $E_\infty$-coalgebras from the fact, proven in \cref{ss:comparison proof}, the chain map induced by the Cartan--Serre collapse map is one.
+
+\subsection{Simplicial sets}
 
 We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} $\Fun(\simplex^\op, \Set)$ by $\sSet$ and the standard $n$-simplex by $\simplex^n$.
 As usual, we denote an element in $\simplex^n_m$ by a non-decreasing tuples $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
@@ -146,6 +141,22 @@ and morphisms are appropriate commutative diagrams, we have
 \chains(\cubify Y) \cong \colim_{\cC_Y} \chains(\cube^n).
 \end{equation}
 
+\subsection{The Cartan--Serre collapse chain map}
+
+\anibal{improve}
+
+\begin{lemma}
+	The composition
+	\[
+	\chains(\cube^n) \xra{\subdivide} \chains \big( \scube{n} \big) \xra{\chains \projection} \chains(\simplex^n).
+	\]
+	agrees the chain map $\CScollapse_\ast$ induced by Cartan--Serre collapse map, using the isomorphisms
+	\[
+	\chains(\cube^n) \cong \gchains(\gcube^n), \qquad
+	\chains(\simplex^n) \cong \gchains(\gsimplex^n).
+	\]
+\end{lemma}
+
 \subsection{The Cartan--Serre comparison map} \label{ss:comparison map}
 
 The projection
@@ -168,24 +179,10 @@ Additionally, passing to chains gives a graded linear map
 which we refer to as the \textit{Cartan--Serre comparison map}.
 
 We can give a more explicit description of this map using \eqref{e:alternative description of NUY}.
-It suffices to describe the case $Y = \simplex^n$ where it is determined by the image of the basis element $\id_{[n]} \in \chains(\simplex^n)$, which is the composition
-\[
-\chains(\cube^n) \xra{\subdivide} \chains(\scube{n}) \xra{\chains \projection} \chains(\simplex^n).
-\]
-
-\begin{lemma}
-	The composition $\chains \projection \circ \subdivide$ agrees, using the isomorphisms
-	\[
-	\chains(\cube^n) \cong \gchains(\gcube^n), \qquad
-	\chains(\simplex^n) \cong \gchains(\gsimplex^n),
-	\]
-	with the chain map induced by Cartan--Serre collapse map.
-\end{lemma}
-
-Therefore, the Cartan--Serre comparison map $\CScomp$ is determined by the natural chain map
+It suffices to describe the case $Y = \simplex^n$ given by
 \[
 \begin{tikzcd}[column sep=small, row sep=0]
-\chains(\simplex^n) \arrow[r] &
+\chains(\simplex^n) \arrow[r, "\CScomp"] &
 \chains(\cubify \simplex^n) \\
 \id_{[n]} \arrow[r, mapsto] &
 \CScollapse_\ast.
@@ -239,7 +236,7 @@ where there are no hidden vertices and the strands are joined so that the associ
 	\[
 	\CScollapse_\ast \big( [1] \otimes [1] \big) \ast \CScollapse_\ast \big( [0] \otimes [0,1] \big) \neq \CScollapse_\ast \Big( ([1] \otimes [1]) \ast ([0] \otimes [0,1]) \Big).
 	\]
-	We will return to this example in \cref{ss:comparison proof} after introducing further structure of elements in $\USL$ missing from that of general elements in $\UM$.
+	We will return to this example in \cref{ss:comparison proof} after introducing further structure on the image of elements in $\USL$ missing from that of general elements in $\UM$.
 \end{example}
 
 \subsection{The Cartan--Serre comparison map as an $E_\infty$-coalgebra morphism} \label{ss:the cartan-serre chain map}
@@ -293,10 +290,11 @@ We deduce this from the following result which we prove in \cref{ss:comparison p
 
 \subsection{Proof of \cref{l:main comparison}} \label{ss:comparison proof}
 
+Throughout this subsection we use the identifications $\chains(\cube^n) \cong \gchains(\gcube^n)$ and $\chains(\simplex^n) \cong \gchains(\gsimplex^n)$.
 By naturality, it suffices to show that
 \begin{equation} \label{e:Cartan--Serre E-coalgebra map}
-\CScollapse_\ast^{\otimes r} \! \circ \, \Gamma \big( \id_{2^n} \big) =
-\Gamma \circ \CScollapse_\ast \big( \id_{2^n} \big),
+\CScollapse_\ast^{\otimes r} \! \circ \, \Gamma \big( [0,1]^{\otimes n} \big) =
+\Gamma \circ \CScollapse_\ast \big( [0,1]^{\otimes n} \big),
 \end{equation}
 where $\Gamma$ is represented by a surjection-like graph in $\USL(r)$.
 We will need the following characterization of the kernel of $\CScollapse_\ast$.
@@ -331,7 +329,10 @@ We have the following enhancement of \cref{l:main comparison}.
 \end{proof}
 
 We will consider the basis of $\chains(\cube^n)$ as a poset in the following way.
-For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \cdots \otimes x_n) \leq (y_1 \otimes \cdots \otimes y_n)$ iff $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$.
+
+\begin{definition}
+	For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \cdots \otimes x_n) \leq (y_1 \otimes \cdots \otimes y_n)$ iff $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$.
+\end{definition}
 
 \begin{lemma}
 	Let $\Delta^{r-1}$ be the $(r-1)^\th$ iterated Serre coproduct.
@@ -369,15 +370,21 @@ For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \c
 
 \begin{lemma}
 	Let $x, y \in \chains(\cube^n)$ be basis elements.
-	If $x \leq y$ then $\CScollapse_\ast(x \ast y) = \CScollapse_\ast(x) \ast \CScollapse_\ast(y)$.
+	If $x \leq y$ then
+	\begin{equation} \label{e:cs collapse as algebra map}
+	\CScollapse_\ast(x \ast y) = \CScollapse_\ast(x) \ast \CScollapse_\ast(y).
+	\end{equation}
 \end{lemma}
 
 \begin{proof}
-	We separate this proof into two cases. \\
-	\textit{Claim 1}. If $\CScollapse_\ast(x) = 0$ or $\CScollapse_\ast(y) = 0$ then
+	We present this proof a sequence of three claims. \newline
+
+	\noindent \textit{Claim 1}.
+	If $\CScollapse_\ast(x) = 0$ or $\CScollapse_\ast(y) = 0$ then
 	\begin{equation} \label{e:zero for join}
 	\CScollapse_\ast \big( x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0.
 	\end{equation}
+
 	Assume $\CScollapse_\ast(x) = 0$, that is, there exists a pair $p < q$ such that $x_p = [0]$ and $x_q = [0,1]$, then \eqref{e:zero for join} holds since:
 	\begin{enumerate}
 		\item If $i > q$, then $x_p$ and $x_q$ are part of $x_{<i}$.
@@ -392,44 +399,115 @@ For $n = 1$ we set $[0] < [0,1] < [1]$, and for $n > 1$ we have $(x_1 \otimes \c
 		\item If $i > q$, then $\varepsilon(y_{<i}) = 0$.
 		\item If $p < i < q$ and $y_i = [1]$ then either $x_i \ast x_j = 0$ or $x_i \ast x_j = [0,1]$, implying $(x \ast y)_p = [0]$ and $(x \ast y)_i = [0,1]$.
 	\end{enumerate}
-	\textit{Claim 2}. If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then
-	\[
-	\CScollapse_\ast(x \ast y) =
-	\CScollapse_\ast(x) \ast \CScollapse_\ast(y).
-	\]
-	Given these assumptions there exist basis elements $v_x, v_y$ having tensor factors in $\{[0,1], [1]\}$, and $w_x, w_y$ with tensor factors in $\{[0], [1]\}$ such that
-	\[
-	x = v_x \otimes [0] \otimes w_x, \qquad
-	y = v_y \otimes [0] \otimes w_y.
-	\]
-	Let $p_x$ and $p_y$ be the tensor position of the first $[0]$ in $x$ and $y$ respectively.
-	To make sure all possible elements $x$ and $y$ have a factor $[0]$ in them we consider $\chains(\cube^n)$ as a subcomplex of $\chains(\cube^{n+1})$ via the inclusion that tensors on the right with $[0]$.
-	By naturality, we do not loose generality making this assumption.
-	Since $x \leq y$ we have that $p_x \leq p_y$.
-	We will now show that
+	This proves the first claim and identity \eqref{e:cs collapse as algebra map} under its hypothesis. \newline
+
+	\noindent \textit{Claim 2}.
+	If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then
 	\[
 	\CScollapse_\ast(x \ast y) = \CScollapse_\ast \big( x_{<p_x} \, \varepsilon(y_{<p_x}) \otimes \, x_{p_x} \! \ast y_{p_x} \otimes \varepsilon(x_{>p_x}) \, y_{>p_x} \big).
 	\]
-	To see this we notice that if $i < p_x$ then $x_i = [1]$ or $x_i = [0,1]$.
+
+	To make sure the elements $x$ and $y$ have $[0]$ as a tensor factor in them we consider $\chains(\cube^n)$ as a subcomplex of $\chains(\cube^{n+1})$ via the inclusion that tensors on the right with $[0]$.
+	By naturality, we do not loose generality making this assumption.
+	Let $p_x = \min \big\{ i \mid x_i = [0] \big\}$ and let $p_y$ be defined analogously.
+
+	Given the assumptions of the claim and \cref{l:kernel of psi} the basis elements
+	\[
+	v_x = x_{< p_x}
+	\quad \text{ and } \quad
+	v_y = y_{< p_y}
+	\]
+	have tensor factors in $\big\{ [0,1], [1] \big\}$, whereas
+	\[
+	w_x = x_{> p_x}
+	\quad \text{ and } \quad
+	w_y = y_{> p_y}
+	\]
+	have tensor factors in $\big\{ [0], [1] \big\}$.
+	We remark that any of these could be the unit $1_\k$.
+	Since $x \leq y$ we have that $p_x \leq p_y$.
+	If $i < p_x$ then $x_i = [1]$ or $x_i = [0,1]$.
 	If $x_i = [1]$, since $x_i \leq y_i$, it is impossible for $y_i = [0]$, the only case when $x_i \ast y_i \neq 0$.
 	If $x_i = [0,1]$ then $x_i \ast y_i = 0$ for any $y_i$.
 	If $i > p_x$, then either $x_i \ast y_i = 0$ or $x_i \ast y_i = [0,1]$.
 	In the first case there is nothing to prove and in the second we notice that $(x \ast y)_{p_x} = [0]$ and $(x \ast y)_{} = [0,1]$ so $\CScollapse_\ast(x \ast y) = 0$.
+	This establishes the second claim. \newline
+
+	\noindent \textit{Claim 3}.
+	If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then \eqref{e:cs collapse as algebra map} holds.
 
 	Let $q_y$ be the tensor position of the first occurrence of the tensor factor $[0,1]$ in $y$, setting it to $+\infty$, if not present.
 	If $p_x > q_y$ then $x \ast y = 0$ since $\varepsilon(y_{<p_x}) = 0$, and if $p_x = q_y$ then $x \ast y = 0$ since $[0] \ast [0,1] = 0$.
 	We now prove that in this case $\CScollapse_\ast(x) \ast \CScollapse_\ast(y) = 0$.
-	Since $x_{q_y} = [0,1]$ since $x \leq y$ and $x_{p_x}$ is the first tensor factor equal to $[0]$.
+	Given that $x_{q_y} = [0,1]$ since $x \leq y$ and $x_{p_x}$ is the first tensor factor equal to $[0]$.
 	This implies that both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$ contain the vertex $q_{y} - 1$.
 	Let us now assume that $p_x < q_y$.
-	Then, using that $y_i = [1]$ for every $i < p_x$,
+	Then, using that $y_i = [1]$ for every $i < p_x$ and the second claim we have
 	\begin{align*}
 	\CScollapse_\ast(x \ast y) & =
 	\CScollapse_\ast \big( v_x \otimes x_{p_x} \ast y_{p_x} \otimes w_y \big) \\ & =
 	\CScollapse_\ast(x) \ast \CScollapse_\ast(y)
 	\end{align*}
-	as claimed.
+	as desired.
 \end{proof}
+
+%\begin{proof}
+%	\textit{Claim 1}. If $\CScollapse_\ast(x) = 0$ or $\CScollapse_\ast(y) = 0$ then
+%	\begin{equation} \label{e:zero for join}
+%	\CScollapse_\ast \big( x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0.
+%	\end{equation}
+%	Assume $\CScollapse_\ast(x) = 0$, that is, there exists a pair $p < q$ such that $x_p = [0]$ and $x_q = [0,1]$, then \eqref{e:zero for join} holds since:
+%	\begin{enumerate}
+%		\item If $i > q$, then $x_p$ and $x_q$ are part of $x_{<i}$.
+%		\item If $i = q$, then $x_q \ast y_q = 0$ for any $y_q$.
+%		\item If $i < q$, then $\varepsilon(x_{>i}) = 0$.
+%	\end{enumerate}
+%	Similarly, if there is a pair $p < q$ such that $y_p = [0]$ and $y_q = [0,1]$,  then \eqref{e:zero for join} holds since:
+%	\begin{enumerate}
+%		\item If $i < p$, then $y_p$ and $y_q$ are part of $y_{>i}$.
+%		\item If $i = p$ or, more generally, $y_i = [0]$, then $x_i = [0]$ and $x_i \ast y_i = 0$.
+%		\item If $i = q$ or, more generally, $y_i = [0,1]$, then $x_i \ast y_i = 0$ for any $x_i$.
+%		\item If $i > q$, then $\varepsilon(y_{<i}) = 0$.
+%		\item If $p < i < q$ and $y_i = [1]$ then either $x_i \ast x_j = 0$ or $x_i \ast x_j = [0,1]$, implying $(x \ast y)_p = [0]$ and $(x \ast y)_i = [0,1]$.
+%	\end{enumerate}
+%	\textit{Claim 2}. If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then
+%	\[
+%	\CScollapse_\ast(x \ast y) =
+%	\CScollapse_\ast(x) \ast \CScollapse_\ast(y).
+%	\]
+%	Given these assumptions there exist basis elements $v_x, v_y$ having tensor factors in $\{[0,1], [1]\}$, and $w_x, w_y$ with tensor factors in $\{[0], [1]\}$ such that
+%	\[
+%	x = v_x \otimes [0] \otimes w_x, \qquad
+%	y = v_y \otimes [0] \otimes w_y.
+%	\]
+%	Let $p_x$ and $p_y$ be the tensor position of the first $[0]$ in $x$ and $y$ respectively.
+%	To make sure all possible elements $x$ and $y$ have a factor $[0]$ in them we consider $\chains(\cube^n)$ as a subcomplex of $\chains(\cube^{n+1})$ via the inclusion that tensors on the right with $[0]$.
+%	By naturality, we do not loose generality making this assumption.
+%	Since $x \leq y$ we have that $p_x \leq p_y$.
+%	We will now show that
+%	\[
+%	\CScollapse_\ast(x \ast y) = \CScollapse_\ast \big( x_{<p_x} \, \varepsilon(y_{<p_x}) \otimes \, x_{p_x} \! \ast y_{p_x} \otimes \varepsilon(x_{>p_x}) \, y_{>p_x} \big).
+%	\]
+%	To see this we notice that if $i < p_x$ then $x_i = [1]$ or $x_i = [0,1]$.
+%	If $x_i = [1]$, since $x_i \leq y_i$, it is impossible for $y_i = [0]$, the only case when $x_i \ast y_i \neq 0$.
+%	If $x_i = [0,1]$ then $x_i \ast y_i = 0$ for any $y_i$.
+%	If $i > p_x$, then either $x_i \ast y_i = 0$ or $x_i \ast y_i = [0,1]$.
+%	In the first case there is nothing to prove and in the second we notice that $(x \ast y)_{p_x} = [0]$ and $(x \ast y)_{} = [0,1]$ so $\CScollapse_\ast(x \ast y) = 0$.
+%
+%	Let $q_y$ be the tensor position of the first occurrence of the tensor factor $[0,1]$ in $y$, setting it to $+\infty$, if not present.
+%	If $p_x > q_y$ then $x \ast y = 0$ since $\varepsilon(y_{<p_x}) = 0$, and if $p_x = q_y$ then $x \ast y = 0$ since $[0] \ast [0,1] = 0$.
+%	We now prove that in this case $\CScollapse_\ast(x) \ast \CScollapse_\ast(y) = 0$.
+%	Since $x_{q_y} = [0,1]$ since $x \leq y$ and $x_{p_x}$ is the first tensor factor equal to $[0]$.
+%	This implies that both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$ contain the vertex $q_{y} - 1$.
+%	Let us now assume that $p_x < q_y$.
+%	Then, using that $y_i = [1]$ for every $i < p_x$,
+%	\begin{align*}
+%	\CScollapse_\ast(x \ast y) & =
+%	\CScollapse_\ast \big( v_x \otimes x_{p_x} \ast y_{p_x} \otimes w_y \big) \\ & =
+%	\CScollapse_\ast(x) \ast \CScollapse_\ast(y)
+%	\end{align*}
+%	as claimed.
+%\end{proof}
 
 \begin{proof}[Proof of \cref{l:main comparison}]
 	This sequence of lemmas provides a proof of \cref{l:main comparison} using the decomposition of any surjection-like graph into pieces \coproduct \ and \product.
