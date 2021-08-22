@@ -11,9 +11,12 @@ Cubical sets, a model for the homotopy category, were also considered by Kan \ci
 
 Other areas where cubical methods are important are applied topology, where cubical complexes are ubiquitous \cite{tomasz2004computational}, and geometric group theory where actions on certain cube complexes characterized combinatorially have central relevance \cite{gromov1987hyperbolic, agol2013haken}.
 
+The study of algebras that are associative and commutative in a derived sense has a long history, where (co)homology operations \cite{steenrod1962cohomology, may1970general}, the recognition of infinite loop spaces \cite{boardman1973homotopy, may1972geometry} and algebraic models for the homotopy category \cite{mandell2001padic} are key milestones.
+
 Cubical cochains are equipped with the \textit{Serre algebra structure}, a lift to the cochain level of the graded ring structure in cohomology.
 Using an acyclic carrier argument it can be shown that this product is commutative up to coherent homotopies in a non-canonical way.
 The goal of this work is to introduce an effective description of this derived structure in the form of an explicit $E_\infty$-algebra structure naturally extending the Serre product.
+
 We use the combinatorial model of the $E_\infty$-operad $\UM$ obtained from the finitely presented prop $\M$ introduced in \cite{medina2020prop1}.
 The resulting $\UM$-algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the cochains of standard cubes, which is determined by only three linear maps.
 To our knowledge, this is the first effective construction of an $E_\infty$-algebra structure on cubical cochains.
@@ -25,7 +28,7 @@ More specifically, in \cite[p. 442]{serre1951homologie}, Serre describes for any
 \[
 \CScomp_Z^\vee \colon \cochains(\cSing Z) \to \cochains(\sSing Z)
 \]
-between its simplicial and cubical singular cochains.
+between its cubical and simplicial singular cochains.
 Furthermore, he states this to be a quasi-isomorphism of algebras with respect to the Serre and Alexander--Whitney structures.
 In the present work we deduce from a statement at the level of general simplicial sets that $\CScomp_Z^\vee$ is in fact a quasi-isomorphisms of $E_\infty$-algebras.
 More specifically, let $\cubify$ be the right adjoint to the triangulation functor from cubical to simplicial sets.
@@ -33,7 +36,7 @@ We construct a natural quasi-isomorphism of $E_\infty$-algebras
 \[
 \CScomp_Y^\vee \colon \ccochains(\cubify Y) \to \scochains(Y)
 \]
-for any simplicial set $Y$, which factor $\CScomp_Z^\vee$ when $Y = \sSing Z$.
+for any simplicial set $Y$, which factors $\CScomp_Z^\vee$ when $Y = \sSing Z$ so that the other factor is induced from an inclusion of cubical sets.
 
 We now mention three application of the contributions in this paper.
 For every prime $p$, the mod $p$ cohomology of a space is equipped with natural stable endomorphisms known as Steenrod operations \cite{steenrod1962cohomology}.
@@ -51,9 +54,9 @@ In the fifties, Adams introduced in \cite{adams1956cobar} a comparison map
 \[
 \theta_Z \colon \cobar S^\simplex(Z,z) \to S^\cube(\loops_z Z)
 \]
-from his cobar construction on the simplicial singular chains of a pointed space $(Z, z)$ to the cubical singular chains on its based loops space $\loops_z Z$.
+from his cobar construction on the simplicial singular chains of a pointed space $(Z, z)$ to the cubical singular chains on its based loop space $\loops_z Z$.
 This comparison map is a quasi-isomorphism of algebras, which was shown by Baues \cite{baues1998hopf} to be one of bialgebras by considering Serre's cubical coproduct.
-In \cite{medina2021cobar} we generalize Baues result by constructing an $E_{\infty}$-bialgebra structure on the cobar construction of the coalgebra of singular chains, and proving that Adams' comparison map is a quasi-isomorphism of $E_{\infty}$-bialgebras.
+In \cite{medina2021cobar} we use the constructions of this paper to generalize Baues' result, by showing that Adams' comparison map is a quasi-isomorphism of $E_\infty$-bialgebras, i.e., of monoids in the category of $\UM$-coalgebras.
 
 \subsection*{Outline}
 

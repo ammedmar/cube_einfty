@@ -1,5 +1,5 @@
 
-\section{The prop \texorpdfstring{$\M$}{M}} \label{s:operads and props}
+\section{Operads, props and \pdfEinfty-structures} \label{s:operads and props}
 
 We now review the definition of the finitely presented prop $\M$ introduced in \cite{medina2020prop1} and whose associated operad is a model for the  $E_\infty$ operad.
 Given its small number of generators and relations, is well suited to define $E_\infty$-structures.
@@ -14,16 +14,18 @@ In this paper we prioritize left module structures over their right counterparts
 As usual, taking inverses makes both perspectives equivalent.
 We respectively denote by $\Smod$ and $\Sbimod$ the categories of left $\S$-modules and of $\S$-bimodules with morphisms given by natural transformations.
 
-The group homomorphisms $\S_n \to \S_n \times \S_1$ induce a forgetful functor $\forget \colon \Sbimod \to \Smod$.
-Explicitly, $\forget(\P)(r) = \P(1, r)$ for $r \in \N$.
-The similarly defined forgetful functor to right $\S$-modules will not be used.
+The group homomorphisms $\S_n \to \S_n \times \S_1$ induce a forgetful functor \[
+\forget \colon \Sbimod \to \Smod
+\]
+defined explicitly on an object $\cP$ by $\forget(\cP)(r) = \cP(1, r)$ for $r \in \N$.
+The similarly defined forgetful functor to right $\S$-modules will not be considered.
 
 \subsection{Composition structures}
 
 We can define \textit{operads} and \textit{props} by enriching $\S$-modules and $\S$-bimodules with certain composition structures.
 For a complete presentation of these concepts we refer to Definition~11 and 54 of \cite{markl2008props}.
 Intuitively, using examples defined in the next subsection, operads and props can be understood by abstracting the composition structure naturally present in the left $\S$-module $\End^C$ (or right $\S$-module $\End_C$), naturally an operad, and the $\S$-bimodule $\End^C_C$, naturally a prop.
-We remark that the prop structure on $\P$ restricts to an operad structure on $\forget(\P)$.
+We remark that the prop structure on $\cP$ restricts to an operad structure on $\forget(\cP)$.
 
 \subsection{Representations}
 
@@ -33,20 +35,20 @@ Given a chain complex $C$ define
 \End_C(r) = \Hom(C^{\otimes r}, C), \\
 \End^C_C(r, s) = \Hom(C^{\otimes r}, C^{\otimes s}),
 \end{gather*}
-with their natural operad and prop structures respectively.
+for $r,s \in \N$, with their natural operad and prop structures respectively.
 We remark that the forgetful functor $\forget$ sends $\End^C_C$ to $\End^C$.
 
-Let $C$ be a chain complex, $\O$ an operad, and $\P$ a prop.
-An $\O$-\textit{coalgebra} (resp. $\O$-\textit{algebra} or $\P$-\textit{bialgebra}) structure on $C$ is a structure preserving morphism $\O \to \End^C$ (resp. $\O \to \End_C$ or $\P \to \End_C^C$).
+Let $C$ be a chain complex, $\cO$ an operad, and $\cP$ a prop.
+An $\cO$-\textit{coalgebra} (resp. $\cO$-\textit{algebra} or $\cP$-\textit{bialgebra}) structure on $C$ is a structure preserving morphism $\cO \to \End^C$ (resp. $\cO \to \End_C$ or $\cP \to \End_C^C$).
 
-\subsection{\texorpdfstring{$E_\infty$}{E-infty}-operads}
+\subsection{\pdfEinfty-operads}
 
 Recall that a \textit{free $\S_r$-resolution} of a chain complex $C$ is a quasi-isomorphism $R \to C$ from a chain complex of free $\k[\S_r]$-modules.
 
-An $\S$-module $M$ is said to be $E_{\infty}$ if there exists a morphism of $\S$-modules $M \to \underline{\k}$ inducing for each $r \in \N$ a free $\S_r$-resolution $M(r) \to \k$.
+An $\S$-module $M$ is said to be $E_\infty$ if there exists a morphism of $\S$-modules $M \to \underline{\k}$ inducing for each $r \in \N$ a free $\S_r$-resolution $M(r) \to \k$.
 For example, we can obtain one such $\S$-module by using the functor of singular chains and the set $\{\mathrm{E} \S_r \to \ast\}_{n \in \N}$ of maps to the terminal space from models of the universal bundle.
 
-An operad is said to be $E_{\infty}$ if its underlying $\S$-module is $E_\infty$.
+An operad is said to be $E_\infty$ if its underlying $\S$-module is $E_\infty$.
 
 \subsection{Free prop construction} \label{ss:free prop}
 
@@ -111,7 +113,7 @@ Explicitly, any element in $\M(m,n)$ can be written as a linear combination of t
 As proven in \cite[Theorem 3.3]{medina2020prop1} we have the following.
 
 \begin{proposition}
-	The operad $\UM$ is $E_{\infty}$.
+	The operad $\UM$ is $E_\infty$.
 \end{proposition}
 
 We remark that, as proven in \cite{medina2018prop2}, this prop is obtained from applying the functor of cellular chains to a finitely presented prop over the category of CW-complexes.
