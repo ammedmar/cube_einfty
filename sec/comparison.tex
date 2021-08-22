@@ -31,7 +31,7 @@ The goal of this section is to deduce from a more general categorical statement 
 
 \subsection{Simplicial sets}
 
-We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} $\Fun(\simplex^\op, \Set)$ by $\sSet$ and the standard $n$-simplex by $\simplex^n$.
+We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} $\Fun(\simplex^\op, \Set)$ by $\sSet$ and the standard $n$-simplex $\yoneda\big( [n] \big)$ by $\simplex^n$.
 As usual, we denote an element in $\simplex^n_m$ by a non-decreasing tuples $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
 The \textit{product} of simplicial sets is defined object-wise.
 For example,
@@ -40,7 +40,7 @@ For example,
 \]
 consists of pairs of non-decreasing tuples $[v_0, \dots, v_m] \times [w_0, \dots, w_m]$ of appropriate integers.
 
-The \textit{simplicial singular complex} functor is denoted by $\sSing \colon \Top \to \sSet$ and the functor of (normalized) \textit{chains} by $\schains \colon \sSet \to \Ch$.
+The \textit{simplicial singular complex} functor is denoted by $\sSing \colon \Top \to \sSet$ and the functor of (\textit{normalized}) \textit{chains} by $\schains \colon \sSet \to \Ch$.
 We omit the superscript $\simplex$ from either of these if no confusion may result from doing so.
 
 The \textit{Alexander--Whitney coalgebra} functor is the Yoneda extension of the functor defined by the following natural maps.
@@ -64,7 +64,8 @@ Its Yoneda extension
 \[
 \triangulate \colon \cSet \to \sSet
 \]
-is referred to as the \textit{triangulation} functor, which admits a right adjoint
+is referred to as the \textit{triangulation} functor.
+It admits a right adjoint
 \[
 \cubify \colon \sSet \to \cSet
 \]
@@ -73,15 +74,15 @@ defined by
 \cubify(X)(2^m) = \sSet \big( \scube{n}, \, X \big).
 \]
 
-As proven in \cite[\subsectionSymbol 8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ defines a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
+Although we do not use this fact, we mention that, as proven in \cite[\subsectionSymbol 8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ defines a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
 
 \subsection{Projection and inclusion} \label{ss:projection and inclusion}
 
 We define for each $n \in \N$ a natural simplicial map
 \[
-\projection \colon \scube{n} \to \simplex^n
+\projection \colon \scube{n} \to \simplex^n,
 \]
-referred to as the \textit{projection} by
+referred to as the \textit{projection}, by
 \[
 [\varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto
 [v_0, \dots, v_m]
@@ -96,7 +97,7 @@ For $i \in \{1,\dots,n\}$
 \projection \circ \, \delta_i^1 = \delta_{i-1} \circ \pi, \qquad
 \projection \circ \, \delta_n^0 = \delta_{n} \circ \pi,
 \end{equation}
-and $\projection \circ \, \delta^0_i$ is degenerate for $1 < i < n$.
+and the image of $\projection \circ \, \delta^0_i$ is degenerate for $1 \leq i < n$.
 
 The projection has a section
 \[
@@ -183,30 +184,8 @@ For later use we record the following.
 	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan--Serre collapse map has $j^\th$ coordinate equal to $0$ for every $j \geq i$.
 \end{proof}
 
-We remark that Cartan used the model of the topological $n$-simplex as a subset of $\R^{n+1}$ in \cite[p. 442]{serre1951homologie} to define the collapse map.
-We find it more convenient to use the model of $\gsimplex^n$ as a subset of $\gcube^n$.
-
-%There is a preferred element in $\cubify \simplex^n$ given by the composition $\subdivide \circ \projection_\ast$ where $\projection_\ast$
-%is the chain map induced by the projection $\projection$.
-%We now give a geometric description of this map.
-
-%We now study the induced chain map.
-%Let $x = x_1 \otimes \cdots \otimes x_n \in \gchains(\gcube^n)$ be basis element of degree $m$ with $x_{p_i} = [0,1]$ for some $p_1 < \dots < p_m$.
-%Let $q = \min\{i \mid x_i = [0]\}$ or $q = n+1$ if empty.
-%If $q < p_i$ for some $i$ then $\CScollapse_\ast(x) = 0$ since the image of its associated cell is mapped into a lower dimensional skeleton.
-%If not, let us consider the element $x_{<q} = x_1 \otimes \dots \otimes x_{q-1}$.
-%
-%we have
-%
-%and we have
-%\begin{lemma} \label{l:kernel of psi}
-%	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ of degree $m$ we have $\CScollapse_\ast(x) = 0$ if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$.
-%	Otherwise, $\CScollapse_\ast(x) = [v_0, \dots, v_m]$ with
-%\end{lemma}
-%
-%\begin{proof}
-%	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan--Serre collapse map has $j^\th$ coordinate equal to $0$ for every $j \geq i$.
-%\end{proof}
+We remark that to define the collapse map in \cite[p. 442]{serre1951homologie}, Cartan used the model of the topological $n$-simplex that is a subset of $\R^{n+1}$.
+We find it more convenient to use the model of $\gsimplex^n$ that is a subset of $\gcube^n$.
 
 \subsection{The Cartan--Serre comparison map} \label{ss:comparison map}
 
@@ -333,11 +312,7 @@ is the chain map obtained by precomposing a singular simplex with the Cartan--Se
 We have the following consequence of \cref{t:main comparison}.
 
 \begin{corollary} \label{t:topological comparison}
-	For any topological space $Z$, the quasi-isomorphism
-	\[
-	\chains(\sSing Z) \to \chains(\cSing Z)
-	\]
-	is a morphism of $E_\infty$-coalgebras, where the domain and target $E_\infty$-structures extend respectively the Alexander--Whitney and Serre coalgebra structures.
+	For any topological space $Z$, the map $\CScomp_Z$ is a quasi-isomorphism of $E_\infty$-coalgebras, where the domain and target $E_\infty$-structures extend respectively the Alexander--Whitney and Serre coalgebra structures.
 \end{corollary}
 
 \begin{proof}

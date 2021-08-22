@@ -46,7 +46,7 @@ and referred to as the \textit{cubical singular complex} of the topological spac
 
 \subsection{Cubical chains}
 
-The functor of \textit{(normalized) chains} $\chains \colon \cSet \to \Ch$ is the Yoneda extension of the functor $\cube \to \Ch$ defined next.
+The functor of (\textit{normalized}) \textit{chains} $\chains \colon \cSet \to \Ch$ is the Yoneda extension of the functor $\cube \to \Ch$ defined next.
 To an object $2^n$ it assigning the chain complex having in degree $m$ the module
 \[
 \frac{\k\{\cube(2^m, 2^n)\}}{\k\{\cube_{\deg}(2^m, 2^n)\}}
@@ -138,14 +138,14 @@ The following is the main technical result of this paper.
 	\[
 	\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
 	\]
-	induces natural $\mathcal M$-bialgebra structure on $\chains(\square^n)$ for every $n \in \mathbb{N}$, or, equivalently, a functor $\cube \to \biAlg_{\M}$.
+	induces natural $\mathcal M$-bialgebra structure on $\chains(\square^n)$ for every $n \in \mathbb{N}$ or, equivalently, a functor from the cube category to that of $\M$-bialgebras.
 \end{lemma}
 
 The category of bialgebras over a prop is in general not cocomplete, but those of algebras and coalgebras over operads are.
 So we have the following result, the main contribution of this paper.
 
 \begin{theorem} \label{t:lift to e infinity coalgebras}
-	Composing the functor defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ defines a functor $\cube \to \coAlg_{\UM}$ whose Yoneda extension endows the chains of a cubical set with a natural $E_\infty$-coalgebra structure extending the Serre coalgebra.
+	Composing the functor defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ defines a functor from the cube category to $\coAlg_{\UM}$ whose Yoneda extension endows the chains of a cubical set with a natural $E_\infty$-coalgebra structure extending the Serre coalgebra structure.
 \end{theorem}
 
 By linear duality, the same argument can be used to define a natural $E_\infty$-algebra structure on cubical cochains.

@@ -10,9 +10,9 @@ We refer to the objects and morphisms of this category as \textit{chain complexe
 
 Given categories $\sB$ and $\sC$ we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
-We denote the Cartesian category of small categories by $\Cat$.
+We denote the category of small categories by $\Cat$.
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
-If $\sA$ is small and $\sC$ cocomplete, then the (left) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \sC)$ making
+If $\sA$ is small and $\sC$ cocomplete, then the (\textit{left}) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \sC)$ making
 \begin{equation*}
 \begin{tikzcd}[column sep=normal, row sep=normal]
 \sA \arrow[d, "f"'] \arrow[r, "g"] & \sC \\
@@ -29,8 +29,9 @@ induced by the assignment
 a \mapsto \big( a^\prime \mapsto \sA(a^\prime, a) \big),
 \]
 is referred to as a \textit{Yoneda extension}.
+Abusively we use the same notation for a functor and its Yoneda extension.
 We refer to the objects in $\Fun(\sA^\op, \Set)$ as \textit{presheaves on $\sA$} and to those in the image of the Yoneda embedding as \textit{representables}.
-We remark that for any presheaf $P$ on $\sA$ and object $a$ of $\sA$
+We remark that any presheaf $P$ on $\sA$ can be written as a colimit of representables
 \[
-P(a) \, \cong \colim_{\yoneda(a) \to P} \yoneda(a).
+P \, \cong \colim_{\yoneda(a) \to P} \yoneda(a).
 \]
