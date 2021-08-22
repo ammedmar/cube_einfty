@@ -1,37 +1,33 @@
 
 \section{The Cartan--Serre comparison map} \label{s:the cartan-serre comparison map}
 
-Let us consider, with their usual CW structures, the topological simplex
-\[
-\gsimplex^{\!n} = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
-\]
-and the topological cube $\gcube^n$.
-In \cite[p. 442]{serre1951homologie}, Serre described for any space a quasi-isomorphism of coalgebras between its simplicial and cubical singular chains using a canonical cellular map $\gcube^n \to \gsimplex^n$, which we recall next, also considered in \cite[p.199]{eilenberg1953acyclic} where it is attributed to Cartan.
-
-\begin{definition}
-	The \textit{Cartan--Serre collapse map} $\CScollapse \colon \gcube^n \to \gsimplex^{\!n}$ is the natural cellular map defined by
-	\begin{equation} \label{e:cartan-serre collapse map}
-	\begin{split}
-	&y_0 = 1 - x_1, \\
-	&y_1 = x_1(1 - x_2), \\
-	&\ \vdots \\
-	&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
-	&y_{n} = x_1 x_2 \dots x_n.
-	\end{split}
-	\end{equation}
-\end{definition}
-
-The aforementioned comparison map of singular chains is given, for any space $Z$, by precomposing a simplicial singular simplex $\gsimplex^n \to Z$ with $\CScollapse$.
-The goal of this section is to show this comparison map to be quasi-isomorphism of $E_\infty$-coalgebras, which we will deduce from a more general categorical statement.
-
-%We begin by constructing a factorization of \eqref{e:singular chains comparison} as a composition
+Let us consider, with their usual CW structures, the topological simplex $\gsimplex^n$
 %\[
-%\schains(\sSing(Z)) \xra{\CScomp_{\sSing(Z)}}
-%\chains(\cubify \sSing(Z)) \to
-%\chains(\cSing(Z)),
+%\gsimplex^{\!n} = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
 %\]
-%where the first map $\CScomp_Y$ is a natural quasi-isomorphism defined for any simplicial set $Y$, and the second is induced from a morphism of cubical sets.
-%We then deduce that $\CScomp_Y$ is a quasi-isomorphism of $E_\infty$-coalgebras from the fact, proven in \cref{ss:comparison proof}, the chain map induced by the Cartan--Serre collapse map is one.
+and the topological cube $\gcube^n$.
+In \cite[p. 442]{serre1951homologie}, Serre described for any space a quasi-isomorphism of coalgebras between its simplicial and cubical singular chains induced by precomposing with a canonical cellular map $\CScollapse \colon \gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic} where it is attributed to Cartan.
+
+%\begin{definition}
+%	The \textit{Cartan--Serre collapse map}
+%	\[
+%	\CScollapse \colon \gcube^n \to \gsimplex^{\!n}
+%	\]
+%	is the natural cellular map defined by
+%	\begin{equation} \label{e:cartan-serre collapse map}
+%	\begin{split}
+%	&y_0 = 1 - x_1, \\
+%	&y_1 = x_1(1 - x_2), \\
+%	&\ \vdots \\
+%	&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
+%	&y_{n} = x_1 x_2 \dots x_n.
+%	\end{split}
+%	\end{equation}
+%\end{definition}
+
+%The aforementioned comparison map of singular chains is given, for any space $Z$, by precomposing a simplicial singular simplex $\gsimplex^n \to Z$ with $\CScollapse$.
+
+The goal of this section is to deduce from a more general categorical statement that this comparison map is a quasi-isomorphism of $E_\infty$-coalgebras and, as a consequence, that its linear dual is one of $E_\infty$-algebras.
 
 \subsection{Simplicial sets}
 
@@ -57,6 +53,207 @@ and $\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\otimes2}$ by
 \Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \otimes [v_i, \dots, v_q].
 \]
 
+
+
+
+\subsection{Triangulation and its right adjoint}
+
+The \textit{simplicial $n$-cube} is the $n^\th$-fold Cartesian product $\scube{n}$.
+The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with $\delta_i^\varepsilon \colon \scube{n} \to \scube{(n+1)}$ inserting $[\varepsilon, \dots, \varepsilon]$ as $i^\th$ factor and $\sigma_i \colon \scube{(n+1)} \to \scube{n}$ removing the $i^\th$ factor.
+Its Yoneda extension
+\[
+\triangulate \colon \cSet \to \sSet
+\]
+is referred to as the \textit{triangulation} functor, which admits a right adjoint
+\[
+\cubify \colon \sSet \to \cSet
+\]
+defined by
+\[
+\cubify(X)(2^m) = \sSet \big( \scube{n}, \, X \big).
+\]
+
+As proven in \cite[\subsectionSymbol 8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ defines a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
+
+\subsection{Projection and inclusion} \label{ss:projection and inclusion}
+
+We define for each $n \in \N$ a natural simplicial map
+\[
+\projection \colon \scube{n} \to \simplex^n
+\]
+referred to as the \textit{projection} by
+\[
+[\varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto
+[v_0, \dots, v_m]
+\]
+where
+\[
+v_i = \varepsilon_i^1 + \varepsilon_i^1 \varepsilon_i^2 + \dots + \varepsilon_i^1 \dotsm \varepsilon_i^n.
+\]
+Together with the naturality of the projection with respect morphisms in the simplex category we have the following compatibility with respect to cubical coface maps:
+For $i \in \{1,\dots,n\}$
+\begin{equation} \label{e:projection cubical compatibility}
+\projection \circ \, \delta_i^1 = \delta_{i-1} \circ \pi, \qquad
+\projection \circ \, \delta_n^0 = \delta_{n} \circ \pi,
+\end{equation}
+and $\projection \circ \, \delta^0_i$ is degenerate for $1 < i < n$.
+
+The projection has a section
+\[
+\inclusion \colon \simplex^n \to \scube{n}
+\]
+defined by sending $\id_{[n]}$ to $\varepsilon^1 \times \dots \times \varepsilon^n$ with
+\[
+\varepsilon^i = [\overbrace{0, \dots, 0}^{i}, 1, \dots, 1].
+\]
+
+
+\subsection{The subdivision map}
+
+The \textit{subdivision} map of a cubical set $X$
+\[
+\subdivide_X \colon \cchains(X) \to \schains(\triangulate X)
+\]
+is the natural chain map defined by the well known Eilenberg--Zilber map
+\[
+\subdivide \colon \chains(\cube^n) \cong \chains(\simplex^1)^{\otimes n} \xra{EZ} \chains \scube{n}.
+\]
+
+The $EZ$ map is natural with respect to cubical morphisms and, consequently, so is the subdivision map $\subdivide$.
+
+We can use the subdivision map to provide an alternative description of the complex $\cchains(\cubify Y)$ for any simplicial set $Y$.
+Since the category of cubical maps $\cube^n \to \cubify Y$ is equivalent to the category $\sC_Y$ whose objects are chain maps
+\[
+\chains(\cube^n) \xra{\subdivide} \chains \scube{n} \to \schains(Y)
+\]
+where the second map is induced from a simplicial map
+and morphisms are appropriate commutative diagrams, we have
+\begin{equation} \label{e:alternative description of NUY}
+\cchains(\cubify Y) \cong \colim_{\cC_Y} \chains(\cube^n).
+\end{equation}
+
+\subsection{The Cartan--Serre collapse map}
+
+Let us consider the model of the topological $n$-simplex given by
+\[
+\gsimplex^n = \big\{ (y_1, \dots, y_n) \in \gcube^n \mid i \leq j \Rightarrow y_i \geq y_j \big\},
+\]
+whose cell structure associates $[v_0, \dots, v_m]$ with the subset
+\[
+\Big\{ \big( \underbrace{1, \dots, 1}_{v_0}, \underbrace{y^\prime_1, \dots y^\prime_1}_{v_1-v_0}, \dots, \underbrace{y^\prime_m, \dots y^\prime_m}_{v_m-v_{m-1}}, \underbrace{0, \dots, 0}_{n-v_m} \big) \mid y^\prime_1 \geq \dots \geq y^\prime_m \Big\}.
+\]
+The spaces $\gsimplex^n$ define a functor $\simplex \to \Top$ with codegeneracies given by
+\[
+\sigma_i(x_1, \dots, x_n) = (x_1, \dots, \widehat x_i, \dots, x_n)
+\]
+and coface maps by
+\begin{align*}
+\delta_0(x_1, \dots, x_n) &= (1, x_1, \dots, x_n), \\
+\delta_i(x_1, \dots, x_n) &= (x_1, \dots, x_i, x_i, \dots, x_n), \\
+\delta_n(x_1, \dots, x_n) &= (x_1, \dots, x_n, 0).
+\end{align*}
+
+The \textit{Cartan-Serre collapse map} is the cellular map defined by
+\[
+\CScollapse(x_1, \dots, x_n) = (x_1,\ x_1 x_2, \, \dots \, , \ x_1 \dotsm x_n).
+\]
+It is straightforward to verify that
+\begin{align*}
+\CScollapse \circ \, \delta_i^1 = \delta_{i-1} \circ \CScollapse, \qquad
+\CScollapse \circ \, \delta_n^0 = \delta_n \circ \CScollapse,
+\end{align*}
+for $i \in \{1, \dots, n\}$ and that the image of $\CScollapse \circ \, \delta_i^0$ for $1 \leq i < n$ is in a lower dimensional skeleton of $\gsimplex^n$.
+Therefore, since the image under the induced chain map $\CScollapse_\ast$ of the top dimensional generator of $\gchains(\gcube^n)$ is $[0, \dots, n]$ as is for $\chains(\cube^n)$ under $\projection_\ast \circ \subdivide$, we have the following.
+
+\begin{lemma}
+	The composition
+	\[
+	\gchains(\gcube^n) \cong \chains(\cube^n) \xra{\subdivide} \chains \big( \scube{n} \big) \xra{\projection_\ast} \chains(\simplex^n) \cong \gchains(\gsimplex^n)
+	\]
+	agrees the chain map $\CScollapse_\ast$ induced by Cartan--Serre collapse map.
+\end{lemma}
+
+For later use we record the following.
+\begin{lemma} \label{l:kernel of psi}
+	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ of degree $m$ we have $\CScollapse_\ast(x) = 0$ if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$.
+	Otherwise, $\CScollapse_\ast(x) = [v_0, \dots, v_m]$ with
+\end{lemma}
+
+\begin{proof}
+	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan--Serre collapse map has $j^\th$ coordinate equal to $0$ for every $j \geq i$.
+\end{proof}
+
+We remark that Cartan used the model of the topological $n$-simplex as a subset of $\R^{n+1}$ in \cite[p. 442]{serre1951homologie} to define the collapse map.
+We find it more convenient to use the model of $\gsimplex^n$ as a subset of $\gcube^n$.
+
+%There is a preferred element in $\cubify \simplex^n$ given by the composition $\subdivide \circ \projection_\ast$ where $\projection_\ast$
+%is the chain map induced by the projection $\projection$.
+%We now give a geometric description of this map.
+
+%We now study the induced chain map.
+%Let $x = x_1 \otimes \cdots \otimes x_n \in \gchains(\gcube^n)$ be basis element of degree $m$ with $x_{p_i} = [0,1]$ for some $p_1 < \dots < p_m$.
+%Let $q = \min\{i \mid x_i = [0]\}$ or $q = n+1$ if empty.
+%If $q < p_i$ for some $i$ then $\CScollapse_\ast(x) = 0$ since the image of its associated cell is mapped into a lower dimensional skeleton.
+%If not, let us consider the element $x_{<q} = x_1 \otimes \dots \otimes x_{q-1}$.
+%
+%we have
+%
+%and we have
+%\begin{lemma} \label{l:kernel of psi}
+%	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ of degree $m$ we have $\CScollapse_\ast(x) = 0$ if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$.
+%	Otherwise, $\CScollapse_\ast(x) = [v_0, \dots, v_m]$ with
+%\end{lemma}
+%
+%\begin{proof}
+%	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan--Serre collapse map has $j^\th$ coordinate equal to $0$ for every $j \geq i$.
+%\end{proof}
+
+\subsection{The Cartan--Serre comparison map} \label{ss:comparison map}
+
+The projection $\projection \colon \scube{n} \to \simplex^{\!n}$ induces for any simplicial set $Y$ a natural morphism of graded sets
+\[
+Y \to \cubify Y
+\]
+defined on a standard simplex $\simplex^n$ by
+\[
+\big( [m] \xra{\sigma} [n] \big) \mapsto
+\big( \scube{m} \xra{\projection} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
+\]
+Additionally, passing to chains gives a graded linear map
+\[
+\CScomp_Y \colon \schains(Y) \to \cchains(\cubify Y)
+\]
+which we refer to as the \textit{Cartan--Serre comparison map}.
+
+We can give a more explicit description of this map using \eqref{e:alternative description of NUY}:
+It suffices to describe the case $Y = \simplex^n$ given by
+\[
+\begin{tikzcd}[column sep=small, row sep=0]
+\chains(\simplex^n) \arrow[r, "\CScomp"] &
+\chains(\cubify \simplex^n) \\
+\id_{[n]} \arrow[r, mapsto] &
+\CScollapse_\ast.
+\end{tikzcd}
+\]
+
+We have the following key result.
+
+\begin{lemma} \label{l:cartan serre quasi-iso}
+	The Cartan--Serre comparison map $\CScomp_Y$ is a quasi-isomorphism for any simplicial set $Y$
+\end{lemma}
+
+\begin{proof}
+	It suffices to prove this for $Y = \simplex^n$ since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
+	Since $\CScollapse_\ast = \chains \projection \circ \subdivide$ is a chain map, we have
+	\begin{align*}
+	\CScomp \big( \partial^\simplex \id_{[n]} \big) \defeq
+	\partial^\simplex \circ \CScollapse_\ast =
+	\CScollapse_\ast \circ \, \partial^\cube \defeq
+	\partial^\cube \CScomp (\id_{[n]}).
+	\end{align*}
+	That $\CScomp$ induces an isomorphism in homology can be seen easily from the contractibility of both $\simplex^n$ and $\cubify \simplex^n$.
+\end{proof}
+
 \subsection{Simplicial $E_\infty$-structure} \label{ss:e infinity structures}
 
 In \cite{medina2020prop1}, a similar construction to the one introduced in \cref{s:action} provides the chains of simplicial sets with a natural $\UM$-coalgebra structure.
@@ -76,151 +273,14 @@ is an algebraic version of the \textit{join} defined by
 \]
 where $\pi$ is the permutation that orders the totally ordered set of vertices and $(-1)^{|\pi|}$ is its sign.
 
-\subsection{The simplicial cube} \label{ss:simplicial cube}
-
-The \textit{simplicial $n$-cube} is the $n^\th$-fold Cartesian product $\scube{n}$.
-We define for each $n \in \N$ a natural simplicial map
-\[
-\projection \colon \scube{n} \to \simplex^n
-\]
-by
-\[
-[\varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto
-[v_0, \dots, v_m]
-\]
-where
-\[
-v_i = \varepsilon_i^0 + \varepsilon_i^0 \varepsilon_i^1 + \dots + \varepsilon_i^0 \dotsm \varepsilon_i^m.
-\]
-This projection has a section
-\[
-\inclusion \colon \simplex^n \to \scube{n}
-\]
-defined by sending $\id_{[n]}$ to $\varepsilon^1 \times \dots \times \varepsilon^n$ with
-\[
-\varepsilon^i = [\overbrace{0, \dots, 0}^{i}, 1, \dots, 1]
-\]
-
-\subsection{Triangulation and its right adjoint}
-
-The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with $\delta_i^\varepsilon \colon \scube{n} \to \scube{(n+1)}$ inserting $[\varepsilon, \dots, \varepsilon]$ as $i^\th$ factor and $\sigma_i \colon \scube{(n+1)} \to \scube{n}$ removing the $i^\th$ factor.
-Its Yoneda extension
-\[
-\triangulate \colon \cSet \to \sSet
-\]
-is referred to as the \textit{triangulation} functor.
-It admits a right adjoint
-\[
-\cubify \colon \sSet \to \cSet
-\]
-defined by
-\[
-\cubify(X)(2^m) = \sSet \big( \scube{n}, \, X \big).
-\]
-As proven in \cite[8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ define a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
-
-\subsection{The subdivision map}
-
-The \textit{subdivision} map of a cubical set $X$
-\[
-\subdivide_X \colon \cchains(X) \to \schains(\triangulate X)
-\]
-is the natural chain map defined by the well known Eilenberg--Zilber map
-\[
-\subdivide \colon \chains(\cube^n) \cong \chains(\simplex^1)^{\otimes n} \xra{EZ} \chains \scube{n}.
-\]
-
-We can use the subdivision map to provide an alternative description of the complex $\cchains(\cubify Y)$ for any simplicial set $Y$.
-Since the over-category of cubical maps $\cube^n \to \cubify Y$ is equivalent to the category $\sC_Y$ whose objects are chain maps
-\[
-\chains(\cube^n) \xra{\subdivide} \chains \scube{n} \to \schains(Y)
-\]
-where the second map is induced from a simplicial map
-and morphisms are appropriate commutative diagrams, we have
-\begin{equation} \label{e:alternative description of NUY}
-\chains(\cubify Y) \cong \colim_{\cC_Y} \chains(\cube^n).
-\end{equation}
-
-\subsection{The Cartan--Serre collapse chain map}
-
-\anibal{improve}
-
-\begin{lemma}
-	The composition
-	\[
-	\chains(\cube^n) \xra{\subdivide} \chains \big( \scube{n} \big) \xra{\chains \projection} \chains(\simplex^n).
-	\]
-	agrees the chain map $\CScollapse_\ast$ induced by Cartan--Serre collapse map, using the isomorphisms
-	\[
-	\chains(\cube^n) \cong \gchains(\gcube^n), \qquad
-	\chains(\simplex^n) \cong \gchains(\gsimplex^n).
-	\]
-\end{lemma}
-
-\subsection{The Cartan--Serre comparison map} \label{ss:comparison map}
-
-The projection
-\[
-\projection \colon \scube{n} \to \simplex^{\!n}
-\]
-defined in \cref{ss:simplicial cube} induces for any simplicial set $Y$ a natural morphism of graded sets
-\[
-Y \to \cubify Y
-\]
-defined on a standard simplex $\simplex^n$ by
-\[
-\big( [m] \xra{\sigma} [n] \big) \mapsto
-\big( \scube{m} \xra{\projection} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
-\]
-Additionally, passing to chains gives a graded linear map
-\[
-\CScomp_Y \colon \schains(Y) \to \cchains(\cubify Y)
-\]
-which we refer to as the \textit{Cartan--Serre comparison map}.
-
-We can give a more explicit description of this map using \eqref{e:alternative description of NUY}.
-It suffices to describe the case $Y = \simplex^n$ given by
-\[
-\begin{tikzcd}[column sep=small, row sep=0]
-\chains(\simplex^n) \arrow[r, "\CScomp"] &
-\chains(\cubify \simplex^n) \\
-\id_{[n]} \arrow[r, mapsto] &
-\CScollapse_\ast.
-\end{tikzcd}
-\]
-
-\begin{lemma}
-	The Cartan--Serre comparison map $\CScomp_Y$ is a quasi-isomorphism for any simplicial set $Y$
-\end{lemma}
-
-\begin{proof}
-	It suffices to prove this for $Y = \simplex^n$ since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
-	Since $\CScollapse_\ast = \chains \projection \circ \subdivide$ is a chain map, we have
-	\begin{align*}
-	\CScomp \big( \partial^\simplex \id_{[n]} \big) \defeq
-	\partial^\simplex \circ \CScollapse_\ast =
-	\CScollapse_\ast \circ \, \partial^\cube \defeq
-	\partial^\cube \CScomp (\id_{[n]}).
-	\end{align*}
-	That $\CScomp$ induces an isomorphism in homology can be seen easily from the contractibility of both $\simplex^n$ and $\cubify \simplex^n$.
-\end{proof}
-
-\subsection{The operad of surjection-like graphs} \label{ss:surjection-like graphs}
-
-Although for any simplicial set $Y$ both $\schains(Y)$ and $\chains(\cubify Y)$ have natural $\UM$-structures, the map $\CScomp_Y$ is not a morphism of $\UM$-coalgebras for an arbitrary $Y$.
+Although for any simplicial set $Y$ both $\schains(Y)$ and $\cchains(\cubify Y)$ have natural $\UM$-structures, the map $\CScomp_Y$ is not a morphism of $\UM$-coalgebras for an arbitrary $Y$.
 Nevertheless, after restriction of their $\UM$-structures via an inclusion of $E_\infty$-operads $\USL \to \UM$, the Cartan--Serre comparison map becomes a morphism of $E_\infty$-coalgebras.
 
-The operad $\USL$ is generated as a suboperad of $\UM$ by all immerse connected graphs of the form
+The operad $\USL$ is generated as a suboperad of $\UM$ by all so called \textit{surjection-like} graphs, i.e., immerse connected graphs of the form
 \input{aux/surjection_like}
 where there are no hidden vertices and the strands are joined so that the associated maps $\{1, \dots, k_j\} \to \{1, \dots, n+k\}$ are order-preserving.
-
-\begin{proposition} \label{p:simplicialandcubical}
-	The suboperad $\USL$ of $\UM$ is $E_\infty$.
-\end{proposition}
-
-\begin{proof}
-	\anibal{Is this proposition true? Maybe contractibility for each piece and extend via compositions}
-\end{proof}
+We notice that the subcomplex of surjection-like $(1,r)$-graphs is contractible using the same chain contraction employed in \cite{medina2020prop1}.
+This implies that the suboperad $\USL$ of $\UM$ is also $E_\infty$.
 
 \begin{example}
 	We illustrate the need to restrict to $\USL$ by providing a simple example showing that $\CScollapse_\ast$ does not preserve $\M$-structures.
@@ -255,7 +315,7 @@ We deduce this from the following result which we prove in \cref{ss:comparison p
 
 \begin{proof}[Proof of \cref{t:main comparison}]
 	It suffices to prove this for $Y = \simplex^n$.
-	Since $\CScollapse_\ast = \chains \projection \circ \subdivide$ is a morphism of $\USL$-coalgebras (\cref{l:main comparison}), for any $\Gamma \in \USL(r)$ we have
+	Since $\CScollapse_\ast = \projection_\ast \circ \subdivide$ is a morphism of $\USL$-coalgebras (\cref{l:main comparison}), for any $\Gamma \in \USL(r)$ we have
 	\begin{align*}
 	\CScomp^{\otimes r} \! \big( \Gamma(\id_{[n]}) \big) \defeq
 	\Gamma \circ \CScollapse_\ast =
@@ -265,12 +325,19 @@ We deduce this from the following result which we prove in \cref{ss:comparison p
 	as claimed.
 \end{proof}
 
+For any topological space $Z$ the (\textit{topological}) \textit{Cartan--Serre comparison map}
+\[
+\CScomp_Z \colon \chains(\sSing Z) \to \chains(\cSing Z)
+\]
+is the chain map obtained by precomposing a singular simplex with the Cartan--Serre collapse map $\CScollapse \colon \gcube^n \to \gsimplex^{\!n}$.
+We have the following consequence of \cref{t:main comparison}.
+
 \begin{corollary} \label{t:topological comparison}
 	For any topological space $Z$, the quasi-isomorphism
 	\[
 	\chains(\sSing Z) \to \chains(\cSing Z)
 	\]
-	induced by precomposing with the Cartan--Serre collapse map $\CScollapse \colon \gcube^n \to \gsimplex^{\!n}$ is a morphisms of $E_\infty$-coalgebras, where the domain and target $E_\infty$-structures extends respectively the Alexander--Whitney and Serre coalgebra structures.
+	is a morphism of $E_\infty$-coalgebras, where the domain and target $E_\infty$-structures extend respectively the Alexander--Whitney and Serre coalgebra structures.
 \end{corollary}
 
 \begin{proof}
@@ -281,10 +348,10 @@ We deduce this from the following result which we prove in \cref{ss:comparison p
 	where the first map is the Cartan--Serre comparison map of \cref{ss:comparison map} and the second is induced from the morphism of cubical sets defined by the assignment
 	\[
 	\big( \scube{n} \xra{F} \sSing Z \big) \mapsto
-	\big( \gcube^n \cong \bars{\scube{n}} \xra{\bars{\projection}} \gsimplex^n \xra{F(\inclusion(\id_{[n]}))} Z \big).
+	\big( \gcube^n \cong \bars{\scube{n}} \xra{\bars{\projection}} \gsimplex^n \xra{F(\inclusion(\id_{[n]}))} Z \big)
 	\]
-	where $\inclusion$ was defined in \cref{ss:simplicial cube}.
-	The first is a morphism of $\USL$-coalgebras by \cref{t:main comparison} and the second by naturality.
+	where $\inclusion$ is the section of $\projection$ defined in \cref{ss:projection and inclusion}.
+	The first is a morphism of $\USL$-coalgebras by \cref{t:main comparison} and the second by naturality, so the statement is proven.
 \end{proof}
 
 
@@ -297,16 +364,8 @@ By naturality, it suffices to show that
 \Gamma \circ \CScollapse_\ast \big( [0,1]^{\otimes n} \big),
 \end{equation}
 where $\Gamma$ is represented by a surjection-like graph in $\USL(r)$.
-We will need the following characterization of the kernel of $\CScollapse_\ast$.
-\begin{lemma} \label{l:kernel of psi}
-	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ we have $\CScollapse_\ast(x) = 0$ if and only if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$.
-\end{lemma}
 
-\begin{proof}
-	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan--Serre collapse map has $j^\th$ coordinate equal to $0$ for every $j \geq i$.
-\end{proof}
-
-We have the following enhancement of \cref{l:main comparison}.
+We begin with the following enhancement of \cref{l:cartan serre quasi-iso}.
 
 \begin{lemma}
 	The chain map $\CScollapse_\ast$ is a quasi-isomorphism of coalgebras.
