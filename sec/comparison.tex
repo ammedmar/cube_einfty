@@ -1,33 +1,10 @@
 
 \section{The Cartan--Serre comparison map} \label{s:the cartan-serre comparison map}
 
-Let us consider, with their usual CW structures, the topological simplex $\gsimplex^n$
-%\[
-%\gsimplex^{\!n} = \{(y_0, \dots, y_n) \mid y_i \in [0,1], \ \textstyle{\sum} \, y_i = 1\}
-%\]
-and the topological cube $\gcube^n$.
-In \cite[p. 442]{serre1951homologie}, Serre described for any space a quasi-isomorphism of coalgebras between its simplicial and cubical singular chains induced by precomposing with a canonical cellular map $\CScollapse \colon \gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic} where it is attributed to Cartan.
+Let us consider, with their usual CW structures, the topological simplex $\gsimplex^n$ and the topological cube $\gcube^n$.
+In \cite[p. 442]{serre1951homologie}, Serre described a quasi-isomorphism of algebras between the cubical and simplicial singular cochains of a topological space given by precomposing with a canonical cellular map $\CScollapse \colon \gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic} where it is attributed to Cartan.
 
-%\begin{definition}
-%	The \textit{Cartan--Serre collapse map}
-%	\[
-%	\CScollapse \colon \gcube^n \to \gsimplex^{\!n}
-%	\]
-%	is the natural cellular map defined by
-%	\begin{equation} \label{e:cartan-serre collapse map}
-%	\begin{split}
-%	&y_0 = 1 - x_1, \\
-%	&y_1 = x_1(1 - x_2), \\
-%	&\ \vdots \\
-%	&y_{n-1} = x_1 x_2 \dots x_{n-1}(1-x_n), \\
-%	&y_{n} = x_1 x_2 \dots x_n.
-%	\end{split}
-%	\end{equation}
-%\end{definition}
-
-%The aforementioned comparison map of singular chains is given, for any space $Z$, by precomposing a simplicial singular simplex $\gsimplex^n \to Z$ with $\CScollapse$.
-
-The goal of this section is to deduce from a more general categorical statement that this comparison map is a quasi-isomorphism of $E_\infty$-coalgebras and, as a consequence, that its linear dual is one of $E_\infty$-algebras.
+The goal of this section is to deduce from a more general categorical statement that this comparison map is a quasi-isomorphism of $E_\infty$-algebras for any topological space.
 
 \subsection{Simplicial sets}
 
@@ -48,7 +25,7 @@ For any $n \in \N$, define $\epsilon \colon \chains(\simplex^n) \to \k$ by
 \[
 \epsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0, \end{cases}
 \]
-and $\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\otimes2}$ by
+and $\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\otimes 2}$ by
 \[
 \Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \otimes [v_i, \dots, v_q].
 \]
@@ -82,7 +59,7 @@ We define for each $n \in \N$ a natural simplicial map
 \[
 \projection \colon \scube{n} \to \simplex^n,
 \]
-referred to as the \textit{projection}, by
+referred to as the \textit{projection map}, by
 \[
 [\varepsilon_0^1, \dots, \varepsilon_m^1] \times \dots \times [ \varepsilon_0^n, \dots, \varepsilon_m^n] \mapsto
 [v_0, \dots, v_m]
@@ -99,7 +76,7 @@ For $i \in \{1,\dots,n\}$
 \end{equation}
 and the image of $\projection \circ \, \delta^0_i$ is degenerate for $1 \leq i < n$.
 
-The projection has a section
+The projection map $\projection$ has a section
 \[
 \inclusion \colon \simplex^n \to \scube{n}
 \]
@@ -107,7 +84,6 @@ defined by sending $\id_{[n]}$ to $\varepsilon^1 \times \dots \times \varepsilon
 \[
 \varepsilon^i = [\overbrace{0, \dots, 0}^{i}, 1, \dots, 1].
 \]
-
 
 \subsection{The subdivision map}
 
@@ -117,10 +93,10 @@ The \textit{subdivision} map of a cubical set $X$
 \]
 is the natural chain map defined by the well known Eilenberg--Zilber map
 \[
-\subdivide \colon \chains(\cube^n) \cong \chains(\simplex^1)^{\otimes n} \xra{EZ} \chains \scube{n}.
+\subdivide \colon \chains(\cube^n) \cong \chains(\simplex^{\!1})^{\otimes n} \xra{\EZ} \chains \scube{n}.
 \]
 
-The $EZ$ map is natural with respect to cubical morphisms and, consequently, so is the subdivision map $\subdivide$.
+The $\EZ$ map is natural with respect to cubical morphisms and, consequently, so is the subdivision map $\subdivide$.
 
 We can use the subdivision map to provide an alternative description of the complex $\cchains(\cubify Y)$ for any simplicial set $Y$.
 Since the category of cubical maps $\cube^n \to \cubify Y$ is equivalent to the category $\sC_Y$ whose objects are chain maps
@@ -128,13 +104,14 @@ Since the category of cubical maps $\cube^n \to \cubify Y$ is equivalent to the 
 \chains(\cube^n) \xra{\subdivide} \chains \scube{n} \to \schains(Y)
 \]
 where the second map is induced from a simplicial map
-and morphisms are appropriate commutative diagrams, we have
+and morphisms are appropriate commutative diagrams, we have that
 \begin{equation} \label{e:alternative description of NUY}
 \cchains(\cubify Y) \cong \colim_{\cC_Y} \chains(\cube^n).
 \end{equation}
 
 \subsection{The Cartan--Serre collapse map}
 
+We now give a cellular model for the composition $\projection_\ast \circ \subdivide$ where $\projection_\ast$ is the chain map induced by $\projection$ via $\schains$.
 Let us consider the model of the topological $n$-simplex given by
 \[
 \gsimplex^n = \big\{ (y_1, \dots, y_n) \in \gcube^n \mid i \leq j \Rightarrow y_i \geq y_j \big\},
@@ -154,35 +131,30 @@ and coface maps by
 \delta_n(x_1, \dots, x_n) &= (x_1, \dots, x_n, 0).
 \end{align*}
 
-The \textit{Cartan-Serre collapse map} is the cellular map defined by
-\[
-\CScollapse(x_1, \dots, x_n) = (x_1,\ x_1 x_2, \, \dots \, , \ x_1 \dotsm x_n).
-\]
+\begin{definition}
+	The \textit{Cartan-Serre collapse map} is the cellular map $\CScollapse \colon \gcube^n \to \gsimplex^n$ defined by
+	\[
+	\CScollapse(x_1, \dots, x_n) = (x_1,\ x_1 x_2, \, \dots \, , \ x_1 \dotsm x_n).
+	\]
+\end{definition}
+
 It is straightforward to verify that
 \begin{align*}
 \CScollapse \circ \, \delta_i^1 = \delta_{i-1} \circ \CScollapse, \qquad
 \CScollapse \circ \, \delta_n^0 = \delta_n \circ \CScollapse,
 \end{align*}
 for $i \in \{1, \dots, n\}$ and that the image of $\CScollapse \circ \, \delta_i^0$ for $1 \leq i < n$ is in a lower dimensional skeleton of $\gsimplex^n$.
-Therefore, since the image under the induced chain map $\CScollapse_\ast$ of the top dimensional generator of $\gchains(\gcube^n)$ is $[0, \dots, n]$ as is for $\chains(\cube^n)$ under $\projection_\ast \circ \subdivide$, we have the following.
+We can deduce from this an explicit description of the chain map induced by the Cartan--Serre collapse.
+Let $x = x_1 \otimes \cdots \otimes x_n$ be a basis element of degree $m$ with $\{q_1 < \dots < q_m\}$ such that $x_{q_i} = [0,1]$ for $i \in \{1, \dots, m\}$.
+Let $p$ be the minimum of the set $\{i \mid x_i = [0]\}$ or $n+1$ if empty, then
+\begin{equation} \label{e:explicit description of chain cs collapse}
+	\CScollapse_\ast(x) = \begin{cases}
+	[q_1-1, \dots, q_m-1, p-1] & \text{ if } p > q_m, \\
+	0 & \text{ otherwise}.
+	\end{cases}
+\end{equation}
 
-\begin{lemma}
-	The composition
-	\[
-	\gchains(\gcube^n) \cong \chains(\cube^n) \xra{\subdivide} \chains \big( \scube{n} \big) \xra{\projection_\ast} \chains(\simplex^n) \cong \gchains(\gsimplex^n)
-	\]
-	agrees the chain map $\CScollapse_\ast$ induced by Cartan--Serre collapse map.
-\end{lemma}
-
-For later use we record the following.
-\begin{lemma} \label{l:kernel of psi}
-	For any basis element $x = x_1 \otimes \cdots \otimes x_n$ of degree $m$ we have $\CScollapse_\ast(x) = 0$ if there exists $i < j$ such that $x_i = [0]$ and $x_j = [0,1]$.
-	Otherwise, $\CScollapse_\ast(x) = [v_0, \dots, v_m]$ with
-\end{lemma}
-
-\begin{proof}
-	This follows from noticing that for any point in $\gcube^n$ whose $i^\th$ coordinate is $0$, its image under the Cartan--Serre collapse map has $j^\th$ coordinate equal to $0$ for every $j \geq i$.
-\end{proof}
+An easy consequence of the compatibility of $\CScollapse$ and $\projection$ with respect to cubical and simplicial coface maps is that $\CScollapse_\ast$ and $\projection_\ast \circ \subdivide$ agree, since they both send the top dimensional generator $[0,1]^{\otimes n}$ to $[0, \dots, n]$.
 
 We remark that to define the collapse map in \cite[p. 442]{serre1951homologie}, Cartan used the model of the topological $n$-simplex that is a subset of $\R^{n+1}$.
 We find it more convenient to use the model of $\gsimplex^n$ that is a subset of $\gcube^n$.
@@ -204,8 +176,8 @@ Additionally, passing to chains gives a graded linear map
 \]
 which we refer to as the \textit{Cartan--Serre comparison map}.
 
-We can give a more explicit description of this map using \eqref{e:alternative description of NUY}:
-It suffices to describe the case $Y = \simplex^n$ given by
+We can give a more explicit description of this map using \eqref{e:alternative description of NUY}.
+It suffices to describe the case $Y = \simplex^n$ which is given by
 \[
 \begin{tikzcd}[column sep=small, row sep=0]
 \chains(\simplex^n) \arrow[r, "\CScomp"] &
@@ -215,15 +187,13 @@ It suffices to describe the case $Y = \simplex^n$ given by
 \end{tikzcd}
 \]
 
-We have the following key result.
-
 \begin{lemma} \label{l:cartan serre quasi-iso}
 	The Cartan--Serre comparison map $\CScomp_Y$ is a quasi-isomorphism for any simplicial set $Y$
 \end{lemma}
 
 \begin{proof}
 	It suffices to prove this for $Y = \simplex^n$ since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
-	Since $\CScollapse_\ast = \chains \projection \circ \subdivide$ is a chain map, we have
+	Since $\CScollapse_\ast = \projection_\ast \circ \subdivide$ is a chain map, we have
 	\begin{align*}
 	\CScomp \big( \partial^\simplex \id_{[n]} \big) \defeq
 	\partial^\simplex \circ \CScollapse_\ast =
@@ -333,7 +303,7 @@ We have the following consequence of \cref{t:main comparison}.
 
 \subsection{Proof of \cref{l:main comparison}} \label{ss:comparison proof}
 
-Throughout this subsection we use the identifications $\chains(\cube^n) \cong \gchains(\gcube^n)$ and $\chains(\simplex^n) \cong \gchains(\gsimplex^n)$.
+Throughout this subsection we use the identifications $\chains(\cube^n) \cong \gchains(\gcube^n)$ and $\chains(\simplex^n) \cong \gchains(\gsimplex^n)$, in particular $\id_{2^n}$ corresponds to $[0,1]^{\otimes n}$.
 By naturality, it suffices to show that
 \begin{equation} \label{e:Cartan--Serre E-coalgebra map}
 \CScollapse_\ast^{\otimes r} \! \circ \, \Gamma \big( [0,1]^{\otimes n} \big) =
@@ -351,14 +321,14 @@ We begin with the following enhancement of \cref{l:cartan serre quasi-iso}.
 	Since vertices are sent to vertices by $\CScollapse$, we have $\CScollapse_\ast \circ \, \epsilon = \epsilon \circ \CScollapse_\ast$.
 	To study the compatibility of $\CScollapse$ with coproducts consider $n > 0$ and
 	\[
-	\Delta \big( [0,1]^{\otimes n} \big) = \sum_{\lambda \in \Lambda} \pm \ x_1^{(\lambda)} \otimes \cdots \otimes x_n^{(\lambda)} \bm{\otimes} y_1^{(\lambda)} \otimes \cdots \otimes y_n^{(\lambda)},
+	\Delta \big( [0,1]^{\otimes n} \big) = \sum_{\lambda \in \Lambda} \pm \ x_1^{(\lambda)} \otimes \cdots \otimes x_n^{(\lambda)} \otimes y_1^{(\lambda)} \otimes \cdots \otimes y_n^{(\lambda)},
 	\]
 	where $\Lambda$ parameterizes all choices of $x_i^{(\lambda)} \in \{[0], [0,1]\}$ and $y_i^{(\lambda)} \in \{[0,1], [1]\}$ such that
 	\begin{align*}
 	x_i^{(\lambda)} = [0]   & \iff y_i^{(\lambda)} = [0,1], \\
 	x_i^{(\lambda)} = [0,1] & \iff y_i^{(\lambda)} = [1].
 	\end{align*}
-	By \cref{l:kernel of psi}, the summands above not sent to $0$ by $\CScollapse_\ast \otimes \CScollapse_\ast$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
+	By \eqref{e:explicit description of chain cs collapse}, the summands above not sent to $0$ by $\CScollapse_\ast \otimes \CScollapse_\ast$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
 	For any one such summand, its sign is positive and its image by $\CScollapse_\ast \otimes \CScollapse_\ast$ is $[0, \dots, k] \otimes [k, \dots, n]$ where $k+1 = \min \{i \mid x_i^{(\lambda)} = [0]\}$ or $k = n$ if this set is empty.
 	The summands $[0, \dots, k] \otimes [k, \dots, n]$ are precisely those appearing when applying the Alexander--Whitney coproduct to $[0, \dots, n] = \CScollapse_\ast \big( [0,1]^{\otimes n} \big)$.
 \end{proof}
@@ -374,7 +344,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	If
 	\[
 	\Delta^{r-1} \big([0,1]^{\otimes n}\big) =
-	\sum \pm \ x{(1)} \bm{\otimes} \cdots \bm{\otimes} x{(r)}
+	\sum \pm \ x{(1)} \otimes \cdots \otimes x{(r)}
 	\]
 	with each $x(i) \in \chains(\cube^n)$ a basis element, then $x{(1)} \leq \cdots \leq x{(r)}$.
 \end{lemma}
@@ -391,7 +361,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 
 \begin{lemma}
 	Let $x, y, z \in \chains(\cube^n)$ be basis elements.
-	If $x, y \leq z$ then $(x \ast y) \leq z$.
+	If $x, y \leq z$ then either $(x \ast y) = 0$ or $(x \ast y) \leq z$.
 \end{lemma}
 
 \begin{proof}
@@ -400,7 +370,9 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	(x_1 \otimes \cdots \otimes x_n) \ast (y_1 \otimes \cdots \otimes y_n) =
 	(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i}.
 	\end{align*}
-	By assumption, for every $i$ we have $x_{<i} \leq z_{<i}$ and $y_{>i} \leq z_{>i}$, and if $x_i \ast y_i \neq 0$ then either $x_i = [1]$ or $y_i = [1]$ which implies $z_i = [1]$ as well.
+	By assumption, for every $i \in \{1, \dots, n\}$ we have $x_{<i} \leq z_{<i}$ and $y_{>i} \leq z_{>i}$.
+	We need to show that $x_i \ast y_i \leq z_i$.
+	If $x_i \ast y_i \neq 0$ then either $x_i = [1]$ or $y_i = [1]$ which implies $z_i = [1]$ as well.
 \end{proof}
 
 \begin{lemma}
@@ -415,7 +387,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	We present this proof in the form of three claims. \newline
 
 	\noindent \textit{Claim 1}.
-	If $\CScollapse_\ast(x) = 0$ or $\CScollapse_\ast(y) = 0$ then
+	If $\CScollapse_\ast(x) = 0$ or $\CScollapse_\ast(y) = 0$ then for every $i \in \{1, \dots, n\}$
 	\begin{equation} \label{e:zero for join}
 	\CScollapse_\ast \big( x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0.
 	\end{equation}
@@ -424,54 +396,64 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	\begin{enumerate}
 		\item If $i > q$, then $x_p$ and $x_q$ are part of $x_{<i}$.
 		\item If $i = q$, then $x_q \ast y_q = 0$ for any $y_q$.
-		\item If $i < q$, then $\varepsilon(x_{>i}) = 0$.
+		\item If $i < q$, then $\epsilon(x_{>i}) = 0$.
 	\end{enumerate}
 	Similarly, if there is a pair $p < q$ such that $y_p = [0]$ and $y_q = [0,1]$,  then \eqref{e:zero for join} holds since:
 	\begin{enumerate}
 		\item If $i < p$, then $y_p$ and $y_q$ are part of $y_{>i}$.
-		\item If $i = p$ or, more generally, $y_i = [0]$, then $x_i = [0]$ and $x_i \ast y_i = 0$.
-		\item If $i = q$ or, more generally, $y_i = [0,1]$, then $x_i \ast y_i = 0$ for any $x_i$.
-		\item If $i > q$, then $\varepsilon(y_{<i}) = 0$.
-		\item If $p < i < q$ and $y_i = [1]$ then either $x_i \ast x_j = 0$ or $x_i \ast x_j = [0,1]$, implying $(x \ast y)_p = [0]$ and $(x \ast y)_i = [0,1]$.
+		\item If $i = p$, then $x_i = [0]$ and $x_i \ast y_i = 0$.
+		\item If $i > p$, then either $x_i \ast y_i = 0$ or $x_i \ast y_i = [0,1]$ and $x_p = [0]$.
 	\end{enumerate}
 	This proves the first claim and identity \eqref{e:cs collapse as algebra map} under its hypothesis. \newline
 
 	\noindent \textit{Claim 2}.
 	If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then
 	\[
-	\CScollapse_\ast(x \ast y) = \CScollapse_\ast \big( x_{<p_x} \, \varepsilon(y_{<p_x}) \otimes \, x_{p_x} \! \ast y_{p_x} \otimes \varepsilon(x_{>p_x}) \, y_{>p_x} \big).
+	\CScollapse_\ast(x \ast y) =
+	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \otimes \, x_{p_x} \! \ast y_{p_x} \otimes \epsilon(x_{>p_x}) \, y_{>p_x} \big)
 	\]
+	if $p_x = \min \big\{ i \mid x_i = [0] \big\}$ is well-defined and $x \ast y = 0$ if not.
 
-	To make sure the elements $x$ and $y$ have $[0]$ as a tensor factor in them we consider $\chains(\cube^n)$ as a subcomplex of $\chains(\cube^{n+1})$ via the inclusion that tensors on the right with $[0]$.
-	By naturality, we do not loose generality making this assumption.
-	Let $p_x = \min \big\{ i \mid x_i = [0] \big\}$ and let $p_y$ be defined analogously.
+	Assume $p_x$ is not well-defined, i.e., $x_i \neq [0]$ for all $i \in \{1, \dots, n\}$.
+	Given that $x \leq y$ we have that $[0] < x_i$ implies $x_i \ast y_i = 0$, and the claim follows in this case.
 
-	Given the assumptions of the claim and \cref{l:kernel of psi}, the basis elements $x_{< p_x}$ and $y_{< p_y}$ have tensor factors in $\big\{ [0,1], [1] \big\}$, whereas $x_{> p_x}$ and $y_{> p_y}$	have tensor factors in $\big\{ [0], [1] \big\}$.
-	We remark that any of these could be the unit $1_\k$.
-	Since $x \leq y$ we have that $p_x \leq p_y$.
-	If $i < p_x$ then $x_i = [1]$ or $x_i = [0,1]$.
-	If $x_i = [1]$, since $x_i \leq y_i$, it is impossible for $y_i = [0]$, the only case when $x_i \ast y_i \neq 0$.
-	If $x_i = [0,1]$ then $x_i \ast y_i = 0$ for any $y_i$.
-	If $i > p_x$, then either $x_i \ast y_i = 0$ or $x_i \ast y_i = [0,1]$.
-	In the first case there is nothing to prove and in the second we notice that $(x \ast y)_{p_x} = [0]$ and $(x \ast y)_{} = [0,1]$ so $\CScollapse_\ast(x \ast y) = 0$.
-	This establishes the second claim. \newline
+	Assume $p_x$ is well-defined.
+	We will show that for all $i \in \{1,\dots,n\}$ with the possible exception of $i = p_x$ we have
+	\begin{equation} \label{e:case main lemma third claim}
+	\CScollapse_\ast \big( x_{<i} \, \epsilon(y_{<i}) \otimes \, x_{i} \! \ast y_{i} \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0
+	\end{equation}
+	This follows from:
+	\begin{enumerate}
+		\item If $i < p_x$ and $x_i = [1]$ then $y_i = [1]$ and $x_i \ast y_i = 0$.
+		\item If $i < p_x$ and $x_i = [0,1]$ then $x_i \ast y_i = 0$ for any $y_i$.
+		\item If $i > p_x$ and $x_i \ast y_i = [0,1]$ and $\epsilon(y_{<i}) \neq 0$ then \eqref{e:explicit description of chain cs collapse} implies \eqref{e:case main lemma third claim}.
+	\end{enumerate}
 
-	\noindent \textit{Claim 3}.
+	\ \\ \noindent \textit{Claim 3}.
 	If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then \eqref{e:cs collapse as algebra map} holds.
 
-	Let $q_y$ be the tensor position of the first occurrence of the tensor factor $[0,1]$ in $y$, setting it to $+\infty$, if not present.
-	If $p_x > q_y$ then $x \ast y = 0$ since $\varepsilon(y_{<p_x}) = 0$, and if $p_x = q_y$ then $x \ast y = 0$ since $[0] \ast [0,1] = 0$.
-	We now prove that in this case $\CScollapse_\ast(x) \ast \CScollapse_\ast(y) = 0$.
-	Given that $x_{q_y} = [0,1]$ since $x \leq y$ and $x_{p_x}$ is the first tensor factor equal to $[0]$.
-	This implies that both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$ contain the vertex $q_{y} - 1$.
-	Let us now assume that $p_x < q_y$.
-	Then, using that $y_i = [1]$ for every $i < p_x$ and the second claim we have
-	\begin{align*}
-	\CScollapse_\ast(x \ast y) & =
-	\CScollapse_\ast \big( x_{< p_x} \otimes x_{p_x} \ast y_{p_x} \otimes y_{> p_y} \big) \\ & =
-	\CScollapse_\ast(x) \ast \CScollapse_\ast(y)
-	\end{align*}
-	as desired.
+	Let us assume that $\big\{ i \mid x_i = [0] \big\}$ is empty, which implies the analogous statement for $y$ since $x \leq y$.
+	Since neither of $x$ and $y$ have a factor $[0]$ in them, \eqref{e:explicit description of chain cs collapse} implies that the vertex $[n]$ is in both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$, which implies $\CScollapse_\ast(x) \ast \CScollapse_\ast(y) = 0$ as claimed.
+
+	Assume now that $p_x = \big\{ i \mid x_i = [0] \big\}$ is well defined, and let $\{q_1 < \dots < q_m\}$ with $x_{q_i} = [0,1]$ for $i \in \{1,\dots,m\}$.
+	Since $\CScollapse_\ast(x) \neq 0$ we have $p_x > q_m$ by \eqref{e:explicit description of chain cs collapse}, so $\epsilon(x_{>p_x}) = 1$ and Claim 2 implies
+	\[
+	\CScollapse_\ast(x \ast y) =
+	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \otimes \, x_{p_x} \! \ast y_{p_x} \otimes y_{>p_x} \big).
+	\]
+	We have the following cases where we use that $x \leq y$, that the join of basis elements in $\chains(\simplex^n)$ sharing a vertex is $0$, and \eqref{e:explicit description of chain cs collapse} without explicit mention:
+	\begin{enumerate}
+		\item If $\epsilon(y_{p_x}) = 0$ then there is $q_i$ such that $y_{q_i} = [0,1]$ so $[q_i-1]$ is in both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$.
+		\item If $\epsilon(y_{p_x}) \neq 0$ and $y_{p_x} \in \{[0], [0,1]\}$ then $x_{p_x} \ast y_{p_x} = 0$ and $[p_x-1]$ in both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$.
+		\item If $\epsilon(y_{p_x}) \neq 0$ and $y_{p_x} = [1]$ let $\{\ell_1 < \dots < \ell_k\}$ be such that $y_{\ell_j} = [0,1]$ and let $p_y > \ell_k$ be either $n+1$ or $\min\{j \mid y_j = \{0\}\}$ then
+		\begin{align*}
+		\CScollapse_\ast(x \ast y) & =
+		\CScollapse_\ast \big( x_{< p_x} \otimes x_{p_x} \ast y_{p_x} \otimes y_{> p_y} \big) \\ & =
+		[q_1-1, \dots, q_m-1, q_x-1, \ell_1-1, \dots, \ell_k-1, p_y-1] \\ & =
+		\CScollapse_\ast(x) \ast \CScollapse_\ast(y)
+		\end{align*}
+	\end{enumerate}
+	which concludes the proof of Claim 3 and this lemma.
 \end{proof}
 
 \begin{proof}[Proof of \cref{l:main comparison}]
