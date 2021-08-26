@@ -1,20 +1,20 @@
 \usepackage{amssymb}
 \usepackage{tikz-cd}
+\usepackage{mathbbol} % changes \mathbb{} and adds more support
 \usepackage{csquotes}
-\usepackage{bm}
-\usepackage{mathbbol}
-\DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}
 
 % bibliography
 \usepackage[backend=biber,
-style=alphabetic,
-backref=true,
-url=false,
-doi=false,
-isbn=false,
-eprint=false]{biblatex}
+	style=alphabetic,
+	backref=true,
+	url=false,
+	doi=false,
+	isbn=false,
+	eprint=false
+	]{biblatex}
 
-\renewbibmacro{in:}{}
+\renewbibmacro{in:}{}  % don't display "in:" before the journal name
+\AtEveryBibitem{\clearfield{pages}}  % don't show page numbers
 
 \addbibresource{aux/bibliography.bib}
 \addbibresource{aux/usualpapers.bib}
@@ -47,16 +47,16 @@ eprint=false]{biblatex}
 
 % references
 \usepackage[bookmarks=true,
-linktocpage=true,
-bookmarksnumbered=true,
-breaklinks=true,
-pdfstartview=FitH,
-hyperfigures=false,
-plainpages=false,
-naturalnames=true,
-colorlinks=true,
-pagebackref=false,
-pdfpagelabels]{hyperref}
+	linktocpage=true,
+	bookmarksnumbered=true,
+	breaklinks=true,
+	pdfstartview=FitH,
+	hyperfigures=false,
+	plainpages=false,
+	naturalnames=true,
+	colorlinks=true,
+	pagebackref=false,
+	pdfpagelabels]{hyperref}
 
 \hypersetup{
 	colorlinks,

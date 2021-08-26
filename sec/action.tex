@@ -27,8 +27,7 @@ We refer to \cite{grandis2003cubical} for a more leisure exposition and for vari
 
 We denote by $\cube_{\deg}(2^m, 2^n)$ the subset of morphism in $\cube(2^m, 2^n)$ of the form $\sigma_i \circ \tau$ with $\tau \in \cube(2^m, 2^{n+1})$.
 
-The category of \textit{cubical sets} $\Fun(\cube^\op, \Set)$ is denoted by $\cSet$ and
-the \textit{standard $n$-cube} $\yoneda(2^n) = \cube(-, 2^n)$ by $\cube^n$.
+The category of \textit{cubical sets} $\Fun(\cube^\op, \Set)$ is denoted by $\cSet$ and the \textit{standard $n$-cube} $\yoneda(2^n)$ by $\cube^n$.
 For any cubical set $X$ we write, as usual, $X_n$ instead of $X(2^n)$.
 
 \subsection{Cubical singular complex}
@@ -37,7 +36,12 @@ Consider the topological $n$-cube
 \begin{equation} \label{e:topological cube}
 \gcube^{n} = \big\{ (x_1, \dots, x_n) \mid x_i \in [0,1] \big\}.
 \end{equation}
-The assignment $2^n \to \gcube^n$ defines a functor $\cube \to \Top$ whose Yoneda extension is known as \textit{geometric realization}.
+The assignment $2^n \to \gcube^n$ defines a functor $\cube \to \Top$ with
+\begin{align*}
+\delta^\varepsilon_i(x_1, \dots, x_n) &= (x_1, \dots, x_i, \varepsilon, x_{i+1}, \dots x_n), \\
+\sigma_i(x_1,\dots,x_n) &= (x_1, \dots, \widehat{x}_i, \dots, x_n).
+\end{align*}
+Its Yoneda extension is known as \textit{geometric realization}.
 It has a right adjoint $\cSing \colon \Top \to \cSet$ given by
 \[
 Z \to \Big(2^n \to \Top(\gcube^n, Z)\Big)
@@ -47,11 +51,11 @@ and referred to as the \textit{cubical singular complex} of the topological spac
 \subsection{Cubical chains}
 
 The functor of (\textit{normalized}) \textit{chains} $\chains \colon \cSet \to \Ch$ is the Yoneda extension of the functor $\cube \to \Ch$ defined next.
-To an object $2^n$ it assigning the chain complex having in degree $m$ the module
+It assigns to an object $2^n$ the chain complex having in degree $m$ the module
 \[
 \frac{\k\{\cube(2^m, 2^n)\}}{\k\{\cube_{\deg}(2^m, 2^n)\}}
 \]
-and differential defined by
+and differential induced by
 \[
 \partial (\id_{2^n}) = \sum_{i=1}^{n} \ (-1)^i \
 \big(\delta_i^1 - \delta_i^0 \big).

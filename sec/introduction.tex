@@ -5,18 +5,18 @@ Instead of simplices, in his groundbreaking work on fibered spaces Serre conside
 \begin{displaycquote}[p.431]{serre1951homologie}
 	Il est en effet evident que ces derniers se pretent mieux que les simplexes a l'etude des produits directs, et, a fortiori, des espaces fibres qui en sont la generalisation.
 \end{displaycquote}
-Cubical sets, a model for the homotopy category, were also considered by Kan \cite{kan1955abstract, kan1956abstract} before introducing simplicial sets, are central to nonabelian algebraic topology \cite{brown2011nonabelian}, and have become important in Voevodsky's program for univalent foundations and homotopy type theory \cite{kapulkin2020straightening, mortberg2017cubical}.
-Other areas that highlight the relevance of cubical methods are applied topology, where cubical complexes are ubiquitous in the study of images \cite{tomasz2004computational}, lattice field theory -- notably the Ising model -- \cite{baxter1985exactlysolved}, and geometric group theory \cite{gromov1987hyperbolic}, where fundamental results have been obtained considering actions on certain cube complexes characterized combinatorially \cite{agol2013haken}.
+Cubical sets, a model for the homotopy category, were considered by Kan \cite{kan1955abstract, kan1956abstract} before introducing simplicial sets, they are central to nonabelian algebraic topology \cite{brown2011nonabelian}, and have become important in Voevodsky's program for univalent foundations and homotopy type theory \cite{kapulkin2020straightening, mortberg2017cubical}.
+Other areas that highlight the relevance of cubical methods are applied topology, where cubical complexes are ubiquitous in the study of images \cite{tomasz2004computational}, lattice field theory -- for example defining the Ising model -- \cite{baxter1985exactlysolved}, and geometric group theory \cite{gromov1987hyperbolic}, where fundamental results have been obtained considering actions on certain cube complexes characterized combinatorially \cite{agol2013haken}.
 
 Cubical cochains are equipped with the \textit{Serre algebra structure}, a lift to the cochain level of the graded ring structure in cohomology.
 Using an acyclic carrier argument it can be shown that this product is commutative up to coherent homotopies in a non-canonical way.
-The study of such objects, referred to as $E_\infty$-algebras, has a long history, where (co)homology operations \cite{steenrod1962cohomology, may1970general}, the recognition of infinite loop spaces \cite{boardman1973homotopy, may1972geometry} and algebraic models for the homotopy category \cite{mandell2001padic} are key milestones.
-The goal of this work is to introduce an effective description of an explicit $E_\infty$-algebra structure naturally extending the Serre algebra structure.
+The study of such objects, referred to as $E_\infty$-algebras, has a long history, where (co)homology operations \cite{steenrod1962cohomology, may1970general}, the recognition of infinite loop spaces \cite{boardman1973homotopy, may1972geometry} and complete algebraic models of the $p$-adic homotopy category \cite{mandell2001padic} are key milestones.
+The goal of this work is to introduce a description of an explicit $E_\infty$-algebra structure naturally extending the Serre algebra structure.
 
 We use the combinatorial model of the $E_\infty$-operad $\UM$ obtained from the finitely presented prop $\M$ introduced in \cite{medina2020prop1}.
 The resulting $\UM$-algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the cochains of standard cubes, which is determined by only three linear maps.
 To our knowledge, this is the first effective construction of an $E_\infty$-algebra structure on cubical cochains.
-Non-constructively, this result could be obtained using a lifting argument based on the cofibrancy of the reduced version of the operad $\UM$ in the category of operads, but this existence statement misses the rich combinatorial structure present in our effective construction.
+Non-constructively, this result could be obtained using a lifting argument based on the cofibrancy of the reduced version of the operad $\UM$ in the model category of operads, but this existence statement misses the rich combinatorial structure present in our effective construction.
 
 As described in \cite{medina2020prop1}, the operad $\UM$ also acts on simplicial cochains extending the Alexander--Whitney algebra structure.
 We use a construction of Cartan and Serre to relate these cubical and simplicial $E_\infty$-structures.
@@ -51,7 +51,7 @@ In the fifties, Adams introduced in \cite{adams1956cobar} a comparison map
 \theta_Z \colon \cobar S^\simplex(Z,z) \to S^\cube(\loops_z Z)
 \]
 from his cobar construction on the simplicial singular chains of a pointed space $(Z,z)$ to the cubical singular chains on its based loop space $\loops_z Z$.
-This comparison map is a quasi-isomorphism of algebras, which was shown by Baues \cite{baues1998hopf} to be one of bialgebras by considering Serre's cubical coproduct.
+This comparison map is a quasi-isomorphism of algebras, which was shown by Baues \cite{baues1998hopf} to be one of bialgebras by considering Serre's cubical coproduct, see also \cite{galvez-carrilo202hopf1}.
 In \cite{medina2021cobar} we use the constructions of this paper to generalize Baues' result by showing that Adams' comparison map is a quasi-isomorphism of $E_\infty$-bialgebras, i.e., of monoids in the category of $\UM$-coalgebras.
 
 \subsection*{Outline}
