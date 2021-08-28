@@ -154,6 +154,36 @@ So we have the following result, the main contribution of this paper.
 
 By linear duality, the same argument can be used to define a natural $E_\infty$-algebra structure on cubical cochains.
 
+\subsection{Cup-$i$ coproducts}
+
+N. Steenrod introduced in \cite{steenrod1947products} operations on the mod~2 cohomology of spaces via an explicit construction of natural maps
+\[
+\Delta_i \colon \chains(\simplex^n) \to \chains(\simplex^n) \otimes \chains(\simplex^n),
+\]
+where $\chains(\simplex^n)$ is the complex of chains on the standard $n$ simplex and $\Delta_0$ is the Alexander-Whitney diagonal (\cref{ss:simplicial sets}), such that
+\begin{equation} \label{e:cupi homological relations}
+(1 + T) \Delta_{i-1} = \partial \circ \Delta_i + \Delta_i \circ \partial
+\end{equation}
+with coefficients in $\Ftwo$.
+These maps, referred to as cup-$i$ coproducts, are combinatorially rich, defining for example the nerve of $n$-categories \cite{medina2020globular} as introduced by Street \cite{street1987orientals}, and admitting an axiomatic characterization \cite{medina2018axiomatic}.
+
+In the cubical case, collections of maps satisfying \eqref{e:cupi homological relations} were defined in \cite{kadeishvili1999coproducts} and \cite{pilarczyk2016cubical}.
+It is unclear if these are equivalent.
+The formulas used by these authors are analogous to those introduced in \cite{medina2021newformulas} for the simplicial case, a dual yet equivalent version of Steenrod's original description.
+By the same methods used in \cite{medina2020globular}, these formulas define a cubical nerve for higher categories, but it remains unclear if either agrees with the one defined by the generalized Gray tensor product.
+
+A new description of maps satisfying \eqref{e:cupi homological relations} can be deduced from our $E_\infty$-structure on cubical chains by considering the action of elements of the form:
+\begin{center}
+	\input{aux/cupi}
+\end{center}
+It is also not known if these agree with either of the previous constructions, pointing to the value of an axiomatic characterization as it exists in the simplicial case, where all known constructions agree.
+
+Cup-$i$ coproducts represent at the chain level Steenrod squares, which are primary operations at the level of cohomology.
+To obtain secondary cohomology operations one studies the cohomological relations these operations satisfy, for example the Cartan and Adem relations \cite{steenrod1962cohomology}.
+To do this at the cubical chain level, as it was done in \cite{medina2020cartan, medina2021adem} for the simplicial case, the operadic viewpoint is important, so our $E_\infty$-structure on cubical cochains invites the construction of cochain representatives for secondary operations in the cubical case.
+
+For an odd $p$, Steenrod also introduced operations on the mod $p$ cohomology of spaces using the homology of symmetric groups \cite{steenrod1952reduced, steenrod1953cyclic}.
+Using the operadic framework of May \cite{may1970general}, we describe in \cite{medina2020maysteenrod} multioperations at the cochain level generalizing the cup-$i$ products in the simplicial and cubical case.
 
 \subsection{Proof of \cref{l:cubical chain bialgebra}} \label{ss:proof action}
 
