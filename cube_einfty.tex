@@ -1,7 +1,17 @@
 \documentclass{amsart}
-\include{aux/style}
-\include{aux/usualcmds}
-\include{aux/commands}
+\input{aux/style}
+\input{aux/usualcmds}
+\addbibresource{aux/usualpapers.bib}
+\addbibresource{aux/mypapers.bib}
+
+%%%%%%%%%%%
+
+\usepackage{csquotes}
+\input{aux/commands} % new cmds here
+\addbibresource{aux/bibliography.bib} % new bibs here
+\input{aux/figures}
+
+%%%%%%%%%%%
 
 \title{A combinatorial $E_\infty$-algebra structure on cubical cochains}
 
@@ -16,8 +26,6 @@
 \subjclass[2020]{55N45, 18M70, 18M85}
 \keywords{Cubical sets, cochain complex, cup product, $E_\infty$-algebras, operads}
 
-\input{aux/figures}
-
 \begin{document}
 	\input{aux/abstract}
 	\maketitle
@@ -27,5 +35,6 @@
 	\input{sec/props}
 	\input{sec/action}
 	\input{sec/comparison}
+	\sloppy
 	\printbibliography
 \end{document}

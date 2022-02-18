@@ -1,5 +1,6 @@
+% !TEX root = ../cube_einfty.tex
 
-\section{Operads, props and \pdfEinfty-structures} \label{s:operads and props}
+\section{Operads, props and \texorpdfstring{${E_\infty}$}{E-infty}-structures} \label{s:operads and props}
 
 We now review the definition of the finitely presented prop $\M$ introduced in \cite{medina2020prop1} and whose associated operad is a model of the $E_\infty$-operad.
 Given its small number of generators and relations, is well suited to define $E_\infty$-structures.
@@ -8,23 +9,23 @@ We start by reviewing the basic material in the theory of operads and props, ref
 
 \subsection{Symmetric modules and bimodules}
 
-Let $\S$ be the category whose objects are the natural numbers and whose set of morphisms between $m$ and $n$ is empty if $m \neq n$ and is otherwise the symmetric group $\S_n$.
-A \textit{left $\S$-module} (resp. \textit{right} $\S$-\textit{module} or $\S$-\textit{bimodule}) is a functor from $\S$ (resp. $\S^\op$ or $\S \times \S^\op$) to $\Ch$.
+Let $\Sym$ be the category whose objects are the natural numbers and whose set of morphisms between $m$ and $n$ is empty if $m \neq n$ and is otherwise the symmetric group $\Sym_n$.
+A \textit{left $\Sym$-module} (resp. \textit{right} $\Sym$-\textit{module} or $\Sym$-\textit{bimodule}) is a functor from $\Sym$ (resp. $\Sym^\op$ or $\Sym \times \Sym^\op$) to $\Ch$.
 In this paper we prioritize left module structures over their right counterparts.
 As usual, taking inverses makes both perspectives equivalent.
-We respectively denote by $\Smod$ and $\Sbimod$ the categories of left $\S$-modules and of $\S$-bimodules with morphisms given by natural transformations.
+We respectively denote by $\Symmod$ and $\Symbimod$ the categories of left $\Sym$-modules and of $\Sym$-bimodules with morphisms given by natural transformations.
 
-The group homomorphisms $\S_n \to \S_n \times \S_1$ induce a forgetful functor \[
-\forget \colon \Sbimod \to \Smod
+The group homomorphisms $\Sym_n \to \Sym_n \times \Sym_1$ induce a forgetful functor \[
+\forget \colon \Symbimod \to \Symmod
 \]
 defined explicitly on an object $\cP$ by $\forget(\cP)(r) = \cP(1, r)$ for $r \in \N$.
-The similarly defined forgetful functor to right $\S$-modules will not be considered.
+The similarly defined forgetful functor to right $\Sym$-modules will not be considered.
 
 \subsection{Composition structures}
 
-We can define \textit{operads} and \textit{props} by enriching $\S$-modules and $\S$-bimodules with certain composition structures.
+We can define \textit{operads} and \textit{props} by enriching $\Sym$-modules and $\Sym$-bimodules with certain composition structures.
 For a complete presentation of these concepts we refer to Definition~11 and 54 of \cite{markl2008props}.
-Intuitively, using examples defined in the next subsection, operads and props can be understood by abstracting the composition structure naturally present in the left $\S$-module $\End^C$ (or right $\S$-module $\End_C$), naturally an operad, and the $\S$-bimodule $\End^C_C$, naturally a prop.
+Intuitively, using examples defined in the next subsection, operads and props can be understood by abstracting the composition structure naturally present in the left $\Sym$-module $\End^C$ (or right $\Sym$-module $\End_C$), naturally an operad, and the $\Sym$-bimodule $\End^C_C$, naturally a prop.
 We remark that the prop structure on $\cP$ restricts to an operad structure on $\forget(\cP)$.
 
 \subsection{Representations}
@@ -41,14 +42,14 @@ We remark that the forgetful functor $\forget$ sends $\End^C_C$ to $\End^C$.
 Let $C$ be a chain complex, $\cO$ an operad, and $\cP$ a prop.
 An $\cO$-\textit{coalgebra} (resp. $\cO$-\textit{algebra} or $\cP$-\textit{bialgebra}) structure on $C$ is a structure preserving morphism $\cO \to \End^C$ (resp. $\cO \to \End_C$ or $\cP \to \End_C^C$).
 
-\subsection{\pdfEinfty-operads}
+\subsection{\texorpdfstring{${E_\infty}$}{E-infty}-operads}
 
-Recall that a \textit{free $\S_r$-resolution} of a chain complex $C$ is a quasi-isomorphism $R \to C$ from a chain complex $R$ of free $\k[\S_r]$-modules.
+Recall that a \textit{free $\Sym_r$-resolution} of a chain complex $C$ is a quasi-isomorphism $R \to C$ from a chain complex $R$ of free $\k[\Sym_r]$-modules.
 
-An $\S$-module $M$ is said to be $E_\infty$ if there exists a morphism of $\S$-modules $M \to \underline{\k}$ inducing for each $r \in \N$ a free $\S_r$-resolution $M(r) \to \k$.
-For example, we can obtain one such $\S$-module by using the functor of singular chains and the set $\{\mathrm{E} \S_r \to \ast\}_{n \in \N}$ of maps to the terminal space from models of the universal $\S_r$-bundle.
+An $\Sym$-module $M$ is said to be $E_\infty$ if there exists a morphism of $\Sym$-modules $M \to \underline{\k}$ inducing for each $r \in \N$ a free $\Sym_r$-resolution $M(r) \to \k$.
+For example, we can obtain one such $\Sym$-module by using the functor of singular chains and the set $\{\mathrm{E} \Sym_r \to \ast\}_{n \in \N}$ of maps to the terminal space from models of the universal $\Sym_r$-bundle.
 
-An operad is said to be $E_\infty$ if its underlying $\S$-module is $E_\infty$.
+An operad is said to be $E_\infty$ if its underlying $\Sym$-module is $E_\infty$.
 
 \subsection{Free prop construction} \label{ss:free prop}
 
@@ -58,7 +59,7 @@ An operad is said to be $E_\infty$ if its underlying $\S$-module is $E_\infty$.
 	\label{f:immersion}
 \end{figure}
 
-The \textit{free prop} $\free(M)$ generated by an $\S$-bimodule $M$ is constructed using isomorphism classes of directed graphs with no directed loops that are enriched with the following labeling structure.
+The \textit{free prop} $\free(M)$ generated by an $\Sym$-bimodule $M$ is constructed using isomorphism classes of directed graphs with no directed loops that are enriched with the following labeling structure.
 We think of each directed edge as built from two compatibly directed half-edges.
 For each vertex $v$ of a directed graph $\Gamma$, we have the sets $in(v)$ and $out(v)$ of half-edges that are respectively incoming to and outgoing from $v$.
 Half-edges that do not belong to $in(v)$ or $out(v)$ for any $v$ are divided into the disjoint sets $in(\Gamma)$ and $out(\Gamma)$ of incoming and outgoing external half-edges.
@@ -77,10 +78,10 @@ and
 for every vertex $v$.
 We refer to the isomorphism classes of such labeled directed graphs with no directed loops as $(n,m)$\textit{-graphs} denoting the set of these by $\graphs(m,n)$.
 We use graphs immersed in the plane to represent elements in $\graphs(m,n)$, please see \cref{f:immersion}.
-We consider the right action of $\S_n$ and the left action of $\S_m$ on a $(n,m)$-graph given respectively by permuting the labels of $in(\Gamma)$ and $out(\Gamma)$.
-This action defines the $\S$-bimodule structure on the free prop
+We consider the right action of $\Sym_n$ and the left action of $\Sym_m$ on a $(n,m)$-graph given respectively by permuting the labels of $in(\Gamma)$ and $out(\Gamma)$.
+This action defines the $\Sym$-bimodule structure on the free prop
 \begin{equation} \label{e:free prop}
-\free(M)(m,n) \ = \bigoplus_{\Gamma \in \graphs(m,n)} \bigotimes_{v \in Vert(\Gamma)} out(v) \otimes_{\S_q} M(p, q) \otimes_{\S_p} in(v),
+\free(M)(m,n) \ = \bigoplus_{\Gamma \in \graphs(m,n)} \bigotimes_{v \in Vert(\Gamma)} out(v) \otimes_{\Sym_q} M(p, q) \otimes_{\Sym_p} in(v),
 \end{equation}
 where we simplified the notation writing $p$ and $q$ for $\overline{|in(v)|}$ and $\overline{|out(v)|}$ respectively.
 The composition structure is defined by (relabeled) grafting and disjoint union.
@@ -116,4 +117,4 @@ As proven in \cite[Theorem 3.3]{medina2020prop1} we have the following.
 	The operad $\UM$ is $E_\infty$.
 \end{proposition}
 
-We remark that, as proven in \cite{medina2018prop2}, this prop is obtained from applying the functor of cellular chains to a finitely presented prop over the category of CW-complexes capturing the geometry of stable arc surfaces \cite{kaufmann2009dimension}.
+We remark that, as proven in \cite{medina2021prop2}, this prop is obtained from applying the functor of cellular chains to a finitely presented prop over the category of CW-complexes capturing the geometry of stable arc surfaces \cite{kaufmann2009dimension}.

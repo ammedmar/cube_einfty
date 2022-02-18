@@ -1,26 +1,24 @@
+% !TEX root = ../cube_einfty.tex
+
+\usepackage{microtype}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{tikz-cd}
 \usepackage{mathbbol} % changes \mathbb{} and adds more support
-\usepackage{csquotes}
 
 % bibliography
-\usepackage[backend=biber,
+\usepackage[
+	backend=biber,
 	style=alphabetic,
 	backref=true,
 	url=false,
 	doi=false,
 	isbn=false,
-	eprint=false
-	]{biblatex}
-
-\addbibresource{aux/bibliography.bib}
-\addbibresource{aux/usualpapers.bib}
-\addbibresource{aux/mypapers.bib}
+	eprint=false]{biblatex}
 
 \renewbibmacro{in:}{}  % don't display "in:" before the journal name
 \AtEveryBibitem{\clearfield{pages}}  % don't show page numbers
 
-% get titles hyperlinked
 \DeclareFieldFormat{title}{\myhref{\mkbibemph{#1}}}
 \DeclareFieldFormat
 [article,inbook,incollection,inproceedings,patent,thesis,unpublished]
@@ -47,7 +45,8 @@
 }
 
 % references
-\usepackage[bookmarks=true,
+\usepackage[
+	bookmarks=true,
 	linktocpage=true,
 	bookmarksnumbered=true,
 	breaklinks=true,
@@ -68,8 +67,7 @@
 }
 
 \usepackage[capitalize, noabbrev]{cleveref}
-\let\subsectionSymbol\S
-\crefname{subsection}{\subsectionSymbol\!}{subsections}
+\crefname{subsection}{\S\!}{subsections}
 
 % layout
 \addtolength{\textwidth}{0in}

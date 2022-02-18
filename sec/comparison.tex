@@ -1,3 +1,4 @@
+% !TEX root = ../cube_einfty.tex
 
 \section{The Cartan--Serre comparison map} \label{s:the cartan-serre comparison map}
 
@@ -48,13 +49,13 @@ defined by
 \cubify(X)(2^m) = \sSet \big( \scube{n}, \, X \big).
 \]
 
-Although we do not use this fact, we mention that, as proven in \cite[\subsectionSymbol 8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ defines a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
+Although we do not use this fact, we mention that, as proven in \cite[\S 8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ defines a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
 
 \subsection{Projection and inclusion} \label{ss:projection and inclusion}
 
 We define for each $n \in \N$ a natural simplicial map
 \[
-\projection \colon \scube{n} \to \simplex^n,
+\proj \colon \scube{n} \to \simplex^n,
 \]
 referred to as the \textit{projection map}, by
 \[
@@ -68,14 +69,14 @@ v_i = \varepsilon_i^1 + \varepsilon_i^1 \varepsilon_i^2 + \dots + \varepsilon_i^
 Together with the naturality of the projection with respect morphisms in the simplex category we have the following compatibility with respect to cubical coface maps:
 For $i \in \{1,\dots,n\}$
 \begin{equation} \label{e:projection cubical compatibility}
-\projection \circ \, \delta_i^1 = \delta_{i-1} \circ \pi, \qquad
-\projection \circ \, \delta_n^0 = \delta_{n} \circ \pi,
+\proj \circ \, \delta_i^1 = \delta_{i-1} \circ \pi, \qquad
+\proj \circ \, \delta_n^0 = \delta_{n} \circ \pi,
 \end{equation}
-and the image of $\projection \circ \, \delta^0_i$ is degenerate for $1 \leq i < n$.
+and the image of $\proj \circ \, \delta^0_i$ is degenerate for $1 \leq i < n$.
 
-The projection map $\projection$ has a section
+The projection map $\proj$ has a section
 \[
-\inclusion \colon \simplex^n \to \scube{n}
+\incl \colon \simplex^n \to \scube{n}
 \]
 defined by sending $\id_{[n]}$ to $\varepsilon^1 \times \dots \times \varepsilon^n$ with
 \[
@@ -108,7 +109,7 @@ and morphisms are appropriate commutative diagrams, we have that
 
 \subsection{The Cartan--Serre collapse map} \label{ss:cs collapse map}
 
-We now give a cellular model for the composition $\projection_\ast \circ \subdivide$ where $\projection_\ast$ is the chain map induced by $\projection$ via $\schains$.
+We now give a cellular model for the composition $\proj_\ast \circ \subdivide$ where $\proj_\ast$ is the chain map induced by $\proj$ via $\schains$.
 Let us consider the model of the topological $n$-simplex given by
 \[
 \gsimplex^n = \big\{ (y_1, \dots, y_n) \in \gcube^n \mid i \leq j \Rightarrow y_i \geq y_j \big\},
@@ -152,21 +153,21 @@ Let $p$ be the minimum of the set $\{i \mid x_i = [0]\}$ or $n+1$ if empty, then
 \]
 where for any integer $\ell$ we write $\tilde \ell = \ell-1$.
 
-An easy consequence of the compatibility of $\CScollapse$ and $\projection$ with respect to cubical and simplicial coface maps is that $\CScollapse_\ast$ and $\projection_\ast \circ \subdivide$ agree, since they both send the top dimensional generator $[0,1]^{\otimes n}$ to $[0, \dots, n]$.
+An easy consequence of the compatibility of $\CScollapse$ and $\proj$ with respect to cubical and simplicial coface maps is that $\CScollapse_\ast$ and $\proj_\ast \circ \subdivide$ agree, since they both send the top dimensional generator $[0,1]^{\otimes n}$ to $[0, \dots, n]$.
 
 We remark that to define the collapse map in \cite[p. 442]{serre1951homologie}, Cartan used the model of the topological $n$-simplex that is a subset of $\R^{n+1}$.
 We find it more convenient to use the model of $\gsimplex^n$ that is a subset of $\gcube^n$.
 
 \subsection{The Cartan--Serre comparison map} \label{ss:comparison map}
 
-The projection $\projection \colon \scube{n} \to \simplex^{\!n}$ induces for any simplicial set $Y$ a natural morphism of graded sets
+The projection $\proj \colon \scube{n} \to \simplex^{\!n}$ induces for any simplicial set $Y$ a natural morphism of graded sets
 \[
 Y \to \cubify Y
 \]
 defined on a standard simplex $\simplex^n$ by
 \[
 \big( [m] \xra{\sigma} [n] \big) \mapsto
-\big( \scube{m} \xra{\projection} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
+\big( \scube{m} \xra{\proj} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
 \]
 Additionally, passing to chains gives a graded linear map
 \[
@@ -191,7 +192,7 @@ It suffices to describe the case $Y = \simplex^n$ which is given by
 
 \begin{proof}
 	It suffices to prove this for $Y = \simplex^n$ since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
-	Since $\CScollapse_\ast = \projection_\ast \circ \subdivide$ is a chain map, we have
+	Since $\CScollapse_\ast = \proj_\ast \circ \subdivide$ is a chain map, we have
 	\begin{align*}
 	\CScomp \big( \partial^\simplex \id_{[n]} \big) \defeq
 	\partial^\simplex \circ \CScollapse_\ast =
@@ -263,7 +264,7 @@ We deduce this from the following result which we prove in \cref{ss:comparison p
 
 \begin{proof}[Proof of \cref{t:main comparison}]
 	It suffices to prove this for $Y = \simplex^n$.
-	Since $\CScollapse_\ast = \projection_\ast \circ \subdivide$ is a morphism of $\USL$-coalgebras (\cref{l:main comparison}), for any $\Gamma \in \USL(r)$ we have
+	Since $\CScollapse_\ast = \proj_\ast \circ \subdivide$ is a morphism of $\USL$-coalgebras (\cref{l:main comparison}), for any $\Gamma \in \USL(r)$ we have
 	\begin{align*}
 	\CScomp^{\otimes r} \! \big( \Gamma(\id_{[n]}) \big) \defeq
 	\Gamma \circ \CScollapse_\ast =
@@ -292,9 +293,9 @@ We have the following consequence of \cref{t:main comparison}.
 	where the first map is the Cartan--Serre comparison map of \cref{ss:comparison map} and the second is induced from the morphism of cubical sets defined by the assignment
 	\[
 	\big( \scube{n} \xra{F} \sSing Z \big) \mapsto
-	\big( \gcube^n \cong \bars{\scube{n}} \xra{\bars{\projection}} \gsimplex^n \xra{F(\inclusion(\id_{[n]}))} Z \big)
+	\big( \gcube^n \cong \bars{\scube{n}} \xra{\bars{\proj}} \gsimplex^n \xra{F(\incl(\id_{[n]}))} Z \big)
 	\]
-	where $\inclusion$ is the section of $\projection$ defined in \cref{ss:projection and inclusion}.
+	where $\incl$ is the section of $\proj$ defined in \cref{ss:projection and inclusion}.
 	The first is a morphism of $\USL$-coalgebras by \cref{t:main comparison} and the second by naturality, so the statement is proven.
 \end{proof}
 
