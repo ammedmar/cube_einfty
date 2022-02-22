@@ -26,9 +26,9 @@ For any $n \in \N$, define $\epsilon \colon \chains(\simplex^n) \to \k$ by
 \[
 \epsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0, \end{cases}
 \]
-and $\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\otimes 2}$ by
+and $\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\ot 2}$ by
 \[
-\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \otimes [v_i, \dots, v_q].
+\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \ot [v_i, \dots, v_q].
 \]
 
 \subsection{Triangulation and its right adjoint}
@@ -91,7 +91,7 @@ The \textit{subdivision} map of a cubical set $X$
 \]
 is the natural chain map defined by the well known Eilenberg--Zilber map
 \[
-\subdivide \colon \chains(\cube^n) \cong \chains(\simplex^{\!1})^{\otimes n} \xra{\EZ} \chains \scube{n}.
+\subdivide \colon \chains(\cube^n) \cong \chains(\simplex^{\!1})^{\ot n} \xra{\EZ} \chains \scube{n}.
 \]
 
 The $\EZ$ map is natural with respect to cubical morphisms and, consequently, so is the subdivision map $\subdivide$.
@@ -143,7 +143,7 @@ It is straightforward to verify that
 \end{align*}
 for $i \in \{1, \dots, n\}$ and that the image of $\CScollapse \circ \, \delta_i^0$ for $1 \leq i < n$ is in a lower dimensional skeleton of $\gsimplex^n$.
 We can deduce from this an explicit description of the chain map induced by the Cartan--Serre collapse.
-Let $x = x_1 \otimes \cdots \otimes x_n$ be a basis element of degree $m$ with $\{q_1 < \dots < q_m\}$ such that $x_{q_i} = [0,1]$ for $i \in \{1, \dots, m\}$.
+Let $x = x_1 \ot \cdots \ot x_n$ be a basis element of degree $m$ with $\{q_1 < \dots < q_m\}$ such that $x_{q_i} = [0,1]$ for $i \in \{1, \dots, m\}$.
 Let $p$ be the minimum of the set $\{i \mid x_i = [0]\}$ or $n+1$ if empty, then
 \[
 \CScollapse_\ast(x) = \begin{cases}
@@ -153,7 +153,7 @@ Let $p$ be the minimum of the set $\{i \mid x_i = [0]\}$ or $n+1$ if empty, then
 \]
 where for any integer $\ell$ we write $\tilde \ell = \ell-1$.
 
-An easy consequence of the compatibility of $\CScollapse$ and $\proj$ with respect to cubical and simplicial coface maps is that $\CScollapse_\ast$ and $\proj_\ast \circ \subdivide$ agree, since they both send the top dimensional generator $[0,1]^{\otimes n}$ to $[0, \dots, n]$.
+An easy consequence of the compatibility of $\CScollapse$ and $\proj$ with respect to cubical and simplicial coface maps is that $\CScollapse_\ast$ and $\proj_\ast \circ \subdivide$ agree, since they both send the top dimensional generator $[0,1]^{\ot n}$ to $[0, \dots, n]$.
 
 We remark that to define the collapse map in \cite[p. 442]{serre1951homologie}, Cartan used the model of the topological $n$-simplex that is a subset of $\R^{n+1}$.
 We find it more convenient to use the model of $\gsimplex^n$ that is a subset of $\gcube^n$.
@@ -212,7 +212,7 @@ This $\M$-bialgebra structure on $\chains(\simplex^{\!n})$ is defined by the ass
 \]
 where $\epsilon$ and $\Delta$ constitute the Alexander--Whitney coalgebra structure on simplicial chains, and
 \[
-\ast \colon \chains(\simplex^{\!n})^{\otimes 2} \to \chains(\simplex^{\!n})
+\ast \colon \chains(\simplex^{\!n})^{\ot 2} \to \chains(\simplex^{\!n})
 \]
 is an algebraic version of the \textit{join} defined by
 \[
@@ -234,18 +234,18 @@ This implies that the suboperad $\USL$ of $\UM$ is also $E_\infty$.
 	We illustrate the need to restrict to $\USL$ by providing a simple example showing that $\CScollapse_\ast$ does not preserve $\M$-structures.
 	From it is easy to construct others showing $\CScollapse_\ast$ does not preserve the $\UM$-structures either.
 
-	Since $\CScollapse_\ast \big( [0] \otimes [0,1] \big) = 0$ and
+	Since $\CScollapse_\ast \big( [0] \ot [0,1] \big) = 0$ and
 	\begin{align*}
-	\big( [1] \otimes [1] \big) \ast \big( [0] \otimes [0,1] \big) &=
-	- \big( [0,1] \otimes [0,1] \big), \\
-	- \CScollapse_\ast \big( [0,1] \otimes [0,1] \big) & = - [0,1,2]
+	\big( [1] \ot [1] \big) \ast \big( [0] \ot [0,1] \big) &=
+	- \big( [0,1] \ot [0,1] \big), \\
+	- \CScollapse_\ast \big( [0,1] \ot [0,1] \big) & = - [0,1,2]
 	\end{align*}
 	we have
 	\[
-	\CScollapse_\ast \big( [1] \otimes [1] \big) \ast \CScollapse_\ast \big( [0] \otimes [0,1] \big) \neq \CScollapse_\ast \Big( ([1] \otimes [1]) \ast ([0] \otimes [0,1]) \Big).
+	\CScollapse_\ast \big( [1] \ot [1] \big) \ast \CScollapse_\ast \big( [0] \ot [0,1] \big) \neq \CScollapse_\ast \Big( ([1] \ot [1]) \ast ([0] \ot [0,1]) \Big).
 	\]
 
-	The key issue is that with respect to the order $[0] < [0,1] < [1]$ extended tensor-wise (\cref{d:partial order}) we have that $\big( [1] \otimes [1] \big) \not\leq \big( [0] \otimes [0,1] \big)$, whereas all operations $x \ast y$ resulting from applying a surjection-like graph are between pairs $x \leq y$.
+	The key issue is that with respect to the order $[0] < [0,1] < [1]$ extended tensor-wise (\cref{d:partial order}) we have that $\big( [1] \ot [1] \big) \not\leq \big( [0] \ot [0,1] \big)$, whereas all operations $x \ast y$ resulting from applying a surjection-like graph are between pairs $x \leq y$.
 \end{example}
 
 \subsection{The Cartan--Serre comparison map as an $E_\infty$-coalgebra morphism}
@@ -266,9 +266,9 @@ We deduce this from the following result which we prove in \cref{ss:comparison p
 	It suffices to prove this for $Y = \simplex^n$.
 	Since $\CScollapse_\ast = \proj_\ast \circ \subdivide$ is a morphism of $\USL$-coalgebras (\cref{l:main comparison}), for any $\Gamma \in \USL(r)$ we have
 	\begin{align*}
-	\CScomp^{\otimes r} \! \big( \Gamma(\id_{[n]}) \big) \defeq
+	\CScomp^{\ot r} \! \big( \Gamma(\id_{[n]}) \big) \defeq
 	\Gamma \circ \CScollapse_\ast =
-	\CScollapse_\ast^{\otimes r} \! \circ \, \Gamma \defeq
+	\CScollapse_\ast^{\ot r} \! \circ \, \Gamma \defeq
 	\Gamma \big( \CScomp (\id_{[n]}) \big),
 	\end{align*}
 	as claimed.
@@ -302,18 +302,18 @@ We have the following consequence of \cref{t:main comparison}.
 
 \subsection{Proof of \cref{l:main comparison}} \label{ss:comparison proof}
 
-Throughout this subsection we use the identifications $\chains(\cube^n) \cong \gchains(\gcube^n)$ and $\chains(\simplex^n) \cong \gchains(\gsimplex^n)$, in particular $\id_{2^n}$ corresponds to $[0,1]^{\otimes n}$.
+Throughout this subsection we use the identifications $\chains(\cube^n) \cong \gchains(\gcube^n)$ and $\chains(\simplex^n) \cong \gchains(\gsimplex^n)$, in particular $\id_{2^n}$ corresponds to $[0,1]^{\ot n}$.
 By naturality, it suffices to show that
 \begin{equation} \label{e:Cartan--Serre E-coalgebra map}
-\CScollapse_\ast^{\otimes r} \! \circ \, \Gamma \big( [0,1]^{\otimes n} \big) =
-\Gamma \circ \CScollapse_\ast \big( [0,1]^{\otimes n} \big),
+\CScollapse_\ast^{\ot r} \! \circ \, \Gamma \big( [0,1]^{\ot n} \big) =
+\Gamma \circ \CScollapse_\ast \big( [0,1]^{\ot n} \big),
 \end{equation}
 where $\Gamma \in \UM(r)$ is represented by a surjection-like $(1,r)$-graph.
 
 For ease of reference we state the following result discussed in \cref{ss:cs collapse map}.
 
 \begin{lemma} \label{l:cs collapse chain map explicit}
-	Let $x = x_1 \otimes \cdots \otimes x_n$ be a basis element of $\chains(\cube^n)$ of degree $m$ with $\{q_1 < \dots < q_m\}$ such that $x_{q_i} = [0,1]$ for each $i$.
+	Let $x = x_1 \ot \cdots \ot x_n$ be a basis element of $\chains(\cube^n)$ of degree $m$ with $\{q_1 < \dots < q_m\}$ such that $x_{q_i} = [0,1]$ for each $i$.
 	Let $p$ be the minimum of the set $\{i \mid x_i = [0]\}$ or $n+1$ if this set is empty, then
 	\[
 	\CScollapse_\ast(x) = \begin{cases}
@@ -334,30 +334,30 @@ We begin by verifying that $\CScollapse_\ast$ is compatible with respect to the 
 	Since $\CScollapse_\ast$ is induced from a cellular map between contractible spaces it is a quasi-isomorphism compatible with the counit.
 	To study the compatibility of $\CScollapse_\ast$ with coproducts consider $n > 0$, since the case $n = 0$ is immediate, and let
 	\[
-	\Delta \big( [0,1]^{\otimes n} \big) = \sum_{\lambda \in \Lambda} \pm \ x_1^{(\lambda)} \otimes \cdots \otimes x_n^{(\lambda)} \otimes y_1^{(\lambda)} \otimes \cdots \otimes y_n^{(\lambda)},
+	\Delta \big( [0,1]^{\ot n} \big) = \sum_{\lambda \in \Lambda} \pm \ x_1^{(\lambda)} \ot \cdots \ot x_n^{(\lambda)} \ot y_1^{(\lambda)} \ot \cdots \ot y_n^{(\lambda)},
 	\]
 	where $\Lambda$ parameterizes all choices of $x_i^{(\lambda)} \in \{[0], [0,1]\}$ and $y_i^{(\lambda)} \in \{[0,1], [1]\}$ such that
 	\begin{align*}
 	x_i^{(\lambda)} = [0]   & \iff y_i^{(\lambda)} = [0,1], \\
 	x_i^{(\lambda)} = [0,1] & \iff y_i^{(\lambda)} = [1].
 	\end{align*}
-	By \cref{l:cs collapse chain map explicit}, the summands above not sent to $0$ by $\CScollapse_\ast \otimes \CScollapse_\ast$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
-	For any one such summand, its sign is positive and its image by $\CScollapse_\ast \otimes \CScollapse_\ast$ is $[0, \dots, k] \otimes [k, \dots, n]$ where $k+1 = \min \{i \mid x_i^{(\lambda)} = [0]\}$ or $k = n$ if this set is empty.
-	The summands $[0, \dots, k] \otimes [k, \dots, n]$ are precisely those appearing when applying the Alexander--Whitney coproduct to $[0, \dots, n] = \CScollapse_\ast \big( [0,1]^{\otimes n} \big)$.
+	By \cref{l:cs collapse chain map explicit}, the summands above not sent to $0$ by $\CScollapse_\ast \ot \CScollapse_\ast$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
+	For any one such summand, its sign is positive and its image by $\CScollapse_\ast \ot \CScollapse_\ast$ is $[0, \dots, k] \ot [k, \dots, n]$ where $k+1 = \min \{i \mid x_i^{(\lambda)} = [0]\}$ or $k = n$ if this set is empty.
+	The summands $[0, \dots, k] \ot [k, \dots, n]$ are precisely those appearing when applying the Alexander--Whitney coproduct to $[0, \dots, n] = \CScollapse_\ast \big( [0,1]^{\ot n} \big)$.
 \end{proof}
 
 We will consider the basis of $\chains(\cube^n)$ as a poset in the following way.
 
 \begin{definition} \label{d:partial order}
-	For $n = 1$ we set $[0] < [0,1] < [1]$ and $(x_1 \otimes \cdots \otimes x_n) \leq (y_1 \otimes \cdots \otimes y_n)$ iff $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$.
+	For $n = 1$ we set $[0] < [0,1] < [1]$ and $(x_1 \ot \cdots \ot x_n) \leq (y_1 \ot \cdots \ot y_n)$ iff $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$.
 \end{definition}
 
 \begin{lemma}
 	Let $\Delta^{r-1}$ be the $(r-1)^\th$-fold iterated Serre coproduct.
 	If
 	\[
-	\Delta^{r-1} \big([0,1]^{\otimes n}\big) =
-	\sum \pm \ x{(1)} \otimes \cdots \otimes x{(r)}
+	\Delta^{r-1} \big([0,1]^{\ot n}\big) =
+	\sum \pm \ x{(1)} \ot \cdots \ot x{(r)}
 	\]
 	with each $x(i) \in \chains(\cube^n)$ a basis element, then $x{(1)} \leq \cdots \leq x{(r)}$.
 \end{lemma}
@@ -380,8 +380,8 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 \begin{proof}
 	Recall that
 	\begin{align*}
-	(x_1 \otimes \cdots \otimes x_n) \ast (y_1 \otimes \cdots \otimes y_n) =
-	(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i}.
+	(x_1 \ot \cdots \ot x_n) \ast (y_1 \ot \cdots \ot y_n) =
+	(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i}.
 	\end{align*}
 	By assumption, for every $i \in \{1, \dots, n\}$ we have $x_{<i} \leq z_{<i}$ and $y_{>i} \leq z_{>i}$.
 	If $x_i \ast y_i \neq 0$ then $x_i \ast y_i = [0,1]$ and either $x_i = [1]$ or $y_i = [1]$ which implies $z_i = [1]$ as well, so $x_i \ast y_i \leq z_i$.
@@ -402,7 +402,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	\noindent \textit{Claim 1}.
 	If $\CScollapse_\ast(x) = 0$ or $\CScollapse_\ast(y) = 0$ then for every $i \in \{1, \dots, n\}$
 	\begin{equation} \label{e:zero for join}
-	\CScollapse_\ast \big( x_{<i}\, \epsilon(y_{<i}) \otimes x_i \ast y_i \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0.
+	\CScollapse_\ast \big( x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i} \big) = 0.
 	\end{equation}
 
 	Assume $\CScollapse_\ast(x) = 0$, that is, there exists a pair $p < q$ such that $x_p = [0]$ and $x_q = [0,1]$, then \eqref{e:zero for join} holds since:
@@ -423,7 +423,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then
 	\[
 	\CScollapse_\ast(x \ast y) =
-	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \otimes \, x_{p_x} \! \ast y_{p_x} \otimes \epsilon(x_{>p_x}) \, y_{>p_x} \big)
+	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \ot \, x_{p_x} \! \ast y_{p_x} \ot \epsilon(x_{>p_x}) \, y_{>p_x} \big)
 	\]
 	if $p_x = \min \big\{ i \mid x_i = [0] \big\}$ is well-defined and $x \ast y = 0$ if not.
 
@@ -433,7 +433,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	Assume $p_x$ is well-defined.
 	We will show that for all $i \in \{1,\dots,n\}$ with the possible exception of $i = p_x$ we have
 	\begin{equation} \label{e:case main lemma third claim}
-	\CScollapse_\ast \big( x_{<i} \, \epsilon(y_{<i}) \otimes \, x_{i} \! \ast y_{i} \otimes \epsilon(x_{>i}) \, y_{>i} \big) = 0
+	\CScollapse_\ast \big( x_{<i} \, \epsilon(y_{<i}) \ot \, x_{i} \! \ast y_{i} \ot \epsilon(x_{>i}) \, y_{>i} \big) = 0
 	\end{equation}
 	This follows from:
 	\begin{enumerate}
@@ -452,7 +452,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	Since $\CScollapse_\ast(x) \neq 0$ \cref{l:cs collapse chain map explicit} implies that $p_x > q_m$, so $\epsilon(x_{>p_x}) = 1$ and Claim 2 implies
 	\[
 	\CScollapse_\ast(x \ast y) =
-	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \otimes \, x_{p_x} \! \ast y_{p_x} \otimes y_{>p_x} \big).
+	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \ot \, x_{p_x} \! \ast y_{p_x} \ot y_{>p_x} \big).
 	\]
 	We have the following cases:
 	\begin{enumerate}
@@ -461,7 +461,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 		\item If $\epsilon(y_{p_x}) \neq 0$ and $y_{p_x} = [1]$ let $\{\ell_1 < \dots < \ell_k\}$ be such that $y_{\ell_j} = [0,1]$ and let $p_y > \ell_k$ be either $n+1$ or $\min\{j \mid y_j = \{0\}\}$ then
 		\begin{align*}
 		\CScollapse_\ast(x \ast y) & =
-		\CScollapse_\ast \big( x_{< p_x} \otimes x_{p_x} \ast y_{p_x} \otimes y_{> p_y} \big) \\ & =
+		\CScollapse_\ast \big( x_{< p_x} \ot x_{p_x} \ast y_{p_x} \ot y_{> p_y} \big) \\ & =
 		[\tilde q_1, \dots, \tilde q_m, \tilde p_x, \tilde \ell_1, \dots, \tilde \ell_k, \tilde p_y] \\ & =
 		\CScollapse_\ast(x) \ast \CScollapse_\ast(y)
 		\end{align*}
