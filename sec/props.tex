@@ -7,51 +7,84 @@ Given its small number of generators and relations, is well suited to define $E_
 In the next section we use this model to define natural $E_\infty$-structures on cubical chains and cochains.
 We start by reviewing the basic material in the theory of operads and props, referring the reader to, for example, \cite{markl2008props} for a more complete treatment.
 
-\subsection{Symmetric modules and bimodules}
+\subsection{Symmetric (bi)modules}
 
-Let $\Sym$ be the category whose objects are the natural numbers and whose set of morphisms between $m$ and $n$ is empty if $m \neq n$ and is otherwise the symmetric group $\Sym_n$.
-A \textit{left $\Sym$-module} (resp. \textit{right} $\Sym$-\textit{module} or $\Sym$-\textit{bimodule}) is a functor from $\Sym$ (resp. $\Sym^\op$ or $\Sym \times \Sym^\op$) to $\Ch$.
+Let $\Sym$ be the category whose objects are the non-negative integers $\N$ and whose set of morphisms between $r$ and $r^\prime$ is empty if $r \neq r^\prime$ and is otherwise the symmetric group $\Sym_r$.
+A \textit{left $\Sym$-module} (resp. \textit{right} $\Sym$-\textit{module} or $\Sym$-\textit{bimodule}) is a functor from $\Sym$ (resp. $\Sym^\op$ or $\Sym^\op \times \Sym$) to $\Ch$.
 In this paper we prioritize left module structures over their right counterparts.
 As usual, taking inverses makes both perspectives equivalent.
 We respectively denote by $\Symmod$ and $\Symbimod$ the categories of left $\Sym$-modules and of $\Sym$-bimodules with morphisms given by natural transformations.
 
-The group homomorphisms $\Sym_n \to \Sym_n \times \Sym_1$ induce a forgetful functor \[
-\forget \colon \Symbimod \to \Symmod
+Given a chain complex $C$, we have the following key examples of a left and a right $\Sym$-module
+\begin{gather*}
+	\End^C(r) = \Hom(C, C^{\ot r}), \qquad
+	\End_C(s) = \Hom(C^{\ot s}, C),
+\end{gather*}
+and of an $\Sym$-bimodule
+\[
+\End^C_C(s, r) = \Hom(C^{\ot s}, C^{\ot r}),
 \]
+where the symmetric actions are given by permutation of tensor factors.
+
+The group homomorphisms $\Sym_n \to \Sym_1^\op \times \Sym_n$ induce a forgetful functor
+\begin{equation} \label{e:forgetful}
+	\forget \colon \Symbimod \to \Symmod
+\end{equation}
 defined explicitly on an object $\cP$ by $\forget(\cP)(r) = \cP(1, r)$ for $r \in \N$.
 The similarly defined forgetful functor to right $\Sym$-modules will not be considered.
 
 \subsection{Composition structures}
 
-We can define \textit{operads} and \textit{props} by enriching $\Sym$-modules and $\Sym$-bimodules with certain composition structures.
+\textit{Operads} and \textit{props} are obtained by enriching $\Sym$-modules and $\Sym$-bimodules with certain composition structures.
+Intuitively, these are obtained by abstracting the composition structure naturally present in the left $\Sym$-module $\End^C$ (or right $\Sym$-module $\End_C$), naturally an operad, and the $\Sym$-bimodule $\End^C_C$, naturally a prop.
+More explicitly, an operad $\cO$ is a left $\Sym$-module with chain maps
+\[
+\begin{split}
+	\k &\to \cO(1), \\
+	\cO(s_1) \ot \dotsb \ot \cO(s_r) \ot \cO(r) &\to \cO(s_1 + \dots + s_r),
+\end{split}
+\]
+satisfying relations of associativity, equivariance and unitality.
+Similarly, a prop $\cP$ is a $\Sym$-bimodule together with chain maps
+\[
+\begin{split}
+	\k &\to \cP(s,s), \\
+	\cP(s, k) \ot \cP(k, r) &\to \cP(s,r), \\
+	\cP(s^\prime, r^\prime) \ot \cP(s, r) &\to \cP(s^\prime+s, r^\prime+r),
+\end{split}
+\]
+satisfying certain natural relations.
 For a complete presentation of these concepts we refer to Definition~11 and 54 of \cite{markl2008props}.
-Intuitively, using examples defined in the next subsection, operads and props can be understood by abstracting the composition structure naturally present in the left $\Sym$-module $\End^C$ (or right $\Sym$-module $\End_C$), naturally an operad, and the $\Sym$-bimodule $\End^C_C$, naturally a prop.
-We remark that the prop structure on $\cP$ restricts to an operad structure on $\forget(\cP)$.
+We denote the category of operads and props with structure preserving morphisms respectively by $\operads$ and $\props$.
 
-\subsection{Representations}
-
-Given a chain complex $C$ define
-\begin{gather*}
-\End^C(r) = \Hom(C, C^{\otimes r}), \qquad
-\End_C(r) = \Hom(C^{\otimes r}, C), \\
-\End^C_C(r, s) = \Hom(C^{\otimes r}, C^{\otimes s}),
-\end{gather*}
-for $r,s \in \N$, with their natural operad and prop structures respectively.
-We remark that the forgetful functor $\forget$ sends $\End^C_C$ to $\End^C$.
 
 Let $C$ be a chain complex, $\cO$ an operad, and $\cP$ a prop.
-An $\cO$-\textit{coalgebra} (resp. $\cO$-\textit{algebra} or $\cP$-\textit{bialgebra}) structure on $C$ is a structure preserving morphism $\cO \to \End^C$ (resp. $\cO \to \End_C$ or $\cP \to \End_C^C$).
+An $\cO$-\textit{coalgebra} (resp. $\cO$-\textit{algebra} or $\cP$-\textit{bialgebra}) structure on $C$ is an structure preserving morphism $\cO \to \End^C$ (resp. $\cO \to \End_C$ or $\cP \to \End_C^C$).
+
+We remark that the forgetful functor \eqref{e:forgetful} restricts to
+\[
+\forget \colon \props \to \operads,
+\]
+so any $\cP$-bialgebra structure on $C$
+\[
+\cP \to \biEnd_C^C
+\]
+induces a $\forget(\cP)$-coalgebra structure on it
+\[
+\forget(\cP) \to \forget(\biEnd_C^C) \cong \coEnd^C.
+\]
 
 \subsection{\texorpdfstring{${E_\infty}$}{E-infty}-operads}
 
-Recall that a \textit{free $\Sym_r$-resolution} of a chain complex $C$ is a quasi-isomorphism $R \to C$ from a chain complex $R$ of free $\k[\Sym_r]$-modules.
+Recall that a \textit{projective $\Sym_r$-resolution} of a chain complex $C$ is a quasi-isomorphism $R \to C$ from a chain complex $R$ of projective $\k[\Sym_r]$-modules.
 
 An $\Sym$-module $M$ is said to be $E_\infty$ if there exists a morphism of $\Sym$-modules $M \to \underline{\k}$ inducing for each $r \in \N$ a free $\Sym_r$-resolution $M(r) \to \k$.
 For example, we can obtain one such $\Sym$-module by using the functor of singular chains and the set $\{\mathrm{E} \Sym_r \to \ast\}_{n \in \N}$ of maps to the terminal space from models of the universal $\Sym_r$-bundle.
 
-An operad is said to be $E_\infty$ if its underlying $\Sym$-module is $E_\infty$.
+An operad is said to be an \textit{$E_\infty$-operad} if its underlying $\Sym$-module is $E_\infty$.
+A prop $\cP$ is said to be an \textit{$E_\infty$-prop} if $\forget(\cP)$ is an $E_\infty$-operad.
 
-\subsection{Free prop construction} \label{ss:free prop}
+\subsection{Presentations} \label{ss:presentation}
 
 \begin{figure}
 	\input{aux/immersion}
@@ -76,45 +109,68 @@ and
 \overline{|out(v)|}\to out(v),
 \]
 for every vertex $v$.
-We refer to the isomorphism classes of such labeled directed graphs with no directed loops as $(n,m)$\textit{-graphs} denoting the set of these by $\graphs(m,n)$.
-We use graphs immersed in the plane to represent elements in $\graphs(m,n)$, please see \cref{f:immersion}.
-We consider the right action of $\Sym_n$ and the left action of $\Sym_m$ on a $(n,m)$-graph given respectively by permuting the labels of $in(\Gamma)$ and $out(\Gamma)$.
+We refer to the isomorphism classes of such labeled directed graphs with no directed loops as $(s,r)$\textit{-graphs} denoting the set of these by $\graphs(s,r)$.
+We use graphs immersed in the plane to represent elements in $\graphs(s,r)$, please see \cref{f:immersion}.
+We consider the right action of $\Sym_s$ and the left action of $\Sym_r$ on a $(s,r)$-graph given respectively by permuting the labels of $in(\Gamma)$ and $out(\Gamma)$.
 This action defines the $\Sym$-bimodule structure on the free prop
 \begin{equation} \label{e:free prop}
-\free(M)(m,n) \ = \bigoplus_{\Gamma \in \graphs(m,n)} \bigotimes_{v \in Vert(\Gamma)} out(v) \otimes_{\Sym_q} M(p, q) \otimes_{\Sym_p} in(v),
+\free(M)(s,r) \ =
+\bigoplus_{\Gamma \in \graphs(s,r)} \
+\bigotimes_{v \in Vert(\Gamma)} out(v) \ot_{\Sym_p} M(q, p) \ot_{\Sym_q} in(v),
 \end{equation}
-where we simplified the notation writing $p$ and $q$ for $\overline{|in(v)|}$ and $\overline{|out(v)|}$ respectively.
-The composition structure is defined by (relabeled) grafting and disjoint union.
+where we simplified the notation writing $q$ and $p$ for $\overline{|in(v)|}$ and $\overline{|out(v)|}$ respectively, the differential $\bd_{\free(M)}$ is the extension of that of $M$ to the tensor product \eqref{e:free prop}, and the composition structure is defined by
+\[
+\begin{tikzcd}[column sep=small, row sep=0]
+	\k \arrow[r]& \free(M)(r,r) \\
+	1 \arrow[r, mapsto] & \identity \ \identity \dotsb \identity
+\end{tikzcd}
+\]
+and (relabeled) grafting and disjoint union.
+
+Let $G$ be assignment of a set $G(s,r)_m$ to each $s,r \in \N$ and $m \in \Z$.
+Denote by $\k[\Sym^\op \times \Sym] \set{G}$ the $\Sym$-bimodule assigning to $(s,r)$
+the chain complex with trivial differential and degree $m$ part equal to
+\[
+\k[\Sym^\op_s \times \Sym_r] \set[\big]{G(s,r)_m}.
+\]
+We will denote by $\free(G)$ the free prop generated by this $\Sym$-bimodule.
+Let $\bd \colon \k[\Sym^\op \times \Sym] \set{G} \to \free(G)$ be a morphism of $\Sym$-bimodule whose monoidal extension $\bd \colon \free(G) \to \free(G)$ defines a differential.
+We denote by $\free_{\bd}(G)$ the prop obtained by endowing $\free(G)$ with this differential.
+Let $R$ be a collection of elements in $\free(G)$ and denote by $\angles[\big]{R}$ the ideal they generate.
+The prop \textit{generated by $G$ modulo $R$ with boundary $\bd$} is defined to be $\free_{\bd}(G) \big/ \angles{R}$.
 
 \subsection{The prop $\M$}
 
-We now recall the model of $E_\infty$ that is central to our constructions.
+We now recall the $E_\infty$-prop that is central to our constructions.
 
 \begin{definition}
 	Let $\M$ be the prop generated by
 	\begin{equation} \label{e:generators of M}
-	\counit\,, \hspace*{.6cm} \coproduct\,, \hspace*{.6cm} \product,
+	\counit \,, \qquad
+	\coproduct \,, \qquad
+	\product,
 	\end{equation}
-	in degrees $0$, $0$ and $1$ respectively, and boundaries
-	\begin{equation} \label{e:boundary of M}
-	\partial\ \counit = 0,
-	\hspace*{.6cm}
-	\partial\, \coproduct = 0,
-	\hspace*{.6cm}
-	\partial \product = \ \boundary\,,
-	\end{equation}
-	modulo the prop ideal generated by
+	in degrees $0$, $0$ and $1$ respectively,
+	modulo the relations
 	\begin{equation} \label{e:relations of M}
-	\leftcounitality\,, \hspace*{.6cm} \rightcounitality\,, \hspace*{.6cm} \productcounit.
+		\leftcounitality \,, \qquad
+		\rightcounitality \,, \qquad
+		\productcounit,
+	\end{equation}
+	with boundary defined by
+	\begin{equation} \label{e:boundary of M}
+	\partial\ \counit = 0, \qquad
+	\partial\, \coproduct = 0, \qquad
+	\partial \product = \ \boundary\,.
 	\end{equation}
 \end{definition}
 
-Explicitly, any element in $\M(m,n)$ can be written as a linear combination of the $(m,n)$-graphs generated by those in \eqref{e:generators of M} via grafting, disjoint union and relabeling, modulo the prop ideal generated by the relations in \eqref{e:relations of M}. Its boundary is determined, using \eqref{e:free prop}, by \eqref{e:boundary of M}.
+Explicitly, any element in $\M(s,r)$ can be written as a linear combination of the $(s,r)$-graphs generated by those in \eqref{e:generators of M} via grafting, disjoint union and relabeling, modulo the prop ideal generated by the relations in \eqref{e:relations of M}. Its boundary is determined by \eqref{e:boundary of M} using \eqref{e:free prop}.
 
-As proven in \cite[Theorem 3.3]{medina2020prop1} we have the following.
-
-\begin{proposition}
-	The operad $\UM$ is $E_\infty$.
+\begin{proposition}[{\cite[Theorem 3.3]{medina2020prop1}}]
+	$\M$ is an $E_\infty$-prop.
 \end{proposition}
 
-We remark that, as proven in \cite{medina2021prop2}, this prop is obtained from applying the functor of cellular chains to a finitely presented prop over the category of CW-complexes capturing the geometry of stable arc surfaces \cite{kaufmann2009dimension}.
+\begin{remark*}
+	This prop is obtained from applying the functor of chains to a prop over the category of cellular spaces \cite{medina2021prop2}, which can be thought of as a resolution of the operad of stable arc surfaces \cite{kaufmann2009dimension,}.
+\end{remark*}
