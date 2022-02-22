@@ -38,21 +38,17 @@ The similarly defined forgetful functor to right $\Sym$-modules will not be cons
 \textit{Operads} and \textit{props} are obtained by enriching $\Sym$-modules and $\Sym$-bimodules with certain composition structures.
 Intuitively, these are obtained by abstracting the composition structure naturally present in the left $\Sym$-module $\End^C$ (or right $\Sym$-module $\End_C$), naturally an operad, and the $\Sym$-bimodule $\End^C_C$, naturally a prop.
 More explicitly, an operad $\cO$ is a left $\Sym$-module with chain maps
-\[
-\begin{split}
-	\k &\to \cO(1), \\
-	\cO(s_1) \ot \dotsb \ot \cO(s_r) \ot \cO(r) &\to \cO(s_1 + \dots + s_r),
-\end{split}
-\]
+\begin{gather*}
+	\k \to \cO(1), \\
+	\cO(s_1) \ot \dotsb \ot \cO(s_r) \ot \cO(r) \to \cO(s_1 + \dots + s_r),
+\end{gather*}
 satisfying relations of associativity, equivariance and unitality.
 Similarly, a prop $\cP$ is a $\Sym$-bimodule together with chain maps
-\[
-\begin{split}
-	\k &\to \cP(s,s), \\
-	\cP(s, k) \ot \cP(k, r) &\to \cP(s,r), \\
-	\cP(s^\prime, r^\prime) \ot \cP(s, r) &\to \cP(s^\prime+s, r^\prime+r),
-\end{split}
-\]
+\begin{gather*}
+	\k \to \cP(s,s), \\
+	\cP(s, k) \ot \cP(k, r) \to \cP(s,r), \\
+	\cP(s^\prime, r^\prime) \ot \cP(s, r) \to \cP(s^\prime+s, r^\prime+r),
+\end{gather*}
 satisfying certain natural relations.
 For a complete presentation of these concepts we refer to Definition~11 and 54 of \cite{markl2008props}.
 We denote the category of operads and props with structure preserving morphisms respectively by $\operads$ and $\props$.
