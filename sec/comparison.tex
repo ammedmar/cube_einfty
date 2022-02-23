@@ -14,7 +14,7 @@ As usual, we denote an element in $\simplex^n_m$ by a non-decreasing tuples $[v_
 The \textit{product} of simplicial sets is defined object-wise.
 For example,
 \[
-\big(\simplex^n \times \simplex^{n^\prime}\big)_m = \simplex^n_m \times \simplex^{n^\prime}_m
+\big(\simplex^n \times \simplex^{n'}\big)_m = \simplex^n_m \times \simplex^{n'}_m
 \]
 consists of pairs of non-decreasing tuples $[v_0, \dots, v_m] \times [w_0, \dots, w_m]$ of appropriate integers.
 
@@ -116,7 +116,7 @@ Let us consider the model of the topological $n$-simplex given by
 \]
 whose cell structure associates $[v_0, \dots, v_m]$ with the subset
 \[
-\Big\{ \big( \underbrace{1, \dots, 1}_{v_0}, \underbrace{y^\prime_1, \dots y^\prime_1}_{v_1-v_0}, \dots, \underbrace{y^\prime_m, \dots y^\prime_m}_{v_m-v_{m-1}}, \underbrace{0, \dots, 0}_{n-v_m} \big) \mid y^\prime_1 \geq \dots \geq y^\prime_m \Big\}.
+\Big\{ \big( \underbrace{1, \dots, 1}_{v_0}, \underbrace{y'_1, \dots y'_1}_{v_1-v_0}, \dots, \underbrace{y'_m, \dots y'_m}_{v_m-v_{m-1}}, \underbrace{0, \dots, 0}_{n-v_m} \big) \mid y'_1 \geq \dots \geq y'_m \Big\}.
 \]
 The spaces $\gsimplex^n$ define a functor $\simplex \to \Top$ with codegeneracies given by
 \[
@@ -194,10 +194,10 @@ It suffices to describe the case $Y = \simplex^n$ which is given by
 	It suffices to prove this for $Y = \simplex^n$ since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
 	Since $\CScollapse_\ast = \proj_\ast \circ \subdivide$ is a chain map, we have
 	\begin{align*}
-	\CScomp \big( \partial^\simplex \id_{[n]} \big) \defeq
-	\partial^\simplex \circ \CScollapse_\ast =
-	\CScollapse_\ast \circ \, \partial^\cube \defeq
-	\partial^\cube \CScomp (\id_{[n]}).
+	\CScomp \big( \bd^\simplex \id_{[n]} \big) \defeq
+	\bd^\simplex \circ \CScollapse_\ast =
+	\CScollapse_\ast \circ \, \bd^\cube \defeq
+	\bd^\cube \CScomp (\id_{[n]}).
 	\end{align*}
 	That $\CScomp$ induces an isomorphism in homology can be seen easily from the contractibility of both $\simplex^n$ and $\cubify \simplex^n$.
 \end{proof}
