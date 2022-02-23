@@ -28,7 +28,7 @@ We refer to \cite{grandis2003cubical} for a more leisure exposition and for vari
 
 We denote by $\cube_{\deg}(2^m, 2^n)$ the subset of morphism in $\cube(2^m, 2^n)$ of the form $\sigma_i \circ \tau$ with $\tau \in \cube(2^m, 2^{n+1})$.
 
-The category of \textit{cubical sets} $\Fun(\cube^\op, \Set)$ is denoted by $\cSet$ and the \textit{standard $n$-cube} $\yoneda(2^n)$ by $\cube^n$.
+The category of \textit{cubical sets} $\Fun(\cube^\op, \Set)$ is denoted by $\cSet$ and the representable cubical set $\yoneda(2^n)$ by $\cube^n$.
 For any cubical set $X$ we write, as usual, $X_n$ instead of $X(2^n)$.
 
 \subsection{Cubical singular complex}
@@ -58,20 +58,20 @@ It assigns to an object $2^n$ the chain complex having in degree $m$ the module
 \]
 and differential induced by
 \[
-\partial (\id_{2^n}) = \sum_{i=1}^{n} \ (-1)^i \
+\bd (\id_{2^n}) = \sum_{i=1}^{n} \ (-1)^i \
 \big(\delta_i^1 - \delta_i^0 \big).
 \]
-To a morphism $\tau \colon 2^n \to 2^{n^\prime}$ it assigns the chain map
+To a morphism $\tau \colon 2^n \to 2^{n'}$ it assigns the chain map
 \[
 \begin{tikzcd}[row sep=-3pt, column sep=normal,
 /tikz/column 1/.append style={anchor=base east},
 /tikz/column 2/.append style={anchor=base west}]
-\chains(\cube^n)_m \arrow[r] & \chains(\cube^{n^\prime})_m \\
-\big( 2^m \to 2^n \big) \arrow[r, mapsto] & \big( 2^m \to 2^n \stackrel{\tau}{\to} 2^{n^\prime} \big).
+\chains(\cube^n)_m \arrow[r] & \chains(\cube^{n'})_m \\
+\big( 2^m \to 2^n \big) \arrow[r, mapsto] & \big( 2^m \to 2^n \stackrel{\tau}{\to} 2^{n'} \big).
 \end{tikzcd}
 \]
 The chain complex $\chains(\cube^n)$ is isomorphic to both: $\chains(\cube^1)^{\ot n}$ and the cellular chains on the topological $n$-cube with its standard CW structure $\gchains(\gcube^n)$.
-We use the isomorphism $\chains(\cube^n) \cong \gchains(\gcube^1)^{\ot n}$ when denoting the elements in the basis of $\chains(\cube^n)$ by $x_1 \ot \dots \ot x_n$ with $x_i \in \{[0], [0,1], [1]\}$.
+We use the isomorphism $\chains(\cube^n) \cong \gchains(\gcube^1)^{\ot n}$ when denoting the elements in the basis of $\chains(\cube^n)$ by $x_1 \ot \dotsb \ot x_n$ with $x_i \in \{[0], [0,1], [1]\}$.
 
 For a topological space $Z$, the chain complex $\chains(\cSing Z)$ is referred to as the \textit{cubical singular chains} of $Z$.
 
@@ -82,7 +82,7 @@ We now recall the natural (counital and coassociative) coalgebra structure on cu
 Using a Yoneda extension, it suffices to equip the chains on standard cubes with a natural coalgebra structure.
 For any $n \in \N$, define $\epsilon \colon \chains(\cube^n) \to \k$ by
 \[
-\epsilon \left( x_1 \ot \dots \ot x_d \right) = \epsilon(x_1) \dotsm \epsilon(x_n),
+\epsilon \left( x_1 \ot \dotsb \ot x_d \right) = \epsilon(x_1) \dotsm \epsilon(x_n),
 \]
 where
 \[
@@ -90,9 +90,9 @@ where
 \]
 and $\Delta \colon \chains(\cube^n) \to \chains(\cube^n)^{\ot 2}$ by
 \[
-\Delta (x_1 \ot \dots \ot x_n) =
-\sum \pm \left( x_1^{(1)} \ot \dots \ot x_n^{(1)} \right) \ot
-\left( x_1^{(2)} \ot \dots \ot x_n^{(2)} \right),
+\Delta (x_1 \ot \dotsb \ot x_n) =
+\sum \pm \left( x_1^{(1)} \ot \dotsb \ot x_n^{(1)} \right) \ot
+\left( x_1^{(2)} \ot \dotsb \ot x_n^{(2)} \right),
 \]
 where the sign is determined using the Koszul convention, and we are using Sweedler's notation
 \[
@@ -106,24 +106,24 @@ for the chain map $\Delta \colon \chains(\cube^1) \to \chains(\cube^1)^{\ot 2}$ 
 We remark that, using the canonical isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\ot n}$, the coproduct $\Delta$ can be described as the composition
 \[
 \begin{tikzcd}
-\chains(\cube^1)^{\ot n} \arrow[r, "\Delta^{\ot n}"] & \left( \chains(\cube^1)^{\ot 2} \right)^{\ot n} \arrow[r, "sh"] & \left( \chains(\cube^1)^{\ot n} \right)^{\ot 2}
+\chains(\cube^1)^{\ot n} \arrow[r, "\Delta^{\ot n}"] & \left( \chains(\cube^1)^{\ot 2} \right)^{\ot n} \arrow[r, "\pi"] & \left( \chains(\cube^1)^{\ot n} \right)^{\ot 2}
 \end{tikzcd}
 \]
-where $sh$ is the shuffle map that places tensor factors in odd position first.
+where $\pi$ is the shuffle permutation of tensor factors placing those in odd positions first.
 
 \subsection{Degree 1 product}
 
 For $n \in \mathbb{N}$ define the \textit{product} $\ast  \colon \chains(\square^n)^{\ot 2} \to \chains(\square^n)$ by
 \begin{align*}
-(x_1 \ot \dots \ot x_n) \ast (y_1 \ot \dots \ot y_n) =
+(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n) =
 (-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i},
 \end{align*}
 where
 \begin{align*}
-x_{<i} & = x_1 \ot \dots \ot x_{i-1}, &
-y_{<i} & = y_1 \ot \dots \ot y_{i-1}, \\
-x_{>i} & = x_{i+1} \ot \dots \ot x_n, &
-y_{>i} & = y_{i+1} \ot \dots \ot y_n,
+x_{<i} & = x_1 \ot \dotsb \ot x_{i-1}, &
+y_{<i} & = y_1 \ot \dotsb \ot y_{i-1}, \\
+x_{>i} & = x_{i+1} \ot \dotsb \ot x_n, &
+y_{>i} & = y_{i+1} \ot \dotsb \ot y_n,
 \end{align*}
 with the convention
 \[
@@ -134,7 +134,7 @@ and the only non-zero values of $x_i \ast y_i$ are
 \ast([0] \ot [1]) = [0, 1], \qquad  \ast([1] \ot [0]) = -[0, 1].
 \]
 
-\subsection{An \texorpdfstring{${E_\infty}$}{E-infty}-structure on cubical chains} \label{ss:main construction}
+\subsection{$\M$-bialgebra on representable cubical sets}
 
 The following is the main technical result of this paper.
 
@@ -143,27 +143,162 @@ The following is the main technical result of this paper.
 	\[
 	\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
 	\]
-	induces natural $\mathcal M$-bialgebra structure on $\chains(\square^n)$ for every $n \in \mathbb{N}$ or, equivalently, a functor from the cube category to that of $\M$-bialgebras.
+	induces a natural $\mathcal M$-bialgebra structure on $\chains(\square^n)$ for every $n \in \mathbb{N}$.
 \end{lemma}
 
-The category of bialgebras over a prop is in general not cocomplete, but those of algebras and coalgebras over operads are.
-So we have the following result, the main contribution of this paper.
+\begin{proof}
+	We need to show that this assignment is compatible with the relations
+	\[
+	\productcounit = 0, \qquad
+	\leftcounitality = 0, \qquad
+	\rightcounitality = 0,
+	\]
+	and
+	\[
+	\bd\ \counit = 0, \qquad
+	\bd\ \coproduct = 0, \qquad
+	\bd\ \product = \ \boundary\,.
+	\]
+	For the rest of this proof let us consider two basis elements of $\chains(\square^n)$
+	\begin{align*}
+		x = x_1 \ot \dotsb \ot x_n
+		\qquad \text{ and } \qquad
+		y = y_1 \ot \dotsb \ot y_n.
+	\end{align*}
+	Since the degree of $\ast$ is $1$ and $\epsilon([0,1]) = 0$, we can verify the first relation easily:
+	\begin{align*}
+		\varepsilon(x \ast y) & =
+		\sum (-1)^{|x|} \epsilon(y_{<i}) \epsilon(x_{<i}) \ot \epsilon(x_i \ast y_i) \ot \epsilon(x_{>i}) \epsilon(y_{>i}) = 0.
+	\end{align*}
+	For the second relation we want to show that $(\epsilon \ot \id) \circ \Delta = \id$.
+	Since
+	\begin{gather*}
+		(\epsilon \ot \id) \circ \Delta([0]) = \epsilon([0]) \ot [0] = [0], \qquad
+		(\epsilon \ot \id) \circ \Delta([1]) = \epsilon([1]) \ot [1] = [1], \\
+		(\epsilon \ot \id) \circ \Delta([0, 1]) = \epsilon([0]) \ot [0, 1] + \epsilon([0, 1]) \ot [1] = [0,1],
+	\end{gather*}
+	we have
+	\begin{align*}
+		(\epsilon \ot \id) \circ \Delta (x_1 \ot \dotsb \ot x_n) &=
+		\sum \pm \left( \epsilon \big(x_1^{(1)}\big) \ot \dotsb \ot \epsilon\big(x_n^{(1)}\big) \right) \ot
+		\left( x_1^{(2)} \ot \dotsb \ot x_n^{(2)} \right), \\ &=
+		x_1 \ot \dotsb \ot x_n,
+	\end{align*}
+	where the sign is obtained by noticing that the only non-zero term occurs when each factor $x_i^{(0)}$ is of degree $0$.
+	The third relation is verified analogously.
+	The fourth and fifth are precisely the well known facts that $\epsilon$ and $\Delta$ are chain maps.
+	To verify the sixth and final relation we need to show that
+	\[
+	\bd (x \ast y)\ +\ \bd x \ast y\ +\ (-1)^{|x|}x \ast \bd y\ =\ \epsilon(x) y \ -\ \epsilon(y) x.
+	\]
+	We have
+	\[
+	x \ast y = \sum (-1)^{|x|} x_{<i} \, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i}
+	\]
+	and
+	\begin{align*}
+		\bd(x \ast y) & =
+		\sum (-1)^{|x|} \, \bd x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
+		\sum (-1)^{|x|+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot \bd (x_i \ast y_i) \ot \epsilon(x_{>i}) \, y_{>i} \\ & -
+		\sum (-1)^{|x|+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, \bd y_{>i}.
+	\end{align*}
+	Since
+	\[
+	|x| = |x_{<i}| + |x_i| + |x_{>i}|, \quad \epsilon(x_{>i}) \neq 0 \Leftrightarrow |x_{>i}| = 0, \quad \bd(x_i \ast y_i) \neq 0 \Rightarrow |x_i| = 0,
+	\]
+	we have
+	\begin{equation} \label{e:boundary of product 1}
+		\begin{split}
+			\bd(x \ast y) & =
+			\sum (-1)^{|x|} \, \bd x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
+			\sum x_{<i} \, \epsilon(y_{<i}) \ot \bd (x_i \ast y_i) \ot \epsilon(x_{>i})\, y_{>i} \\ & -
+			\sum x_{<i} \, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, \bd y_{>i}.
+		\end{split}
+	\end{equation}
+	We also have
+	\begin{align*}
+		\bd x \ast y & =
+		\sum (-1)^{|x|-1} \, \bd x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i} \\ & +
+		\sum (-1)^{|x|-1+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot \bd x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i} \\ & +
+		\sum (-1)^{|x|-1+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(\bd x_{>i}) \, y_{>i}.
+	\end{align*}
+	Since
+	\[
+	\epsilon(\bd x_{>i}) = 0, \quad \bd x_i \neq 0 \Leftrightarrow |x_i| = 1,
+	\]
+	we have
+	\begin{equation} \label{e:boundary of product 2}
+		\begin{split}
+			\bd x \ast y & =
+			\sum (-1)^{|x|-1} \, \bd x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
+			\sum x_{<i}\, \epsilon(y_{<i}) \ot \bd x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i}.
+		\end{split}
+	\end{equation}
+	We also have
+	\begin{align*}
+		(-1)^{|x|} \, x \ast \bd y & =
+		\sum x_{<i} \, \epsilon(\bd y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
+		\sum (-1)^{|y_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast \bd y_i \ot \epsilon(x_{>i}) \, y_{>i} \\ & +
+		\sum (-1)^{|y_{<i}| + |y_i|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, \bd y_{>i},
+	\end{align*}
+	which is equivalent to
+	\begin{equation} \label{e:boundary of product 3}
+		\begin{split}
+			(-1)^{|x|} \, x \ast \bd y & =
+			\sum x_{<i} \, \epsilon(y_{<i}) \ot x_i \ast \bd y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
+			\sum x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, \bd y_{>i}.
+		\end{split}
+	\end{equation}
+	Putting identities \eqref{e:boundary of product 1}, \eqref{e:boundary of product 2} and \eqref{e:boundary of product 3} together, we get
+	\begin{align*}
+		\bd (x \ot y) \ +\ & \bd x \ast y\ +\, (-1)^{|x|}x \ast \bd y \\
+		& = \sum \epsilon(y_{<i})\, x_{<i} \ot \big(\bd(x_i \ast y_i) + \bd x_i \ast y_i + x_i \ast \bd y_i\big) \ot \epsilon(x_{>i})\, y_{>i}.
+	\end{align*}
+	Since
+	\begin{align*}
+		\bd(x_i \ast y_i)\ +\ \bd x_i \ast y_i\ +\ x_i \ast \bd y_i =
+		\epsilon(x_i)y_i\ -\ \epsilon(y_i)x_i,
+	\end{align*}
+	we have
+	\begin{align*}
+		\bd (x \ast y) \ +\ \bd x \ast y\ +\ & (-1)^{|x|}x \ast \bd y \\ = \ &
+		\sum \epsilon(y_{<i}) \, x_{<i} \ot \epsilon(x_{\geq i}) y_{\geq i}\ -\
+		\epsilon(y_{\leq i}) \, x_{\leq i} \ot \epsilon(x_{>i}) y_{>i} \\ = \ &
+		\epsilon(x)y - \epsilon(y)x,
+	\end{align*}
+	as desired, where the last equality follows from a telescopic sum argument.
+\end{proof}
+
+\subsection{$\texorpdfstring{E_\infty}{E-infty}$-coalgebra on cubical chains}
+
+\cref{l:cubical chain bialgebra} defines a functor from the cube category to that of $\Med$-bialgebras.
+This category is not cocomplete so we do not expect to have an $\Med$-bialgebra structure on arbitrary cubical sets.
+For example, consider the chains on the cubical set $X$ whose only non-degenerate simplices are $v, w \in X_0$.
+By degree reasons $v \ast w = 0$ for any degree 1 product $\ast$ in $\chains(X)$.
+The third relation in $\Med$ would then imply the contradiction $0 = w-v$.
+Nevertheless, categories of coalgebras over operads are cocomplete and we have the following.
 
 \begin{theorem} \label{t:lift to e infinity coalgebras}
-	Composing the functor defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ defines a functor from the cube category to $\coAlg_{\UM}$ whose Yoneda extension endows the chains of a cubical set with a natural $E_\infty$-coalgebra structure extending the Serre coalgebra structure.
+	The composition of functor $\cube \to \biAlg_{\M}$ defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ defines a functor from $\cube \to \coAlg_{\UM}$ whose Yoneda extension endows the chains of a cubical set with a natural $E_\infty$-coalgebra structure extending the Serre coalgebra structure.
 \end{theorem}
 
-By linear duality, the same argument can be used to define a natural $E_\infty$-algebra structure on cubical cochains.
+Using linear duality, the same argument can be employed to define a natural $E_\infty$-algebra structure on cubical cochains.
+Explicitly, let $X$ be a cubical set, $x$ a simplex and $f \colon \chains(\cube^n) \to \chains(X)$ a chain map sending $\id_{2^n}$ to $x$.
+The image $\gamma$ in $\Hom(\chains(\cube^n), \chains(\cube^n)^{\ot r})$ of a basis element $\Gamma$ in $\UM(r)$ is either $\varepsilon$ or a composition of $\Delta$, permutations of factors, and $\ast$.
+For any $\alpha_1, \dots, \alpha_r \in \cochains(X)$ the action of $\Gamma$ on these is given by
+\[
+\Gamma(\alpha_1, \dots, \alpha_r)(x) = (\alpha_1 \ot \dotsb \ot \alpha_r) \circ f^{\ot r} \circ \gamma(\id_{2^n}).
+\]
 
 \subsection{Cup-$i$ coproducts}
 
-N. Steenrod introduced in \cite{steenrod1947products} operations on the mod~2 cohomology of spaces via an explicit construction of natural maps
+Steenrod introduced in \cite{steenrod1947products} operations on the mod~2 cohomology of spaces via an explicit construction of natural maps
 \[
 \Delta_i \colon \chains(\simplex^n) \to \chains(\simplex^n) \ot \chains(\simplex^n),
 \]
-where $\chains(\simplex^n)$ is the complex of chains on the standard $n$ simplex and $\Delta_0$ is the Alexander-Whitney diagonal (\cref{ss:simplicial sets}), such that
+where $\chains(\simplex^n)$ is the complex of chains on the $n^\th$ representable simplicial set and $\Delta_0$ is the Alexander-Whitney diagonal (\cref{ss:simplicial sets}), such that
 \begin{equation} \label{e:cupi homological relations}
-(1 + T) \Delta_{i-1} = \partial \circ \Delta_i + \Delta_i \circ \partial
+(1 + T) \Delta_{i-1} = \bd \circ \Delta_i + \Delta_i \circ \bd
 \end{equation}
 with coefficients in $\Ftwo$.
 These maps, referred to as cup-$i$ coproducts, are combinatorially rich, defining for example the nerve of $n$-categories \cite{medina2020globular} as introduced by Street \cite{street1987orientals}, and admitting an axiomatic characterization \cite{medina2022axiomatic}.
@@ -177,7 +312,15 @@ A new description of maps satisfying \eqref{e:cupi homological relations} can be
 \begin{center}
 	\input{aux/cupi}
 \end{center}
-It is also not known if these agree with either of the previous constructions, pointing to the value of an axiomatic characterization as it exists in the simplicial case, where all known constructions agree.
+These define recursively the cup cup-$i$ coproducts:
+\begin{equation} \label{e:prop cup-i}
+	\begin{split}
+		& \Delta_0 = \Delta, \\
+		& \Delta_i =
+		(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
+	\end{split}
+\end{equation}
+It is not known if these agree with either of the previous constructions, pointing to the value of an axiomatic characterization as it exists in the simplicial case, where all known constructions agree.
 
 Cup-$i$ coproducts represent at the chain level Steenrod squares, which are primary operations at the level of cohomology.
 To obtain secondary cohomology operations one studies the cohomological relations these operations satisfy, for example the Cartan and Adem relations \cite{steenrod1962cohomology}.
@@ -185,134 +328,3 @@ To do this at the cubical chain level, as it was done in \cite{medina2020cartan,
 
 For an odd $p$, Steenrod also introduced operations on the mod $p$ cohomology of spaces using the homology of symmetric groups \cite{steenrod1952reduced, steenrod1953cyclic}.
 Using the operadic framework of May \cite{may1970general}, we describe in \cite{medina2021may_st} multioperations at the cochain level generalizing the cup-$i$ products in the simplicial and cubical case.
-
-\subsection{Proof of \cref{l:cubical chain bialgebra}} \label{ss:proof action}
-
-We need to show that the assignment
-\[
-\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
-\]
-is compatible with the relations
-\[
-\productcounit = 0,
-\qquad
-\leftcounitality = 0,
-\qquad
-\rightcounitality = 0,
-\]
-and
-\[
-\partial\ \counit = 0,
-\hspace*{.6cm}
-\partial\ \coproduct = 0,
-\hspace*{.6cm}
-\partial\ \product = \ \boundary\,.
-\]
-For the rest of this proof let us consider two basis elements of $\chains(\square^n)$
-\begin{align*}
-x = x_1 \ot \dots \ot x_n
-\qquad \text{ and } \qquad
-y = y_1 \ot \dots \ot y_n.
-\end{align*}
-Since the degree of $\ast$ is $1$ and $\epsilon([0,1]) = 0$, we can verify the first relation easily:
-\begin{align*}
-\varepsilon(x \ast y) & =
-\sum (-1)^{|x|} \epsilon(y_{<i}) \epsilon(x_{<i}) \ot \epsilon(x_i \ast y_i) \ot \epsilon(x_{>i}) \epsilon(y_{>i}) = 0.
-\end{align*}
-For the second relation we want to show that $(\epsilon \ot \id) \circ \Delta = \id$.
-Since
-\begin{gather*}
-(\epsilon \ot \id) \circ \Delta([0]) = \epsilon([0]) \ot [0] = [0], \qquad
-(\epsilon \ot \id) \circ \Delta([1]) = \epsilon([1]) \ot [1] = [1], \\
-(\epsilon \ot \id) \circ \Delta([0, 1]) = \epsilon([0]) \ot [0, 1] + \epsilon([0, 1]) \ot [1] = [0,1],
-\end{gather*}
-we have
-\begin{align*}
-(\epsilon \ot \id) \circ \Delta (x_1 \ot \dots \ot x_n) &=
-\sum \pm \left( \epsilon \big(x_1^{(1)}\big) \ot \dots \ot \epsilon\big(x_n^{(1)}\big) \right) \ot
-\left( x_1^{(2)} \ot \dots \ot x_n^{(2)} \right), \\ &=
-x_1 \ot \dots \ot x_n,
-\end{align*}
-where the sign is obtained by noticing that the only non-zero term occurs when each factor $x_i^{(0)}$ is of degree $0$.
-The third relation is verified analogously.
-The fourth and fifth are precisely the well known facts that $\epsilon$ and $\Delta$ are chain maps.
-To verify the sixth and final relation we need to show that
-\[
-\partial (x \ast y)\ +\ \partial x \ast y\ +\ (-1)^{|x|}x \ast \partial y\ =\ \epsilon(x) y \ -\ \epsilon(y) x.
-\]
-We have
-\[
-x \ast y = \sum (-1)^{|x|} x_{<i} \, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i}
-\]
-and
-\begin{align*}
-\partial(x \ast y) & =
-\sum (-1)^{|x|} \, \partial x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
-\sum (-1)^{|x|+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot \partial (x_i \ast y_i) \ot \epsilon(x_{>i}) \, y_{>i} \\ & -
-\sum (-1)^{|x|+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, \partial y_{>i}.
-\end{align*}
-Since
-\[
-|x| = |x_{<i}| + |x_i| + |x_{>i}|, \quad \epsilon(x_{>i}) \neq 0 \Leftrightarrow |x_{>i}| = 0, \quad \partial(x_i \ast y_i) \neq 0 \Rightarrow |x_i| = 0,
-\]
-we have
-\begin{equation} \label{e:boundary of product 1}
-\begin{split}
-\partial(x \ast y) & =
-\sum (-1)^{|x|} \, \partial x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
-\sum x_{<i} \, \epsilon(y_{<i}) \ot \partial (x_i \ast y_i) \ot \epsilon(x_{>i})\, y_{>i} \\ & -
-\sum x_{<i} \, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, \partial y_{>i}.
-\end{split}
-\end{equation}
-We also have
-\begin{align*}
-\partial x \ast y & =
-\sum (-1)^{|x|-1} \, \partial x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i} \\ & +
-\sum (-1)^{|x|-1+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot \partial x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i} \\ & +
-\sum (-1)^{|x|-1+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(\partial x_{>i}) \, y_{>i}.
-\end{align*}
-Since
-\[
-\epsilon(\partial x_{>i}) = 0, \quad \partial x_i \neq 0 \Leftrightarrow |x_i| = 1,
-\]
-we have
-\begin{equation} \label{e:boundary of product 2}
-\begin{split}
-\partial x \ast y & =
-\sum (-1)^{|x|-1} \, \partial x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
-\sum x_{<i}\, \epsilon(y_{<i}) \ot \partial x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i}.
-\end{split}
-\end{equation}
-We also have
-\begin{align*}
-(-1)^{|x|} \, x \ast \partial y & =
-\sum x_{<i} \, \epsilon(\partial y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
-\sum (-1)^{|y_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast \partial y_i \ot \epsilon(x_{>i}) \, y_{>i} \\ & +
-\sum (-1)^{|y_{<i}| + |y_i|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, \partial y_{>i},
-\end{align*}
-which is equivalent to
-\begin{equation} \label{e:boundary of product 3}
-\begin{split}
-(-1)^{|x|} \, x \ast \partial y & =
-\sum x_{<i} \, \epsilon(y_{<i}) \ot x_i \ast \partial y_i \ot \epsilon(x_{>i})\, y_{>i} \\ & +
-\sum x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, \partial y_{>i}.
-\end{split}
-\end{equation}
-Putting identities \eqref{e:boundary of product 1}, \eqref{e:boundary of product 2} and \eqref{e:boundary of product 3} together, we get
-\begin{align*}
-\partial (x \ot y) \ +\ & \partial x \ast y\ +\, (-1)^{|x|}x \ast \partial y \\
-& = \sum \epsilon(y_{<i})\, x_{<i} \ot \big(\partial(x_i \ast y_i) + \partial x_i \ast y_i + x_i \ast \partial y_i\big) \ot \epsilon(x_{>i})\, y_{>i}.
-\end{align*}
-Since
-\begin{align*}
-\partial(x_i \ast y_i)\ +\ \partial x_i \ast y_i\ +\ x_i \ast \partial y_i =
-\epsilon(x_i)y_i\ -\ \epsilon(y_i)x_i,
-\end{align*}
-we have
-\begin{align*}
-\partial (x \ast y) \ +\ \partial x \ast y\ +\ & (-1)^{|x|}x \ast \partial y \\ = \ &
-\sum \epsilon(y_{<i}) \, x_{<i} \ot \epsilon(x_{\geq i}) y_{\geq i}\ -\
-\epsilon(y_{\leq i}) \, x_{\leq i} \ot \epsilon(x_{>i}) y_{>i} \\ = \ &
-\epsilon(x)y - \epsilon(y)x,
-\end{align*}
-as desired, where the last equality follows from a telescopic sum argument.
