@@ -1,34 +1,153 @@
 % !TEX root = ../cube_einfty.tex
 
-\section{The Cartan--Serre comparison map} \label{s:the cartan-serre comparison map}
+\section{The Cartan--Serre comparison} \label{s:the cartan-serre comparison map}
 
 Let us consider, with their usual CW structures, the topological simplex $\gsimplex^n$ and the topological cube $\gcube^n$.
-In \cite[p. 442]{serre1951homologie}, Serre described a quasi-isomorphism of algebras between the cubical and simplicial singular cochains of a topological space given by precomposing with a canonical cellular map $\CScollapse \colon \gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic} where it is attributed to Cartan.
+In \cite[p. 442]{serre1951homologie}, Serre described a quasi-isomorphism of algebras between the cubical and simplicial singular cochains of a topological space.
+It is given by precomposing with a canonical cellular map $\cs \colon \gcube^n \to \gsimplex^n$ also considered in \cite[p.199]{eilenberg1953acyclic} where it is attributed to Cartan.
 
-The goal of this section is to deduce from a more general categorical statement that this comparison map is a quasi-isomorphism of $E_\infty$-algebras for any topological space.
+The goal of this section is to deduce from a more general categorical statement that this comparison map between singular cochains of a space is a quasi-isomorphism of $E_\infty$-algebras.
 
 \subsection{Simplicial sets} \label{ss:simplicial sets}
 
-We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} $\Fun(\simplex^\op, \Set)$ by $\sSet$ and the standard $n$-simplex $\yoneda\big( [n] \big)$ by $\simplex^n$.
+\subsubsection{Categorical aspects}
+
+We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} $\Fun(\simplex^\op, \Set)$ by $\sSet$, and the standard $n$-simplex $\yoneda \big( [n] \big)$ by $\simplex^n$.
 As usual, we denote an element in $\simplex^n_m$ by a non-decreasing tuples $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
-The \textit{product} of simplicial sets is defined object-wise.
-For example,
+The \textit{Cartesian product} of simplicial sets is defined by the product of functors.
+The \textit{simplicial $n$-cube} $\scube{n}$ is the $n^\th$-fold Cartesian product of $\simplex^1$.
+
+%For example,
+%\[
+%\big(\simplex^n \times \simplex^{n'}\big)_m = \simplex^n_m \times \simplex^{n'}_m
+%\]
+%consists of pairs of non-decreasing tuples $[v_0, \dots, v_m] \times [w_0, \dots, w_m]$ of appropriate integers.
+
+\subsubsection{Topological aspects}
+
+We will use the following model of the topological $n$-simplex:
 \[
-\big(\simplex^n \times \simplex^{n'}\big)_m = \simplex^n_m \times \simplex^{n'}_m
+\gsimplex^n = \big\{ (y_1, \dots, y_n) \in \gcube^n \mid i \leq j \Rightarrow y_i \geq y_j \big\},
 \]
-consists of pairs of non-decreasing tuples $[v_0, \dots, v_m] \times [w_0, \dots, w_m]$ of appropriate integers.
+whose cell structure associates $[v_0, \dots, v_m]$ with the subset
+\[
+\Big\{ \big( \underbrace{1, \dots, 1}_{v_0}, \underbrace{y'_1, \dots y'_1}_{v_1-v_0}, \dots, \underbrace{y'_m, \dots y'_m}_{v_m-v_{m-1}}, \underbrace{0, \dots, 0}_{n-v_m} \big) \mid y'_1 \geq \dots \geq y'_m \Big\}.
+\]
+The spaces $\gsimplex^n$ define a functor $\gsimplex^{(-)} \colon \simplex \to \CW $ with
+\begin{align*}
+	\sigma_i(x_1, \dots, x_n) &= (x_1, \dots, \widehat x_i, \dots, x_n) \\
+	\delta_0(x_1, \dots, x_n) &= (1, x_1, \dots, x_n), \\
+	\delta_i(x_1, \dots, x_n) &= (x_1, \dots, x_i, x_i, \dots, x_n), \\
+	\delta_n(x_1, \dots, x_n) &= (x_1, \dots, x_n, 0).
+\end{align*}
+Its Yoneda extension is the \textit{geometric realization} functor.
+The \textit{simplicial singular complex} functor $\sSing \colon \Top \to \sSet$ is defined for a topological space $Z$ by
+\[
+\sSing(Z)_n = \Top(\gsimplex^n, Z).
+\]
 
-The \textit{simplicial singular complex} functor is denoted by $\sSing \colon \Top \to \sSet$ and the functor of (\textit{normalized}) \textit{chains} by $\schains \colon \sSet \to \Ch$.
-We omit the superscript $\simplex$ from either of these if no confusion may result from doing so.
+\subsubsection{Algebraic aspects}
 
-The \textit{Alexander--Whitney coalgebra} functor is the Yoneda extension of the functor defined by the following natural maps.
+The functor of (\textit{normalized}) \textit{chains} $\schains \colon \sSet \to \Ch$ is the Yoneda extension of the composition of the functor of cellular chains with the functor $\gsimplex^{(-)}$ define above.
+We denote the composition $\schains \circ \sSing$ by $\sSchains$ and omit the superscript $\simplex$ if no confusion may result from doing so.
 For any $n \in \N$, define $\epsilon \colon \chains(\simplex^n) \to \k$ by
 \[
-\epsilon \big( [v_0, \dots, v_q] \big) = \begin{cases} 1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0, \end{cases}
+\epsilon \big( [v_0, \dots, v_q] \big) =
+\begin{cases}
+	1 & \text{ if } q = 0, \\ 0 & \text{ if } q>0,
+\end{cases}
 \]
-and $\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\ot 2}$ by
+$\Delta \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\ot 2}$ by
 \[
-\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \ot [v_i, \dots, v_q].
+\Delta \big( [v_0, \dots, v_q] \big) = \sum_{i=0}^q [v_0, \dots, v_i] \ot [v_i, \dots, v_q],
+\]
+and $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ by
+\[
+\left[v_0, \dots, v_p \right] \ast \left[v_{p+1}, \dots, v_q\right] = \begin{cases} (-1)^{p+|\sigma|} \left[v_{\sigma(0)}, \dots, v_{\sigma(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+	0 & \text{ if not}, \end{cases}
+\]
+where $\sigma$ is the permutation that orders the totally ordered set of vertices and $(-1)^{|\sigma|}$ is its sign.
+As shown in \cite[Theorem 4.2]{medina2020prop1} the assignment
+\[
+\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
+\]
+defines a natural $\Med$-bialgebra on the chains of standard simplicial sets.
+
+\subsection{The cellular maps} \label{ss:cs collapse map}
+
+\anibal{say something}
+
+\subsubsection{Cartan-Serre projection}
+
+The \textit{Cartan-Serre projection} is the cellular map $\cs \colon \gcube^n \to \gsimplex^n$ defined by
+\[
+\cs(x_1, \dots, x_n) = (x_1,\ x_1 x_2, \, \dots \, , \ x_1 x_2 \dotsm x_n).
+\]
+It induces for any topological $Z$ a natural chain map
+\[
+\begin{tikzcd} [column sep=small, row sep=0]
+	\CS_Z \colon &[-25pt] \sSchains(Z) \arrow[r] & \cSchains (Z) \\
+	& (\gsimplex^n \to Z) \arrow[r, mapsto] & (\gcube^n \xra{\cs} \gsimplex^n \to Z).
+\end{tikzcd}
+\]
+The map $\cs$ was considered in \cite[p. 442]{serre1951homologie} where it was stated that $\CS_Z$ is a natural quasi-isomorphisms of coalgebras for any $Z$.
+We remark that in this reference the topological $n$-simplex is modeled as subset of $\R^{n+1}$ instead of $\R^n$.
+
+\begin{lemma}
+	The map $\cs \colon \gcube^n \to \gsimplex^n$ satisfies:
+	\begin{align*}
+		\cs \circ \, \delta_i^1 = \delta_{i-1} \circ \cs
+	\end{align*}
+	for $i \in \{1, \dots, n\}$,
+	\[
+	\cs \circ \, \delta_i^0 \Big( [01] \times \dots \times[01] \big) \subseteq \gsimplex^n_{n-1}
+	\]
+	for $i \in \{1, \dots, n-1\}$, and
+	\[
+	\cs \circ \, \delta_n^0 = \delta_n \circ \cs.
+	\]
+\end{lemma}
+
+The chain map induced by the Cartan--Serre projection is denoted by
+\[
+\CS \colon \chains(\cube^n) \to \chains(\simplex^n).
+\]
+
+\begin{lemma}
+	Let $x = x_1 \ot \cdots \ot x_n \in \chains(\cube^n)_m$ be a basis element with $x_{q_i} = [0,1]$ for all $\{q_1 < \dots < q_m\}$.
+	Let $p = \min \set[\big]{i \mid x_i = [0]}$ or $p = n+1$ if empty, then
+	\[
+	\CS(x) =
+	\begin{cases}
+		\big[ q_1-1, \ \dots , \ q_m-1, \ p-1 \big] & \text{ if } p > q_m, \\
+		\hfil 0 & \text{ otherwise}.
+	\end{cases}
+	\]
+\end{lemma}
+
+\subsubsection{The Eilenberg--Zilber subdivision}
+
+For any permutation $\sigma \in \Sym_n$ we have an inclusion $\incl_\sigma \colon \gsimplex^n \to \gcube^n$ defined by
+\[
+(x_1, \dots, x_n) \mapsto (x_{\sigma(1)}, \dots, x_{\sigma(n)}).
+\]
+If $e$ is the identity we denote $\incl_{e}$ simply as $\incl$ and notice that it satisfies $\cs \circ \incl = \id$.
+The maps $\set{\incl_\sigma}_{\sigma \in \Sym_n}$ define a subdivision of $\gcube^n$ making it isomorphic to $\bars[\big]{\scube{n}}$ in $\CW$.
+Using this identification, the identity map induces a cellular map
+\[
+\ez \colon \gcube^n \to \bars[\big]{\scube{n}}
+\]
+whose induced chain map is denoted by
+\[
+\EZ \colon \chains(\cube^n) \to \chains \big( \scube{n} \big).
+\]
+For any topological space $Z$ we have a quasi-isomorphism
+\[
+\begin{tikzcd} [column sep=small, row sep=0]
+	\EZ_Z \colon &[-25pt] \cSchains(Z) \arrow[r] & \sSchains (Z) \\
+	& (\gcube^n \to Z) \arrow[r, mapsto] &
+	\sum\limits_{\mathclap{\sigma \in \Sym_n}} \sign(\sigma) \big( \gsimplex^n \xra{\incl_\sigma} \gcube^n \to Z \big).
+\end{tikzcd}
 \]
 
 \subsection{Triangulation and its right adjoint}
@@ -107,56 +226,8 @@ and morphisms are appropriate commutative diagrams, we have that
 \cchains(\cubify Y) \cong \colim_{\cC_Y} \chains(\cube^n).
 \end{equation}
 
-\subsection{The Cartan--Serre collapse map} \label{ss:cs collapse map}
-
-We now give a cellular model for the composition $\proj_\ast \circ \subdivide$ where $\proj_\ast$ is the chain map induced by $\proj$ via $\schains$.
-Let us consider the model of the topological $n$-simplex given by
-\[
-\gsimplex^n = \big\{ (y_1, \dots, y_n) \in \gcube^n \mid i \leq j \Rightarrow y_i \geq y_j \big\},
-\]
-whose cell structure associates $[v_0, \dots, v_m]$ with the subset
-\[
-\Big\{ \big( \underbrace{1, \dots, 1}_{v_0}, \underbrace{y'_1, \dots y'_1}_{v_1-v_0}, \dots, \underbrace{y'_m, \dots y'_m}_{v_m-v_{m-1}}, \underbrace{0, \dots, 0}_{n-v_m} \big) \mid y'_1 \geq \dots \geq y'_m \Big\}.
-\]
-The spaces $\gsimplex^n$ define a functor $\simplex \to \Top$ with codegeneracies given by
-\[
-\sigma_i(x_1, \dots, x_n) = (x_1, \dots, \widehat x_i, \dots, x_n)
-\]
-and coface maps by
-\begin{align*}
-\delta_0(x_1, \dots, x_n) &= (1, x_1, \dots, x_n), \\
-\delta_i(x_1, \dots, x_n) &= (x_1, \dots, x_i, x_i, \dots, x_n), \\
-\delta_n(x_1, \dots, x_n) &= (x_1, \dots, x_n, 0).
-\end{align*}
-
-\begin{definition}
-	The \textit{Cartan-Serre collapse map} is the cellular map $\CScollapse \colon \gcube^n \to \gsimplex^n$ defined by
-	\[
-	\CScollapse(x_1, \dots, x_n) = (x_1,\ x_1 x_2, \, \dots \, , \ x_1 x_2 \dotsm x_n).
-	\]
-\end{definition}
-
-It is straightforward to verify that
-\begin{align*}
-\CScollapse \circ \, \delta_i^1 = \delta_{i-1} \circ \CScollapse, \qquad
-\CScollapse \circ \, \delta_n^0 = \delta_n \circ \CScollapse,
-\end{align*}
-for $i \in \{1, \dots, n\}$ and that the image of $\CScollapse \circ \, \delta_i^0$ for $1 \leq i < n$ is in a lower dimensional skeleton of $\gsimplex^n$.
-We can deduce from this an explicit description of the chain map induced by the Cartan--Serre collapse.
-Let $x = x_1 \ot \cdots \ot x_n$ be a basis element of degree $m$ with $\{q_1 < \dots < q_m\}$ such that $x_{q_i} = [0,1]$ for $i \in \{1, \dots, m\}$.
-Let $p$ be the minimum of the set $\{i \mid x_i = [0]\}$ or $n+1$ if empty, then
-\[
-\CScollapse_\ast(x) = \begin{cases}
-[\tilde q_1, \dots, \tilde q_m, \tilde p] & \text{ if } p > q_m, \\
-0 & \text{ otherwise},
-\end{cases}
-\]
-where for any integer $\ell$ we write $\tilde \ell = \ell-1$.
-
-An easy consequence of the compatibility of $\CScollapse$ and $\proj$ with respect to cubical and simplicial coface maps is that $\CScollapse_\ast$ and $\proj_\ast \circ \subdivide$ agree, since they both send the top dimensional generator $[0,1]^{\ot n}$ to $[0, \dots, n]$.
-
-We remark that to define the collapse map in \cite[p. 442]{serre1951homologie}, Cartan used the model of the topological $n$-simplex that is a subset of $\R^{n+1}$.
-We find it more convenient to use the model of $\gsimplex^n$ that is a subset of $\gcube^n$.
+\anibal{rescued:
+An easy consequence of the compatibility of $\cs$ and $\proj$ with respect to cubical and simplicial coface maps is that $\CS$ and $\proj_\ast \circ \subdivide$ agree, since they both send the top dimensional generator $[0,1]^{\ot n}$ to $[0, \dots, n]$.}
 
 \subsection{The Cartan--Serre comparison map} \label{ss:comparison map}
 
@@ -167,7 +238,7 @@ Y \to \cubify Y
 defined on a standard simplex $\simplex^n$ by
 \[
 \big( [m] \xra{\sigma} [n] \big) \mapsto
-\big( \scube{m} \xra{\proj} \simplex^m \xra{\sigma_\ast} \simplex^n \big).
+\big( \scube{m} \xra{\proj} \simplex^m \xra{\yoneda(\sigma)} \simplex^n \big).
 \]
 Additionally, passing to chains gives a graded linear map
 \[
@@ -182,7 +253,7 @@ It suffices to describe the case $Y = \simplex^n$ which is given by
 \chains(\simplex^n) \arrow[r, "\CScomp"] &
 \chains(\cubify \simplex^n) \\
 \id_{[n]} \arrow[r, mapsto] &
-\CScollapse_\ast.
+\CS.
 \end{tikzcd}
 \]
 
@@ -192,34 +263,17 @@ It suffices to describe the case $Y = \simplex^n$ which is given by
 
 \begin{proof}
 	It suffices to prove this for $Y = \simplex^n$ since the general statement follows from naturality and an acyclic carrier argument \cite{eilenberg1953acyclic}.
-	Since $\CScollapse_\ast = \proj_\ast \circ \subdivide$ is a chain map, we have
+	Since $\CS = \proj_\ast \circ \subdivide$ is a chain map, we have
 	\begin{align*}
 	\CScomp \big( \bd^\simplex \id_{[n]} \big) \defeq
-	\bd^\simplex \circ \CScollapse_\ast =
-	\CScollapse_\ast \circ \, \bd^\cube \defeq
+	\bd^\simplex \circ \CS =
+	\CS \circ \, \bd^\cube \defeq
 	\bd^\cube \CScomp (\id_{[n]}).
 	\end{align*}
 	That $\CScomp$ induces an isomorphism in homology can be seen easily from the contractibility of both $\simplex^n$ and $\cubify \simplex^n$.
 \end{proof}
 
 \subsection{Simplicial $E_\infty$-structure}
-
-In \cite{medina2020prop1}, a similar construction to the one introduced in \cref{s:action} provides the chains of simplicial sets with a natural $\UM$-coalgebra structure.
-It is also induced from a natural $\M$-bialgebra structure on the chains of representables objects, standard simplices in this case.
-This $\M$-bialgebra structure on $\chains(\simplex^{\!n})$ is defined by the assignment
-\[
-\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
-\]
-where $\epsilon$ and $\Delta$ constitute the Alexander--Whitney coalgebra structure on simplicial chains, and
-\[
-\ast \colon \chains(\simplex^{\!n})^{\ot 2} \to \chains(\simplex^{\!n})
-\]
-is an algebraic version of the \textit{join} defined by
-\[
-\left[v_0, \dots, v_p \right] \ast \left[v_{p+1}, \dots, v_q\right] = \begin{cases} (-1)^{p+|\pi|} \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
-0 & \text{ if not}, \end{cases}
-\]
-where $\pi$ is the permutation that orders the totally ordered set of vertices and $(-1)^{|\pi|}$ is its sign.
 
 Although for any simplicial set $Y$ both $\schains(Y)$ and $\cchains(\cubify Y)$ have natural $\UM$-structures, the map $\CScomp_Y$ is not a morphism of $\UM$-coalgebras for an arbitrary $Y$.
 Nevertheless, after restriction of their $\UM$-structures via an inclusion of $E_\infty$-operads $\USL \to \UM$, the Cartan--Serre comparison map becomes a morphism of $E_\infty$-coalgebras.
@@ -231,18 +285,18 @@ We notice that the subcomplex of surjection-like $(1,r)$-graphs is contractible 
 This implies that the suboperad $\USL$ of $\UM$ is also $E_\infty$.
 
 \begin{example}
-	We illustrate the need to restrict to $\USL$ by providing a simple example showing that $\CScollapse_\ast$ does not preserve $\M$-structures.
-	From it is easy to construct others showing $\CScollapse_\ast$ does not preserve the $\UM$-structures either.
+	We illustrate the need to restrict to $\USL$ by providing a simple example showing that $\CS$ does not preserve $\M$-structures.
+	From it is easy to construct others showing $\CS$ does not preserve the $\UM$-structures either.
 
-	Since $\CScollapse_\ast \big( [0] \ot [0,1] \big) = 0$ and
+	Since $\CS \big( [0] \ot [0,1] \big) = 0$ and
 	\begin{align*}
 	\big( [1] \ot [1] \big) \ast \big( [0] \ot [0,1] \big) &=
 	- \big( [0,1] \ot [0,1] \big), \\
-	- \CScollapse_\ast \big( [0,1] \ot [0,1] \big) & = - [0,1,2]
+	- \CS \big( [0,1] \ot [0,1] \big) & = - [0,1,2]
 	\end{align*}
 	we have
 	\[
-	\CScollapse_\ast \big( [1] \ot [1] \big) \ast \CScollapse_\ast \big( [0] \ot [0,1] \big) \neq \CScollapse_\ast \Big( ([1] \ot [1]) \ast ([0] \ot [0,1]) \Big).
+	\CS \big( [1] \ot [1] \big) \ast \CS \big( [0] \ot [0,1] \big) \neq \CS \Big( ([1] \ot [1]) \ast ([0] \ot [0,1]) \Big).
 	\]
 
 	The key issue is that with respect to the order $[0] < [0,1] < [1]$ extended tensor-wise (\cref{d:partial order}) we have that $\big( [1] \ot [1] \big) \not\leq \big( [0] \ot [0,1] \big)$, whereas all operations $x \ast y$ resulting from applying a surjection-like graph are between pairs $x \leq y$.
@@ -259,16 +313,16 @@ We now come to the main result of this section.
 We deduce this from the following result which we prove in \cref{ss:comparison proof}.
 
 \begin{lemma} \label{l:main comparison}
-	The chain map $\CScollapse_\ast \colon \chains(\cube^n) \to \chains(\simplex^n)$ induced by the Cartan--Serre collapse map is a quasi-isomorphism of $\USL$-coalgebras for every $n \in \N$.
+	The chain map $\CS \colon \chains(\cube^n) \to \chains(\simplex^n)$ induced by the Cartan--Serre collapse map is a quasi-isomorphism of $\USL$-coalgebras for every $n \in \N$.
 \end{lemma}
 
 \begin{proof}[Proof of \cref{t:main comparison}]
 	It suffices to prove this for $Y = \simplex^n$.
-	Since $\CScollapse_\ast = \proj_\ast \circ \subdivide$ is a morphism of $\USL$-coalgebras (\cref{l:main comparison}), for any $\Gamma \in \USL(r)$ we have
+	Since $\CS = \proj_\ast \circ \subdivide$ is a morphism of $\USL$-coalgebras (\cref{l:main comparison}), for any $\Gamma \in \USL(r)$ we have
 	\begin{align*}
 	\CScomp^{\ot r} \! \big( \Gamma(\id_{[n]}) \big) \defeq
-	\Gamma \circ \CScollapse_\ast =
-	\CScollapse_\ast^{\ot r} \! \circ \, \Gamma \defeq
+	\Gamma \circ \CS =
+	\CS^{\ot r} \! \circ \, \Gamma \defeq
 	\Gamma \big( \CScomp (\id_{[n]}) \big),
 	\end{align*}
 	as claimed.
@@ -278,7 +332,7 @@ For any topological space $Z$ the (\textit{topological}) \textit{Cartan--Serre c
 \[
 \CScomp_Z \colon \chains(\sSing Z) \to \chains(\cSing Z)
 \]
-is the chain map obtained by precomposing a singular simplex with the Cartan--Serre collapse map $\CScollapse \colon \gcube^n \to \gsimplex^{\!n}$.
+is the chain map obtained by precomposing a singular simplex with the Cartan--Serre collapse map $\cs \colon \gcube^n \to \gsimplex^{\!n}$.
 We have the following consequence of \cref{t:main comparison}.
 
 \begin{corollary} \label{t:topological comparison}
@@ -305,8 +359,8 @@ We have the following consequence of \cref{t:main comparison}.
 Throughout this subsection we use the identifications $\chains(\cube^n) \cong \gchains(\gcube^n)$ and $\chains(\simplex^n) \cong \gchains(\gsimplex^n)$, in particular $\id_{2^n}$ corresponds to $[0,1]^{\ot n}$.
 By naturality, it suffices to show that
 \begin{equation} \label{e:Cartan--Serre E-coalgebra map}
-\CScollapse_\ast^{\ot r} \! \circ \, \Gamma \big( [0,1]^{\ot n} \big) =
-\Gamma \circ \CScollapse_\ast \big( [0,1]^{\ot n} \big),
+\CS^{\ot r} \! \circ \, \Gamma \big( [0,1]^{\ot n} \big) =
+\Gamma \circ \CS \big( [0,1]^{\ot n} \big),
 \end{equation}
 where $\Gamma \in \UM(r)$ is represented by a surjection-like $(1,r)$-graph.
 
@@ -316,7 +370,7 @@ For ease of reference we state the following result discussed in \cref{ss:cs col
 	Let $x = x_1 \ot \cdots \ot x_n$ be a basis element of $\chains(\cube^n)$ of degree $m$ with $\{q_1 < \dots < q_m\}$ such that $x_{q_i} = [0,1]$ for each $i$.
 	Let $p$ be the minimum of the set $\{i \mid x_i = [0]\}$ or $n+1$ if this set is empty, then
 	\[
-	\CScollapse_\ast(x) = \begin{cases}
+	\CS(x) = \begin{cases}
 	[\tilde q_1, \dots, \tilde q_m, \tilde p] & \text{ if } p > q_m, \\
 	0 & \text{ otherwise}
 	\end{cases}
@@ -324,15 +378,15 @@ For ease of reference we state the following result discussed in \cref{ss:cs col
 	where for any integer $\ell$, we write $\tilde \ell = \ell-1$.
 \end{lemma}
 
-We begin by verifying that $\CScollapse_\ast$ is compatible with respect to the Serre and Alexander--Whitney coalgebra structures.
+We begin by verifying that $\CS$ is compatible with respect to the Serre and Alexander--Whitney coalgebra structures.
 
 \begin{lemma}
-	The chain map $\CScollapse_\ast$ is a quasi-isomorphism of coalgebras.
+	The chain map $\CS$ is a quasi-isomorphism of coalgebras.
 \end{lemma}
 
 \begin{proof}
-	Since $\CScollapse_\ast$ is induced from a cellular map between contractible spaces it is a quasi-isomorphism compatible with the counit.
-	To study the compatibility of $\CScollapse_\ast$ with coproducts consider $n > 0$, since the case $n = 0$ is immediate, and let
+	Since $\CS$ is induced from a cellular map between contractible spaces it is a quasi-isomorphism compatible with the counit.
+	To study the compatibility of $\CS$ with coproducts consider $n > 0$, since the case $n = 0$ is immediate, and let
 	\[
 	\Delta \big( [0,1]^{\ot n} \big) = \sum_{\lambda \in \Lambda} \pm \ x_1^{(\lambda)} \ot \cdots \ot x_n^{(\lambda)} \ot y_1^{(\lambda)} \ot \cdots \ot y_n^{(\lambda)},
 	\]
@@ -341,9 +395,9 @@ We begin by verifying that $\CScollapse_\ast$ is compatible with respect to the 
 	x_i^{(\lambda)} = [0]   & \iff y_i^{(\lambda)} = [0,1], \\
 	x_i^{(\lambda)} = [0,1] & \iff y_i^{(\lambda)} = [1].
 	\end{align*}
-	By \cref{l:cs collapse chain map explicit}, the summands above not sent to $0$ by $\CScollapse_\ast \ot \CScollapse_\ast$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
-	For any one such summand, its sign is positive and its image by $\CScollapse_\ast \ot \CScollapse_\ast$ is $[0, \dots, k] \ot [k, \dots, n]$ where $k+1 = \min \{i \mid x_i^{(\lambda)} = [0]\}$ or $k = n$ if this set is empty.
-	The summands $[0, \dots, k] \ot [k, \dots, n]$ are precisely those appearing when applying the Alexander--Whitney coproduct to $[0, \dots, n] = \CScollapse_\ast \big( [0,1]^{\ot n} \big)$.
+	By \cref{l:cs collapse chain map explicit}, the summands above not sent to $0$ by $\CS \ot \CS$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
+	For any one such summand, its sign is positive and its image by $\CS \ot \CS$ is $[0, \dots, k] \ot [k, \dots, n]$ where $k+1 = \min \{i \mid x_i^{(\lambda)} = [0]\}$ or $k = n$ if this set is empty.
+	The summands $[0, \dots, k] \ot [k, \dots, n]$ are precisely those appearing when applying the Alexander--Whitney coproduct to $[0, \dots, n] = \CS \big( [0,1]^{\ot n} \big)$.
 \end{proof}
 
 We will consider the basis of $\chains(\cube^n)$ as a poset in the following way.
@@ -391,7 +445,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	Let $x, y \in \chains(\cube^n)$ be basis elements.
 	If $x \leq y$ then
 	\begin{equation} \label{e:cs collapse as algebra map}
-	\CScollapse_\ast(x \ast y) = \CScollapse_\ast(x) \ast \CScollapse_\ast(y).
+	\CS(x \ast y) = \CS(x) \ast \CS(y).
 	\end{equation}
 \end{lemma}
 
@@ -400,12 +454,12 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	We use \cref{l:cs collapse chain map explicit}, the assumption $x \leq y$, and the fact that the join of basis elements in $\chains(\simplex^n)$ sharing a vertex is $0$ without explicit mention. \newline
 
 	\noindent \textit{Claim 1}.
-	If $\CScollapse_\ast(x) = 0$ or $\CScollapse_\ast(y) = 0$ then for every $i \in \{1, \dots, n\}$
+	If $\CS(x) = 0$ or $\CS(y) = 0$ then for every $i \in \{1, \dots, n\}$
 	\begin{equation} \label{e:zero for join}
-	\CScollapse_\ast \big( x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i} \big) = 0.
+	\CS \big( x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i} \big) = 0.
 	\end{equation}
 
-	Assume $\CScollapse_\ast(x) = 0$, that is, there exists a pair $p < q$ such that $x_p = [0]$ and $x_q = [0,1]$, then \eqref{e:zero for join} holds since:
+	Assume $\CS(x) = 0$, that is, there exists a pair $p < q$ such that $x_p = [0]$ and $x_q = [0,1]$, then \eqref{e:zero for join} holds since:
 	\begin{enumerate}
 		\item If $i > q$, then $x_p$ and $x_q$ are part of $x_{<i}$.
 		\item If $i = q$, then $x_q \ast y_q = 0$ for any $y_q$.
@@ -420,10 +474,10 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	This proves the first claim and identity \eqref{e:cs collapse as algebra map} under its hypothesis. \newline
 
 	\noindent \textit{Claim 2}.
-	If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then
+	If $\CS(x) \neq 0$ and $\CS(y) \neq 0$ then
 	\[
-	\CScollapse_\ast(x \ast y) =
-	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \ot \, x_{p_x} \! \ast y_{p_x} \ot \epsilon(x_{>p_x}) \, y_{>p_x} \big)
+	\CS(x \ast y) =
+	\CS \big( x_{<p_x} \epsilon(y_{<p_x}) \ot \, x_{p_x} \! \ast y_{p_x} \ot \epsilon(x_{>p_x}) \, y_{>p_x} \big)
 	\]
 	if $p_x = \min \big\{ i \mid x_i = [0] \big\}$ is well-defined and $x \ast y = 0$ if not.
 
@@ -433,7 +487,7 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	Assume $p_x$ is well-defined.
 	We will show that for all $i \in \{1,\dots,n\}$ with the possible exception of $i = p_x$ we have
 	\begin{equation} \label{e:case main lemma third claim}
-	\CScollapse_\ast \big( x_{<i} \, \epsilon(y_{<i}) \ot \, x_{i} \! \ast y_{i} \ot \epsilon(x_{>i}) \, y_{>i} \big) = 0
+	\CS \big( x_{<i} \, \epsilon(y_{<i}) \ot \, x_{i} \! \ast y_{i} \ot \epsilon(x_{>i}) \, y_{>i} \big) = 0
 	\end{equation}
 	This follows from:
 	\begin{enumerate}
@@ -443,27 +497,27 @@ We will consider the basis of $\chains(\cube^n)$ as a poset in the following way
 	\end{enumerate}
 
 	\ \\ \noindent \textit{Claim 3}.
-	If $\CScollapse_\ast(x) \neq 0$ and $\CScollapse_\ast(y) \neq 0$ then \eqref{e:cs collapse as algebra map} holds.
+	If $\CS(x) \neq 0$ and $\CS(y) \neq 0$ then \eqref{e:cs collapse as algebra map} holds.
 
 	Let us assume that $\big\{ i \mid x_i = [0] \big\}$ is empty, which implies the analogous statement for $y$ since $x \leq y$.
-	Since neither of $x$ nor $y$ have a factor $[0]$ in them, \cref{l:cs collapse chain map explicit} implies that the vertex $[n]$ is in both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$, which implies $\CScollapse_\ast(x) \ast \CScollapse_\ast(y) = 0$ as claimed.
+	Since neither of $x$ nor $y$ have a factor $[0]$ in them, \cref{l:cs collapse chain map explicit} implies that the vertex $[n]$ is in both $\CS(x)$ and $\CS(y)$, which implies $\CS(x) \ast \CS(y) = 0$ as claimed.
 
 	Assume now that $p_x = \big\{ i \mid x_i = [0] \big\}$ is well defined, and let $\{q_1 < \dots < q_m\}$ with $x_{q_i} = [0,1]$ for $i \in \{1,\dots,m\}$.
-	Since $\CScollapse_\ast(x) \neq 0$ \cref{l:cs collapse chain map explicit} implies that $p_x > q_m$, so $\epsilon(x_{>p_x}) = 1$ and Claim 2 implies
+	Since $\CS(x) \neq 0$ \cref{l:cs collapse chain map explicit} implies that $p_x > q_m$, so $\epsilon(x_{>p_x}) = 1$ and Claim 2 implies
 	\[
-	\CScollapse_\ast(x \ast y) =
-	\CScollapse_\ast \big( x_{<p_x} \epsilon(y_{<p_x}) \ot \, x_{p_x} \! \ast y_{p_x} \ot y_{>p_x} \big).
+	\CS(x \ast y) =
+	\CS \big( x_{<p_x} \epsilon(y_{<p_x}) \ot \, x_{p_x} \! \ast y_{p_x} \ot y_{>p_x} \big).
 	\]
 	We have the following cases:
 	\begin{enumerate}
-		\item If $\epsilon(y_{<p_x}) = 0$ then there is $q_i$ such that $y_{q_i} = [0,1]$ so $[q_i-1]$ is in both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$.
-		\item If $\epsilon(y_{p_x}) \neq 0$ and $y_{p_x} \in \{[0], [0,1]\}$ then $x_{p_x} \ast y_{p_x} = 0$ and $[p_x-1]$ is in both $\CScollapse_\ast(x)$ and $\CScollapse_\ast(y)$.
+		\item If $\epsilon(y_{<p_x}) = 0$ then there is $q_i$ such that $y_{q_i} = [0,1]$ so $[q_i-1]$ is in both $\CS(x)$ and $\CS(y)$.
+		\item If $\epsilon(y_{p_x}) \neq 0$ and $y_{p_x} \in \{[0], [0,1]\}$ then $x_{p_x} \ast y_{p_x} = 0$ and $[p_x-1]$ is in both $\CS(x)$ and $\CS(y)$.
 		\item If $\epsilon(y_{p_x}) \neq 0$ and $y_{p_x} = [1]$ let $\{\ell_1 < \dots < \ell_k\}$ be such that $y_{\ell_j} = [0,1]$ and let $p_y > \ell_k$ be either $n+1$ or $\min\{j \mid y_j = \{0\}\}$ then
 		\begin{align*}
-		\CScollapse_\ast(x \ast y) & =
-		\CScollapse_\ast \big( x_{< p_x} \ot x_{p_x} \ast y_{p_x} \ot y_{> p_y} \big) \\ & =
+		\CS(x \ast y) & =
+		\CS \big( x_{< p_x} \ot x_{p_x} \ast y_{p_x} \ot y_{> p_y} \big) \\ & =
 		[\tilde q_1, \dots, \tilde q_m, \tilde p_x, \tilde \ell_1, \dots, \tilde \ell_k, \tilde p_y] \\ & =
-		\CScollapse_\ast(x) \ast \CScollapse_\ast(y)
+		\CS(x) \ast \CS(y)
 		\end{align*}
 	\end{enumerate}
 	which concludes the proof of Claim 3 and this lemma.
