@@ -7,7 +7,7 @@ Instead of simplices, in his groundbreaking work on fibered spaces Serre conside
 	Il est en effet evident que ces derniers se pretent mieux que les simplexes a l'etude des produits directs, et, a fortiori, des espaces fibres qui en sont la generalisation.
 \end{displaycquote}
 Cubical sets, a model for the homotopy category, were considered by Kan \cite{kan1955abstract, kan1956abstract} before introducing simplicial sets, they are central to nonabelian algebraic topology \cite{brown2011nonabelian}, and have become important in Voevodsky's program for univalent foundations and homotopy type theory \cite{kapulkin2020straightening, mortberg2017cubical}.
-Other areas that highlight the relevance of cubical methods are applied topology, where cubical complexes are ubiquitous in the study of images \cite{tomasz2004computational}, condensed matter physics, where models on cubical lattices are central -- for example the Ising model -- \cite{baxter1985exactlysolved}, and geometric group theory \cite{gromov1987hyperbolic}, where fundamental results have been obtained considering actions on certain cube complexes characterized combinatorially \cite{agol2013haken}.
+Other areas that highlight the relevance of cubical methods are applied topology, where cubical complexes are ubiquitous in the study of images \cite{tomasz2004computational}, condensed matter physics, where models on cubical lattices are central \cite{baxter1985exactlysolved}, and geometric group theory \cite{gromov1987hyperbolic}, where fundamental results have been obtained considering actions on certain cube complexes characterized combinatorially \cite{agol2013haken}.
 
 Cubical cochains are equipped with the \textit{Serre algebra structure}, a lift to the cochain level of the graded ring structure in cohomology.
 Using an acyclic carrier argument it can be shown that this product is commutative up to coherent homotopies in a non-canonical way.
@@ -21,19 +21,19 @@ Non-constructively, this result could be obtained using a lifting argument based
 
 As described in \cite{medina2020prop1}, the operad $\UM$ also acts on simplicial cochains extending the Alexander--Whitney algebra structure.
 We use a construction of Cartan and Serre to relate these cubical and simplicial $E_\infty$-structures.
-More specifically, in \cite[p. 442]{serre1951homologie}, Serre describes for any topological space $Z$ a natural quasi-isomorphism
-\[
-\CScomp_Z^\vee \colon \cScochains(Z) \to \sScochains(Z)
-\]
+More specifically, in \cite[p. 442]{serre1951homologie}, Serre describes for any topological space $\fZ$ a natural quasi-isomorphism
+\begin{equation} \label{e:cs on singular cochains}
+	\cScochains(\fZ) \to \sScochains(\fZ)
+\end{equation}
 between its cubical and simplicial singular cochains.
 Furthermore, he states this to be a quasi-isomorphism of algebras with respect to the Serre and Alexander--Whitney structures.
-In the present work we deduce from a statement at the level of general simplicial sets that $\CScomp_Z^\vee$ is in fact a quasi-isomorphisms of $E_\infty$-algebras.
+In the present work we deduce from a statement at the level of general simplicial sets that this map is in fact a quasi-isomorphisms of $E_\infty$-algebras.
 More specifically, let $\cubify$ be the right adjoint to the triangulation functor from cubical to simplicial sets.
 We construct a natural quasi-isomorphism of $E_\infty$-algebras
 \[
-\CScomp_Y^\vee \colon \ccochains(\cubify Y) \to \scochains(Y)
+\ccochains(\cubify Y) \to \scochains(Y)
 \]
-for any simplicial set $Y$, which factors $\CScomp_Z^\vee$ when $Y = \sSing(Z)$.
+for any simplicial set $Y$, which factors the Cartan--Serre map \eqref{e:cs on singular cochains} when $Y = \sSing(\fZ)$ so that the other map is induced from a cubical map.
 
 We now mention three application of the contributions in this paper.
 For every prime $p$, the mod $p$ cohomology of a space is equipped with natural stable endomorphisms known as Steenrod operations \cite{steenrod1962cohomology}.
@@ -49,15 +49,15 @@ For more details regarding this geometric model of cohomology please consult \ci
 Our construction of an $E_\infty$-algebra structure on cubical cochains is obtained by dualizing an $E_\infty$-coalgebra structure on cubical chains.
 In the fifties, Adams introduced in \cite{adams1956cobar} a comparison map
 \[
-\theta_Z \colon \cobar S^\simplex(Z,z) \to S^\cube(\loops_z Z)
+\theta_\fZ \colon \cobar \sSchains(\fZ,z) \to \cSchains(\loops_z \fZ)
 \]
-from his cobar construction on the simplicial singular chains of a pointed space $(Z,z)$ to the cubical singular chains on its based loop space $\loops_z Z$.
+from his cobar construction on the simplicial singular chains of a pointed space $(\fZ,z)$ to the cubical singular chains on its based loop space $\loops_z \fZ$.
 This comparison map is a quasi-isomorphism of algebras, which was shown by Baues \cite{baues1998hopf} to be one of bialgebras by considering Serre's cubical coproduct, see also \cite{galvez-carrilo202hopf1} for a generalization of Baues construction.
 In \cite{medina2021cobar} we use the contributions of this paper to generalize Baues' result by showing that Adams' comparison map is a quasi-isomorphism of $E_\infty$-bialgebras, i.e., of monoids in the category of $\UM$-coalgebras, and to relate the cobar and Kan loop group constructions as functors to the category of $E_\infty$-coalgebras.
 
 \subsection*{Outline}
 
 We recall some basic notions from homological algebra and category theory in \cref{s:preliminaries}.
-The required concepts from the theory of operads and props is reviewed in \cref{s:operads and props}, including the definition of the prop $\M$.
+The required concepts from the theory of operads and props is reviewed in \cref{s:props}, including the definition of the prop $\M$.
 \cref{s:action} contains our main contribution; an explicit natural $\M$-bialgebra structure on the chains of standard cubes and, from it, a natural $E_\infty$-coalgebra structure on the chains of cubical sets.
-The comparison between simplicial and cubical cochains is presented in \cref{s:the cartan-serre comparison map}, where we show that the Cartan--Serre comparison map is a quasi-isomorphism of $E_\infty$-algebras.
+The comparison between simplicial and cubical cochains is presented in \cref{s:comparison}, where we show that the Cartan--Serre map is a quasi-isomorphism of $E_\infty$-algebras.

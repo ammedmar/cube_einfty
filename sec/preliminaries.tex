@@ -10,9 +10,9 @@ We denote by $\Hom(C, C^\prime)$ the chain complex of $\k$-linear maps between c
 
 \subsection{Presheaves}
 
-Given categories $\sB$ and $\sC$ we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
 Recall that a category is said to be \textit{small} if its objects and morphisms form sets.
 We denote the category of small categories by $\Cat$.
+Given categories $\sB$ and $\sC$ with $\sB$ small we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
 If $\sA$ is small and $\sC$ cocomplete, then the (\textit{left}) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \sC)$ making
 \begin{equation*}
@@ -35,5 +35,5 @@ Abusively we use the same notation for a functor and its Yoneda extension.
 We refer to the objects in $\Fun(\sA^\op, \Set)$ as \textit{presheaves on $\sA$} and to those in the image of the Yoneda embedding as \textit{representables}.
 We remark that any presheaf $P$ on $\sA$ can be written as a colimit of representables as:
 \[
-P \, \cong \colim_{\yoneda(a) \to P} \yoneda(a).
+P \, \cong \colim_{\yoneda(a) \downarrow P} \yoneda(a).
 \]

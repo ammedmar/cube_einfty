@@ -31,23 +31,23 @@ We denote by $\cube_{\deg}(2^m, 2^n)$ the subset of morphism in $\cube(2^m, 2^n)
 The category of \textit{cubical sets} $\Fun(\cube^\op, \Set)$ is denoted by $\cSet$ and the representable cubical set $\yoneda(2^n)$ by $\cube^n$.
 For any cubical set $X$ we write, as usual, $X_n$ instead of $X(2^n)$.
 
-\subsection{Cubical singular complex}
+\subsection{Cubical topology}
 
 Consider the topological $n$-cube
-\begin{equation} \label{e:topological cube}
+\begin{equation*}
 \gcube^{n} = \big\{ (x_1, \dots, x_n) \mid x_i \in [0,1] \big\}.
-\end{equation}
+\end{equation*}
 The assignment $2^n \to \gcube^n$ defines a functor $\cube \to \Top$ with
 \begin{align*}
 \delta^\varepsilon_i(x_1, \dots, x_n) &= (x_1, \dots, x_i, \varepsilon, x_{i+1}, \dots x_n), \\
 \sigma_i(x_1,\dots,x_n) &= (x_1, \dots, \widehat{x}_i, \dots, x_n).
 \end{align*}
 Its Yoneda extension is known as \textit{geometric realization}.
-It has a right adjoint $\cSing \colon \Top \to \cSet$ given by
+It has a right adjoint $\cSing \colon \Top \to \cSet$ referred to as the \textit{cubical singular complex} satisfying
 \[
-Z \to \Big(2^n \to \Top(\gcube^n, Z)\Big)
+\cSing(\fZ)_n = \Top(\gcube^n, \fZ)
 \]
-and referred to as the \textit{cubical singular complex} of the topological space $Z$.
+for any topological space $\fZ$.
 
 \subsection{Cubical chains}
 
@@ -73,7 +73,7 @@ To a morphism $\tau \colon 2^n \to 2^{n'}$ it assigns the chain map
 The chain complex $\chains(\cube^n)$ is isomorphic to both: $\chains(\cube^1)^{\ot n}$ and the cellular chains on the topological $n$-cube with its standard CW structure $\gchains(\gcube^n)$.
 We use the isomorphism $\chains(\cube^n) \cong \gchains(\gcube^1)^{\ot n}$ when denoting the elements in the basis of $\chains(\cube^n)$ by $x_1 \ot \dotsb \ot x_n$ with $x_i \in \{[0], [0,1], [1]\}$.
 
-For a topological space $Z$, the chain complex $\chains(\cSing Z)$ is referred to as the \textit{cubical singular chains} of $Z$.
+For a topological space $\fZ$, the chain complex $\chains(\cSing \fZ)$ is referred to as the \textit{cubical singular chains} of $\fZ$.
 
 \subsection{Serre coalgebra} \label{ss:serre coalgebra}
 
@@ -135,8 +135,6 @@ and the only non-zero values of $x_i \ast y_i$ are
 \]
 
 \subsection{$\M$-bialgebra on representable cubical sets}
-
-The following is the main technical result of this paper.
 
 \begin{lemma} \label{l:cubical chain bialgebra}
 	The assignment
@@ -279,7 +277,7 @@ The third relation in $\Med$ would then imply the contradiction $0 = w-v$.
 Nevertheless, categories of coalgebras over operads are cocomplete and we have the following.
 
 \begin{theorem} \label{t:lift to e infinity coalgebras}
-	The composition of functor $\cube \to \biAlg_{\M}$ defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ defines a functor from $\cube \to \coAlg_{\UM}$ whose Yoneda extension endows the chains of a cubical set with a natural $E_\infty$-coalgebra structure extending the Serre coalgebra structure.
+	The Yoneda extension of the composition of the functor $\cube \to \biAlg_{\M}$ defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ endows the chains of a cubical set with a natural $E_\infty$-coalgebra extension of the Serre coalgebra structure.
 \end{theorem}
 
 Using linear duality, the same argument can be employed to define a natural $E_\infty$-algebra structure on cubical cochains.
@@ -312,7 +310,7 @@ A new description of maps satisfying \eqref{e:cupi homological relations} can be
 \begin{center}
 	\input{aux/cupi}
 \end{center}
-These define recursively the cup cup-$i$ coproducts:
+These define recursively the cup-$i$ coproducts:
 \begin{equation} \label{e:prop cup-i}
 	\begin{split}
 		& \Delta_0 = \Delta, \\

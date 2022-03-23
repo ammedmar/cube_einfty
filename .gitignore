@@ -10,3 +10,7 @@
 *.txss
 *.bcf
 *.xml
+
+sec/legacy.tex
+
+*.txss2
