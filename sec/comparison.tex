@@ -10,14 +10,14 @@ The goal of this section is to deduce from a more general categorical statement 
 
 \subsection{Simplicial sets} \label{ss:simplicial sets}
 
-\subsubsection{Categorical aspects}
+%\subsubsection{Categorical aspects}
 
 We denote the \textit{simplex category} by $\simplex$, the category of \textit{simplicial sets} $\Fun(\simplex^\op, \Set)$ by $\sSet$, and the standard $n$-simplex $\yoneda \big( [n] \big)$ by $\simplex^n$.
 As usual, we denote an element in $\simplex^n_m$ by a non-decreasing tuple $[v_0, \dots, v_m]$ with $v_i \in \{0, \dots, n\}$.
 The \textit{Cartesian product} of simplicial sets is defined by the product of functors.
 The \textit{simplicial $n$-cube} $\scube{n}$ is the $n^\th$-fold Cartesian product of $\simplex^1$.
 
-\subsubsection{Topological aspects}
+%\subsubsection{Topological aspects}
 
 We will use the following model of the topological $n$-simplex:
 \[
@@ -41,7 +41,7 @@ It has a right adjoint $\sSing \colon \Top \to \sSet$ referred to as the \textit
 \]
 for any topological space $\fZ$.
 
-\subsubsection{Algebraic aspects}
+%\subsubsection{Algebraic aspects}
 
 The functor of (\textit{normalized}) \textit{chains} $\schains \colon \sSet \to \Ch$ is the composition of the geometric realization functor and that of cellular chains.
 We denote the composition $\schains \circ \sSing$ by $\sSchains$ and omit the superscript $\simplex$ if no confusion may result from doing so.
@@ -68,9 +68,7 @@ As shown in \cite[Theorem 4.2]{medina2020prop1} the assignment
 \]
 defines a natural $\Med$-bialgebra on the chains of standard simplicial sets.
 
-\subsection{The cellular maps} \label{ss:comparison collapse map}
-
-\subsubsection{The Eilenberg--Zilber maps}
+\subsection{The Eilenberg--Zilber map}
 
 For any permutation $\sigma \in \Sym_n$ let
 \[
@@ -90,76 +88,55 @@ whose induced chain map is denoted by
 \]
 Using the isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\ot n} \cong \chains(\simplex^1)^{\ot n}$, this map agrees with the usual Eilenberg--Zilber maps $\chains(\simplex^1)^{\ot n} \to \chains \big( \scube{n} \big)$.
 
-For any topological space $\fZ$ we have a quasi-isomorphism
-\begin{equation} \label{e:ezz}
-	\begin{tikzcd} [column sep=small, row sep=0]
-		\EZ_{\Schains(\fZ)} \colon &[-20pt] \cSchains(\fZ) \arrow[r] & \sSchains (\fZ) \\
-		& (\gcube^n \to \fZ) \arrow[r, mapsto] &
-		\sum\limits_{\mathclap{\sigma \in \Sym_n}} \sign(\sigma) \big( \gsimplex^n \xra{\gi_\sigma} \gcube^n \to \fZ \big).
-	\end{tikzcd}
-\end{equation}
+% EXPLORE LATER
+%For any topological space $\fZ$ we have a quasi-isomorphism
+%\begin{equation} \label{e:ezz}
+%	\begin{tikzcd} [column sep=small, row sep=0]
+%		\EZ_{\Schains(\fZ)} \colon &[-20pt] \cSchains(\fZ) \arrow[r] & \sSchains (\fZ) \\
+%		& (\gcube^n \to \fZ) \arrow[r, mapsto] &
+%		\sum\limits_{\mathclap{\sigma \in \Sym_n}} \sign(\sigma) \big( \gsimplex^n \xra{\gi_\sigma} \gcube^n \to \fZ \big).
+%	\end{tikzcd}
+%\end{equation}
 
-\subsubsection{Cartan-Serre maps}
+\subsection{The Cartan-Serre map}
 
 Let
 \[
 \cs \colon \gcube^n \to \gsimplex^n
 \]
 be the cellular map defined by $\cs(x_1, \dots, x_n) = (x_1,\ x_1 x_2, \, \dots \, , \ x_1 x_2 \dotsm x_n)$.
-Its induced chain map is denoted by
-\[
-\CS \colon \chains(\cube^n) \to \chains(\simplex^n).
-\]
-For any topological space $\fZ$ we have a cellular map
+For any topological space $\fZ$ we a chain map
 \[
 \begin{tikzcd} [column sep=small, row sep=0]
-	\sSing(\fZ) \arrow[r] & \cSing (\fZ) \\
-	(\gsimplex^n \to \fZ) \arrow[r, mapsto] & (\gcube^n \xra{\cs} \gsimplex^n \to \fZ)
+	\CS_{\Schains(\fZ)} \colon &[-20] \sSchains(\fZ) \arrow[r] & \cSchains (\fZ) \\ &
+	(\gsimplex^n \to \fZ) \arrow[r, mapsto] & (\gcube^n \xra{\cs} \gsimplex^n \to \fZ).
 \end{tikzcd}
 \]
-whose induced chain map is denoted
-\[
-\CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ).
-\]
-
-The map $\cs$ was considered in \cite[p. 442]{serre1951homologie} where it was stated that $\CS_{\Schains(\fZ)}$ is a natural quasi-isomorphisms of coalgebras.
+These maps were considered in \cite[p. 442]{serre1951homologie} where it was stated that $\CS_{\Schains(\fZ)}$ is a natural quasi-isomorphisms of coalgebras.
 We remark that in this reference the topological $n$-simplex is modeled as a subset of $\R^{n+1}$ instead of $\R^n$.
 
-%\begin{lemma}
-%	The map $\cs \colon \gcube^n \to \gsimplex^n$ satisfies:
-%	\begin{align*}
-%		\cs \circ \, \delta_i^1 = \delta_{i-1} \circ \cs
-%	\end{align*}
-%	for $i \in \{1, \dots, n\}$,
-%	\[
-%	\cs \circ \, \delta_i^0 \big( [01] \times \dots \times[01] \big) \subseteq \gsimplex^n_{n-1}
-%	\]
-%	for $i \in \{1, \dots, n-1\}$, and
-%	\[
-%	\cs \circ \, \delta_n^0 = \delta_n \circ \cs.
-%	\]
-%\end{lemma}
+% TO BE EXPLORED LATER
+%\subsubsection{Coalgebra structures}
 %
-%The chain map induced by the Cartan--Serre projection is denoted by
-%\[
-%\CS \colon \chains(\cube^n) \to \chains(\simplex^n).
-%\]
+%We begin by stating the following classical result.
+%
+%\begin{proposition} \label{p:ez is coalgebra map]}
+%	The chain map $\EZ \colon \chains(\cube^n) \to \chains \big( \scube{n} \big)$ is a quasi-isomorphism of coalgebras.
+%\end{proposition}
+%
+%We also have the following.
 
-\subsection{The cellular maps and algebraic structures}
+\begin{definition}
+	The chain map
+	\[
+	\CS \colon \chains(\cube^n) \to \chains(\simplex^n)
+	\]
+	is defined by applying the functor of cellular chains to $\cs \colon \gcube^n \to \gsimplex^n$.
+\end{definition}
 
-\subsubsection{Coalgebra structures}
-
-We begin by stating the following classical result.
-
-\begin{proposition} \label{p:ez is coalgebra map]}
-	The chain map $\EZ \colon \chains(\cube^n) \to \chains \big( \scube{n} \big)$ is a quasi-isomorphism of coalgebras.
-\end{proposition}
-
-We also have the following.
-
-\begin{proposition}
+\begin{lemma}
 	The chain map $\CS \colon \chains(\cube^n) \to \chains(\simplex^n)$ is a quasi-isomorphism of coalgebras.
-\end{proposition}
+\end{lemma}
 
 \begin{proof}
 	Since $\CS$ is induced from a cellular map between contractible spaces it is a quasi-isomorphism compatible with the counit.
@@ -177,13 +154,13 @@ We also have the following.
 	The summands $[0, \dots, k] \ot [k, \dots, n]$ are precisely those appearing when applying the Alexander--Whitney coproduct to $[0, \dots, n] = \CS \big( [0,1]^{\ot n} \big)$.
 \end{proof}
 
-\subsubsection{No-go results}
+\subsection{No-go results}
 
-One may hope for higher structure to be preserved by the $\EZ$ and $\CS$ maps.
+Since $\CS$ was shown to be a coalgebra map and $\EZ$ is well known to be one, one may hope for higher structures to be preserved by these maps.
 We now provide some examples constraining the scope of these expectations.
 
 \begin{example*}
-	The Eilenberg--Zilber map is not compatible with higher coproducts.
+%	The Eilenberg--Zilber map is not compatible with higher coproducts.
 	Let us consider, as in \cref{e:prop cup-i}, the following cup-$1$ coproduct
 	\[
 	\Delta_1 = (\ast \ot \id) \circ (\id \ot (12) \Delta) \circ \Delta.
@@ -253,7 +230,7 @@ We now provide some examples constraining the scope of these expectations.
 	We will restrict the $\UM$-coalgebra structure on simplicial and cubical chains to a sub-$E_\infty$-operad where this symmetry incompatibility is avoided.
 \end{example*}
 
-\subsubsection{Suboperad of surjection-like graphs}
+\subsection{$E_\infty$-coalgebra preservation}
 
 The operad $\USL$ is generated as a suboperad of $\UM$ by all so-called \textit{surjection-like graphs}, i.e., immerse connected graphs of the form:
 \input{aux/surjection_like}
@@ -261,9 +238,7 @@ where there are no hidden vertices and the strands are joined so that the associ
 We notice that the subcomplex of surjection-like $(1,r)$-graphs is contractible using the same chain contraction employed in \cite{medina2020prop1}.
 This implies that the suboperad $\USL$ of $\UM$ is also $E_\infty$, and that the restriction to $\USL$ of the $\UM$-structures on simplicial and cubical chains provides them with another $E_\infty$-structure.
 
-\subsubsection{Local theorem}
-
-We devote this subsection to the proof of the following key result.
+We devote the rest of this subsection to the proof of the following key result.
 
 \begin{theorem} \label{t:main local}
 	The chain map $\CS \colon \chains(\cube^n) \to \chains(\simplex^n)$ is a quasi-isomorphism of $\USL$-coalgebras.
@@ -423,6 +398,7 @@ if and only if $x_i \leq y_i$ for each $i \in \{1, \dots, n\}$ with respect to $
 \end{proof}
 
 This sequence of lemmas provides a proof of \cref{t:main local} using the decomposition of any surjection-like graph into pieces \coproduct \ and \product and the fact that $\USL$ is generated by these.
+
 In the next subsection we will use \cref{t:main local} to deduce from a more general categorical statement that, for any topological space $\fZ$, the chain map $\CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ)$ is a quasi-isomorphism of $E_\infty$-coalgebras, specifically, of $\USL$-coalgebras.
 
 \subsection{Categorical reformulation}
@@ -442,32 +418,33 @@ defined, as usual, by
 \]
 Although we do not use this fact, we mention that, as proven in \cite[\S 8.4.30]{cisinski2006presheaves}, the pair $(\triangulate,\, \cubify)$ defines a Quillen equivalence when $\sSet$ and $\cSet$ are considered as model categories.
 
-\subsubsection{Eilenberg--Zilber maps}
-
-We have the following generalization of the map $\EZ \colon \chains(\cube^n) \to \chains(\scube{n})$.
-
-\begin{definition}
-	Let $X$ be a cubical set.
-	The \textit{Eilenberg--Zilber subdivision}
-	\[
-	\EZ_X \colon \cchains(X) \to \schains(\triangulate(X))
-	\]
-	is the chain map induced by the natural cellular map
-	\[
-	\bars{X} \defeq
-	\colim_{\cube^n \downarrow X} \gcube^n \xra{\ez}
-	\colim_{\cube^n \downarrow X} \bars[\big]{\scube{n}} \defeq
-	\bars[\big]{\triangulate(X)}.
-	\]
-\end{definition}
-
-\begin{proposition}
-	For any cubical set $X$ the Eilenberg--Zilber map $\EZ \colon \cchains(X) \to \schains(\triangulate X)$ is a quasi-isomorphism of coalgebras.
-\end{proposition}
-
-\begin{proof}
-	This follows directly from \cref{p:ez is coalgebra map]}.
-\end{proof}
+% TO BE EXPLORED LATER
+%\subsubsection{Eilenberg--Zilber maps}
+%
+%We have the following generalization of the map $\EZ \colon \chains(\cube^n) \to \chains(\scube{n})$.
+%
+%\begin{definition}
+%	Let $X$ be a cubical set.
+%	The \textit{Eilenberg--Zilber subdivision}
+%	\[
+%	\EZ_X \colon \cchains(X) \to \schains(\triangulate(X))
+%	\]
+%	is the chain map induced by the natural cellular map
+%	\[
+%	\bars{X} \defeq
+%	\colim_{\cube^n \downarrow X} \gcube^n \xra{\ez}
+%	\colim_{\cube^n \downarrow X} \bars[\big]{\scube{n}} \defeq
+%	\bars[\big]{\triangulate(X)}.
+%	\]
+%\end{definition}
+%
+%\begin{proposition}
+%	For any cubical set $X$ the Eilenberg--Zilber map $\EZ \colon \cchains(X) \to \schains(\triangulate X)$ is a quasi-isomorphism of coalgebras.
+%\end{proposition}
+%
+%\begin{proof}
+%	This follows directly from \cref{p:ez is coalgebra map]}.
+%\end{proof}
 
 % TO BE EXPLORED LATER
 %\begin{proposition}
@@ -489,7 +466,6 @@ We have the following generalization of the map $\EZ \colon \chains(\cube^n) \to
 %	The map ... coalgebra q-i.
 %\end{proposition}
 
-\subsubsection{Cartan--Serre maps}
 
 \begin{definition}
 	The simplicial map $\ccs \colon \scube{n} \to \simplex^n$ is defined by
@@ -503,13 +479,11 @@ We have the following generalization of the map $\EZ \colon \chains(\cube^n) \to
 	where $v_i = \varepsilon_i^1 + \varepsilon_i^1 \varepsilon_i^2 + \dots + \varepsilon_i^1 \dotsm \varepsilon_i^n$.
 \end{definition}
 
-\begin{proposition}
-	The maps $\cs$ and $\bars{\ccs} \circ \ez$ agree in $\CW(\gcube^n, \gsimplex^n)$.
-\end{proposition}
+We observe that the maps $\cs$ and $\bars{\ccs} \circ \ez$ agree.
 
 \begin{definition}
 	Let $Y$ be a simplicial set.
-	The \textit{Cartan--Serre comparison}
+	The \textit{Cartan--Serre map}
 	\[
 	\CS_Y \colon \schains(Y) \to \cchains(\cubify Y)
 	\]
