@@ -288,29 +288,27 @@ For any $\alpha_1, \dots, \alpha_r \in \cochains(X)$ the action of $\Gamma$ on t
 \Gamma(\alpha_1, \dots, \alpha_r)(x) = (\alpha_1 \ot \dotsb \ot \alpha_r) \circ f^{\ot r} \circ \gamma(\id_{2^n}).
 \]
 
-\subsection{Cup-$i$ coproducts}
+\subsection{Cohomology operations}
 
-Steenrod introduced in \cite{steenrod1947products} operations on the mod~2 cohomology of spaces via an explicit construction of natural maps
-\[
-\Delta_i \colon \chains(\simplex^n) \to \chains(\simplex^n) \ot \chains(\simplex^n),
-\]
-where $\chains(\simplex^n)$ is the complex of chains on the $n^\th$ representable simplicial set and $\Delta_0$ is the Alexander-Whitney diagonal (\cref{ss:simplicial sets}), such that
+Steenrod introduced in \cite{steenrod1947products} operations on the mod~2 cohomology of spaces via an explicit construction in the simplicial context of natural linear maps $\Delta_i$ satisfying up to signs the following homological relations
 \begin{equation} \label{e:cupi homological relations}
-(1 + T) \Delta_{i-1} = \bd \circ \Delta_i + \Delta_i \circ \bd
+\bd \circ \Delta_i + \Delta_i \circ \bd = (1 + T) \Delta_{i-1}
 \end{equation}
-with coefficients in $\Ftwo$.
-These maps, referred to as cup-$i$ coproducts, are combinatorially rich, defining for example the nerve of $n$-categories \cite{medina2020globular} as introduced by Street \cite{street1987orientals}, and admitting an axiomatic characterization \cite{medina2022axiomatic}.
+with the convention $\Delta_{-1} = 0$.
+These maps, referred to as (simplicial) cup-$i$ coproducts, are fundamental combinatorially, admitting an axiomatic characterization \cite{medina2022axiomatic} and defining, for example, the nerve of $n$-categories as introduced by Street \cite{street1987orientals, medina2020globular}.
 
-In the cubical case, collections of maps satisfying \eqref{e:cupi homological relations} were defined in \cite{kadeishvili1999coproducts} and \cite{pilarczyk2016cubical}.
+In the cubical case, cup-$i$ coproducts were defined in \cite{kadeishvili1999coproducts} and \cite{pilarczyk2016cubical}.
 It is unclear if these are equivalent.
 The formulas used by these authors are analogous to those introduced in \cite{medina2021fast_sq} for the simplicial case, a dual yet equivalent version of Steenrod's original description.
 By the same methods used in \cite{medina2020globular}, these formulas define a cubical nerve for higher categories, but it remains unclear if either agrees with the one defined by the generalized Gray tensor product.
 
-A new description of maps satisfying \eqref{e:cupi homological relations} can be deduced from our $E_\infty$-structure on cubical chains by considering the action of elements of the form:
-\begin{center}
+A new description of cubical cup-$i$ coproducts can be deduced from our $E_\infty$-structure on cubical chains by considering the action of the elements depicted in \cref{f:cup-i}.
+\begin{figure}
 	\input{aux/cupi}
-\end{center}
-These define recursively the cup-$i$ coproducts:
+	\caption{Elements in $\UM$ defining cup-$i$ cubical coproducts.}
+	\label{f:cup-i}
+\end{figure}
+These recursively define:
 \begin{equation} \label{e:prop cup-i}
 	\begin{split}
 		& \Delta_0 = \Delta, \\
@@ -320,10 +318,18 @@ These define recursively the cup-$i$ coproducts:
 \end{equation}
 It is not known if these agree with either of the previous constructions, pointing to the value of an axiomatic characterization as it exists in the simplicial case, where all known constructions agree.
 
-Cup-$i$ coproducts represent at the chain level Steenrod squares, which are primary operations at the level of cohomology.
+Cup-$i$ coproducts represent at the cochain level Steenrod squares
+\[
+\begin{tikzcd} [column sep=small, row sep=0]
+	Sq^k \colon &[-20] H^{-n} \arrow[r] & H^{-n-k} \\ &
+	{[\alpha]} \arrow[r, mapsto] & \big[ (\alpha \ot \alpha) \Delta_i \big]
+\end{tikzcd}
+\]
+which are primary operations in mod~2 cohomology.
 To obtain secondary cohomology operations one studies the cohomological relations these operations satisfy, for example the Cartan and Adem relations \cite{steenrod1962cohomology}.
 To do this at the cubical chain level, as it was done in \cite{medina2020cartan,medina2021adem} for the simplicial case, the operadic viewpoint is important, so our $E_\infty$-structure on cubical cochains invites the construction of cochain representatives for secondary operations in the cubical case.
 
 For an odd $p$, Steenrod also introduced operations on the mod $p$ cohomology of spaces using the homology of symmetric groups \cite{steenrod1952reduced, steenrod1953cyclic}.
-Using the operadic framework of May \cite{may1970general}, we described in \cite{medina2021may_st} elements in $\UM$ representing multioperations defining Steenrod operations at any prime.
-In particular, as proven in this work, these cup-$(p,i)$ products are defined on cubical cochains and are expressible, similarly to \cref{e:prop cup-i}, in terms of $\Delta$, the permutations of factors, and $\ast$.
+Using the operadic framework of May \cite{may1970general}, we described in \cite{medina2021may_st} elements in $\UM$ representing multicooperations defining Steenrod operations at any prime.
+In particular, as proven in this work, these so-called cup-$(p,i)$ products are defined on cubical cochains and are expressible, similarly to \cref{e:prop cup-i}, in terms of $\Delta$, the permutations of factors, and $\ast$.
+The aforementioned construction of cubical cup-$(p,i)$ coproducts has been implemented in the computer algebra system \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} \cite{medina2021comch}.
