@@ -1,41 +1,90 @@
-\documentclass{amsart}
+\documentclass[12pt]{article}
+
+% Cahiers wants Times New Roman:
+
+\usepackage{times}
+
+% Cahiers wants this page layout:
+
+\usepackage[a4paper,text={128mm,185mm}, centering]{geometry}
+
+\usepackage{changepage}
+% Slight modification of section titles (optional):
+
+\usepackage{titlesec}
+
+\titleformat{\section}[hang]%
+{\bfseries\large}{\thesection.}{1ex}{}%
+
+\titleformat{\subsection}[hang]%
+{\bfseries}{\thesubsection}{1ex}{}%
+
+\usepackage{amsmath, amsthm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+%lefthead and rightheads: authors and short title
+\lhead{\sc\bfseries R.K. $\&$ A.M-M.}
+\rhead{\sc\bfseries An $E_\infty$-structure on cubical cochains}
+
+%title
+\title{\vskip 5pt  \bf  \textsc{A combinatorial $E_\infty$-algebra structure on cubical cochains and the Cartan--Serre map}}
+% Nota Bene : please, write your title in capital letters, as in the example here.
+%authors
+\author{
+	\itshape\bfseries {Ralph~M.~Kaufmann} \and
+	\itshape\bfseries {Anibal~M.~Medina-Mardones}
+}
+
 \input{aux/style}
 \input{aux/usualcmds}
 \addbibresource{aux/usualpapers.bib}
 \addbibresource{aux/mypapers.bib}
-
-%%%%%%%%%%%
-
 \usepackage{csquotes}
 \input{aux/commands} % new cmds here
 \addbibresource{aux/bibliography.bib} % new bibs here
 \input{aux/figures}
 
-%%%%%%%%%%%
-
-\title[A combinatorial $E_\infty$-algebra structure on cubical cochains]{A combinatorial $E_\infty$-algebra structure on cubical cochains and the Cartan--Serre map}
-
-\author[R.~Kaufmann]{Ralph~M.~Kaufmann}
-\address{R.K., Department of Mathematics, Department of Physics and Astronomy, Purdue University}
-\email{\href{mailto:rkaufman@purdue.edu}{rkaufman@purdue.edu}}
-
-\author{Anibal~M.~Medina-Mardones}
-\address{A.M-M., Max Plank Institute for Mathematics \and University of Notre Dame}
-\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
-
-\subjclass[2020]{55N45, 18M70, 18M85}
-\keywords{Cubical sets, cochain complex, cup product, $E_\infty$-algebras, operads}
-
 \begin{document}
-	\input{aux/abstract}
 	\maketitle
+	%Nota bene:  the next two commands erase pages numbers (the right page numbers will be add by the editors on the pdf)
+	\cfoot{}
+	\thispagestyle{empty}
+	%%
+	\vskip 25pt
+	% Abstract in French and in English, followed by Keywords and MSC:
+	\begin{adjustwidth}{0.5cm}{0.5cm}
+		{\small
+			{\bf R\'esum\'e.} Les cochaînes cubiques sont munies d'un produit associatif, dual à la diagonale de Serre, relevant la structure commutative graduée en cohomologie.
+			Dans ce travail, nous introduisons par des méthodes combinatoires explicites une extension de ce produit à une structure $E_\infty$.
+			Comme application, nous prouvons que l'application de Cartan--Serre, qui relie les cochaînes singulières cubiques et simpliciales d'espaces, est un quasi-isomorphisme de $E_\infty$-algèbres. \\
+			{\bf Abstract.} Cubical cochains are equipped with an associative product, dual to the Serre diagonal, lifting the graded commutative structure in cohomology.
+			In this work we introduce through explicit combinatorial methods an extension of this product to a full $E_\infty$-structure.
+			As an application we prove that the Cartan-Serre map, which relates the cubical and simplicial singular cochains of spaces, is a quasi-isomorphism of $E_\infty$-algebras. \\
+			{\bf Keywords.} Cubical sets, cochain complex, cup product, Cartan--Serre map, $E_\infty$-algebras, operads. \\
+			{\bf Mathematics Subject Classification (2020).} 55N45, 18M70, 18M85.
+		}
+	\end{adjustwidth}
+
+	% Content
 	\input{sec/introduction}
 	\input{aux/acknowledgment}
 	\input{sec/preliminaries}
 	\input{sec/props}
 	\input{sec/action}
 	\input{sec/comparison}
-%	\input{sec/legacy}
+
+	% Bibliography
 	\sloppy
 	\printbibliography
+
+	% Addresses
+	\noindent \textit{Ralph M. Kaufmann} \\
+	Purdue University \\
+	\href{mailto:rkaufman@purdue.edu}{rkaufman@purdue.edu} \\
+	\newline
+	\noindent \textit{Anibal~M.~Medina-Mardones} \\
+	Max Plank Institute for Mathematics and University of Notre Dame \\
+	\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}
 \end{document}
