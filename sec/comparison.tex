@@ -192,7 +192,7 @@ We now provide some examples constraining the scope of these expectations.
 		01\times01 \ot 001\times011 \ + \
 		001\times011 \ot 01\times11.
 	\end{multline*}
-	We conclude that $\EZ^{\ot 2} \circ \, \Delta_1 \big( [01][01] \big) \neq \Delta_1 \circ \EZ \big( [01] [01] \big)$ since, for example, the basis element $01\times11 \ot 011\times001$ appears in left sum but not in the right one.
+	We conclude that $\EZ^{\ot 2} \circ \, \Delta_1 \big( [01][01] \big) \neq \Delta_1 \circ \EZ \big( [01] [01] \big)$ since, for example, the basis element $01\times11 \ot 011\times001$ appears in the left sum but not in the right one.
 \end{example*}
 
 \begin{example*}
@@ -564,7 +564,11 @@ We observe that the maps $\cs$ and $\bars{\ccs} \circ \ez$ agree.
 \begin{proof}
 	The map $\CS_{\Schains(\fZ)}$ factors as $\sSchains(\fZ) \to \cchains \big( \cubify \sSing(\fZ) \big) \to \cSchains(\fZ)$ where the first map is $\CS_{\sSing(\fZ)}$, proven in \cref{t:main comparison} to be a quasi-isomorphism of $\USL$-coalgebras, and the second is induced by a cubical map $\cubify \sSing(\fZ) \to \cSing(\fZ)$ described next, which is therefore a morphisms of $\USL$-coalgebras.
 	The two-out-of-three property of quasi-isomorphisms concludes the proof.
-	Using the adjunction $\sSet \big( \scube{n}, \sSing(\fZ) \big) \cong \Top \big( \bars{\scube{n}}, \fZ \big)$ we define
+	Using the adjunction
+	\[
+	\sSet \big( \scube{n}, \sSing(\fZ) \big) \cong \Top \big( \bars{\scube{n}}, \fZ \big)
+	\]
+	we define
 	\[
 	\begin{tikzcd} [row sep=0, column sep=small]
 		\cubify \sSing(\fZ) \arrow[r] &
