@@ -10,7 +10,8 @@
 *.txss
 *.bcf
 *.xml
+*.txss2
 
 sec/legacy.tex
-
-*.txss2
+referee/
+journal/
