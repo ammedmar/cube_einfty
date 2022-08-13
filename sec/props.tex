@@ -13,7 +13,7 @@ Let $\sym$ be the category whose objects are the non-negative integers $\N$ and 
 A \textit{left $\sym$-module} (resp. \textit{right} $\sym$-\textit{module} or $\sym$-\textit{bimodule}) is a functor from $\sym$ (resp. $\sym^\op$ or $\sym^\op \times \sym$) to $\Ch$.
 In this paper we prioritize left module structures over their right counterparts.
 As usual, taking inverses makes both perspectives equivalent.
-We respectively denote by $\symmod$ and $\symbimod$ the categories of left $\sym$-modules and of $\sym$-bimodules with morphisms given by natural transformations.
+We respectively denote by $\symMod$ and $\symbimod$ the categories of left $\sym$-modules and of $\sym$-bimodules with morphisms given by natural transformations.
 
 Given a chain complex $C$, we have the following key examples of a left and a right $\sym$-module
 \begin{gather*}
@@ -28,7 +28,7 @@ where the symmetric actions are given by permutation of tensor factors.
 
 The group homomorphisms $\sym_n \to \sym_1^\op \times \sym_n$ induce a forgetful functor
 \begin{equation} \label{e:forgetful}
-	\forget \colon \symbimod \to \symmod
+	\forget \colon \symbimod \to \symMod
 \end{equation}
 defined explicitly on an object $\cP$ by $\forget(\cP)(n) = \cP(1, n)$ for $n \in \N$.
 The similarly defined forgetful functor to right $\sym$-modules will not be considered.
