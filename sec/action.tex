@@ -114,10 +114,10 @@ where $\pi$ is the shuffle permutation of tensor factors placing those in odd po
 \subsection{Degree 1 product}
 
 For $n \in \mathbb{N}$ define the \textit{product} $\ast  \colon \chains(\square^n)^{\ot 2} \to \chains(\square^n)$ by
-\begin{align*}
-(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n) =
+\begin{multline*}
+(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n) = \\
 (-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i},
-\end{align*}
+\end{multline*}
 where
 \begin{align*}
 x_{<i} & = x_1 \ot \dotsb \ot x_{i-1}, &
@@ -171,17 +171,17 @@ and the only non-zero values of $x_i \ast y_i$ are
 	For the second relation we want to show that $(\epsilon \ot \id) \circ \Delta = \id$.
 	Since
 	\begin{gather*}
-		(\epsilon \ot \id) \circ \Delta([0]) = \epsilon([0]) \ot [0] = [0], \qquad
+		(\epsilon \ot \id) \circ \Delta([0]) = \epsilon([0]) \ot [0] = [0], \\
 		(\epsilon \ot \id) \circ \Delta([1]) = \epsilon([1]) \ot [1] = [1], \\
 		(\epsilon \ot \id) \circ \Delta([0, 1]) = \epsilon([0]) \ot [0, 1] + \epsilon([0, 1]) \ot [1] = [0,1],
 	\end{gather*}
 	we have
-	\begin{align*}
-		(\epsilon \ot \id) \circ \Delta (x_1 \ot \dotsb \ot x_n) &=
+	\begin{multline*}
+		(\epsilon \ot \id) \circ \Delta (x_1 \ot \dotsb \ot x_n) = \\
 		\sum \pm \left( \epsilon \big(x_1^{(1)}\big) \ot \dotsb \ot \epsilon\big(x_n^{(1)}\big) \right) \ot
-		\left( x_1^{(2)} \ot \dotsb \ot x_n^{(2)} \right), \\ &=
+		\left( x_1^{(2)} \ot \dotsb \ot x_n^{(2)} \right) \\ =
 		x_1 \ot \dotsb \ot x_n,
-	\end{align*}
+	\end{multline*}
 	where the sign is obtained by noticing that the only non-zero term occurs when each factor $x_i^{(0)}$ is of degree $0$.
 	The third relation is verified analogously.
 	The fourth and fifth are precisely the well known facts that $\epsilon$ and $\Delta$ are chain maps.
@@ -200,10 +200,10 @@ and the only non-zero values of $x_i \ast y_i$ are
 		\sum (-1)^{|x|+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot \bd (x_i \ast y_i) \ot \epsilon(x_{>i}) \, y_{>i} \\ & -
 		\sum (-1)^{|x|+|x_{<i}|} \, x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i})\, \bd y_{>i}.
 	\end{align*}
-	Since
-	\[
-	|x| = |x_{<i}| + |x_i| + |x_{>i}|, \quad \epsilon(x_{>i}) \neq 0 \Leftrightarrow |x_{>i}| = 0, \quad \bd(x_i \ast y_i) \neq 0 \Rightarrow |x_i| = 0,
-	\]
+	Since $|x| = |x_{<i}| + |x_i| + |x_{>i}|$ and $\epsilon(x_{>i}) \neq 0 \Leftrightarrow |x_{>i}| = 0$ as well as $\bd(x_i \ast y_i) \neq 0 \Rightarrow |x_i| = 0$
+%	\[
+%	|x| = |x_{<i}| + |x_i| + |x_{>i}|, \quad \epsilon(x_{>i}) \neq 0 \Leftrightarrow |x_{>i}| = 0, \quad \bd(x_i \ast y_i) \neq 0 \Rightarrow |x_i| = 0,
+%	\]
 	we have
 	\begin{equation} \label{e:boundary of product 1}
 		\begin{split}
@@ -248,22 +248,22 @@ and the only non-zero values of $x_i \ast y_i$ are
 		\end{split}
 	\end{equation}
 	Putting identities \eqref{e:boundary of product 1}, \eqref{e:boundary of product 2} and \eqref{e:boundary of product 3} together, we get
-	\begin{align*}
-		\bd (x \ot y) \ +\ & \bd x \ast y\ +\, (-1)^{|x|}x \ast \bd y \\
-		& = \sum \epsilon(y_{<i})\, x_{<i} \ot \big(\bd(x_i \ast y_i) + \bd x_i \ast y_i + x_i \ast \bd y_i\big) \ot \epsilon(x_{>i})\, y_{>i}.
-	\end{align*}
+	\begin{multline*}
+		\bd (x \ot y) \ +\ \bd x \ast y\ +\, (-1)^{|x|}x \ast \bd y \\
+		= \sum \epsilon(y_{<i})\, x_{<i} \ot \big(\bd(x_i \ast y_i) + \bd x_i \ast y_i + x_i \ast \bd y_i\big) \ot \epsilon(x_{>i})\, y_{>i}.
+	\end{multline*}
 	Since
 	\begin{align*}
 		\bd(x_i \ast y_i)\ +\ \bd x_i \ast y_i\ +\ x_i \ast \bd y_i =
 		\epsilon(x_i)y_i\ -\ \epsilon(y_i)x_i,
 	\end{align*}
 	we have
-	\begin{align*}
-		\bd (x \ast y) \ +\ \bd x \ast y\ +\ & (-1)^{|x|}x \ast \bd y \\ = \ &
+	\begin{multline*}
+		\bd (x \ast y) \ +\ \bd x \ast y\ +\ (-1)^{|x|}x \ast \bd y  = \\
 		\sum \epsilon(y_{<i}) \, x_{<i} \ot \epsilon(x_{\geq i}) y_{\geq i}\ -\
-		\epsilon(y_{\leq i}) \, x_{\leq i} \ot \epsilon(x_{>i}) y_{>i} \\ = \ &
+		\epsilon(y_{\leq i}) \, x_{\leq i} \ot \epsilon(x_{>i}) y_{>i} \\ =
 		\epsilon(x)y - \epsilon(y)x,
-	\end{align*}
+	\end{multline*}
 	as desired, where the last equality follows from a telescopic sum argument.
 \end{proof}
 
@@ -304,8 +304,40 @@ By the same methods used in \cite{medina2020globular}, these formulas define a c
 
 A new description of cubical cup-$i$ coproducts can be deduced from our $E_\infty$-structure on cubical chains by considering the action of the elements depicted in \cref{f:cup-i}.
 \begin{figure}
-	\input{aux/cupi}
-	\caption{Elements in $\UM$ defining cup-$i$ cubical coproducts.}
+	\centering
+	\boxed{\begin{tikzpicture}[scale=.55]
+			\draw (1,3.7) to (1,3);
+
+			\draw (1,3) to [out=205, in=90] (0,0);
+			\draw (1,3) to [out=-25, in=90] (2,0);
+
+		\end{tikzpicture}\hspace*{1cm}
+		\begin{tikzpicture}[scale=.55]
+			\draw (1,3.7) to (1,3);
+
+			\draw (1,3) to [out=205, in=90] (0,0);
+
+			\draw [shorten >= 0cm] (.6,2.73) to [out=-100, in=90] (2,0);
+
+			\draw [shorten >= .15cm] (1,3) to [out=-25, in=30, distance=1.1cm] (1,1.5);
+			\draw [shorten <= .1cm] (1,1.5) to [out=210, in=20] (0,1);
+
+		\end{tikzpicture}\hspace*{1cm}
+		\begin{tikzpicture}[scale=.55]
+			\draw (1,3.7) to (1,3);
+
+			\draw (1,3) to [out=205, in=90] (0,0);
+			\draw (1,3) to [out=-25, in=90] (2,0);
+
+			\draw [shorten >= 0cm] (.6,2.73) to [out=210, in=135] (1,1.5);
+			\draw [shorten <= 0cm] (1,1.5) to [out=-45, in=170] (2,1);
+
+			\draw [shorten >= .1cm] (1.4,2.73) to [out=-30, in=45] (1,1.5);
+			\draw [shorten <= .1cm] (1,1.5) to [out=-135, in=10] (0,1);
+
+			\node at (4,1.8){.\ .\ .};
+	\end{tikzpicture}}
+	\caption{Elements in $\UM$ defining cubical cup-$i$ coproducts.}
 	\label{f:cup-i}
 \end{figure}
 These recursively define:
