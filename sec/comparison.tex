@@ -71,14 +71,14 @@ defines a natural $\Med$-bialgebra on the chains of standard simplicial sets.
 
 \subsection{The Eilenberg--Zilber maps}
 
-For any permutation $\sigma \in \Sym_n$ let
+For any permutation $\sigma \in \sym_n$ let
 \[
 \gi_\sigma \colon \gsimplex^n \to \gcube^n
 \]
 be the inclusion defined by $(x_1, \dots, x_n) \mapsto (x_{\sigma(1)}, \dots, x_{\sigma(n)})$.
 If $e$ is the identity permutation, we denote $\mathfrak{i}_{e}$ simply as $\mathfrak{i}$.
 %and notice that it satisfies $\cs \circ\, \mathfrak{i} = \id_{\gsimplex^n}$.
-The maps $\set{\mathfrak{i}_\sigma}_{\sigma \in \Sym_n}$ define a subdivision of $\gcube^n$ making it isomorphic to $\bars[\big]{\scube{n}}$ in $\CW$.
+The maps $\set{\mathfrak{i}_\sigma}_{\sigma \in \sym_n}$ define a subdivision of $\gcube^n$ making it isomorphic to $\bars[\big]{\scube{n}}$ in $\CW$.
 Using this identification, the identity map induces a cellular map
 \[
 \ez \colon \gcube^n \to \bars[\big]{\scube{n}}
@@ -95,7 +95,7 @@ Using the isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\ot n} \cong \ch
 %	\begin{tikzcd} [column sep=small, row sep=0]
 %		\EZ_{\Schains(\fZ)} \colon &[-20pt] \cSchains(\fZ) \arrow[r] & \sSchains (\fZ) \\
 %		& (\gcube^n \to \fZ) \arrow[r, mapsto] &
-%		\sum\limits_{\mathclap{\sigma \in \Sym_n}} \sign(\sigma) \big( \gsimplex^n \xra{\gi_\sigma} \gcube^n \to \fZ \big).
+%		\sum\limits_{\mathclap{\sigma \in \sym_n}} \sign(\sigma) \big( \gsimplex^n \xra{\gi_\sigma} \gcube^n \to \fZ \big).
 %	\end{tikzcd}
 %\end{equation}
 
@@ -486,7 +486,7 @@ Although we do not use this fact, we mention that, as proven in \cite[\S 8.4.30]
 %		\sSchains(\fZ) \\
 %		(\gcube^n \xra{f} \fZ) \arrow[r, mapsto] &
 %		\big( \bars{\scube{n}} \xra{f} \fZ \big) \arrow[r] &
-%		\sum\limits_{\mathclap{\sigma \in \Sym_n}} \sign(\sigma) \big( \gsimplex^n \xra{\gi_\sigma} \bars{\scube{n}} \xra{f} \fZ \big).
+%		\sum\limits_{\mathclap{\sigma \in \sym_n}} \sign(\sigma) \big( \gsimplex^n \xra{\gi_\sigma} \bars{\scube{n}} \xra{f} \fZ \big).
 %	\end{tikzcd}
 %	\]
 %\end{proposition}

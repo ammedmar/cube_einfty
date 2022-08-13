@@ -9,41 +9,41 @@ We start by reviewing the basic material in the theory of operads and props, ref
 
 \subsection{Symmetric (bi)modules}
 
-Let $\Sym$ be the category whose objects are the non-negative integers $\N$ and whose set of morphisms between $n$ and $n'$ is empty if $n \neq n'$ and is otherwise the symmetric group $\Sym_n$.
-A \textit{left $\Sym$-module} (resp. \textit{right} $\Sym$-\textit{module} or $\Sym$-\textit{bimodule}) is a functor from $\Sym$ (resp. $\Sym^\op$ or $\Sym^\op \times \Sym$) to $\Ch$.
+Let $\sym$ be the category whose objects are the non-negative integers $\N$ and whose set of morphisms between $n$ and $n'$ is empty if $n \neq n'$ and is otherwise the symmetric group $\sym_n$.
+A \textit{left $\sym$-module} (resp. \textit{right} $\sym$-\textit{module} or $\sym$-\textit{bimodule}) is a functor from $\sym$ (resp. $\sym^\op$ or $\sym^\op \times \sym$) to $\Ch$.
 In this paper we prioritize left module structures over their right counterparts.
 As usual, taking inverses makes both perspectives equivalent.
-We respectively denote by $\Symmod$ and $\Symbimod$ the categories of left $\Sym$-modules and of $\Sym$-bimodules with morphisms given by natural transformations.
+We respectively denote by $\symmod$ and $\symbimod$ the categories of left $\sym$-modules and of $\sym$-bimodules with morphisms given by natural transformations.
 
-Given a chain complex $C$, we have the following key examples of a left and a right $\Sym$-module
+Given a chain complex $C$, we have the following key examples of a left and a right $\sym$-module
 \begin{gather*}
 	\End^C(n) = \Hom(C, C^{\ot n}), \qquad
 	\End_C(m) = \Hom(C^{\ot m}, C),
 \end{gather*}
-and of an $\Sym$-bimodule
+and of an $\sym$-bimodule
 \[
 \End^C_C(m,n) = \Hom(C^{\ot m}, C^{\ot n}),
 \]
 where the symmetric actions are given by permutation of tensor factors.
 
-The group homomorphisms $\Sym_n \to \Sym_1^\op \times \Sym_n$ induce a forgetful functor
+The group homomorphisms $\sym_n \to \sym_1^\op \times \sym_n$ induce a forgetful functor
 \begin{equation} \label{e:forgetful}
-	\forget \colon \Symbimod \to \Symmod
+	\forget \colon \symbimod \to \symmod
 \end{equation}
 defined explicitly on an object $\cP$ by $\forget(\cP)(n) = \cP(1, n)$ for $n \in \N$.
-The similarly defined forgetful functor to right $\Sym$-modules will not be considered.
+The similarly defined forgetful functor to right $\sym$-modules will not be considered.
 
 \subsection{Composition structures}
 
-\textit{Operads} and \textit{props} are obtained by enriching $\Sym$-modules and $\Sym$-bimodules with certain composition structures.
-Intuitively, these are obtained by abstracting the composition structure naturally present in the left $\Sym$-module $\End^C$ (or right $\Sym$-module $\End_C$), naturally an operad, and the $\Sym$-bimodule $\End^C_C$, naturally a prop.
-More explicitly, an operad $\cO$ is a left $\Sym$-module with chain maps
+\textit{Operads} and \textit{props} are obtained by enriching $\sym$-modules and $\sym$-bimodules with certain composition structures.
+Intuitively, these are obtained by abstracting the composition structure naturally present in the left $\sym$-module $\End^C$ (or right $\sym$-module $\End_C$), naturally an operad, and the $\sym$-bimodule $\End^C_C$, naturally a prop.
+More explicitly, an operad $\cO$ is a left $\sym$-module with chain maps
 \begin{gather*}
 	\k \to \cO(1), \\
 	\cO(n_1) \ot \dotsb \ot \cO(n_r) \ot \cO(r) \to \cO(n_1 + \dots + n_r),
 \end{gather*}
 satisfying relations of associativity, equivariance and unitality.
-Similarly, a prop $\cP$ is a $\Sym$-bimodule together with chain maps
+Similarly, a prop $\cP$ is a $\sym$-bimodule together with chain maps
 \begin{gather*}
 	\k \to \cP(n,n), \\
 	\cP(m,k) \ot \cP(k,n) \to \cP(m,n), \\
@@ -71,12 +71,12 @@ induces a $\forget(\cP)$-coalgebra structure on it
 
 \subsection{\texorpdfstring{${E_\infty}$}{E-infty}-operads}
 
-Recall that a \textit{projective $\Sym_n$-resolution} of a chain complex $C$ is a quasi-isomorphism $R \to C$ from a chain complex $R$ of projective $\k[\Sym_n]$-modules.
+Recall that a \textit{projective $\sym_n$-resolution} of a chain complex $C$ is a quasi-isomorphism $R \to C$ from a chain complex $R$ of projective $\k[\sym_n]$-modules.
 
-An $\Sym$-module $M$ is said to be $E_\infty$ if there exists a morphism of $\Sym$-modules $M \to \underline{\k}$ inducing for each $n \in \N$ a free $\Sym_n$-resolution $M(n) \to \k$.
-For example, we can obtain one such $\Sym$-module by using the functor of singular chains and the set $\{\mathrm{E} \Sym_n \to \ast\}_{n \in \N}$ of maps to the terminal space from models of the universal $\Sym_n$-bundle.
+An $\sym$-module $M$ is said to be $E_\infty$ if there exists a morphism of $\sym$-modules $M \to \underline{\k}$ inducing for each $n \in \N$ a free $\sym_n$-resolution $M(n) \to \k$.
+For example, we can obtain one such $\sym$-module by using the functor of singular chains and the set $\{\mathrm{E} \sym_n \to \ast\}_{n \in \N}$ of maps to the terminal space from models of the universal $\sym_n$-bundle.
 
-An operad is said to be an \textit{$E_\infty$-operad} if its underlying $\Sym$-module is $E_\infty$.
+An operad is said to be an \textit{$E_\infty$-operad} if its underlying $\sym$-module is $E_\infty$.
 A prop $\cP$ is said to be an \textit{$E_\infty$-prop} if $\forget(\cP)$ is an $E_\infty$-operad.
 
 \subsection{Presentations} \label{ss:presentation}
@@ -130,7 +130,7 @@ A prop $\cP$ is said to be an \textit{$E_\infty$-prop} if $\forget(\cP)$ is an $
 	\label{f:immersion}
 \end{figure}
 
-The \textit{free prop} $\free(M)$ generated by an $\Sym$-bimodule $M$ is constructed using isomorphism classes of directed graphs with no directed loops that are enriched with the following labeling structure.
+The \textit{free prop} $\free(M)$ generated by an $\sym$-bimodule $M$ is constructed using isomorphism classes of directed graphs with no directed loops that are enriched with the following labeling structure.
 We think of each directed edge as built from two compatibly directed half-edges.
 For each vertex $v$ of a directed graph $\Gamma$, we have the sets $in(v)$ and $out(v)$ of half-edges that are respectively incoming to and outgoing from $v$.
 Half-edges that do not belong to $in(v)$ or $out(v)$ for any $v$ are divided into the disjoint sets $in(\Gamma)$ and $out(\Gamma)$ of incoming and outgoing external half-edges.
@@ -149,12 +149,12 @@ and
 for every vertex $v$.
 We refer to the isomorphism classes of such labeled directed graphs with no directed loops as $(m,n)$\textit{-graphs} denoting the set of these by $\graphs(m,n)$, where $m$ and $n$ denote respectively the number of incoming and outgoing half-edges of any $\Gamma \in \graphs(m,n)$.
 We use graphs immersed in the plane to represent elements in $\graphs(m,n)$, please see \cref{f:immersion}.
-We consider the right action of $\Sym_m$ and the left action of $\Sym_n$ on a $(m,n)$-graph given respectively by permuting the labels of $in(\Gamma)$ and $out(\Gamma)$.
-This action defines the $\Sym$-bimodule structure on the free prop
+We consider the right action of $\sym_m$ and the left action of $\sym_n$ on a $(m,n)$-graph given respectively by permuting the labels of $in(\Gamma)$ and $out(\Gamma)$.
+This action defines the $\sym$-bimodule structure on the free prop
 \begin{equation} \label{e:free prop}
 \free(M)(m,n) \ =
 \bigoplus_{\Gamma \in \graphs(m,n)} \
-\bigotimes_{v \in Vert(\Gamma)} out(v) \ot_{\Sym_p} M(p, q) \ot_{\Sym_p} in(v),
+\bigotimes_{v \in Vert(\Gamma)} out(v) \ot_{\sym_p} M(p, q) \ot_{\sym_p} in(v),
 \end{equation}
 where we simplified the notation writing $p$ and $q$ for $\overline{|in(v)|}$ and $\overline{|out(v)|}$ respectively, the differential $\bd_{\free(M)}$ is the extension of that of $M$ to the tensor product \eqref{e:free prop}, and the composition structure is defined by
 \[
@@ -166,13 +166,13 @@ where we simplified the notation writing $p$ and $q$ for $\overline{|in(v)|}$ an
 and (relabeled) grafting and disjoint union.
 
 Let $G$ be assignment of a set $G(m,n)_d$ to each $m,n \in \N$ and $d \in \Z$.
-Denote by $\k[\Sym^\op \times \Sym] \set{G}$ the $\Sym$-bimodule assigning to $(m,n)$
+Denote by $\k[\sym^\op \times \sym] \set{G}$ the $\sym$-bimodule assigning to $(m,n)$
 the chain complex with trivial differential and degree $d$ part equal to
 \[
-\k[\Sym^\op_m \times \Sym_n] \set[\big]{G(m,n)_d}.
+\k[\sym^\op_m \times \sym_n] \set[\big]{G(m,n)_d}.
 \]
-We will denote by $\free(G)$ the free prop generated by this $\Sym$-bimodule.
-Let $\bd \colon \k[\Sym^\op \times \Sym] \set{G} \to \free(G)$ be a morphism of $\Sym$-bimodule whose monoidal extension $\bd \colon \free(G) \to \free(G)$ defines a differential.
+We will denote by $\free(G)$ the free prop generated by this $\sym$-bimodule.
+Let $\bd \colon \k[\sym^\op \times \sym] \set{G} \to \free(G)$ be a morphism of $\sym$-bimodule whose monoidal extension $\bd \colon \free(G) \to \free(G)$ defines a differential.
 We denote by $\free_{\bd}(G)$ the prop obtained by endowing $\free(G)$ with this differential.
 Let $R$ be a collection of elements in $\free(G)$ and denote by $\angles{R}$ the smallest ideal containing $R$.
 The prop \textit{generated by $G$ modulo $R$ with boundary $\bd$} is defined to be $\free_{\bd}(G) \big/ \angles{R}$.

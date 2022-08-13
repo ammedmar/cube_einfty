@@ -1,41 +1,40 @@
+\immediate\write18{biber \jobname}
+
 \documentclass{amsart}
 \input{aux/style}
 \input{aux/usualcmds}
 \addbibresource{aux/usualpapers.bib}
-\addbibresource{aux/mypapers.bib}
 
-%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{aux/commands} % add commands here
+\addbibresource{aux/bibliography.bib} % add references here
+%\usepackage{package} % add packages here
 
-\usepackage{csquotes}
-\input{aux/commands} % new cmds here
-\addbibresource{aux/bibliography.bib} % new bibs here
-\input{aux/figures}
-
-%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%
 \title[A combinatorial $E_\infty$-algebra structure on cubical cochains]{A combinatorial $E_\infty$-algebra structure on cubical cochains and the Cartan--Serre map}
 
 \author[R.~Kaufmann]{Ralph~M.~Kaufmann}
 \address{R.K., Department of Mathematics, Department of Physics and Astronomy, Purdue University}
 \email{\href{mailto:rkaufman@purdue.edu}{rkaufman@purdue.edu}}
 
-\author{Anibal~M.~Medina-Mardones}
+\author[A.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
 \address{A.M-M., Max Plank Institute for Mathematics \and University of Notre Dame}
 \email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
 
+\date{today}
 \subjclass[2020]{55N45, 18M70, 18M85}
 \keywords{Cubical sets, cochain complex, cup product, $E_\infty$-algebras, operads}
 
 \begin{document}
+%	\input{aux/figures}
 	\input{aux/abstract}
 	\maketitle
 	\input{sec/introduction}
-	\input{aux/acknowledgment}
-	\input{sec/preliminaries}
-	\input{sec/props}
-	\input{sec/action}
-	\input{sec/comparison}
-	%	\input{sec/legacy}
+%	\input{aux/acknowledgment}
+%	\input{sec/preliminaries}
+%	\input{sec/props}
+%	\input{sec/action}
+%	\input{sec/comparison}
 	\sloppy
 	\printbibliography
 \end{document}
