@@ -115,7 +115,7 @@ where $\pi$ is the shuffle permutation of tensor factors placing those in odd po
 
 For $n \in \mathbb{N}$ define the \textit{product} $\ast  \colon \chains(\square^n)^{\ot 2} \to \chains(\square^n)$ by
 \begin{multline*}
-(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n) =
+(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n) = \\
 (-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i},
 \end{multline*}
 where
@@ -305,7 +305,38 @@ By the same methods used in \cite{medina2020globular}, these formulas define a c
 A new description of cubical cup-$i$ coproducts can be deduced from our $E_\infty$-structure on cubical chains by considering the action of the elements depicted in \cref{f:cup-i}.
 \begin{figure}
 	\centering
-	\input{aux/cupi}
+	\boxed{\begin{tikzpicture}[scale=.55]
+			\draw (1,3.7) to (1,3);
+
+			\draw (1,3) to [out=205, in=90] (0,0);
+			\draw (1,3) to [out=-25, in=90] (2,0);
+
+		\end{tikzpicture}\hspace*{1cm}
+		\begin{tikzpicture}[scale=.55]
+			\draw (1,3.7) to (1,3);
+
+			\draw (1,3) to [out=205, in=90] (0,0);
+
+			\draw [shorten >= 0cm] (.6,2.73) to [out=-100, in=90] (2,0);
+
+			\draw [shorten >= .15cm] (1,3) to [out=-25, in=30, distance=1.1cm] (1,1.5);
+			\draw [shorten <= .1cm] (1,1.5) to [out=210, in=20] (0,1);
+
+		\end{tikzpicture}\hspace*{1cm}
+		\begin{tikzpicture}[scale=.55]
+			\draw (1,3.7) to (1,3);
+
+			\draw (1,3) to [out=205, in=90] (0,0);
+			\draw (1,3) to [out=-25, in=90] (2,0);
+
+			\draw [shorten >= 0cm] (.6,2.73) to [out=210, in=135] (1,1.5);
+			\draw [shorten <= 0cm] (1,1.5) to [out=-45, in=170] (2,1);
+
+			\draw [shorten >= .1cm] (1.4,2.73) to [out=-30, in=45] (1,1.5);
+			\draw [shorten <= .1cm] (1,1.5) to [out=-135, in=10] (0,1);
+
+			\node at (4,1.8){.\ .\ .};
+	\end{tikzpicture}}
 	\caption{Elements in $\UM$ defining cubical cup-$i$ coproducts.}
 	\label{f:cup-i}
 \end{figure}
