@@ -553,9 +553,9 @@ We are now ready to present the argument establishing that $\CS$ is an $E_\infty
 	Since $\sigma$ is a shuffle permutation, \cref{l:cs product order} implies that
 	\begin{multline*}
 		\CS^{\ot r}(\ast^{k_1} \ot \dotsb \ot \ast^{k_r}) \circ \sigma^{-1} \Delta^{k-1} \big([0,1]^{\ot n}\big) \\ =
-		(\ast^{k_1} \ot \dotsb \ot \ast^{k_r}) \circ \sigma^{-1} \CS^{\ot k} \circ \, \Delta^{k-1} \big([0,1]^{\ot n}\big),
+		(\ast^{k_1} \ot \dotsb \ot \ast^{k_r}) \circ \sigma^{-1} \CS^{\ot k} \circ \, \Delta^{k-1} \big([0,1]^{\ot n}\big).
 	\end{multline*}
-	which concludes the proof since, as proven in \cref{l:cs coalgebra map}, $\CS$ is a coalgebra map.
+	As proven in \cref{l:cs coalgebra map}, $\CS$ is a coalgebra map, which concludes the proof.
 \end{proof}
 
 \subsection{Categorical reformulation}
@@ -563,7 +563,12 @@ We are now ready to present the argument establishing that $\CS$ is an $E_\infty
 In this subsection we will use \cref{t:main local} to deduce from a more general categorical statement that, for any topological space $\fZ$, the chain map $\CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ)$ is a quasi-isomorphism of $E_\infty$-coalgebras, specifically, of $\UMsh$-coalgebras.
 We will also construct a zig-zag of quasi-isomorphisms of $E_\infty$-coalgebras between the chains of a cubical set and those of its triangulation.
 
-The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with $\delta_i^\varepsilon \colon \scube{n} \to \scube{(n+1)}$ inserting $[\varepsilon, \dots, \varepsilon]$ as $i^\th$ factor and $\sigma_i \colon \scube{(n+1)} \to \scube{n}$ removing the $i^\th$ factor.
+The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with
+\begin{align*}
+	&\delta_i^\varepsilon \colon \scube{n} \to \scube{(n+1)} \\
+	&\sigma_i \colon \scube{(n+1)} \to \scube{n}
+\end{align*}
+given by inserting $[\varepsilon, \dots, \varepsilon]$ as the $i^\th$ factor and removing the $i^\th$ factor respectively.
 Its Yoneda extension, referred to as triangulation functor, is denoted by
 \[
 \triangulate \colon \cSet \to \sSet.
@@ -709,7 +714,7 @@ Please observe that the maps $\cs$ and $\bars{\ccs} \circ \ez$ agree.
 		\Gamma^\cube \big( 2^n \ot (\xi_y \circ \ccs) \big) &=
 		(\chains(\xi_y \circ \ccs) \circ \EZ)^{\ot r} \circ \Gamma^\square \\ &=
 		\chains(\xi_y)^{\ot r} \circ \CS^{\ot r} \circ \, \Gamma^\square \\ &=
-		\chains(\xi_y)^{\ot r} \circ \, \Gamma^\triangle \circ \CS,
+		\chains(\xi_y)^{\ot r} \circ \, \Gamma^\triangle \circ \CS
 	\end{align*}
 	where we used that $\CS^{\ot r} \circ \, \Gamma^\square = \Gamma^\triangle \circ \CS$ as proven in \cref{t:main local}.
 \end{proof}
@@ -719,7 +724,7 @@ Please observe that the maps $\cs$ and $\bars{\ccs} \circ \ez$ agree.
 	More specifically, this zig-zag is given by
 	\[
 	\schains(\triangulate X) \xra{\CS_{\cT X}}
-	\cchains(\cU{\triangulate X}) \xla{\cchains(\xi_X)}
+	\cchains(\cubify{\triangulate X}) \xla{\cchains(\xi_X)}
 	\cchains(X)
 	\]
 	where $\xi$ is the unit of adjunction $(\triangulate, \cubify)$ and the underlying model of the $E_\infty$-operad is $\UMsh$.
