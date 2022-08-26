@@ -13,5 +13,7 @@
 *.txss2
 
 journal/
+journal.*
+
 referee/
 legacy/

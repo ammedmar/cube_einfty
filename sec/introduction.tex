@@ -1,5 +1,3 @@
-% !TEX root = ../cube_einfty.tex
-
 \section{Introduction} \label{s:introduction}
 
 Instead of simplices, in his groundbreaking work on fibered spaces Serre considered cubes as the basic shapes used to define cohomology, stating that:
@@ -15,7 +13,7 @@ The study of such objects, referred to as $E_\infty$-algebras, has a long histor
 The goal of this work is to introduce a description of an explicit $E_\infty$-algebra structure naturally extending the Serre algebra structure, and relate it to one on simplicial cochains extending the Alexander--Whitney algebra structure.
 
 We use the combinatorial model of the $E_\infty$-operad $\UM$ obtained from the finitely presented prop $\M$ introduced in \cite{medina2020prop1}.
-The resulting $\UM$-algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the chains of standard cubes, which is determined by only three linear maps.
+The resulting $\UM$-algebra structure on cubical cochains is induced from a natural $\M$-bialgebra structure on the chains of representable cubical sets, which is determined by only three linear maps.
 To our knowledge, this is the first effective construction of an $E_\infty$-algebra structure on cubical cochains.
 Non-constructively, this result could be obtained using a lifting argument based on the cofibrancy of the reduced version of the operad $\UM$ in the model category of operads \cite{hinich1997homological, berger2003modelcategory}, but this existence statement misses the rich combinatorial structure present in our effective construction.
 
@@ -27,13 +25,21 @@ More specifically, in \cite[p. 442]{serre1951homologie}, Serre describes for any
 \end{equation}
 between its cubical and simplicial singular cochains.
 Furthermore, he states this to be a quasi-isomorphism of algebras with respect to the Serre and Alexander--Whitney structures.
-In the present work we deduce from a statement at the level of general simplicial sets that this map is in fact a quasi-isomorphisms of $E_\infty$-algebras.
-More specifically, let $\cubify$ be the right adjoint to the triangulation functor from cubical to simplicial sets.
-We construct a natural quasi-isomorphism of $E_\infty$-algebras
-\[
-\ccochains(\cubify Y) \to \scochains(Y)
-\]
-for any simplicial set $Y$, which factors the Cartan--Serre map \eqref{e:cs on singular cochains} when $Y = \sSing(\fZ)$ so that the other map is induced from a cubical map.
+In the present work we deduce from a more general categorical statement that this map is in fact a quasi-isomorphisms of $E_\infty$-algebras.
+More specifically, let $\cubify$ be the right adjoint to the triangulation functor $\triangulate$ from cubical to simplicial sets, a pair forming a Quillen equivalence.
+We construct for any simplicial set $Y$ a natural map
+\begin{equation} \label{e:intro main map}
+	\ccochains(\cubify Y) \to \scochains(Y).
+\end{equation}
+and show it to be a quasi-isomorphism of $E_\infty$-algebras (\cref{t:main comparison}).
+When $Y = \sSing(\fZ)$, this map factors the Cartan--Serre map \eqref{e:cs on singular cochains} into the composition of two $E_\infty$-algebra quasi-isomorphisms (\cref{c:cs e infty}).
+
+Using the map in \cref{e:intro main map}, we also construct for any cubical set $X$ a zig-zag of quasi-isomorphisms of $E_\infty$-algebras between its cochains and those of its triangulation (\cref{c:zig-zag}).
+%\[
+%\scochains(\triangulate X) \xla{}
+%\ccochains(\cU{\triangulate X}) \xra{}
+%\ccochains(X).
+%\]
 
 We now mention three application of the contributions in this paper.
 For every prime $p$, the mod $p$ cohomology of a space is equipped with natural stable endomorphisms known as Steenrod operations \cite{steenrod1962cohomology}.
@@ -46,18 +52,20 @@ We used a canonical vector field associated to the cubulation to compare multipl
 With the explicit description introduced here of an $E_\infty$-structure on cubical cochains, we expect to build on this multiplicative comparison and, using a coherent family of vector fields, describe the corresponding $E_\infty$-structure on geometric cochains extending the transverse intersection product.
 For more details regarding this geometric model of cohomology please consult \cite{medina2022foundations}.
 
-Our construction of an $E_\infty$-algebra structure on cubical cochains is obtained by dualizing an $E_\infty$-coalgebra structure on cubical chains.
+Every $E_\infty$-algebra structure on cochains discussed in this work is obtained by dualizing an $E_\infty$-coalgebra structure on the corresponding chains.
 In the fifties, Adams introduced in \cite{adams1956cobar} a comparison map
 \[
 \theta_\fZ \colon \cobar \sSchains(\fZ,z) \to \cSchains(\loops_z \fZ)
 \]
 from his cobar construction on the simplicial singular chains of a pointed space $(\fZ,z)$ to the cubical singular chains on its based loop space $\loops_z \fZ$.
-This comparison map is a quasi-isomorphism of algebras, which was shown by Baues \cite{baues1998hopf} to be one of bialgebras by considering Serre's cubical coproduct, see also \cite{galvez-carrilo202hopf1} for a generalization of Baues construction.
-In \cite{medina2021cobar} we use the contributions of this paper to generalize Baues' result by showing that Adams' comparison map is a quasi-isomorphism of $E_\infty$-bialgebras, i.e., of monoids in the category of $\UM$-coalgebras, and to relate the cobar and Kan loop group constructions as functors to the category of $E_\infty$-coalgebras.
+This comparison map is a quasi-isomorphism of algebras, which was shown by Baues \cite{baues1998hopf} to be one of bialgebras by considering Serre's cubical coproduct.
+%, see also \cite{galvez-carrilo202hopf1} for a generalization of Baues construction.
+In \cite{medina2021cobar} the contributions of this paper are used to generalize Baues' result by showing that Adams' comparison map $\theta_\fZ$ is a quasi-isomorphism of $E_\infty$-bialgebras, i.e., of monoids in the category of $\UM$-coalgebras.
+%and to relate the cobar and Kan loop group constructions as functors to the category of $E_\infty$-coalgebras.
 
 \subsection*{Outline}
 
 We recall some basic notions from homological algebra and category theory in \cref{s:preliminaries}.
 The required concepts from the theory of operads and props is reviewed in \cref{s:props}, including the definition of the prop $\M$.
-\cref{s:action} contains our main contribution; an explicit natural $\M$-bialgebra structure on the chains of standard cubes and, from it, a natural $E_\infty$-coalgebra structure on the chains of cubical sets.
-The comparison between simplicial and cubical cochains is presented in \cref{s:comparison}, where we show that the Cartan--Serre map is a quasi-isomorphism of $E_\infty$-algebras.
+\cref{s:action} contains our main contribution; an explicit natural $\M$-bialgebra structure on the chains of representable cubical sets and, from it, a natural $E_\infty$-coalgebra structure on the chains of cubical sets.
+The comparison between simplicial and cubical chains is presented in \cref{s:comparison}, where we show that the Cartan--Serre map is a quasi-isomorphism respecting $E_\infty$-structures.

@@ -1,8 +1,6 @@
-% !TEX root = ../cube_einfty.tex
+\section{An \pdfEinfty-structure on cubical chains} \label{s:action}
 
-\section{An \texorpdfstring{${E_\infty}$}{E-infty}-structure on cubical chains} \label{s:action}
-
-In this section we construct a natural $\M$-bialgebra structure on the chains of standard cubes.
+In this section we construct a natural $\M$-bialgebra structure on the chains of representable cubical sets.
 These are determined by three natural linear maps satisfying the relations defining $\mathcal M$.
 A Yoneda extension then provides the chains of any cubical set with a natural $\UM$-coalgebra structure.
 We begin by recalling the basics of cubical topology.
@@ -24,9 +22,10 @@ are defined by
 \[
 \delta^0(0) = 0, \qquad \delta^1(0) = 1, \qquad \sigma(0) = \sigma(1) = 0.
 \]
-We refer to \cite{grandis2003cubical} for a more leisure exposition and for variations on this definition.
+More globally, the category $\cube$ is the free strict monoidal category with an assigned internal bipointed object.
+We refer to \cite{grandis2003cubical} for a more leisurely exposition and variants of this definition.
 
-We denote by $\cube_{\deg}(2^m, 2^n)$ the subset of morphism in $\cube(2^m, 2^n)$ of the form $\sigma_i \circ \tau$ with $\tau \in \cube(2^m, 2^{n+1})$.
+We denote by $\mathrm{Dgn}(2^m, 2^n)$ the subset of morphism in $\cube(2^m, 2^n)$ of the form $\sigma_i \circ \tau$ with $\tau \in \cube(2^m, 2^{n+1})$.
 
 The category of \textit{cubical sets} $\Fun(\cube^\op, \Set)$ is denoted by $\cSet$ and the representable cubical set $\yoneda(2^n)$ by $\cube^n$.
 For any cubical set $X$ we write, as usual, $X_n$ instead of $X(2^n)$.
@@ -34,9 +33,9 @@ For any cubical set $X$ we write, as usual, $X_n$ instead of $X(2^n)$.
 \subsection{Cubical topology}
 
 Consider the topological $n$-cube
-\begin{equation*}
+\[
 \gcube^{n} = \big\{ (x_1, \dots, x_n) \mid x_i \in [0,1] \big\}.
-\end{equation*}
+\]
 The assignment $2^n \to \gcube^n$ defines a functor $\cube \to \Top$ with
 \begin{align*}
 \delta^\varepsilon_i(x_1, \dots, x_n) &= (x_1, \dots, x_i, \varepsilon, x_{i+1}, \dots x_n), \\
@@ -54,7 +53,7 @@ for any topological space $\fZ$.
 The functor of (\textit{normalized}) \textit{chains} $\chains \colon \cSet \to \Ch$ is the Yoneda extension of the functor $\cube \to \Ch$ defined next.
 It assigns to an object $2^n$ the chain complex having in degree $m$ the module
 \[
-\frac{\k\{\cube(2^m, 2^n)\}}{\k\{\cube_{\deg}(2^m, 2^n)\}}
+\frac{\k\{\cube(2^m, 2^n)\}}{\k\{\mathrm{Dgn}(2^m, 2^n)\}}
 \]
 and differential induced by
 \[
@@ -77,62 +76,97 @@ For a topological space $\fZ$, the chain complex $\chains(\cSing \fZ)$ is referr
 
 \subsection{Serre coalgebra} \label{ss:serre coalgebra}
 
-We now recall the natural (counital and coassociative) coalgebra structure on cubical chains studied by Cartan and Serre, inducing the cup product in the cohomology of cubical sets.
+We now recall the \textit{Serre coalgebra structure}, a natural (counital and coassociative) coalgebra structure on cubical chains.
 
-Using a Yoneda extension, it suffices to equip the chains on standard cubes with a natural coalgebra structure.
-For any $n \in \N$, define $\epsilon \colon \chains(\cube^n) \to \k$ by
+By a Yoneda extension, to define this structure it suffices to describe it on the chains of representable cubical sets $\chains(\cube^n)$.
+For $\chains(\cube^1)$ we have
+\begin{align*}
+	\epsilon \big([0]\big) &= 1,
+	& \Delta \big([0]\big) &= [0] \ot [0], \\
+	\epsilon \big([1]\big) &= 1,
+	& \Delta \big([1]\big) &= [1] \ot [1], \\
+	\epsilon \big([0,1]\big) &= 0,
+	& \Delta \big([0,1]\big) &= [0] \ot [0,1] + [0,1] \ot [1].
+\end{align*}
+The Serre coalgebra structure on a  general $\chains(\cube^n)$ is define using the isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\ot n}$ and the monoidal structure on the category of coalgebras.
+Explicitly, the structure maps are given by the compositions
 \[
-\epsilon \left( x_1 \ot \dotsb \ot x_d \right) = \epsilon(x_1) \dotsm \epsilon(x_n),
+\epsilon \colon \chains(\cube^1)^{\ot n} \xra{\epsilon^{\ot n}} \k^{\ot n} \to \k
 \]
-where
+and
 \[
-\epsilon([0]) = \epsilon([1]) = 1, \qquad \epsilon([0, 1]) = 0,
+\Delta \colon \chains(\cube^1)^{\ot n} \xra{\Delta^{\!\ot n}} \left( \chains(\cube^1)^{\ot 2} \right)^{\ot n} \xra{\sigma_{2n}^{-1}} \left( \chains(\cube^1)^{\ot n} \right)^{\ot 2},
 \]
-and $\Delta \colon \chains(\cube^n) \to \chains(\cube^n)^{\ot 2}$ by
-\[
-\Delta (x_1 \ot \dotsb \ot x_n) =
-\sum \pm \left( x_1^{(1)} \ot \dotsb \ot x_n^{(1)} \right) \ot
-\left( x_1^{(2)} \ot \dotsb \ot x_n^{(2)} \right),
-\]
-where the sign is determined using the Koszul convention, and we are using Sweedler's notation
-\[
-\Delta(x_i) = \sum x_i^{(1)} \ot x_i^{(2)}
-\]
-for the chain map $\Delta \colon \chains(\cube^1) \to \chains(\cube^1)^{\ot 2}$ defined by
-\[
-\Delta([0]) = [0] \ot [0], \quad \Delta([1]) = [1] \ot [1], \quad \Delta([0,1]) = [0] \ot [0,1] + [0,1] \ot [1].
-\]
+where $\sigma_{2n}$ in $\sym_{2n}$ is the $(n,n)$-shuffle mapping the first and second ``decks'' to odd and even values respectively.
+An explicit description of $\sigma_{2n}$ is presented in \cref{e:shuffle perm}.
 
-We remark that, using the canonical isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\ot n}$, the coproduct $\Delta$ can be described as the composition
-\[
-\begin{tikzcd}
-\chains(\cube^1)^{\ot n} \arrow[r, "\Delta^{\ot n}"] & \left( \chains(\cube^1)^{\ot 2} \right)^{\ot n} \arrow[r, "\pi"] & \left( \chains(\cube^1)^{\ot n} \right)^{\ot 2}
-\end{tikzcd}
-\]
-where $\pi$ is the shuffle permutation of tensor factors placing those in odd positions first.
+\begin{remark*}
+	Similarly to how the Alexander--Whitney coalgebra can be interpreted geometrically as the sum of all complementary pairs of front and back faces of a simplex, this coproduct is, up to signs, also given by the sum of complementary pairs of front and back faces of a cube.
+\end{remark*}
+
+For later reference we record a useful description of the value of $\Delta$ on the top dimensional basis element of $\chains(\cube^n)$.
+
+\begin{lemma} \label{l:coproduct description}
+	For any $n \in \N$,
+	\[
+	\Delta \big( [0,1]^{\ot n} \big) =
+	\sum_{\lambda \in \Lambda} (-1)^{\ind \lambda} \
+	\Big(x_1^{(\lambda)} \ot \cdots \ot x_n^{(\lambda)}\Big) \ot
+	\Big(y_1^{(\lambda)} \ot \cdots \ot y_n^{(\lambda)}\Big),
+	\]
+	where each $\lambda$ in $\Lambda$ is a map $\lambda \colon \{1,\dots,n\} \to \set{0, 1}$ with $\lambda(i)$ interpreted as
+	\begin{align*}
+		0:\ \, x_i^{(\lambda)} &= [0,1], &	1: \ \, x_i^{(\lambda)} &= [0], \\
+		y_i^{(\lambda)} &= [1],   & y_i^{(\lambda)} &= [0,1],
+	\end{align*}
+	and $\ind \lambda$ is the cardinality of $\set{i<j \mid \lambda(i) > \lambda(j)}$.
+\end{lemma}
 
 \subsection{Degree 1 product}
 
-For $n \in \mathbb{N}$ define the \textit{product} $\ast  \colon \chains(\square^n)^{\ot 2} \to \chains(\square^n)$ by
-\begin{multline*}
-(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n) = \\
-(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i},
-\end{multline*}
-where
+Let $n \in \N$.
+For $x = x_1 \ot \dotsb \ot x_n$ a basis element of $\chains(\cube^n)$ and $\ell \in \set{1,\dots,n}$ we write
 \begin{align*}
-x_{<i} & = x_1 \ot \dotsb \ot x_{i-1}, &
-y_{<i} & = y_1 \ot \dotsb \ot y_{i-1}, \\
-x_{>i} & = x_{i+1} \ot \dotsb \ot x_n, &
-y_{>i} & = y_{i+1} \ot \dotsb \ot y_n,
+	x_{<\ell} & = x_1 \ot \dotsb \ot x_{\ell-1}, \\
+	x_{>\ell} & = x_{\ell+1} \ot \dotsb \ot x_n,
 \end{align*}
 with the convention
 \[
-x_{<1} = y_{<1} = x_{>n} = y_{>n} = 1 \in \Z,
+x_{<1} = x_{>n} = 1 \in \Z.
 \]
-and the only non-zero values of $x_i \ast y_i$ are
+We define the \textit{product} $\ast \colon \chains(\square^n)^{\ot 2} \to \chains(\square^n)$ by
+\begin{multline*}
+(x_1 \ot \dotsb \ot x_n) \ast (y_1 \ot \dotsb \ot y_n)
+=
+(-1)^{|x|} \sum_{i=1}^n x_{<i}\, \epsilon(y_{<i}) \ot x_i \ast y_i \ot \epsilon(x_{>i}) \, y_{>i},
+\end{multline*}
+where the only non-zero values of $x_i \ast y_i$ are
 \[
-\ast([0] \ot [1]) = [0, 1], \qquad  \ast([1] \ot [0]) = -[0, 1].
+[0] \ast [1] = [0, 1], \qquad [1] \ast [0] = -[0, 1].
 \]
+
+\begin{example*}
+	Since in $\chains(\cube^3)$ we have that
+	\[
+	\bd \big([0]\ot[0]\ot[0]\big) = \bd \big([1]\ot[1]\ot[1]\big) = 0
+	\]
+	and
+	\begin{multline*}
+		\bd\big([0]\ot[0]\ot[0] \ast [1]\ot[1]\ot[1]\big) \\ =
+		\bd\big([0,1]\ot[1]\ot[1] + [0]\ot[0,1]\ot[1] + [0]\ot[0]\ot[0,1] \big) \\ =
+		[1]\ot[1]\ot[1] - [0]\ot[0]\ot[0],
+	\end{multline*}
+	we conclude that in general $\ast$ is not a cycle in the appropriate Hom complex, so it does not descend to homology.
+	This product should be understood as an algebraic version of a consistent choice of path between points in a cube.
+	In our case, as illustrated in \cref{f:product}, the chosen path is given by the union of segments parallel to edges of the cube.
+\end{example*}
+
+\begin{figure}[h!]
+	\centering
+	\input{aux/cube_join}
+	\caption{Geometric representation of $\big([0]\ot[0]\ot[0] \ast [1]\ot[1]\ot[1]\big)$ where we are using the width-depth-height order.}
+	\label{f:product}
+\end{figure}
 
 \subsection{$\M$-bialgebra on representable cubical sets}
 
@@ -141,7 +175,7 @@ and the only non-zero values of $x_i \ast y_i$ are
 	\[
 	\counit \mapsto \epsilon, \quad \coproduct \mapsto \Delta, \quad \product \mapsto \ast,
 	\]
-	induces a natural $\mathcal M$-bialgebra structure on $\chains(\square^n)$ for every $n \in \mathbb{N}$.
+	induces a natural $\mathcal M$-bialgebra structure on $\chains(\square^n)$ for every $n \in \N$.
 \end{lemma}
 
 \begin{proof}
@@ -259,7 +293,7 @@ and the only non-zero values of $x_i \ast y_i$ are
 	\end{align*}
 	we have
 	\begin{multline*}
-		\bd (x \ast y) \ +\ \bd x \ast y\ +\ (-1)^{|x|}x \ast \bd y  = \\
+		\bd (x \ast y) \ +\ \bd x \ast y\ +\ (-1)^{|x|}x \ast \bd y = \\
 		\sum \epsilon(y_{<i}) \, x_{<i} \ot \epsilon(x_{\geq i}) y_{\geq i}\ -\
 		\epsilon(y_{\leq i}) \, x_{\leq i} \ot \epsilon(x_{>i}) y_{>i} \\ =
 		\epsilon(x)y - \epsilon(y)x,
@@ -269,99 +303,93 @@ and the only non-zero values of $x_i \ast y_i$ are
 
 \subsection{$\texorpdfstring{E_\infty}{E-infty}$-coalgebra on cubical chains}
 
-\cref{l:cubical chain bialgebra} defines a functor from the cube category to that of $\Med$-bialgebras.
-This category is not cocomplete so we do not expect to have an $\Med$-bialgebra structure on arbitrary cubical sets.
+\cref{l:cubical chain bialgebra} defines a functor from the cube category to that of $\M$-bialgebras.
+This category is not cocomplete so we do not expect to have an $\M$-bialgebra structure on arbitrary cubical sets.
 For example, consider the chains on the cubical set $X$ whose only non-degenerate simplices are $v, w \in X_0$.
 By degree reasons $v \ast w = 0$ for any degree 1 product $\ast$ in $\chains(X)$.
-The third relation in $\Med$ would then imply the contradiction $0 = w-v$.
-Nevertheless, categories of coalgebras over operads are cocomplete and we have the following.
+The third relation in $\M$ would then imply the contradiction $0 = w-v$.
+Since categories of coalgebras over operads are cocomplete we have the following.
 
 \begin{theorem} \label{t:lift to e infinity coalgebras}
 	The Yoneda extension of the composition of the functor $\cube \to \biAlg_{\M}$ defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ endows the chains of a cubical set with a natural $E_\infty$-coalgebra extension of the Serre coalgebra structure.
 \end{theorem}
 
-Using linear duality, the same argument can be employed to define a natural $E_\infty$-algebra structure on cubical cochains.
-Explicitly, let $X$ be a cubical set, $x$ a simplex and $f \colon \chains(\cube^n) \to \chains(X)$ a chain map sending $\id_{2^n}$ to $x$.
-The image $\gamma$ in $\Hom(\chains(\cube^n), \chains(\cube^n)^{\ot r})$ of a basis element $\Gamma$ in $\UM(r)$ is either $\varepsilon$ or a composition of $\Delta$, permutations of factors, and $\ast$.
-For any $\alpha_1, \dots, \alpha_r \in \cochains(X)$ the action of $\Gamma$ on these is given by
-\[
-\Gamma(\alpha_1, \dots, \alpha_r)(x) = (\alpha_1 \ot \dotsb \ot \alpha_r) \circ f^{\ot r} \circ \gamma(\id_{2^n}).
-\]
+%Using linear duality, the same argument can be employed to define a natural $E_\infty$-algebra structure on cubical cochains.
+%Explicitly, let $X$ be a cubical set, $x$ a simplex and $f \colon \chains(\cube^n) \to \chains(X)$ a chain map sending $\id_{2^n}$ to $x$.
+%The image $\gamma$ in $\Hom(\chains(\cube^n), \chains(\cube^n)^{\ot r})$ of a basis element $\Gamma$ in $\UM(r)$ is either $\varepsilon$ or a composition of $\Delta$, permutations of factors, and $\ast$.
+%For any $\alpha_1, \dots, \alpha_r \in \cochains(X)$ the action of $\Gamma$ on these is given by
+%\[
+%\Gamma(\alpha_1, \dots, \alpha_r)(x) = (\alpha_1 \ot \dotsb \ot \alpha_r) \circ f^{\ot r} \circ \gamma(\id_{2^n}).
+%\]
 
 \subsection{Cohomology operations}
 
-Steenrod introduced in \cite{steenrod1947products} operations on the mod~2 cohomology of spaces via an explicit construction in the simplicial context of natural linear maps $\Delta_i$ satisfying up to signs the following homological relations
+In \cite{steenrod1947products}, Steenrod introduced natural operations on the mod~2 cohomology of spaces, the celebrated \textit{Steenrod squares}
+\[
+\begin{tikzcd} [column sep=small, row sep=0]
+	\Sq^k \colon &[-20] \rH^{-n} \arrow[r] & \rH^{-n-k} \\ &
+	{[\alpha]} \arrow[r, mapsto] & \big[ (\alpha \ot \alpha) \Delta_{n-k} \big],
+\end{tikzcd}
+\]
+via an explicit construction of natural linear maps $\Delta_i \colon \chains(X) \to \chains(X) \ot \chains(X)$ for any simplicial set $X$, satisfying up to signs the following homological relations
 \begin{equation} \label{e:cupi homological relations}
-\bd \circ \Delta_i + \Delta_i \circ \bd = (1 + T) \Delta_{i-1}
+\bd \circ \, \Delta_i + \Delta_i \circ \bd =
+(1 + T) \Delta_{i-1},
 \end{equation}
 with the convention $\Delta_{-1} = 0$.
-These maps, referred to as (simplicial) cup-$i$ coproducts, are fundamental combinatorially, admitting an axiomatic characterization \cite{medina2022axiomatic} and defining, for example, the nerve of $n$-categories as introduced by Street \cite{street1987orientals, medina2020globular}.
+These so-called \textit{cup-$i$ coproducts} appear to be fundamental.
+We mention two results supporting this claim.
+In higher category theory they define the nerve of $n$-categories \cite{medina2020globular} as introduced by Street \cite{street1987orientals}; and, in connection with K- and L-theory, the Ranicki--Weiss assembly \cite{ranicki1990assembly} can be used to show that chain complex valued presheaves over a simplicial complex $X$ can be fully faithfully modeled by comodules over the symmetric coalgebra structure they define on $\chains(X)$ \cite{medina2022assembly}.
 
 In the cubical case, cup-$i$ coproducts were defined in \cite{kadeishvili1999coproducts} and \cite{pilarczyk2016cubical}.
-It is unclear if these are equivalent.
-The formulas used by these authors are analogous to those introduced in \cite{medina2022fast_sq} for the simplicial case, a dual yet equivalent version of Steenrod's original description.
-By the same methods used in \cite{medina2020globular}, these formulas define a cubical nerve for higher categories, but it remains unclear if either agrees with the one defined by the generalized Gray tensor product.
-
-A new description of cubical cup-$i$ coproducts can be deduced from our $E_\infty$-structure on cubical chains by considering the action of the elements depicted in \cref{f:cup-i}.
-\begin{figure}
-	\centering
-	\boxed{\begin{tikzpicture}[scale=.55]
-			\draw (1,3.7) to (1,3);
-
-			\draw (1,3) to [out=205, in=90] (0,0);
-			\draw (1,3) to [out=-25, in=90] (2,0);
-
-		\end{tikzpicture}\hspace*{1cm}
-		\begin{tikzpicture}[scale=.55]
-			\draw (1,3.7) to (1,3);
-
-			\draw (1,3) to [out=205, in=90] (0,0);
-
-			\draw [shorten >= 0cm] (.6,2.73) to [out=-100, in=90] (2,0);
-
-			\draw [shorten >= .15cm] (1,3) to [out=-25, in=30, distance=1.1cm] (1,1.5);
-			\draw [shorten <= .1cm] (1,1.5) to [out=210, in=20] (0,1);
-
-		\end{tikzpicture}\hspace*{1cm}
-		\begin{tikzpicture}[scale=.55]
-			\draw (1,3.7) to (1,3);
-
-			\draw (1,3) to [out=205, in=90] (0,0);
-			\draw (1,3) to [out=-25, in=90] (2,0);
-
-			\draw [shorten >= 0cm] (.6,2.73) to [out=210, in=135] (1,1.5);
-			\draw [shorten <= 0cm] (1,1.5) to [out=-45, in=170] (2,1);
-
-			\draw [shorten >= .1cm] (1.4,2.73) to [out=-30, in=45] (1,1.5);
-			\draw [shorten <= .1cm] (1,1.5) to [out=-135, in=10] (0,1);
-
-			\node at (4,1.8){.\ .\ .};
-	\end{tikzpicture}}
-	\caption{Elements in $\UM$ defining cubical cup-$i$ coproducts.}
-	\label{f:cup-i}
-\end{figure}
-These recursively define:
-\begin{equation} \label{e:prop cup-i}
+The formulas used by these authors are similar to those introduced in \cite{medina2022fast_sq} for the simplicial case, a dual yet equivalent version of Steenrod's original.
+A new description of cubical cup-$i$ coproducts can be deduced from our $E_\infty$-structure.
+We first present it in a recursive form
+\begin{equation} \label{e:recursive cup-i}
 	\begin{split}
 		& \Delta_0 = \Delta, \\
 		& \Delta_i =
-		(\ast \ot \id) \circ (\id \ot (12) \Delta_{i-1}) \circ \Delta.
+		(\ast \ot \id) \circ (23)(\Delta_{i-1} \ot \id) \circ \Delta.
 	\end{split}
 \end{equation}
-It is not known if these agree with either of the previous constructions, pointing to the value of an axiomatic characterization as it exists in the simplicial case, where all known constructions agree.
+A close form formula for $\Delta_i$ uses the $\big(\ceil*{\frac{i+2}{2}}, \floor*{\frac{i+2}{2}}\big)$-shuffle permutation $\sigma_{i+2} \in \sym_{i+2}$ mapping the first and second ``decks'' to odd and even integers respectively.
+Explicitly, this shuffle permutation is defined by
+\begin{equation} \label{e:shuffle perm}
+	\sigma_{i+2}(\ell) =
+	\begin{cases}
+		2\ell-1 & \ell \leq \ceil*{\frac{i+2}{2}}, \\
+		2(\ell-\ceil*{\frac{i+2}{2}}) & \ell > \ceil*{\frac{i+2}{2}}.
+	\end{cases}
+\end{equation}
+Let $\Delta^0 = \ast^0 = \id$ and define for any $k \in \N$
+\begin{equation} \label{e:iterated comb}
+	\begin{split}
+		\ast^{k+1} &= \ast \circ (\ast^k \ot \id), \\
+		\Delta^{k+1} &= (\Delta^k \ot \id) \circ \Delta.
+	\end{split}
+\end{equation}
+With this notation it can be checked that \cref{e:recursive cup-i} is equivalent to
+\begin{equation} \label{e:closed cup-i}
+	\Delta_i = \left(\ast^{\ceil*{\frac{i+2}{2}}} \ot \ast^{\floor*{\frac{i+2}{2}}}\right) \circ \sigma_{i+2}^{-1} \, \Delta^{i+1}.
+\end{equation}
+The first four cup-$i$ coproducts are the images in the endomorphism operad of cubical (and simplicial) chains of the elements $\UM$ represented by the graphs in \cref{f:cup-i}.
 
-Cup-$i$ coproducts represent at the cochain level Steenrod squares
-\[
-\begin{tikzcd} [column sep=small, row sep=0]
-	Sq^k \colon &[-20] H^{-n} \arrow[r] & H^{-n-k} \\ &
-	{[\alpha]} \arrow[r, mapsto] & \big[ (\alpha \ot \alpha) \Delta_i \big]
-\end{tikzcd}
-\]
+\begin{figure}[h!]
+	\centering
+	\input{aux/cupi}
+	\caption{Graphs representing cup-$i$ coproducts.}
+	\label{f:cup-i}
+\end{figure}
+
+It is not known if the cup-$i$ coproducts defined in \cref{e:closed cup-i} agree with those previously constructed, for which a comparison is also missing.
+This highlights the value of a potential axiomatic characterization of cubical cup-$i$ coproducts as it exists in the simplicial case \cite{medina2022axiomatic}.
+
+As already mentioned, cup-$i$ coproducts represent the Steenrod squares at the chain level,
 which are primary operations in mod~2 cohomology.
 To obtain secondary cohomology operations one studies the cohomological relations these operations satisfy, for example the Cartan and Adem relations \cite{steenrod1962cohomology}.
-To do this at the cubical chain level, as it was done in \cite{medina2020cartan,medina2021adem} for the simplicial case, the operadic viewpoint is important, so our $E_\infty$-structure on cubical cochains invites the construction of cochain representatives for secondary operations in the cubical case.
+To do this at the cubical cochain level, as it was done in \cite{medina2020cartan,medina2021adem} for the simplicial case, the operadic viewpoint is important, so our $E_\infty$-structure on cubical cochains invites the construction of cochain representatives for secondary operations in the cubical case.
 
-For an odd $p$, Steenrod also introduced operations on the mod $p$ cohomology of spaces using the homology of symmetric groups \cite{steenrod1952reduced, steenrod1953cyclic}.
+For $p$ an odd prime, Steenrod also introduced operations on the mod~$p$ cohomology of spaces using the homology of symmetric groups \cite{steenrod1952reduced, steenrod1953cyclic}.
 Using the operadic framework of May \cite{may1970general}, we described in \cite{medina2021may_st} elements in $\UM$ representing multicooperations defining Steenrod operations at any prime.
-In particular, as proven in this work, these so-called cup-$(p,i)$ products are defined on cubical cochains and are expressible, similarly to \cref{e:prop cup-i}, in terms of $\Delta$, the permutations of factors, and $\ast$.
-The aforementioned construction of cubical cup-$(p,i)$ coproducts has been implemented in the computer algebra system \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} \cite{medina2021comch}.
+In particular, as proven in this work, these so-called \textit{cup-$(p,i)$ coproducts} are defined on cubical chains and are expressible, similarly to \cref{e:closed cup-i}, in terms of $\Delta$, the permutations of factors, and $\ast$.
+The aforementioned construction of cubical cup-$(p,i)$ coproducts has been implemented in the open source computer algebra system \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} \cite{medina2021comch}.

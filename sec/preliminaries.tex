@@ -1,5 +1,3 @@
-% !TEX root = ../cube_einfty.tex
-
 \section{Conventions and preliminaries} \label{s:preliminaries}
 
 \subsection{Chain complexes}
@@ -15,12 +13,12 @@ We denote the category of small categories by $\Cat$.
 Given categories $\sB$ and $\sC$ with $\sB$ small we denote their associated \textit{functor category} by $\Fun(\sB, \sC)$.
 A category is said to be \textit{cocomplete} if any functor to it from a small category has a colimit.
 If $\sA$ is small and $\sC$ cocomplete, then the (\textit{left}) \textit{Kan extension of $g$ along $f$} exists for any pair of functors $f$ and $g$ in the diagram below, and it is the initial object in $\Fun(\sB, \sC)$ making
-\begin{equation*}
+\[
 \begin{tikzcd}[column sep=normal, row sep=normal]
 \sA \arrow[d, "f"'] \arrow[r, "g"] & \sC \\
 \sB \arrow[dashed, ur, bend right] & \quad
 \end{tikzcd}
-\end{equation*}
+\]
 commute.
 A Kan extension along the \textit{Yoneda embedding}, i.e., the functor
 \[
@@ -31,9 +29,10 @@ induced by the assignment
 a \mapsto \big( a^\prime \mapsto \sA(a^\prime, a) \big),
 \]
 is referred to as a \textit{Yoneda extension}.
-Abusively we use the same notation for a functor and its Yoneda extension.
-We refer to the objects in $\Fun(\sA^\op, \Set)$ as \textit{presheaves on $\sA$} and to those in the image of the Yoneda embedding as \textit{representables}.
-We remark that any presheaf $P$ on $\sA$ can be written as a colimit of representables as:
-\[
-P \, \cong \colim_{\yoneda(a) \downarrow P} \yoneda(a).
-\]
+Abusively we use the same notation for a functor and for its Yoneda extension.
+We refer to objects of $\Fun(\sA^\op, \Set)$ in the image of the Yoneda embedding as \textit{representable}.
+%When $\sA$ is understood from the context, we refer to the objects in $\Fun(\sA^\op, \Set)$ simply as \textit{presheaves}, and to a presheaf in the image of the Yoneda embedding as \textit{representable}.
+%We remark that any presheaf $P$ on $\sA$ can be written as a colimit of representables as:
+%\[
+%P \, \cong \colim_{\yoneda(a) \downarrow P} \yoneda(a).
+%\]
