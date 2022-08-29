@@ -558,10 +558,10 @@ We are now ready to present the argument establishing that $\CS$ is an $E_\infty
 	As proven in \cref{l:cs coalgebra map}, $\CS$ is a coalgebra map, which concludes the proof.
 \end{proof}
 
-\subsection{Categorical reformulation}
+\subsection{Categorical reformulation} \label{ss:e infty preservation}
 
-In this subsection we will use \cref{t:main local} to deduce from a more general categorical statement that, for any topological space $\fZ$, the chain map $\CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ)$ is a quasi-isomorphism of $E_\infty$-coalgebras, specifically, of $\UMsh$-coalgebras.
-We will also construct a zig-zag of quasi-isomorphisms of $E_\infty$-coalgebras between the chains of a cubical set and those of its triangulation.
+%In this subsection we will use \cref{t:main local} to deduce from a more general categorical statement that, for any topological space $\fZ$, the chain map $\CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ)$ is a quasi-isomorphism of $E_\infty$-coalgebras, specifically, of $\UMsh$-coalgebras.
+%We will also construct a zig-zag of quasi-isomorphisms of $E_\infty$-coalgebras between the chains of a cubical set and those of its triangulation.
 
 The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with
 \begin{align*}
@@ -659,7 +659,7 @@ Please observe that the maps $\cs$ and $\bars{\ccs} \circ \ez$ agree.
 \end{definition}
 
 \begin{theorem} \label{t:main comparison}
-	For any simplicial set $Y$ the map $\CS_Y \colon \schains(Y) \to \cchains(\cubify Y)$ is a quasi-isomorphism of $E_\infty$-coalgebras, specifically, of $\UMsh$-coalgebras.
+	For any simplicial set $Y$ the map $\CS_Y \colon \schains(Y) \to \cchains(\cubify Y)$ is a quasi-isomorphism of $\UMsh$-coalgebras which extend respectively the Alexander--Whitney and Serre coalgebra structures.
 \end{theorem}
 
 \begin{proof}
@@ -720,14 +720,13 @@ Please observe that the maps $\cs$ and $\bars{\ccs} \circ \ez$ agree.
 \end{proof}
 
 \begin{corollary} \label{c:zig-zag}
-	For any cubical set $X$ there is a natural zig-zag of $E_\infty$-coalgebra quasi-isomorphisms between its chains and those of its triangulation.
-	More specifically, this zig-zag is given by
+	For any cubical set $X$
 	\[
-	\schains(\triangulate X) \xra{\CS_{\cT X}}
-	\cchains(\cubify{\triangulate X}) \xla{\cchains(\xi_X)}
-	\cchains(X)
+	\cchains(X) \xra{\cchains(\xi_X)}
+	\cchains(\cubify{\triangulate X})
+	\xla{\CS_{\cT X}} \schains(\triangulate X),
 	\]
-	where $\xi$ is the unit of adjunction $(\triangulate, \cubify)$ and the underlying model of the $E_\infty$-operad is $\UMsh$.
+	where $\xi$ is the unit of adjunction, is a natural zig-zag of quasi-isomorphisms of $\UMsh$-coalgebras which extend respectively the Serre and Alexander--Whitney coalgebra structures.
 \end{corollary}
 
 \begin{proof}
@@ -735,8 +734,8 @@ Please observe that the maps $\cs$ and $\bars{\ccs} \circ \ez$ agree.
 \end{proof}
 
 \begin{corollary} \label{c:cs e infty}
-	The singular simplicial and cubical chains of a topological space $\fZ$ are quasi-isomorphic as $E_\infty$-coalgebras.
-	More specifically,
+	The singular simplicial and cubical chains of a topological space $\fZ$ are quasi-isomorphic as $\UMsh$-coalgebras which extend respectively the Alexander--Whitney and Serre coalgebra structures.
+	More specifically, the map
 	\[
 	\CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ)
 	\]
