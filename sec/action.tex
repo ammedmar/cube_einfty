@@ -88,7 +88,7 @@ For $\chains(\cube^1)$ we have
 	\epsilon \big([0,1]\big) &= 0,
 	& \Delta \big([0,1]\big) &= [0] \ot [0,1] + [0,1] \ot [1].
 \end{align*}
-The Serre coalgebra structure on a  general $\chains(\cube^n)$ is define using the isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\ot n}$ and the monoidal structure on the category of coalgebras.
+The Serre coalgebra structure on a general $\chains(\cube^n)$ is define using the isomorphism $\chains(\cube^n) \cong \chains(\cube^1)^{\ot n}$ and the monoidal structure on the category of coalgebras.
 Explicitly, the structure maps are given by the compositions
 \[
 \epsilon \colon \chains(\cube^1)^{\ot n} \xra{\epsilon^{\ot n}} \k^{\ot n} \to \k
@@ -117,7 +117,7 @@ For later reference we record a useful description of the value of $\Delta$ on t
 	where each $\lambda$ in $\Lambda$ is a map $\lambda \colon \{1,\dots,n\} \to \set{0, 1}$ with $\lambda(i)$ interpreted as
 	\begin{align*}
 		0:\ \, x_i^{(\lambda)} &= [0,1], &	1: \ \, x_i^{(\lambda)} &= [0], \\
-		y_i^{(\lambda)} &= [1],   & y_i^{(\lambda)} &= [0,1],
+		y_i^{(\lambda)} &= [1],  & y_i^{(\lambda)} &= [0,1],
 	\end{align*}
 	and $\ind \lambda$ is the cardinality of $\set{i<j \mid \lambda(i) > \lambda(j)}$.
 \end{lemma}
@@ -314,14 +314,6 @@ Since categories of coalgebras over operads are cocomplete we have the following
 	The Yoneda extension of the composition of the functor $\cube \to \biAlg_{\M}$ defined in \cref{l:cubical chain bialgebra} with the forgetful functor $\biAlg_{\M} \to \coAlg_{\UM}$ endows the chains of a cubical set with a natural $E_\infty$-coalgebra extension of the Serre coalgebra structure.
 \end{theorem}
 
-%Using linear duality, the same argument can be employed to define a natural $E_\infty$-algebra structure on cubical cochains.
-%Explicitly, let $X$ be a cubical set, $x$ a simplex and $f \colon \chains(\cube^n) \to \chains(X)$ a chain map sending $\id_{2^n}$ to $x$.
-%The image $\gamma$ in $\Hom(\chains(\cube^n), \chains(\cube^n)^{\ot r})$ of a basis element $\Gamma$ in $\UM(r)$ is either $\varepsilon$ or a composition of $\Delta$, permutations of factors, and $\ast$.
-%For any $\alpha_1, \dots, \alpha_r \in \cochains(X)$ the action of $\Gamma$ on these is given by
-%\[
-%\Gamma(\alpha_1, \dots, \alpha_r)(x) = (\alpha_1 \ot \dotsb \ot \alpha_r) \circ f^{\ot r} \circ \gamma(\id_{2^n}).
-%\]
-
 \subsection{Cohomology operations}
 
 In \cite{steenrod1947products}, Steenrod introduced natural operations on the mod~2 cohomology of spaces, the celebrated \textit{Steenrod squares}
@@ -352,7 +344,7 @@ We first present it in a recursive form
 		(\ast \ot \id) \circ (23)(\Delta_{i-1} \ot \id) \circ \Delta.
 	\end{split}
 \end{equation}
-A close form formula for $\Delta_i$ uses the $\big(\ceil*{\frac{i+2}{2}}, \floor*{\frac{i+2}{2}}\big)$-shuffle permutation $\sigma_{i+2} \in \sym_{i+2}$ mapping the first and second ``decks'' to odd and even integers respectively.
+A closed form formula for $\Delta_i$ uses the $\big(\ceil*{\frac{i+2}{2}}, \floor*{\frac{i+2}{2}}\big)$-shuffle permutation $\sigma_{i+2} \in \sym_{i+2}$ mapping the first and second ``decks'' to odd and even integers respectively.
 Explicitly, this shuffle permutation is defined by
 \begin{equation} \label{e:shuffle perm}
 	\sigma_{i+2}(\ell) =

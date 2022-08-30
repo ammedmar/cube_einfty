@@ -76,7 +76,6 @@ For any permutation $\sigma \in \sym_n$ let
 \]
 be the inclusion defined by $(x_1, \dots, x_n) \mapsto (x_{\sigma(1)}, \dots, x_{\sigma(n)})$.
 If $e$ is the identity permutation, we denote $\mathfrak{i}_{e}$ simply as $\mathfrak{i}$.
-%and notice that it satisfies $\cs \circ\, \mathfrak{i} = \id_{\gsimplex^n}$.
 The maps $\set{\mathfrak{i}_\sigma}_{\sigma \in \sym_n}$ define a subdivision of $\gcube^n$ making it isomorphic to $\bars[\big]{\scube{n}}$ in $\CW$.
 Using this identification, the identity map induces a cellular map
 \[
@@ -135,7 +134,6 @@ We denote its induced chain map by
 \[
 \CS \colon \chains(\cube^n) \to \chains(\simplex^n).
 \]
-%by applying the functor of cellular chains to $\cs \colon \gcube^n \to \gsimplex^n$.
 The chain map
 \[
 \CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ)
@@ -145,12 +143,6 @@ between the singular chain complexes of a topological space $\fZ$ is defined by
 \CS_{\Schains(\fZ)} (\gsimplex^n \to \fZ) =
 (\gcube^n \xra{\cs} \gsimplex^n \to \fZ).
 \]
-%\[
-%\begin{tikzcd} [column sep=small, row sep=0]
-%	\CS_{\Schains(\fZ)} \colon &[-25] \sSchains(\fZ) \arrow[r] & \cSchains (\fZ) \\ &
-%	(\gsimplex^n \to \fZ) \arrow[r, mapsto] & (\gcube^n \xra{\cs} \gsimplex^n \to \fZ).
-%\end{tikzcd}
-%\]
 
 These maps were considered in \cite[p. 442]{serre1951homologie} where it was stated that $\CS_{\Schains(\fZ)}$ is a natural quasi-isomorphisms of coalgebras.
 We will prove this in \cref{ss:e-infty preservation} showing in fact that it is a quasi-isomorphism of $E_\infty$-coalgebras.
@@ -181,10 +173,6 @@ We now provide some examples constraining the scope of these expectations.
 			\ +\ [01][01] \ot [01][0].
 		\end{autobreak}
 	\end{align*}
-%	\begin{multline*}
-%		\Delta_1 \big( [01] [01] \big) = \\
-%		[01][01] \ot [1][01] + [01][1] \ot [01][01] + [0][01] \ot [01][01] + [01][01] \ot [01][0].
-%	\end{multline*}
 	Therefore,
 	\begin{align*}
 		\begin{autobreak}
@@ -195,27 +183,11 @@ We now provide some examples constraining the scope of these expectations.
 			\ +\ \big( 011\times001 + 001\times011 \big) \ot 01\times00.
 		\end{autobreak}
 	\end{align*}
-%	\begin{multline*}
-%		\EZ^{\ot 2} \circ \, \Delta_1 \big( [01][01] \big) =
-%		\big( 011\times001 + 001\times011 \big) \ot 11 \times 01 \ +\
-%		01\times11 \ot \big( 011\times001 + 001\times011 \big) \ +\ \\
-%		00\times01 \ot \big( 011\times001 + 001\times011 \big) \ +\
-%		\big( 011\times001 + 001\times011 \big) \ot 01\times00.
-%	\end{multline*}
 	On the other hand, we have
 	\[
 	\Delta_1 [0,1,2] = [0,1,2] \ot [0,1] + [0,2] \ot [0,1,2] + [0,1,2] \ot [1,2].
 	\]
 	Therefore,
-%	\begin{multline*}
-%		\Delta_1 \circ \EZ \big( [01] [01] \big) = \Delta_1 \big( 011\times001 + 001\times011 \big) = \\
-%		011\times001 \ot 01\times00 \ + \
-%		01\times01 \ot 011\times001 \ + \
-%		011\times001 \ot 11\times01 \ + \ \\
-%		001\times011 \ot 00\times01 \ + \
-%		01\times01 \ot 001\times011 \ + \
-%		001\times011 \ot 01\times11.
-%	\end{multline*}
 	\begin{align*}
 		\begin{autobreak}
 			\Delta_1 \circ \EZ \big( [01] [01] \big)
@@ -341,13 +313,6 @@ We start by stating an alternative description of the $\CS$ map.
 
 \begin{proof}
 	This can be directly verified using the cell structure of $\gsimplex^n$ described in \cref{e:cell structure of gsimplex}.
-%	the fact that the image of $\cs \circ \, \delta^0_\ell \colon \gcube^{n-1} \to \gsimplex^n$ for $\ell \in \set{1,\dots,n-1}$ is in a lower dimensional skeleton of $\gsimplex^n$, and the identities
-%	\[
-%	\cs \circ \, \delta_\ell^1 = \delta_{i-1} \circ \cs,
-%	\qquad
-%	\cs \circ \, \delta_n^0 = \delta_n \circ \cs,
-%	\]
-%	for $\ell \in \set{1, \dots, n}$.
 \end{proof}
 
 \begin{lemma} \label{l:cs coalgebra map}
@@ -368,7 +333,7 @@ We start by stating an alternative description of the $\CS$ map.
 	where the sum is over all choices for each $i \in \{1,\dots,n\}$ of
 	\begin{align*}
 		x_i^{(\lambda)} &= [0,1],&&\text{or} & x_i^{(\lambda)} &= [0], \\
-		y_i^{(\lambda)} &= [1],  && & y_i^{(\lambda)} &= [0,1].
+		y_i^{(\lambda)} &= [1], && & y_i^{(\lambda)} &= [0,1].
 	\end{align*}
 	By \cref{l:cs explicit}, the summands above not sent to $0$ by $\CS \ot \CS$ are those basis elements for which $x_i^{(\lambda)} = [0]$ implies $x_j^{(\lambda)} = [0]$ for all $i < j$.
 	For any one such summand, its sign is positive and its image by $\CS \ot \CS$ is $[0, \dots, k] \ot [k, \dots, n]$ where $k+1 = \min\set[\big]{i \mid x_i^{(\lambda)} = [0]}$ or $k = n$ if this set is empty.
@@ -400,27 +365,6 @@ As we prove next, an example of ordered elements are the tensor factors of each 
 \end{lemma}
 
 \begin{proof}
-%	For $k = 2$, recall from \cref{l:coproduct description} that
-%	\[
-%	\Delta \big( [0,1]^{\ot n} \big) =
-%	\sum_{\lambda \in \Lambda} (-1)^{\ind \lambda} \
-%	\Big(x_1^{(\lambda)} \ot \cdots \ot x_n^{(\lambda)}\Big) \ot
-%	\Big(y_1^{(\lambda)} \ot \cdots \ot y_n^{(\lambda)}\Big),
-%	\]
-%	where the sum is over all choices for each $i \in \{1,\dots,n\}$ of
-%	\begin{align*}
-%		x_i^{(\lambda)} &= [0,1],&&\text{or} & x_i^{(\lambda)} &= [0], \\
-%		y_i^{(\lambda)} &= [1],  && & y_i^{(\lambda)} &= [0,1].
-%	\end{align*}
-%
-%
-%	and any $\ell \in \{1, \dots, n\}$ we have that
-%	\begin{align*}
-%		x^{(1)}_\ell = [0]  & \iff x^{(2)}_\ell = [0,1], \\
-%		x^{(1)}_\ell = [0,1] & \iff x^{(2)}_\ell = [1],
-%	\end{align*}
-%	and that neither $x^{(1)}_\ell = [1]$ or $x^{(2)}_\ell = [0]$ can occur, hence $x^{(1)} \leq x^{(2)}$.
-%	The claim for $k > 2$ follows from a straightforward induction argument.
 	This can be proven using a straightforward induction argument whose base case follows from inspecting \cref{l:coproduct description}.
 \end{proof}
 
@@ -559,9 +503,6 @@ We are now ready to present the argument establishing that $\CS$ is an $E_\infty
 \end{proof}
 
 \subsection{Categorical reformulation} \label{ss:e infty preservation}
-
-%In this subsection we will use \cref{t:main local} to deduce from a more general categorical statement that, for any topological space $\fZ$, the chain map $\CS_{\Schains(\fZ)} \colon \sSchains(\fZ) \to \cSchains(\fZ)$ is a quasi-isomorphism of $E_\infty$-coalgebras, specifically, of $\UMsh$-coalgebras.
-%We will also construct a zig-zag of quasi-isomorphisms of $E_\infty$-coalgebras between the chains of a cubical set and those of its triangulation.
 
 The assignment $2^n \mapsto \scube{n}$ defines a functor $\cube \to \sSet$ with
 \begin{align*}
